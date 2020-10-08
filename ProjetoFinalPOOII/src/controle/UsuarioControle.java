@@ -5,12 +5,12 @@ import visao.JanelaPrincipal;
 
 public class UsuarioControle {
 
-	private JanelaPrincipal jan;
+	private JanelaPrincipal janelaPrincipal;
 	private UsuarioDAO usuarioDAO;
 
 	public UsuarioControle(JanelaPrincipal j) {
 
-		this.jan = j;
+		this.janelaPrincipal = j;
 		this.usuarioDAO = new UsuarioDAO();
 
 	}

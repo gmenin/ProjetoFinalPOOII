@@ -5,13 +5,13 @@ import visao.JanelaPrincipal;
 
 public class FormularioControle {
 
-	private JanelaPrincipal jan;
-	private FormularioDAO formDAO;
+	private JanelaPrincipal janelaPrincipal;
+	private FormularioDAO formularioDAO;
 
 	public FormularioControle(JanelaPrincipal j) {
 
-		this.jan = j;
-		formDAO = new FormularioDAO();
+		this.janelaPrincipal = j;
+		this.formularioDAO = new FormularioDAO();
 	}
 
 }
