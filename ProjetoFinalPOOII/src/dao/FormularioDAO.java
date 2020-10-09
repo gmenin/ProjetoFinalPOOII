@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import modelo.Formulario;
-import modelo.Usuario;
 
 public class FormularioDAO {
 
