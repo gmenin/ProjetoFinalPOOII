@@ -16,7 +16,7 @@ public class FormularioDAO {
 	}
 
 	// Me'todo que realiza a insercao dos dados do formulario no banco
-	public boolean inserirFormulario(Formulario formulario, int usuarioId) {
+	public boolean inserirRequisicao(Formulario formulario, int usuarioId) {
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
 
