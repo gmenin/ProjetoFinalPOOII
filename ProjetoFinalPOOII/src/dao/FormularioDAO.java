@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import modelo.Formulario;
+import modelo.Usuario;
 
 public class FormularioDAO {
 
@@ -14,24 +15,26 @@ public class FormularioDAO {
 		
 	}
 	
-	//Me'todo que realiza a insercao do formulario no banco
-		public boolean inserirFormulario(Formulario formulario) {
+	//Me'todo que realiza a insercao dos dados do formulario no banco
+		public boolean inserirFormulario(Formulario formulario, int usuarioId) {
 			ConexaoMySQL.abrirConexao();
 			con = ConexaoMySQL.getCon();
 
 			if(con != null) {
-				String sql = "INSERT INTO VALUES(?,?,?,?,?,?)";
+				String sql = "INSERT INTO requisicao (usuarioId, solicitante, telefone, email, numeroAlunos, atividade, modalidade, curso, equipamentos) VALUES(?,?,?,?,?,?,?,?,?)";
 
-				PreparedStatement prepareStatement = null; //had to fix
+				PreparedStatement prepareStatement = null; 
 				try {
 					prepareStatement = con.prepareStatement(sql);
-					prepareStatement.setString(1, formulario.getSolicitante());
-					prepareStatement.setString(2, formulario.getTelefone());
-					prepareStatement.setString(3, formulario.getEmail());
-					prepareStatement.setInt(4, formulario.getNumeroAlunos());
-					prepareStatement.setString(5, formulario.getAtividade());
-					prepareStatement.setString(5, formulario.getCurso());
-					prepareStatement.setString(5, formulario.getEquipamentos());
+					prepareStatement.setInt(1, usuarioId);
+					prepareStatement.setString(2, formulario.getSolicitante());
+					prepareStatement.setString(3, formulario.getTelefone());
+					prepareStatement.setString(4, formulario.getEmail());
+					prepareStatement.setInt(5, formulario.getNumeroAlunos());
+					prepareStatement.setString(6, formulario.getAtividade());
+					prepareStatement.setString(7, formulario.getModalidade());
+					prepareStatement.setString(8, formulario.getCurso());
+					prepareStatement.setString(9, formulario.getEquipamentos());
 
 					int resultado = prepareStatement.executeUpdate();
 
