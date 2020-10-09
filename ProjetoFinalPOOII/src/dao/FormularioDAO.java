@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -23,7 +24,7 @@ public class FormularioDAO {
 		if(con != null) {
 			String sql = "INSERT INTO requisicao (usuarioId, solicitante, telefone, email, numeroAlunos, atividade, modalidade, curso, equipamentos) VALUES(?,?,?,?,?,?,?,?,?)";	
 			PreparedStatement prepareStatement = null; 
-			
+
 			try {
 				// Argumentos que serao inseridos no banco de dados
 				prepareStatement = con.prepareStatement(sql);
@@ -38,7 +39,7 @@ public class FormularioDAO {
 				prepareStatement.setString(9, formulario.getEquipamentos());
 
 				int resultado = prepareStatement.executeUpdate();
-				
+
 				// Retorna true se a insercao ocorreu com sucesso e false caso tenha falhado
 				if(resultado == 1) {
 					ConexaoMySQL.fecharConexao();
@@ -54,7 +55,43 @@ public class FormularioDAO {
 
 		} // if
 		return false;
-	} // inserirFormulario()
-	
-	
+	} // inserirRequisicao()
+
+	// Me'todo que realiza a insercao das datas da requisicao no banco
+	public boolean inserirReserva(int requisicaoId, Date dia, int horarioInicial, int horarioFinal) {
+		ConexaoMySQL.abrirConexao();
+		con = ConexaoMySQL.getCon();
+
+		if(con != null) {
+			String sql = "INSERT INTO reserva (requisicaoId, dia, horarioInicial, horarioFinal) VALUES(?,?,?,?)";	
+			PreparedStatement prepareStatement = null; 
+
+			try {
+				// Argumentos que serao inseridos no banco de dados
+				prepareStatement = con.prepareStatement(sql);
+				prepareStatement.setInt(1, requisicaoId);
+				prepareStatement.setDate(2, dia);
+				prepareStatement.setInt(3, horarioInicial);
+				prepareStatement.setInt(4, horarioFinal);
+
+				int resultado = prepareStatement.executeUpdate();
+
+				// Retorna true se a insercao ocorreu com sucesso e false caso tenha falhado
+				if(resultado == 1) {
+					ConexaoMySQL.fecharConexao();
+					return true;
+				}else {
+					ConexaoMySQL.fecharConexao();
+					return false;
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+		} // if
+		return false;
+	} // inserirReserva()
+
+
 }
