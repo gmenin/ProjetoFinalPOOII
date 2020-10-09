@@ -41,9 +41,14 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
+		contentPane.setVisible(false);
+		
 		
 		JPanel paninelInicial = new JPanel();
+		paninelInicial.setVisible(true);
 		contentPane.add(paninelInicial, "name_91394305391200");
+		
+		
 	}
 
 }
