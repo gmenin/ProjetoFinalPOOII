@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import java.awt.CardLayout;
 
 public class JanelaPrincipal extends JFrame {
 
@@ -31,12 +33,17 @@ public class JanelaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public JanelaPrincipal() {
+		setTitle("Formul\u00E1rio Digital para Reservas de Aula");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 850, 650);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(51, 102, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(new CardLayout(0, 0));
+		
+		JPanel paninelInicial = new JPanel();
+		contentPane.add(paninelInicial, "name_91394305391200");
 	}
 
 }
