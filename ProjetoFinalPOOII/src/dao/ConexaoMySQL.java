@@ -36,7 +36,7 @@ public class ConexaoMySQL {
 	public static boolean fecharConexao() {
 		try {
 			con.close();
-			System.out.println("Conexão encerrada!");
+			//System.out.println("Conexão encerrada!");
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
