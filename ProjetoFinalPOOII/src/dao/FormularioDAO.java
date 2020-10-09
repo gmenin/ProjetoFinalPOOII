@@ -15,7 +15,7 @@ public class FormularioDAO {
 
 	}
 
-	// Me'todo que realiza a insercao dos dados do formulario no banco
+	// Metodo que realiza a insercao dos dados do formulario no banco
 	public boolean inserirRequisicao(Formulario formulario, int usuarioId) {
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
@@ -56,7 +56,7 @@ public class FormularioDAO {
 		return false;
 	} // inserirRequisicao()
 
-	// Me'todo que realiza a insercao das datas da requisicao no banco
+	// Metodo que realiza a insercao das datas da requisicao no banco
 	public boolean inserirReserva(int requisicaoId, Date dia, int horarioInicial, int horarioFinal) {
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();

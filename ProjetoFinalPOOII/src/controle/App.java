@@ -8,6 +8,7 @@ public class App {
 		// TODO Auto-generated method stub
 		JanelaPrincipal j = new JanelaPrincipal();
 		UsuarioControle user = new UsuarioControle(j);
+		j.setVisible(true);
 	}
 
 }
