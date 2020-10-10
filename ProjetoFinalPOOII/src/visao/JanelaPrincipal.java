@@ -28,6 +28,8 @@ import javax.swing.ListCellRenderer;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JanelaPrincipal extends JFrame {
 
@@ -112,6 +114,16 @@ public class JanelaPrincipal extends JFrame {
 		painelLogin.add(buttonEntrar, "cell 0 3 2097051 1,alignx center");
 
 		buttonInfo = new JButton("");
+		buttonInfo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.removeAll();
+				contentPane.add(painelInicioFormulario);
+				contentPane.repaint();
+				contentPane.revalidate();
+				System.out.println("Teste");
+				
+			}
+		});
 		buttonInfo.setBackground(new Color(51, 102, 153));
 		buttonInfo.setForeground(new Color(51, 102, 153));
 		buttonInfo.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/informatiom_smaller.png")));
@@ -150,79 +162,70 @@ public class JanelaPrincipal extends JFrame {
 		painelInicioFormulario = new JPanel();
 		painelInicioFormulario.setBackground(new Color(51, 102, 153));
 		contentPane.add(painelInicioFormulario, "name_148859187392200");
-		painelInicioFormulario.setLayout(new MigLayout("", "[grow][]", "[]30[]40[]40[]40[]40[][]"));
+		painelInicioFormulario.setLayout(new MigLayout("", "[][grow][][]", "[]30[]40[]40[]40[]40[][]"));
 
 		labelTituloPainelInicial = new JLabel("Formul\u00E1rio Digital de Reserva de Sala de Aula");
 		labelTituloPainelInicial.setForeground(new Color(255, 255, 255));
 		labelTituloPainelInicial.setFont(new Font("Arial", Font.BOLD, 30));
-		painelInicioFormulario.add(labelTituloPainelInicial, "cell 0 0 2 1,alignx center");
-
-		labelSolicitante = new JLabel("Solicitante");
-		labelSolicitante.setForeground(new Color(255, 255, 255));
-		labelSolicitante.setFont(new Font("Arial", Font.PLAIN, 25));
-		painelInicioFormulario.add(labelSolicitante, "flowx,cell 0 1,alignx left");
-
-		labelTelefone = new JLabel("Telefone");
-		labelTelefone.setForeground(new Color(255, 255, 255));
-		labelTelefone.setFont(new Font("Arial", Font.PLAIN, 25));
-		painelInicioFormulario.add(labelTelefone, "flowx,cell 0 2");
+		painelInicioFormulario.add(labelTituloPainelInicial, "cell 1 0 3 1,alignx center");
+		
+				labelSolicitante = new JLabel("Solicitante");
+				labelSolicitante.setForeground(new Color(255, 255, 255));
+				labelSolicitante.setFont(new Font("Arial", Font.PLAIN, 25));
+				painelInicioFormulario.add(labelSolicitante, "cell 0 1,alignx left");
+		
+				labelTelefone = new JLabel("Telefone");
+				labelTelefone.setForeground(new Color(255, 255, 255));
+				labelTelefone.setFont(new Font("Arial", Font.PLAIN, 25));
+				painelInicioFormulario.add(labelTelefone, "cell 0 2");
 
 		fieldTelefone = new JTextField();
 		fieldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		painelInicioFormulario.add(fieldTelefone, "cell 0 2,grow");
+		painelInicioFormulario.add(fieldTelefone, "cell 1 2 3 1,grow");
 		fieldTelefone.setColumns(10);
-
-		JLabel labelEmail = new JLabel("Email");
-		labelEmail.setForeground(new Color(255, 255, 255));
-		labelEmail.setFont(new Font("Arial", Font.PLAIN, 25));
-		painelInicioFormulario.add(labelEmail, "flowx,cell 0 3,alignx left,aligny baseline");
+		
+				JLabel labelEmail = new JLabel("Email");
+				labelEmail.setForeground(new Color(255, 255, 255));
+				labelEmail.setFont(new Font("Arial", Font.PLAIN, 25));
+				painelInicioFormulario.add(labelEmail, "cell 0 3,alignx left,aligny baseline");
 
 		fieldEmail = new JTextField();
 		fieldEmail.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		painelInicioFormulario.add(fieldEmail, "cell 0 3,grow");
+		painelInicioFormulario.add(fieldEmail, "cell 1 3 3 1,grow");
 		fieldEmail.setColumns(10);
-
-		labelNumeroAlunos = new JLabel("N\u00BA de alunos");
-		labelNumeroAlunos.setForeground(new Color(255, 255, 255));
-		labelNumeroAlunos.setFont(new Font("Arial", Font.PLAIN, 25));
-		painelInicioFormulario.add(labelNumeroAlunos, "flowx,cell 0 4,alignx left,aligny bottom");
+		
+				labelNumeroAlunos = new JLabel("N\u00BA de alunos");
+				labelNumeroAlunos.setForeground(new Color(255, 255, 255));
+				labelNumeroAlunos.setFont(new Font("Arial", Font.PLAIN, 25));
+				painelInicioFormulario.add(labelNumeroAlunos, "cell 0 4,alignx left,aligny bottom");
 
 		fieldNumeroAlunos = new JTextField();
 		fieldNumeroAlunos.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		painelInicioFormulario.add(fieldNumeroAlunos, "cell 0 4,grow");
+		painelInicioFormulario.add(fieldNumeroAlunos, "cell 1 4 3 1,alignx left,growy");
 		fieldNumeroAlunos.setColumns(10);
-
-		labelAtividade = new JLabel("Atividade");
-		labelAtividade.setForeground(new Color(255, 255, 255));
-		labelAtividade.setFont(new Font("Arial", Font.PLAIN, 25));
-		painelInicioFormulario.add(labelAtividade, "flowx,cell 0 5");
+		
+				labelAtividade = new JLabel("Atividade");
+				labelAtividade.setForeground(new Color(255, 255, 255));
+				labelAtividade.setFont(new Font("Arial", Font.PLAIN, 25));
+				painelInicioFormulario.add(labelAtividade, "cell 0 5");
 
 		radioButtonAula = new JRadioButton("Aula");
+		radioButtonAula.setForeground(Color.WHITE);
 		radioButtonAula.setBackground(new Color(51, 102, 153));
 		radioButtonAula.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		painelInicioFormulario.add(radioButtonAula, "cell 0 5,alignx left");
+		painelInicioFormulario.add(radioButtonAula, "flowx,cell 1 5,alignx left");
 
 		fieldSolicitante = new JTextField();
 		fieldSolicitante.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		painelInicioFormulario.add(fieldSolicitante, "cell 0 1 3 1,growx");
+		painelInicioFormulario.add(fieldSolicitante, "cell 1 1 3 1,growx");
 		fieldSolicitante.setColumns(10);
-
-		radioButtonSeminario = new JRadioButton("Seminario");
-		radioButtonSeminario.setBackground(new Color(51, 102, 153));
-		radioButtonSeminario.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		painelInicioFormulario.add(radioButtonSeminario, "cell 0 5,alignx center");
-
-		radioButtonProva = new JRadioButton("Prova");
-		radioButtonProva.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		radioButtonProva.setBackground(new Color(51, 102, 153));
-		painelInicioFormulario.add(radioButtonProva, "cell 0 5,alignx right");
 
 		String[] modalidades = { "Graduação", "Pós-Educação" };
 		comboBoxModalidade = new JComboBox(modalidades);
 		comboBoxModalidade.setRenderer(new MyComboBoxRenderer("Selecione a modalidade"));
 		comboBoxModalidade.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		comboBoxModalidade.setSelectedIndex(-1);
-		painelInicioFormulario.add(comboBoxModalidade, "flowx,cell 0 6");
+		painelInicioFormulario.add(comboBoxModalidade, "flowx,cell 1 6 3 1,grow");
 
 		String[] cursos = { "Biomedicina", "Biomedicina - nortuno", "Enfermagem", "Farmácia", "Física Médica",
 				"Fisioterapia", "Fonoaudiologia", "Gastronomia", "Gestão em Saúde", "Informática Biomédica", "Medicina",
@@ -231,7 +234,19 @@ public class JanelaPrincipal extends JFrame {
 		comboBoxCurso.setRenderer(new MyComboBoxRenderer("Selecione o curso"));
 		comboBoxCurso.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		comboBoxCurso.setSelectedIndex(-1);
-		painelInicioFormulario.add(comboBoxCurso, "cell 0 6");
+		painelInicioFormulario.add(comboBoxCurso, "cell 2 6,grow");
+		
+				radioButtonSeminario = new JRadioButton("Seminario");
+				radioButtonSeminario.setForeground(Color.WHITE);
+				radioButtonSeminario.setBackground(new Color(51, 102, 153));
+				radioButtonSeminario.setFont(new Font("Tahoma", Font.PLAIN, 23));
+				painelInicioFormulario.add(radioButtonSeminario, "cell 1 5,alignx center");
+				
+						radioButtonProva = new JRadioButton("Prova");
+						radioButtonProva.setForeground(Color.WHITE);
+						radioButtonProva.setFont(new Font("Tahoma", Font.PLAIN, 23));
+						radioButtonProva.setBackground(new Color(51, 102, 153));
+						painelInicioFormulario.add(radioButtonProva, "cell 1 5,alignx right");
 
 //		graph = painelLogin.getGraphics();
 //		graph.drawLine(425, 20, 425, 100);
