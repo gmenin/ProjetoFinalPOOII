@@ -73,45 +73,46 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
-
+		
+		//-------------------------------------------------------------------------------------------------
 		// Implementacao do Painel de Login
 		painelLogin = new JPanel();
-		painelLogin.setBackground(new Color(51, 102, 153));
+		painelLogin.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelLogin, "name_95302867270400");
-		painelLogin.setLayout(new MigLayout("", "[425px][grow]", "[97px]100[40][40]70[]70[]"));
+		painelLogin.setLayout(new MigLayout("", "40[425px]20[grow]40", "[97px]100[][]70[]70[]"));
 
 		JLabel labelTituloPainelLogin = new JLabel(
 				"<html><div style=\"text-align: center;\">Formul\u00E1rio Digital para <br />Reserva de Sala de Aula</html>");
 		labelTituloPainelLogin.setForeground(new Color(255, 255, 255));
 		labelTituloPainelLogin.setFont(new Font("Arial", Font.BOLD, 30));
-		painelLogin.add(labelTituloPainelLogin, "cell 0 0,alignx center,growy");
+		painelLogin.add(labelTituloPainelLogin, "cell 0 0,growy");
 
 		JLabel labelFoto = new JLabel("");
 		labelFoto.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/logo_ufcspa_branco.png")));
-		painelLogin.add(labelFoto, "cell 1 0");
+		painelLogin.add(labelFoto, "cell 1 0 2 1,alignx left");
 
 		labelUsuario = new JLabel("Usu\u00E1rio Institucional");
 		labelUsuario.setForeground(Color.WHITE);
 		labelUsuario.setFont(new Font("Arial", Font.PLAIN, 24));
-		painelLogin.add(labelUsuario, "flowx,cell 0 1,alignx center");
+		painelLogin.add(labelUsuario, "flowx,cell 0 1,alignx right");
 
 		fieldUsuario = new JTextField();
-		fieldUsuario.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		painelLogin.add(fieldUsuario, "cell 1 1,grow");
+		fieldUsuario.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelLogin.add(fieldUsuario, "cell 1 1,growx,aligny center");
 		fieldUsuario.setColumns(10);
 
 		labelSenha = new JLabel("Senha");
 		labelSenha.setForeground(Color.WHITE);
 		labelSenha.setFont(new Font("Arial", Font.PLAIN, 24));
-		painelLogin.add(labelSenha, "flowx,cell 0 2,alignx center");
+		painelLogin.add(labelSenha, "flowx,cell 0 2,alignx right");
 
 		fieldSenha = new JPasswordField();
-		fieldSenha.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		painelLogin.add(fieldSenha, "cell 1 2,grow");
+		fieldSenha.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelLogin.add(fieldSenha, "cell 1 2,growx,aligny center");
 
 		buttonEntrar = new JButton("Entrar");
 		buttonEntrar.setFont(new Font("Arial", Font.PLAIN, 22));
-		painelLogin.add(buttonEntrar, "cell 0 3 2097051 1,alignx center");
+		painelLogin.add(buttonEntrar, "cell 0 3 2 1,alignx center");
 
 		buttonInfo = new JButton("");
 		buttonInfo.addActionListener(new ActionListener() {
@@ -124,8 +125,8 @@ public class JanelaPrincipal extends JFrame {
 				
 			}
 		});
-		buttonInfo.setBackground(new Color(51, 102, 153));
-		buttonInfo.setForeground(new Color(51, 102, 153));
+		buttonInfo.setBackground(new Color(30, 76, 118));
+		buttonInfo.setForeground(new Color(30, 76, 118));
 		buttonInfo.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/informatiom_smaller.png")));
 		painelLogin.add(buttonInfo, "cell 1 4,alignx right");
 
@@ -133,7 +134,7 @@ public class JanelaPrincipal extends JFrame {
 		painelInicial = new JPanel();
 		painelInicial.setBackground(new Color(51, 102, 153));
 		contentPane.add(painelInicial, "name_147314382581700");
-		painelInicial.setLayout(new MigLayout("", "[grow][]", "70[][]150[]70[]"));
+		painelInicial.setLayout(new MigLayout("", "40[grow]40", "70[][]150[]70[]"));
 
 		labelMensagemNome = new JLabel("Ol\u00E1, ");
 		labelMensagemNome.setForeground(new Color(255, 255, 255));
@@ -162,12 +163,12 @@ public class JanelaPrincipal extends JFrame {
 		painelInicioFormulario = new JPanel();
 		painelInicioFormulario.setBackground(new Color(51, 102, 153));
 		contentPane.add(painelInicioFormulario, "name_148859187392200");
-		painelInicioFormulario.setLayout(new MigLayout("", "[][grow][][]", "[]30[]40[]40[]40[]40[][]"));
+		painelInicioFormulario.setLayout(new MigLayout("", "[][grow][][]", "20[]50[]40[]40[]40[]40[][]"));
 
 		labelTituloPainelInicial = new JLabel("Formul\u00E1rio Digital de Reserva de Sala de Aula");
 		labelTituloPainelInicial.setForeground(new Color(255, 255, 255));
 		labelTituloPainelInicial.setFont(new Font("Arial", Font.BOLD, 30));
-		painelInicioFormulario.add(labelTituloPainelInicial, "cell 1 0 3 1,alignx center");
+		painelInicioFormulario.add(labelTituloPainelInicial, "cell 0 0 4 1,alignx center");
 		
 				labelSolicitante = new JLabel("Solicitante");
 				labelSolicitante.setForeground(new Color(255, 255, 255));
