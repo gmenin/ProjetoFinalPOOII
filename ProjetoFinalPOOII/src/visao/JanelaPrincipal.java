@@ -79,7 +79,7 @@ public class JanelaPrincipal extends JFrame {
 		painelLogin = new JPanel();
 		painelLogin.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelLogin, "name_95302867270400");
-		painelLogin.setLayout(new MigLayout("", "40[425px]20[grow]40", "[97px]100[][]70[]70[]"));
+		painelLogin.setLayout(new MigLayout("", "40[425px]20[grow]40", "30[97px]100[]10[]70[]60[]"));
 
 		JLabel labelTituloPainelLogin = new JLabel(
 				"<html><div style=\"text-align: center;\">Formul\u00E1rio Digital para <br />Reserva de Sala de Aula</html>");
