@@ -70,6 +70,7 @@ public class JanelaPrincipal extends JFrame {
 	private JComboBox comboBoxCurso;
 	private JLabel labelAvancarPainelInicioFormulario;
 	private JLabel labelInfo;
+	private CardLayout card;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -80,12 +81,13 @@ public class JanelaPrincipal extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new CardLayout(0, 0));
+		card = new CardLayout();
+		contentPane.setLayout(card);
 
 		// Implementacao do Painel de Login
 		painelLogin = new JPanel();
 		painelLogin.setBackground(new Color(30, 76, 118));
-		contentPane.add(painelLogin, "name_95302867270400");
+		contentPane.add(painelLogin, "painelLogin");
 		painelLogin.setLayout(new MigLayout("", "40[425px]20[grow]40", "30[97px]100[]10[]70[]60[]"));
 
 		JLabel labelTituloPainelLogin = new JLabel(
@@ -129,7 +131,7 @@ public class JanelaPrincipal extends JFrame {
 		// Imlementacao do Painel Inicial
 		painelInicial = new JPanel();
 		painelInicial.setBackground(new Color(30, 76, 118));
-		contentPane.add(painelInicial, "name_147314382581700");
+		contentPane.add(painelInicial, "painelInicial");
 		painelInicial.setLayout(new MigLayout("", "40[grow]40", "70[][]160[]40[]"));
 
 		labelMensagemNome = new JLabel("Ol\u00E1, ");
@@ -160,7 +162,7 @@ public class JanelaPrincipal extends JFrame {
 		// Implementacao do Painel que da inicio ao formulario
 		painelInicioFormulario = new JPanel();
 		painelInicioFormulario.setBackground(new Color(30, 76, 118));
-		contentPane.add(painelInicioFormulario, "name_148859187392200");
+		contentPane.add(painelInicioFormulario, "painelInicioFormulario");
 		painelInicioFormulario.setLayout(new MigLayout("", "40[][grow]40", "40[]30[]40[]40[]40[]40[]20[]15[30]5"));
 
 		labelTituloPainelInicial = new JLabel("Formul\u00E1rio Digital de Reserva de Sala de Aula");
@@ -416,6 +418,14 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setLabelAvancarPainelInicioFormulario(JLabel labelAvancarPainelInicioFormulario) {
 		this.labelAvancarPainelInicioFormulario = labelAvancarPainelInicioFormulario;
+	}
+
+	public CardLayout getCard() {
+		return card;
+	}
+
+	public void setCard(CardLayout card) {
+		this.card = card;
 	}
 
 	// Classe para fixar mensagens não selecionaveis nos JComboBox presentes no

@@ -27,7 +27,7 @@ public class UsuarioControle implements ActionListener{
 		boolean autentica = usuarioDAO.autenticaUsuario(usuario);
 		
 		if(autentica) {
-			//this.janelaPrincipal.trocarPainel();
+			this.janelaPrincipal.getCard().next(this.janelaPrincipal.getContentPane());
 			limparCamposLogin();
 		}else {
 			//this.janelaPrincipal.exibirMensagemErroAutenticacao();
