@@ -10,8 +10,6 @@ public class App {
 		janela.setVisible(true);
 		UsuarioControle usuarioControle = new UsuarioControle(janela);
 		FormularioControle formularioControle = new FormularioControle(janela);
-		
-		// teste git
 	}
 
 }

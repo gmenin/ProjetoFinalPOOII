@@ -20,17 +20,21 @@ public class UsuarioControle implements ActionListener{
 	
 	//Me'todo que autentica o usu'ario para entrar no sistema
 	public void autenticarUsuario() {
-		//Chamar DAO
+		//Criacao de um novo objeto Usuario e passagem dos valores recebidos na janelaPrincipal
 		String nomeUsuario = this.janelaPrincipal.getFieldUsuario().getText();
 		String senha = this.janelaPrincipal.getFieldSenha().getText();
 		Usuario usuario = new Usuario(nomeUsuario, senha);
+		
+		//Chama o me'todo da classe usuarioDAO passando o objeto usuario para autenticacao do usua'rio
 		boolean autentica = usuarioDAO.autenticaUsuario(usuario);
 		
+		//Caso o usua'rio esteja cadastrado, envia-o para a tela inicial da aplicacao
 		if(autentica) {
 			this.janelaPrincipal.getCard().next(this.janelaPrincipal.getContentPane());
 			limparCamposLogin();
 		}else {
-			//this.janelaPrincipal.exibirMensagemErroAutenticacao();
+			//this.janelaPrincipal.exibirMensagemErroAutenticacao(); // !IMPLEMENTAR!
+			System.out.println("Usuario não encontrado"); //PROVISORIO
 		}
 	}
 	
