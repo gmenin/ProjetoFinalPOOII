@@ -1,5 +1,6 @@
 package visao;
 
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 
 import java.awt.EventQueue;
@@ -10,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.Component;
 
@@ -29,6 +31,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.awt.geom.Line2D;
 import java.awt.event.ActionEvent;
 
 public class JanelaPrincipal extends JFrame {
@@ -73,8 +76,8 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
-		
-		//-------------------------------------------------------------------------------------------------
+
+		// -------------------------------------------------------------------------------------------------
 		// Implementacao do Painel de Login
 		painelLogin = new JPanel();
 		painelLogin.setBackground(new Color(30, 76, 118));
@@ -122,7 +125,7 @@ public class JanelaPrincipal extends JFrame {
 				contentPane.repaint();
 				contentPane.revalidate();
 				System.out.println("Teste");
-				
+
 			}
 		});
 		buttonInfo.setBackground(new Color(30, 76, 118));
@@ -130,6 +133,7 @@ public class JanelaPrincipal extends JFrame {
 		buttonInfo.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/informatiom_smaller.png")));
 		painelLogin.add(buttonInfo, "cell 1 4,alignx right");
 
+		// -------------------------------------------------------------------------------------------------
 		// Imlementacao do Painel Inicial
 		painelInicial = new JPanel();
 		painelInicial.setBackground(new Color(51, 102, 153));
@@ -159,6 +163,7 @@ public class JanelaPrincipal extends JFrame {
 		buttonFazerReserva.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelInicial.add(buttonFazerReserva, "cell 0 3,alignx center");
 
+		// -------------------------------------------------------------------------------------------------
 		// Implementacao do Painel que da inicio ao formulario
 		painelInicioFormulario = new JPanel();
 		painelInicioFormulario.setBackground(new Color(51, 102, 153));
@@ -169,46 +174,46 @@ public class JanelaPrincipal extends JFrame {
 		labelTituloPainelInicial.setForeground(new Color(255, 255, 255));
 		labelTituloPainelInicial.setFont(new Font("Arial", Font.BOLD, 30));
 		painelInicioFormulario.add(labelTituloPainelInicial, "cell 0 0 4 1,alignx center");
-		
-				labelSolicitante = new JLabel("Solicitante");
-				labelSolicitante.setForeground(new Color(255, 255, 255));
-				labelSolicitante.setFont(new Font("Arial", Font.PLAIN, 25));
-				painelInicioFormulario.add(labelSolicitante, "cell 0 1,alignx left");
-		
-				labelTelefone = new JLabel("Telefone");
-				labelTelefone.setForeground(new Color(255, 255, 255));
-				labelTelefone.setFont(new Font("Arial", Font.PLAIN, 25));
-				painelInicioFormulario.add(labelTelefone, "cell 0 2");
+
+		labelSolicitante = new JLabel("Solicitante");
+		labelSolicitante.setForeground(new Color(255, 255, 255));
+		labelSolicitante.setFont(new Font("Arial", Font.PLAIN, 25));
+		painelInicioFormulario.add(labelSolicitante, "cell 0 1,alignx left");
+
+		labelTelefone = new JLabel("Telefone");
+		labelTelefone.setForeground(new Color(255, 255, 255));
+		labelTelefone.setFont(new Font("Arial", Font.PLAIN, 25));
+		painelInicioFormulario.add(labelTelefone, "cell 0 2");
 
 		fieldTelefone = new JTextField();
 		fieldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		painelInicioFormulario.add(fieldTelefone, "cell 1 2 3 1,grow");
 		fieldTelefone.setColumns(10);
-		
-				JLabel labelEmail = new JLabel("Email");
-				labelEmail.setForeground(new Color(255, 255, 255));
-				labelEmail.setFont(new Font("Arial", Font.PLAIN, 25));
-				painelInicioFormulario.add(labelEmail, "cell 0 3,alignx left,aligny baseline");
+
+		JLabel labelEmail = new JLabel("Email");
+		labelEmail.setForeground(new Color(255, 255, 255));
+		labelEmail.setFont(new Font("Arial", Font.PLAIN, 25));
+		painelInicioFormulario.add(labelEmail, "cell 0 3,alignx left,aligny baseline");
 
 		fieldEmail = new JTextField();
 		fieldEmail.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		painelInicioFormulario.add(fieldEmail, "cell 1 3 3 1,grow");
 		fieldEmail.setColumns(10);
-		
-				labelNumeroAlunos = new JLabel("N\u00BA de alunos");
-				labelNumeroAlunos.setForeground(new Color(255, 255, 255));
-				labelNumeroAlunos.setFont(new Font("Arial", Font.PLAIN, 25));
-				painelInicioFormulario.add(labelNumeroAlunos, "cell 0 4,alignx left,aligny bottom");
+
+		labelNumeroAlunos = new JLabel("N\u00BA de alunos");
+		labelNumeroAlunos.setForeground(new Color(255, 255, 255));
+		labelNumeroAlunos.setFont(new Font("Arial", Font.PLAIN, 25));
+		painelInicioFormulario.add(labelNumeroAlunos, "cell 0 4,alignx left,aligny bottom");
 
 		fieldNumeroAlunos = new JTextField();
 		fieldNumeroAlunos.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		painelInicioFormulario.add(fieldNumeroAlunos, "cell 1 4 3 1,alignx left,growy");
 		fieldNumeroAlunos.setColumns(10);
-		
-				labelAtividade = new JLabel("Atividade");
-				labelAtividade.setForeground(new Color(255, 255, 255));
-				labelAtividade.setFont(new Font("Arial", Font.PLAIN, 25));
-				painelInicioFormulario.add(labelAtividade, "cell 0 5");
+
+		labelAtividade = new JLabel("Atividade");
+		labelAtividade.setForeground(new Color(255, 255, 255));
+		labelAtividade.setFont(new Font("Arial", Font.PLAIN, 25));
+		painelInicioFormulario.add(labelAtividade, "cell 0 5");
 
 		radioButtonAula = new JRadioButton("Aula");
 		radioButtonAula.setForeground(Color.WHITE);
@@ -236,23 +241,25 @@ public class JanelaPrincipal extends JFrame {
 		comboBoxCurso.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		comboBoxCurso.setSelectedIndex(-1);
 		painelInicioFormulario.add(comboBoxCurso, "cell 2 6,grow");
-		
-				radioButtonSeminario = new JRadioButton("Seminario");
-				radioButtonSeminario.setForeground(Color.WHITE);
-				radioButtonSeminario.setBackground(new Color(51, 102, 153));
-				radioButtonSeminario.setFont(new Font("Tahoma", Font.PLAIN, 23));
-				painelInicioFormulario.add(radioButtonSeminario, "cell 1 5,alignx center");
-				
-						radioButtonProva = new JRadioButton("Prova");
-						radioButtonProva.setForeground(Color.WHITE);
-						radioButtonProva.setFont(new Font("Tahoma", Font.PLAIN, 23));
-						radioButtonProva.setBackground(new Color(51, 102, 153));
-						painelInicioFormulario.add(radioButtonProva, "cell 1 5,alignx right");
+
+		radioButtonSeminario = new JRadioButton("Seminario");
+		radioButtonSeminario.setForeground(Color.WHITE);
+		radioButtonSeminario.setBackground(new Color(51, 102, 153));
+		radioButtonSeminario.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		painelInicioFormulario.add(radioButtonSeminario, "cell 1 5,alignx center");
+
+		radioButtonProva = new JRadioButton("Prova");
+		radioButtonProva.setForeground(Color.WHITE);
+		radioButtonProva.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		radioButtonProva.setBackground(new Color(51, 102, 153));
+		painelInicioFormulario.add(radioButtonProva, "cell 1 5,alignx right");
 
 //		graph = painelLogin.getGraphics();
 //		graph.drawLine(425, 20, 425, 100);
 
 	}
+	
+	
 
 	public JPanel getPainelLogin() {
 		return painelLogin;
