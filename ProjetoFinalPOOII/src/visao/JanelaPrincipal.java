@@ -160,7 +160,7 @@ public class JanelaPrincipal extends JFrame {
 		painelInicioFormulario = new JPanel();
 		painelInicioFormulario.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelInicioFormulario, "name_148859187392200");
-		painelInicioFormulario.setLayout(new MigLayout("", "40[][grow]40", "[]50[]40[]40[]40[]40[][]40[50]"));
+		painelInicioFormulario.setLayout(new MigLayout("", "40[][grow]40", "40[]30[]40[]40[]40[]40[]20[]15[30]5"));
 
 		labelTituloPainelInicial = new JLabel("Formul\u00E1rio Digital de Reserva de Sala de Aula");
 		labelTituloPainelInicial.setForeground(new Color(255, 255, 255));
@@ -207,7 +207,7 @@ public class JanelaPrincipal extends JFrame {
 		labelAtividade.setFont(new Font("Arial", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelAtividade, "cell 0 5");
 
-		radioButtonAula = new JRadioButton("Aula");
+		radioButtonAula = new JRadioButton("Aula    \r\n");
 		radioButtonAula.setForeground(Color.WHITE);
 		radioButtonAula.setBackground(new Color(30, 76, 118));
 		radioButtonAula.setFont(new Font("Tahoma", Font.PLAIN, 23));
@@ -235,7 +235,7 @@ public class JanelaPrincipal extends JFrame {
 		comboBoxCurso.setSelectedIndex(-1);
 		painelInicioFormulario.add(comboBoxCurso, "cell 1 6,growx");
 
-		radioButtonSeminario = new JRadioButton("Seminario");
+		radioButtonSeminario = new JRadioButton("Seminario    ");
 		radioButtonSeminario.setForeground(Color.WHITE);
 		radioButtonSeminario.setBackground(new Color(30, 76, 118));
 		radioButtonSeminario.setFont(new Font("Tahoma", Font.PLAIN, 23));
@@ -253,6 +253,7 @@ public class JanelaPrincipal extends JFrame {
 		buttonGroupAtividade.add(radioButtonSeminario);
 
 		labelAvancarPainelInicioFormulario = new JLabel("");
+		labelAvancarPainelInicioFormulario.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		labelAvancarPainelInicioFormulario
 				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
 		painelInicioFormulario.add(labelAvancarPainelInicioFormulario, "cell 1 7,alignx right");
