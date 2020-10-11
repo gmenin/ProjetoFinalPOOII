@@ -289,3 +289,4 @@ public class JanelaPrincipal extends JFrame {
 		}
 	}
 }
+// comentario
