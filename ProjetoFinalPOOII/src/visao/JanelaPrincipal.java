@@ -66,6 +66,8 @@ public class JanelaPrincipal extends JFrame {
 	private JTextField fieldSolicitante;
 	private JComboBox comboBoxModalidade;
 	private JComboBox comboBoxCurso;
+	
+	// comentario teste git
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
