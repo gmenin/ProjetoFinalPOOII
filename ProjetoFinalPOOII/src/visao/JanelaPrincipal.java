@@ -298,7 +298,7 @@ public class JanelaPrincipal extends JFrame {
 		this.fieldUsuario = fieldUsuario;
 	}
 
-	public JPasswordField getFieldSenha() {
+	public JTextField getFieldSenha() {
 		return fieldSenha;
 	}
 
