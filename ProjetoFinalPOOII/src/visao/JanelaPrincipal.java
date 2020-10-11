@@ -1,6 +1,5 @@
 package visao;
 
-import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 
 import java.awt.EventQueue;
@@ -11,9 +10,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
@@ -24,6 +23,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.ListCellRenderer;
@@ -31,7 +31,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
-import java.awt.geom.Line2D;
 import java.awt.event.ActionEvent;
 
 public class JanelaPrincipal extends JFrame {
@@ -44,7 +43,6 @@ public class JanelaPrincipal extends JFrame {
 	private JTextField fieldUsuario;
 	private JPasswordField fieldSenha;
 	private JButton buttonEntrar;
-	private JButton buttonInfo;
 	private JPanel painelInicial;
 	private JLabel labelMensagemNome;
 	private JLabel labelMensagem;
@@ -63,11 +61,12 @@ public class JanelaPrincipal extends JFrame {
 	private JRadioButton radioButtonAula;
 	private JRadioButton radioButtonSeminario;
 	private JRadioButton radioButtonProva;
+	private ButtonGroup buttonGroupAtividade;
 	private JTextField fieldSolicitante;
 	private JComboBox comboBoxModalidade;
 	private JComboBox comboBoxCurso;
-	
-	// comentario teste git
+	private JLabel labelAvancarPainelInicioFormulario;
+	private JLabel labelInfo;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -79,7 +78,6 @@ public class JanelaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
 
-		// -------------------------------------------------------------------------------------------------
 		// Implementacao do Painel de Login
 		painelLogin = new JPanel();
 		painelLogin.setBackground(new Color(30, 76, 118));
@@ -117,28 +115,16 @@ public class JanelaPrincipal extends JFrame {
 
 		buttonEntrar = new JButton("Entrar");
 		buttonEntrar.setFont(new Font("Arial", Font.PLAIN, 22));
+		buttonEntrar.setPreferredSize(new Dimension(200, 10));
 		painelLogin.add(buttonEntrar, "cell 0 3 2 1,alignx center");
+		
+		labelInfo = new JLabel("");
+		labelInfo.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/informatiom_smaller.png")));
+		painelLogin.add(labelInfo, "flowx,cell 1 4,alignx right");
 
-		buttonInfo = new JButton("");
-		buttonInfo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				contentPane.removeAll();
-				contentPane.add(painelInicioFormulario);
-				contentPane.repaint();
-				contentPane.revalidate();
-				System.out.println("Teste");
-
-			}
-		});
-		buttonInfo.setBackground(new Color(30, 76, 118));
-		buttonInfo.setForeground(new Color(30, 76, 118));
-		buttonInfo.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/informatiom_smaller.png")));
-		painelLogin.add(buttonInfo, "cell 1 4,alignx right");
-
-		// -------------------------------------------------------------------------------------------------
 		// Imlementacao do Painel Inicial
 		painelInicial = new JPanel();
-		painelInicial.setBackground(new Color(51, 102, 153));
+		painelInicial.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelInicial, "name_147314382581700");
 		painelInicial.setLayout(new MigLayout("", "40[grow]40", "70[][]150[]70[]"));
 
@@ -159,18 +145,19 @@ public class JanelaPrincipal extends JFrame {
 
 		buttonVerReservas = new JButton("Ver reservas");
 		buttonVerReservas.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonVerReservas.setPreferredSize(new Dimension(200, 10));
 		painelInicial.add(buttonVerReservas, "flowx,cell 0 3,alignx center");
 
 		buttonFazerReserva = new JButton("Reservar");
 		buttonFazerReserva.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonFazerReserva.setPreferredSize(new Dimension(200, 10));
 		painelInicial.add(buttonFazerReserva, "cell 0 3,alignx center");
 
-		// -------------------------------------------------------------------------------------------------
 		// Implementacao do Painel que da inicio ao formulario
 		painelInicioFormulario = new JPanel();
-		painelInicioFormulario.setBackground(new Color(51, 102, 153));
+		painelInicioFormulario.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelInicioFormulario, "name_148859187392200");
-		painelInicioFormulario.setLayout(new MigLayout("", "[][grow][][]", "20[]50[]40[]40[]40[]40[][]"));
+		painelInicioFormulario.setLayout(new MigLayout("", "40[][grow]40", "[]50[]40[]40[]40[]40[][]40[50]"));
 
 		labelTituloPainelInicial = new JLabel("Formul\u00E1rio Digital de Reserva de Sala de Aula");
 		labelTituloPainelInicial.setForeground(new Color(255, 255, 255));
@@ -219,7 +206,7 @@ public class JanelaPrincipal extends JFrame {
 
 		radioButtonAula = new JRadioButton("Aula");
 		radioButtonAula.setForeground(Color.WHITE);
-		radioButtonAula.setBackground(new Color(51, 102, 153));
+		radioButtonAula.setBackground(new Color(30, 76, 118));
 		radioButtonAula.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		painelInicioFormulario.add(radioButtonAula, "flowx,cell 1 5,alignx left");
 
@@ -228,40 +215,55 @@ public class JanelaPrincipal extends JFrame {
 		painelInicioFormulario.add(fieldSolicitante, "cell 1 1 3 1,growx");
 		fieldSolicitante.setColumns(10);
 
-		String[] modalidades = { "Graduação", "Pós-Educação" };
+		String[] modalidades = { "Graduação", "Pós-Graduação (M ou D)", "Especialização", "Residência Médica"};
 		comboBoxModalidade = new JComboBox(modalidades);
 		comboBoxModalidade.setRenderer(new MyComboBoxRenderer("Selecione a modalidade"));
 		comboBoxModalidade.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		comboBoxModalidade.setSelectedIndex(-1);
-		painelInicioFormulario.add(comboBoxModalidade, "flowx,cell 1 6 3 1,grow");
+		painelInicioFormulario.add(comboBoxModalidade, "cell 1 6,growx");
 
-		String[] cursos = { "Biomedicina", "Biomedicina - nortuno", "Enfermagem", "Farmácia", "Física Médica",
+		String[] cursos = { "Biomedicina", "Biomedicina - noturno", "Enfermagem", "Farmácia", "Física Médica",
 				"Fisioterapia", "Fonoaudiologia", "Gastronomia", "Gestão em Saúde", "Informática Biomédica", "Medicina",
-				"Nutrição", "Psicologia", "Química Médica", "Tecnologia em Alimentos", "Toxicologia Analítica" };
+				"Nutrição", "Psicologia", "Química Médica", "Tecnologia em Alimentos", "Toxicologia Analítica", " - Nenhum listado - "};
 		comboBoxCurso = new JComboBox(cursos);
 		comboBoxCurso.setRenderer(new MyComboBoxRenderer("Selecione o curso"));
 		comboBoxCurso.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		comboBoxCurso.setSelectedIndex(-1);
-		painelInicioFormulario.add(comboBoxCurso, "cell 2 6,grow");
+		painelInicioFormulario.add(comboBoxCurso, "cell 1 6,growx");
 
 		radioButtonSeminario = new JRadioButton("Seminario");
 		radioButtonSeminario.setForeground(Color.WHITE);
-		radioButtonSeminario.setBackground(new Color(51, 102, 153));
+		radioButtonSeminario.setBackground(new Color(30, 76, 118));
 		radioButtonSeminario.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		painelInicioFormulario.add(radioButtonSeminario, "cell 1 5,alignx center");
 
 		radioButtonProva = new JRadioButton("Prova");
 		radioButtonProva.setForeground(Color.WHITE);
 		radioButtonProva.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		radioButtonProva.setBackground(new Color(51, 102, 153));
+		radioButtonProva.setBackground(new Color(30, 76, 118));
 		painelInicioFormulario.add(radioButtonProva, "cell 1 5,alignx right");
+		
+		buttonGroupAtividade = new ButtonGroup();
+		buttonGroupAtividade.add(radioButtonAula);
+		buttonGroupAtividade.add(radioButtonProva);
+		buttonGroupAtividade.add(radioButtonSeminario);
+		
+		labelAvancarPainelInicioFormulario = new JLabel("");
+		labelAvancarPainelInicioFormulario.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
+		painelInicioFormulario.add(labelAvancarPainelInicioFormulario, "cell 1 7,alignx right");
 
 //		graph = painelLogin.getGraphics();
 //		graph.drawLine(425, 20, 425, 100);
 
 	}
-	
-	
+
+	public JLabel getLabelInfo() {
+		return labelInfo;
+	}
+
+	public void setLabelInfo(JLabel labelInfo) {
+		this.labelInfo = labelInfo;
+	}
 
 	public JPanel getPainelLogin() {
 		return painelLogin;
@@ -271,6 +273,135 @@ public class JanelaPrincipal extends JFrame {
 		this.painelLogin = painelLogin;
 	}
 
+	public JTextField getFieldUsuario() {
+		return fieldUsuario;
+	}
+
+	public void setFieldUsuario(JTextField fieldUsuario) {
+		this.fieldUsuario = fieldUsuario;
+	}
+
+	public JPasswordField getFieldSenha() {
+		return fieldSenha;
+	}
+
+	public void setFieldSenha(JPasswordField fieldSenha) {
+		this.fieldSenha = fieldSenha;
+	}
+
+	public JButton getButtonEntrar() {
+		return buttonEntrar;
+	}
+
+	public void setButtonEntrar(JButton buttonEntrar) {
+		this.buttonEntrar = buttonEntrar;
+	}
+
+	public JLabel getLabelMensagemNome() {
+		return labelMensagemNome;
+	}
+
+	public void setLabelMensagemNome(JLabel labelMensagemNome) {
+		this.labelMensagemNome = labelMensagemNome;
+	}
+
+	public JButton getButtonVerReservas() {
+		return buttonVerReservas;
+	}
+
+	public void setButtonVerReservas(JButton buttonVerReservas) {
+		this.buttonVerReservas = buttonVerReservas;
+	}
+
+	public JButton getButtonFazerReserva() {
+		return buttonFazerReserva;
+	}
+
+	public void setButtonFazerReserva(JButton buttonFazerReserva) {
+		this.buttonFazerReserva = buttonFazerReserva;
+	}
+
+	public JTextField getFieldTelefone() {
+		return fieldTelefone;
+	}
+
+	public void setFieldTelefone(JTextField fieldTelefone) {
+		this.fieldTelefone = fieldTelefone;
+	}
+
+	public JTextField getFieldEmail() {
+		return fieldEmail;
+	}
+
+	public void setFieldEmail(JTextField fieldEmail) {
+		this.fieldEmail = fieldEmail;
+	}
+
+	public JTextField getFieldNumeroAlunos() {
+		return fieldNumeroAlunos;
+	}
+
+	public void setFieldNumeroAlunos(JTextField fieldNumeroAlunos) {
+		this.fieldNumeroAlunos = fieldNumeroAlunos;
+	}
+
+	public JRadioButton getRadioButtonAula() {
+		return radioButtonAula;
+	}
+
+	public void setRadioButtonAula(JRadioButton radioButtonAula) {
+		this.radioButtonAula = radioButtonAula;
+	}
+
+	public JRadioButton getRadioButtonSeminario() {
+		return radioButtonSeminario;
+	}
+
+	public void setRadioButtonSeminario(JRadioButton radioButtonSeminario) {
+		this.radioButtonSeminario = radioButtonSeminario;
+	}
+
+	public JRadioButton getRadioButtonProva() {
+		return radioButtonProva;
+	}
+
+	public void setRadioButtonProva(JRadioButton radioButtonProva) {
+		this.radioButtonProva = radioButtonProva;
+	}
+
+	public JTextField getFieldSolicitante() {
+		return fieldSolicitante;
+	}
+
+	public void setFieldSolicitante(JTextField fieldSolicitante) {
+		this.fieldSolicitante = fieldSolicitante;
+	}
+
+	public JComboBox getComboBoxModalidade() {
+		return comboBoxModalidade;
+	}
+
+	public void setComboBoxModalidade(JComboBox comboBoxModalidade) {
+		this.comboBoxModalidade = comboBoxModalidade;
+	}
+
+	public JComboBox getComboBoxCurso() {
+		return comboBoxCurso;
+	}
+
+	public void setComboBoxCurso(JComboBox comboBoxCurso) {
+		this.comboBoxCurso = comboBoxCurso;
+	}
+
+	public JLabel getLabelAvancarPainelInicioFormulario() {
+		return labelAvancarPainelInicioFormulario;
+	}
+
+	public void setLabelAvancarPainelInicioFormulario(JLabel labelAvancarPainelInicioFormulario) {
+		this.labelAvancarPainelInicioFormulario = labelAvancarPainelInicioFormulario;
+	}
+
+	// Classe para fixar mensagens não selecionaveis nos JComboBox presentes no painelInicioFormulario
 	class MyComboBoxRenderer extends JLabel implements ListCellRenderer {
 		private String _title;
 
@@ -289,4 +420,3 @@ public class JanelaPrincipal extends JFrame {
 		}
 	}
 }
-// comentario
