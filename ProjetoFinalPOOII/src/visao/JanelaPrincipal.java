@@ -19,6 +19,7 @@ import java.awt.Dimension;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import java.util.Collection;
@@ -420,14 +421,6 @@ public class JanelaPrincipal extends JFrame {
 		this.labelAvancarPainelInicioFormulario = labelAvancarPainelInicioFormulario;
 	}
 
-	public CardLayout getCard() {
-		return card;
-	}
-
-	public void setCard(CardLayout card) {
-		this.card = card;
-	}
-
 	// Classe para fixar mensagens não selecionaveis nos JComboBox presentes no
 	// painelInicioFormulario
 	class MyComboBoxRenderer extends JLabel implements ListCellRenderer {
@@ -446,5 +439,16 @@ public class JanelaPrincipal extends JFrame {
 				setText(value.toString());
 			return this;
 		}
+	}
+	
+	//Me´todo que troca de painel
+	public void trocarPainel(String nomePainel) {
+		card.show(contentPane, nomePainel);
+	}
+	
+	//Me'todos que quando chamados exibem mensagens
+	//Mensagem de erro
+	public void mensagemErroAutenticacao() {
+		JOptionPane.showMessageDialog(this, "Usuário ou senha incorreto! Por favor, verifique os dados inseridos.", null, JOptionPane.ERROR_MESSAGE, null);
 	}
 }

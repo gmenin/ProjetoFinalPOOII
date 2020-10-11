@@ -30,11 +30,11 @@ public class UsuarioControle implements ActionListener{
 		
 		//Caso o usua'rio esteja cadastrado, envia-o para a tela inicial da aplicacao
 		if(autentica) {
-			this.janelaPrincipal.getCard().next(this.janelaPrincipal.getContentPane());
+			this.janelaPrincipal.trocarPainel("painelInicial");
 			limparCamposLogin();
 		}else {
-			//this.janelaPrincipal.exibirMensagemErroAutenticacao(); // !IMPLEMENTAR!
-			System.out.println("Usuario não encontrado"); //PROVISORIO
+			this.janelaPrincipal.mensagemErroAutenticacao();
+			limparCamposLogin();
 		}
 	}
 	
