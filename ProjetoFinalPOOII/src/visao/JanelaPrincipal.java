@@ -1,5 +1,6 @@
 package visao;
 
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 
 import java.awt.EventQueue;
@@ -10,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -31,6 +33,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.awt.geom.Line2D;
 import java.awt.event.ActionEvent;
 
 public class JanelaPrincipal extends JFrame {
@@ -117,7 +120,7 @@ public class JanelaPrincipal extends JFrame {
 		buttonEntrar.setFont(new Font("Arial", Font.PLAIN, 22));
 		buttonEntrar.setPreferredSize(new Dimension(200, 10));
 		painelLogin.add(buttonEntrar, "cell 0 3 2 1,alignx center");
-		
+
 		labelInfo = new JLabel("");
 		labelInfo.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/informatiom_smaller.png")));
 		painelLogin.add(labelInfo, "flowx,cell 1 4,alignx right");
@@ -215,7 +218,7 @@ public class JanelaPrincipal extends JFrame {
 		painelInicioFormulario.add(fieldSolicitante, "cell 1 1 3 1,growx");
 		fieldSolicitante.setColumns(10);
 
-		String[] modalidades = { "Graduação", "Pós-Graduação (M ou D)", "Especialização", "Residência Médica"};
+		String[] modalidades = { "Graduação", "Pós-Graduação (M ou D)", "Especialização", "Residência Médica" };
 		comboBoxModalidade = new JComboBox(modalidades);
 		comboBoxModalidade.setRenderer(new MyComboBoxRenderer("Selecione a modalidade"));
 		comboBoxModalidade.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -224,7 +227,8 @@ public class JanelaPrincipal extends JFrame {
 
 		String[] cursos = { "Biomedicina", "Biomedicina - noturno", "Enfermagem", "Farmácia", "Física Médica",
 				"Fisioterapia", "Fonoaudiologia", "Gastronomia", "Gestão em Saúde", "Informática Biomédica", "Medicina",
-				"Nutrição", "Psicologia", "Química Médica", "Tecnologia em Alimentos", "Toxicologia Analítica", " - Nenhum listado - "};
+				"Nutrição", "Psicologia", "Química Médica", "Tecnologia em Alimentos", "Toxicologia Analítica",
+				" - Nenhum listado - " };
 		comboBoxCurso = new JComboBox(cursos);
 		comboBoxCurso.setRenderer(new MyComboBoxRenderer("Selecione o curso"));
 		comboBoxCurso.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -242,19 +246,30 @@ public class JanelaPrincipal extends JFrame {
 		radioButtonProva.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		radioButtonProva.setBackground(new Color(30, 76, 118));
 		painelInicioFormulario.add(radioButtonProva, "cell 1 5,alignx right");
-		
+
 		buttonGroupAtividade = new ButtonGroup();
 		buttonGroupAtividade.add(radioButtonAula);
 		buttonGroupAtividade.add(radioButtonProva);
 		buttonGroupAtividade.add(radioButtonSeminario);
-		
+
 		labelAvancarPainelInicioFormulario = new JLabel("");
-		labelAvancarPainelInicioFormulario.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
+		labelAvancarPainelInicioFormulario
+				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
 		painelInicioFormulario.add(labelAvancarPainelInicioFormulario, "cell 1 7,alignx right");
 
-//		graph = painelLogin.getGraphics();
-//		graph.drawLine(425, 20, 425, 100);
+	}
 
+	public void paint(Graphics g) {
+
+		super.paint(g);
+		Graphics2D g2 = (Graphics2D) g;
+
+		Line2D li = new Line2D.Double(415, 90, 415, 265);
+		g2.setColor(Color.WHITE);
+		g2.setStroke(new BasicStroke(4));
+		g2.draw(li);
+
+		g2.dispose();
 	}
 
 	public JLabel getLabelInfo() {
@@ -401,7 +416,8 @@ public class JanelaPrincipal extends JFrame {
 		this.labelAvancarPainelInicioFormulario = labelAvancarPainelInicioFormulario;
 	}
 
-	// Classe para fixar mensagens não selecionaveis nos JComboBox presentes no painelInicioFormulario
+	// Classe para fixar mensagens não selecionaveis nos JComboBox presentes no
+	// painelInicioFormulario
 	class MyComboBoxRenderer extends JLabel implements ListCellRenderer {
 		private String _title;
 
