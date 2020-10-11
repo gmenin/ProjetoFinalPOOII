@@ -129,7 +129,7 @@ public class JanelaPrincipal extends JFrame {
 		painelInicial = new JPanel();
 		painelInicial.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelInicial, "name_147314382581700");
-		painelInicial.setLayout(new MigLayout("", "40[grow]40", "70[][]150[]70[]"));
+		painelInicial.setLayout(new MigLayout("", "40[grow]40", "70[][]160[]40[]"));
 
 		labelMensagemNome = new JLabel("Ol\u00E1, ");
 		labelMensagemNome.setForeground(new Color(255, 255, 255));
