@@ -3,9 +3,11 @@ package dao;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import modelo.Formulario;
+import modelo.Usuario;
 
 public class FormularioDAO {
 
@@ -92,5 +94,29 @@ public class FormularioDAO {
 		return false;
 	} // inserirReserva()
 
+	// Me'todo que retornaFormularioId
+	public int retornaFormularioId(int usuarioId) {
+		ConexaoMySQL.abrirConexao();
+		con = ConexaoMySQL.getCon();
 
+		String sql = "SELECT id FROM formulario WHERE usuarioId LIKE ? AND id=(SELECT max(id) FROM formulario)";
+
+		PreparedStatement prepareStatement;
+		try {
+			prepareStatement = con.prepareStatement(sql);
+			prepareStatement.setInt(1, usuarioId);
+			ResultSet resultado = prepareStatement.executeQuery();
+
+			while(resultado.next()) {
+				return resultado.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		ConexaoMySQL.fecharConexao();
+		return 0;
+	} // retornaUsuarioId()
 }

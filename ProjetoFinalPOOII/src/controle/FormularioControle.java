@@ -53,7 +53,15 @@ public class FormularioControle implements ActionListener, MouseListener{
 //			//boolean insercao = formularioDAO.inserirRequisicao(formulario, usuarioControle.getUsuarioId());
 //			if(insercao) {
 //				limparCampos();
-//				//Implementar co'digo para inserir datas na tabela a partir das datas
+//				int requisicaoId = formularioDAO.retornaFormularioId(usuarioControle.getUsuarioId());
+//				for(int j=0; j<6; j++) {
+//					if(validarReserva(data[j], horaInicial[j], horaFinal[j])) {
+//						boolean reserva = formularioDAO.inserirReserva(requisicaoId, data[j], horaInicial[j], horaFinal[j]);
+//						if(reserva==false) {
+//							this.janelaPrincipal.mensagemRequisicaoErro();
+//						}
+//					}
+//				}
 //				this.janelaPrincipal.mensagemRequisicaoSucesso();
 //			}else {
 //				this.janelaPrincipal.mensagemRequisicaoErro();
@@ -68,6 +76,11 @@ public class FormularioControle implements ActionListener, MouseListener{
 	
 	public boolean validarCampos() {
 		//Co'digo para validar os campos
+		return false;
+	}
+	
+	public boolean validarReserva(Date data, int horaInicial, int horaFinal) {
+		//Co'digo para validar os campos do periodo (data, hora de inicio e de fim)
 		return false;
 	}
 	
