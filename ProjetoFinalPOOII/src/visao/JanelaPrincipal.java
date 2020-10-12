@@ -72,6 +72,15 @@ public class JanelaPrincipal extends JFrame {
 	private JLabel labelAvancarPainelInicioFormulario;
 	private JLabel labelInfo;
 	private CardLayout card;
+	private JPanel painelData;
+	private JComboBox comboBoxQtdDias;
+	private JButton buttonVerificaQtd;
+	private JComboBox comboBoxInicioDia1;
+	private JComboBox comboBoxInicioDia2;
+	private JComboBox comboBoxInicioDia3;
+	private JComboBox comboBoxInicioDia4;
+	private JComboBox comboBoxInicioDia5;
+	private JComboBox comboBoxInicioDia6;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -265,6 +274,49 @@ public class JanelaPrincipal extends JFrame {
 				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
 		painelInicioFormulario.add(labelAvancarPainelInicioFormulario, "cell 1 7,alignx right");
 
+		painelData = new JPanel();
+		contentPane.add(painelData, "name_350548723307600");
+		painelData.setBackground(new Color(30, 76, 118));
+		painelData.setLayout(new MigLayout("", "[grow][grow][grow]", "[]40[]40[]40[]40[]40[]40[]"));
+
+		String[] numeroDias = { "1", "2", "3", "4", "5", "6" };
+		comboBoxQtdDias = new JComboBox(numeroDias);
+		comboBoxQtdDias.setRenderer(new MyComboBoxRenderer("Selecione a quantidade de dias"));
+		comboBoxQtdDias.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		comboBoxQtdDias.setSelectedIndex(-1);
+		painelData.add(comboBoxQtdDias, "flowx,cell 0 0,growx");
+
+		buttonVerificaQtd = new JButton("OK");
+		buttonVerificaQtd.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonVerificaQtd.setPreferredSize(new Dimension(100, 10));
+		painelData.add(buttonVerificaQtd, "cell 1 0");
+
+		String[] horaInicial = { "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
+				"22" };
+		comboBoxInicioDia1 = new JComboBox(horaInicial);
+		comboBoxInicioDia1.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
+		comboBoxInicioDia1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		comboBoxInicioDia1.setSelectedIndex(-1);
+		painelData.add(comboBoxInicioDia1, "cell 1 1,growx");
+
+		comboBoxInicioDia2 = new JComboBox(horaInicial);
+		painelData.add(comboBoxInicioDia2, "cell 1 2,growx");
+
+		comboBoxInicioDia3 = new JComboBox(horaInicial);
+		painelData.add(comboBoxInicioDia3, "cell 1 3,growx");
+
+		comboBoxInicioDia4 = new JComboBox(horaInicial);
+		painelData.add(comboBoxInicioDia4, "cell 1 4,growx");
+
+		comboBoxInicioDia5 = new JComboBox(horaInicial);
+		painelData.add(comboBoxInicioDia5, "cell 1 5,growx");
+
+		comboBoxInicioDia6 = new JComboBox(horaInicial);
+		painelData.add(comboBoxInicioDia6, "cell 1 6,growx");
+
+		String[] horaFinal = { "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22",
+				"23" };
+
 	}
 
 	public void paint(Graphics g) {
@@ -451,15 +503,16 @@ public class JanelaPrincipal extends JFrame {
 			return this;
 		}
 	}
-	
-	//Me´todo que troca de painel
+
+	// Me´todo que troca de painel
 	public void trocarPainel(String nomePainel) {
 		card.show(contentPane, nomePainel);
 	}
-	
-	//Me'todos que quando chamados exibem mensagens
-	//Mensagem de erro
+
+	// Me'todos que quando chamados exibem mensagens
+	// Mensagem de erro
 	public void mensagemErroAutenticacao() {
-		JOptionPane.showMessageDialog(this, "Usuário ou senha incorreto! Por favor, verifique os dados inseridos.", null, JOptionPane.ERROR_MESSAGE, null);
+		JOptionPane.showMessageDialog(this, "Usuário ou senha incorreto! Por favor, verifique os dados inseridos.",
+				null, JOptionPane.ERROR_MESSAGE, null);
 	}
 }
