@@ -11,6 +11,7 @@ public class UsuarioControle implements ActionListener{
 
 	private JanelaPrincipal janelaPrincipal;
 	private UsuarioDAO usuarioDAO;
+	private int usuarioId;
 
 	public UsuarioControle(JanelaPrincipal j) {
 		this.janelaPrincipal = j;
@@ -31,6 +32,7 @@ public class UsuarioControle implements ActionListener{
 		//Caso o usua'rio esteja cadastrado, envia-o para a tela inicial da aplicacao
 		if(autentica) {
 			this.janelaPrincipal.trocarPainel("painelInicial");
+			usuarioId = usuarioDAO.retornaUsuarioId(usuario);
 			limparCamposLogin();
 		}else {
 			this.janelaPrincipal.mensagemErroAutenticacao();
@@ -42,6 +44,14 @@ public class UsuarioControle implements ActionListener{
 	public void limparCamposLogin() {
 		this.janelaPrincipal.getFieldUsuario().setText("");
 		this.janelaPrincipal.getFieldSenha().setText("");
+	}
+
+	public int getUsuarioId() {
+		return usuarioId;
+	}
+
+	public void setUsuarioId(int usuarioId) {
+		this.usuarioId = usuarioId;
 	}
 
 	@Override

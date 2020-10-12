@@ -212,6 +212,7 @@ public class JanelaPrincipal extends JFrame {
 		painelInicioFormulario.add(labelAtividade, "cell 0 5");
 
 		radioButtonAula = new JRadioButton("Aula    \r\n");
+		radioButtonAula.setActionCommand("Aula");
 		radioButtonAula.setForeground(Color.WHITE);
 		radioButtonAula.setBackground(new Color(30, 76, 118));
 		radioButtonAula.setFont(new Font("Tahoma", Font.PLAIN, 23));
@@ -240,12 +241,14 @@ public class JanelaPrincipal extends JFrame {
 		painelInicioFormulario.add(comboBoxCurso, "cell 1 6,growx");
 
 		radioButtonSeminario = new JRadioButton("Seminario    ");
+		radioButtonSeminario.setActionCommand("Seminário");
 		radioButtonSeminario.setForeground(Color.WHITE);
 		radioButtonSeminario.setBackground(new Color(30, 76, 118));
 		radioButtonSeminario.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		painelInicioFormulario.add(radioButtonSeminario, "cell 1 5,alignx center");
 
 		radioButtonProva = new JRadioButton("Prova");
+		radioButtonProva.setActionCommand("Prova");
 		radioButtonProva.setForeground(Color.WHITE);
 		radioButtonProva.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		radioButtonProva.setBackground(new Color(30, 76, 118));
@@ -419,6 +422,14 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setLabelAvancarPainelInicioFormulario(JLabel labelAvancarPainelInicioFormulario) {
 		this.labelAvancarPainelInicioFormulario = labelAvancarPainelInicioFormulario;
+	}
+
+	public ButtonGroup getButtonGroupAtividade() {
+		return buttonGroupAtividade;
+	}
+
+	public void setButtonGroupAtividade(ButtonGroup buttonGroupAtividade) {
+		this.buttonGroupAtividade = buttonGroupAtividade;
 	}
 
 	// Classe para fixar mensagens não selecionaveis nos JComboBox presentes no

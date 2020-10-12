@@ -55,4 +55,31 @@ public class UsuarioDAO {
 			return false;
 		}
 	} // autenticaUsuario()
+	
+	// Me'todo que retornaUsuarioId
+		public int retornaUsuarioId(Usuario usuario) {
+			ConexaoMySQL.abrirConexao();
+			con = ConexaoMySQL.getCon();
+
+			String sql = "SELECT id FROM usuario WHERE nomeUsuario LIKE ? AND senha LIKE ?";
+
+			PreparedStatement prepareStatement;
+			try {
+				prepareStatement = con.prepareStatement(sql);
+				prepareStatement.setString(1, usuario.getUsuario());
+				prepareStatement.setString(2, usuario.getSenha());
+				ResultSet resultado = prepareStatement.executeQuery();
+
+				while(resultado.next()) {
+					return resultado.getInt(1);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			ConexaoMySQL.fecharConexao();
+			return 0;
+		} // retornaUsuarioId()
 } // UsuarioDAO

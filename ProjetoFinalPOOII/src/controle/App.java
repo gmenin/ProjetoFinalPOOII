@@ -9,7 +9,7 @@ public class App {
 		JanelaPrincipal janela = new JanelaPrincipal();
 		janela.setVisible(true);
 		UsuarioControle usuarioControle = new UsuarioControle(janela);
-		FormularioControle formularioControle = new FormularioControle(janela);
+		FormularioControle formularioControle = new FormularioControle(janela, usuarioControle);
 	}
 
 }
