@@ -98,8 +98,8 @@ public class JanelaPrincipal extends JFrame {
 	private JCheckBox chckbxEquipamentoDeAudio;
 	private JCheckBox chckbxEquipamentoDvd;
 	private JTextField txtOutroEquipamento;
-	private JLabel lblVoltarequipamentos;
-	private JLabel lblProximoequipamentos;
+	private JLabel labelVoltarequipamentos;
+	private JLabel labelProximoequipamentos;
 	private JLabel labelAvancarPainelData;
 	private JLabel labelVoltarPainelData;
 
@@ -450,14 +450,62 @@ public class JanelaPrincipal extends JFrame {
 		painelEquipamentos.add(txtOutroEquipamento, "cell 1 4,growx");
 		txtOutroEquipamento.setColumns(10);
 		
-		lblVoltarequipamentos = new JLabel("");
-		lblVoltarequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
-		painelEquipamentos.add(lblVoltarequipamentos, "cell 0 6");
+		labelVoltarequipamentos = new JLabel("");
+		labelVoltarequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
+		painelEquipamentos.add(labelVoltarequipamentos, "cell 0 6");
 		
-		lblProximoequipamentos = new JLabel("");
-		lblProximoequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
-		painelEquipamentos.add(lblProximoequipamentos, "cell 1 6,alignx right");
+		labelProximoequipamentos = new JLabel("");
+		labelProximoequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
+		painelEquipamentos.add(labelProximoequipamentos, "cell 1 6,alignx right");
 
+	}
+
+	public JCheckBox getChckbxProjetorDeSlides() {
+		return chckbxProjetorDeSlides;
+	}
+
+	public void setChckbxProjetorDeSlides(JCheckBox chckbxProjetorDeSlides) {
+		this.chckbxProjetorDeSlides = chckbxProjetorDeSlides;
+	}
+
+	public JCheckBox getChckbxRetroprojetor() {
+		return chckbxRetroprojetor;
+	}
+
+	public void setChckbxRetroprojetor(JCheckBox chckbxRetroprojetor) {
+		this.chckbxRetroprojetor = chckbxRetroprojetor;
+	}
+
+	public JCheckBox getChckbxOutroEspecificar() {
+		return chckbxOutroEspecificar;
+	}
+
+	public void setChckbxOutroEspecificar(JCheckBox chckbxOutroEspecificar) {
+		this.chckbxOutroEspecificar = chckbxOutroEspecificar;
+	}
+
+	public JCheckBox getChckbxEquipamentoDeAudio() {
+		return chckbxEquipamentoDeAudio;
+	}
+
+	public void setChckbxEquipamentoDeAudio(JCheckBox chckbxEquipamentoDeAudio) {
+		this.chckbxEquipamentoDeAudio = chckbxEquipamentoDeAudio;
+	}
+
+	public JCheckBox getChckbxEquipamentoDvd() {
+		return chckbxEquipamentoDvd;
+	}
+
+	public void setChckbxEquipamentoDvd(JCheckBox chckbxEquipamentoDvd) {
+		this.chckbxEquipamentoDvd = chckbxEquipamentoDvd;
+	}
+
+	public JTextField getTxtOutroEquipamento() {
+		return txtOutroEquipamento;
+	}
+
+	public void setTxtOutroEquipamento(JTextField txtOutroEquipamento) {
+		this.txtOutroEquipamento = txtOutroEquipamento;
 	}
 
 	public void paint(Graphics g) {
@@ -495,6 +543,118 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setFieldUsuario(JTextField fieldUsuario) {
 		this.fieldUsuario = fieldUsuario;
+	}
+
+	public JComboBox getComboBoxQtdDias() {
+		return comboBoxQtdDias;
+	}
+
+	public void setComboBoxQtdDias(JComboBox comboBoxQtdDias) {
+		this.comboBoxQtdDias = comboBoxQtdDias;
+	}
+
+	public JComboBox getComboBoxInicioDia1() {
+		return comboBoxInicioDia1;
+	}
+
+	public void setComboBoxInicioDia1(JComboBox comboBoxInicioDia1) {
+		this.comboBoxInicioDia1 = comboBoxInicioDia1;
+	}
+
+	public JComboBox getComboBoxInicioDia2() {
+		return comboBoxInicioDia2;
+	}
+
+	public void setComboBoxInicioDia2(JComboBox comboBoxInicioDia2) {
+		this.comboBoxInicioDia2 = comboBoxInicioDia2;
+	}
+
+	public JComboBox getComboBoxInicioDia3() {
+		return comboBoxInicioDia3;
+	}
+
+	public void setComboBoxInicioDia3(JComboBox comboBoxInicioDia3) {
+		this.comboBoxInicioDia3 = comboBoxInicioDia3;
+	}
+
+	public JComboBox getComboBoxInicioDia4() {
+		return comboBoxInicioDia4;
+	}
+
+	public void setComboBoxInicioDia4(JComboBox comboBoxInicioDia4) {
+		this.comboBoxInicioDia4 = comboBoxInicioDia4;
+	}
+
+	public JComboBox getComboBoxInicioDia5() {
+		return comboBoxInicioDia5;
+	}
+
+	public void setComboBoxInicioDia5(JComboBox comboBoxInicioDia5) {
+		this.comboBoxInicioDia5 = comboBoxInicioDia5;
+	}
+
+	public JComboBox getComboBoxInicioDia6() {
+		return comboBoxInicioDia6;
+	}
+
+	public JLabel getLabelProximoequipamentos() {
+		return labelProximoequipamentos;
+	}
+
+	public void setLabelProximoequipamentos(JLabel labelProximoequipamentos) {
+		this.labelProximoequipamentos = labelProximoequipamentos;
+	}
+
+	public void setComboBoxInicioDia6(JComboBox comboBoxInicioDia6) {
+		this.comboBoxInicioDia6 = comboBoxInicioDia6;
+	}
+
+	public JComboBox getComboBoxFimDia1() {
+		return comboBoxFimDia1;
+	}
+
+	public void setComboBoxFimDia1(JComboBox comboBoxFimDia1) {
+		this.comboBoxFimDia1 = comboBoxFimDia1;
+	}
+
+	public JComboBox getComboBoxFimDia2() {
+		return comboBoxFimDia2;
+	}
+
+	public void setComboBoxFimDia2(JComboBox comboBoxFimDia2) {
+		this.comboBoxFimDia2 = comboBoxFimDia2;
+	}
+
+	public JComboBox getComboBoxFimDia3() {
+		return comboBoxFimDia3;
+	}
+
+	public void setComboBoxFimDia3(JComboBox comboBoxFimDia3) {
+		this.comboBoxFimDia3 = comboBoxFimDia3;
+	}
+
+	public JComboBox getComboBoxFimDia4() {
+		return comboBoxFimDia4;
+	}
+
+	public void setComboBoxFimDia4(JComboBox comboBoxFimDia4) {
+		this.comboBoxFimDia4 = comboBoxFimDia4;
+	}
+
+	public JComboBox getComboBoxFimDia5() {
+		return comboBoxFimDia5;
+	}
+
+	public void setComboBoxFimDia5(JComboBox comboBoxFimDia5) {
+		this.comboBoxFimDia5 = comboBoxFimDia5;
+	}
+
+	public JComboBox getComboBoxFimDia6() {
+		return comboBoxFimDia6;
+	}
+
+	public void setComboBoxFimDia6(JComboBox comboBoxFimDia6) {
+		this.comboBoxFimDia6 = comboBoxFimDia6;
 	}
 
 	public JTextField getFieldSenha() {
@@ -635,6 +795,14 @@ public class JanelaPrincipal extends JFrame {
 
 	public ButtonGroup getButtonGroupAtividade() {
 		return buttonGroupAtividade;
+	}
+
+	public JLabel getLabelVoltarequipamentos() {
+		return labelVoltarequipamentos;
+	}
+
+	public void setLabelVoltarequipamentos(JLabel labelVoltarequipamentos) {
+		this.labelVoltarequipamentos = labelVoltarequipamentos;
 	}
 
 	public void setButtonGroupAtividade(ButtonGroup buttonGroupAtividade) {

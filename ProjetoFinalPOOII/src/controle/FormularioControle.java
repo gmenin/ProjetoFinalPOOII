@@ -24,6 +24,8 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getLabelAvancarPainelInicioFormulario().addMouseListener(this);
 		this.janelaPrincipal.getLabelVoltarPainelData().addMouseListener(this);
 		this.janelaPrincipal.getLabelAvancarPainelData().addMouseListener(this);
+		this.janelaPrincipal.getLabelVoltarequipamentos().addMouseListener(this);
+		this.janelaPrincipal.getLabelProximoequipamentos().addMouseListener(this);
 	}
 
 	public void salvarRequisicao() {
@@ -89,6 +91,36 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 	public void limparCampos() {
 		// Co'digo para limpar campos da tela
+
+		this.janelaPrincipal.getFieldTelefone().setText("");
+		this.janelaPrincipal.getFieldEmail().setText("");
+		this.janelaPrincipal.getFieldNumeroAlunos().setText("");
+		this.janelaPrincipal.getFieldSolicitante().setText("");
+		this.janelaPrincipal.getRadioButtonAula().setSelected(false);
+		this.janelaPrincipal.getRadioButtonProva().setSelected(false);
+		this.janelaPrincipal.getRadioButtonSeminario().setSelected(false);
+		this.janelaPrincipal.getComboBoxModalidade().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxCurso().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxQtdDias().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxFimDia1().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxFimDia2().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxFimDia3().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxFimDia4().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxFimDia5().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxFimDia6().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxInicioDia1().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxInicioDia2().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxInicioDia3().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxInicioDia4().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxInicioDia5().setSelectedIndex(-1);
+		this.janelaPrincipal.getComboBoxInicioDia6().setSelectedIndex(-1);
+		this.janelaPrincipal.getChckbxEquipamentoDeAudio().setSelected(false);
+		this.janelaPrincipal.getChckbxEquipamentoDvd().setSelected(false);
+		this.janelaPrincipal.getChckbxOutroEspecificar().setSelected(false);
+		this.janelaPrincipal.getChckbxProjetorDeSlides().setSelected(false);
+		this.janelaPrincipal.getChckbxRetroprojetor().setSelected(false);
+		this.janelaPrincipal.getTxtOutroEquipamento().setText("");
+
 	}
 
 	@Override
@@ -101,43 +133,55 @@ public class FormularioControle implements ActionListener, MouseListener {
 			salvarRequisicao();
 		}
 	}
-	
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
+		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
 			trocarPainel("painelData");
+			
 		}
-		if(e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelData()) {
+		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelData()) {
 			trocarPainel("painelInicioFormulario");
+			
 		}
-		if(e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelData()) {
+		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelData()) {
 			trocarPainel("painelEquipamentos");
+		}
+		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarequipamentos()) {
+
+			trocarPainel("painelData");
+
+		}
+		if(e.getComponent()==this.janelaPrincipal.getLabelProximoequipamentos()) {
+			
+			
+
 		}
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
