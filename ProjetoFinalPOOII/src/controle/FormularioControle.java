@@ -99,46 +99,37 @@ public class FormularioControle implements ActionListener, MouseListener {
 			salvarRequisicao();
 		}
 	}
-
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-
-		// avancar para o painel Data
-		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
-
-			trocarPainel("painelData");	
+		if(e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
+			trocarPainel("painelData");
 		}
-
-		// if(arg0.getComponent() ==
-		// this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
-		// trocarPainel("painelInicial");
-		// System.out.println(this.janelaPrincipal.getButtonGroupAtividade().getSelection().getActionCommand());
-		// }
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void mouseExited(MouseEvent arg0) {
+	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
+	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
+	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }
