@@ -22,6 +22,8 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.formularioDAO = new FormularioDAO();
 		this.janelaPrincipal.getButtonFazerReserva().addActionListener(this);
 		this.janelaPrincipal.getLabelAvancarPainelInicioFormulario().addMouseListener(this);
+		this.janelaPrincipal.getLabelVoltarPainelData().addMouseListener(this);
+		this.janelaPrincipal.getLabelAvancarPainelData().addMouseListener(this);
 	}
 
 	public void salvarRequisicao() {
@@ -105,6 +107,12 @@ public class FormularioControle implements ActionListener, MouseListener {
 		// TODO Auto-generated method stub
 		if(e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
 			trocarPainel("painelData");
+		}
+		if(e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelData()) {
+			trocarPainel("painelInicioFormulario");
+		}
+		if(e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelData()) {
+			trocarPainel("painelEquipamentos");
 		}
 	}
 

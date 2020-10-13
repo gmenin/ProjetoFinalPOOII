@@ -100,8 +100,8 @@ public class JanelaPrincipal extends JFrame {
 	private JTextField txtOutroEquipamento;
 	private JLabel lblVoltarequipamentos;
 	private JLabel lblProximoequipamentos;
-	private JLabel lblProximodatas;
-	private JLabel lblVoltarDatas;
+	private JLabel labelAvancarPainelData;
+	private JLabel labelVoltarPainelData;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -390,17 +390,17 @@ public class JanelaPrincipal extends JFrame {
 		comboBoxFimDia6.setSelectedIndex(-1);
 		painelData.add(comboBoxFimDia6, "cell 2 6,growx");
 		
-		lblVoltarDatas = new JLabel("");
-		lblVoltarDatas.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
-		painelData.add(lblVoltarDatas, "cell 0 7");
+		labelVoltarPainelData = new JLabel("");
+		labelVoltarPainelData.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
+		painelData.add(labelVoltarPainelData, "cell 0 7");
 		
-		lblProximodatas = new JLabel("");
-		lblProximodatas.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
-		painelData.add(lblProximodatas, "cell 2 7,alignx right");
+		labelAvancarPainelData = new JLabel("");
+		labelAvancarPainelData.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
+		painelData.add(labelAvancarPainelData, "cell 2 7,alignx right");
 
 		// Implementacao do Painel de seleção de equipamentos
 		painelEquipamentos = new JPanel();
-		contentPane.add(painelEquipamentos, "name_350548723307600");
+		contentPane.add(painelEquipamentos, "painelEquipamentos");
 		painelEquipamentos.setBackground(new Color(30, 76, 118));
 		painelEquipamentos
 				.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[][]"));
@@ -615,6 +615,22 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setLabelAvancarPainelInicioFormulario(JLabel labelAvancarPainelInicioFormulario) {
 		this.labelAvancarPainelInicioFormulario = labelAvancarPainelInicioFormulario;
+	}
+	
+	public JLabel getLabelVoltarPainelData() {
+		return labelVoltarPainelData;
+	}
+
+	public void setLabelVoltarPainelData(JLabel labelVoltarPainelData) {
+		this.labelVoltarPainelData = labelVoltarPainelData;
+	}
+	
+	public JLabel getLabelAvancarPainelData() {
+		return labelAvancarPainelData;
+	}
+
+	public void setLabelAvancarPainelData(JLabel labelAvancarPainelData) {
+		this.labelAvancarPainelData = labelAvancarPainelData;
 	}
 
 	public ButtonGroup getButtonGroupAtividade() {
