@@ -38,6 +38,7 @@ public class UsuarioControle implements ActionListener{
 			this.janelaPrincipal.mensagemErroAutenticacao();
 			limparCamposLogin();
 		}
+		
 	}
 	
 	//Me'todo que limpa os campos na tela de login

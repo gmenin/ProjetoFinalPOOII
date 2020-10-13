@@ -10,7 +10,7 @@ import dao.FormularioDAO;
 import modelo.Formulario;
 import visao.JanelaPrincipal;
 
-public class FormularioControle implements ActionListener, MouseListener{
+public class FormularioControle implements ActionListener, MouseListener {
 
 	private JanelaPrincipal janelaPrincipal;
 	private FormularioDAO formularioDAO;
@@ -23,14 +23,14 @@ public class FormularioControle implements ActionListener, MouseListener{
 		this.janelaPrincipal.getButtonFazerReserva().addActionListener(this);
 		this.janelaPrincipal.getLabelAvancarPainelInicioFormulario().addMouseListener(this);
 	}
-	
+
 	public void salvarRequisicao() {
 		String solicitante, telefone, email, atividade, modalidade, curso, equipamentos;
 		Date[] data;
 		int numeroAlunos;
 		int[] horaInicial, horaFinal;
 		Formulario formulario;
-		
+
 		solicitante = this.janelaPrincipal.getFieldSolicitante().getText();
 		telefone = this.janelaPrincipal.getFieldTelefone().getText();
 		email = this.janelaPrincipal.getFieldEmail().getText();
@@ -38,17 +38,18 @@ public class FormularioControle implements ActionListener, MouseListener{
 		modalidade = this.janelaPrincipal.getComboBoxModalidade().getSelectedItem().toString();
 		curso = this.janelaPrincipal.getComboBoxCurso().getSelectedItem().toString();
 		equipamentos = "teste";
-		//equipamentos = this.janelaPrincipal
+		// equipamentos = this.janelaPrincipal
 		numeroAlunos = Integer.parseInt(this.janelaPrincipal.getFieldNumeroAlunos().getText());
-		
-		for(int i = 0; i<6; i++) {
+
+		for (int i = 0; i < 6; i++) {
 //			data[i] = this.janelaPrincipal
 //			horaInicial[i] = this.janelaPrincipal.getComboBoxInicioDia()+i;
 //			horaFinal[i] = this.janelaPrincipal.getComboBoxFinalDia()+i;	
 		}
-		
-		//formulario = new Formulario(solicitante, telefone, email, numeroAlunos, atividade, modalidade, curso, equipamentos, data, horaInicial, horaFinal);
-		
+
+		// formulario = new Formulario(solicitante, telefone, email, numeroAlunos,
+		// atividade, modalidade, curso, equipamentos, data, horaInicial, horaFinal);
+
 //		if(validarCampos()) {
 //			//boolean insercao = formularioDAO.inserirRequisicao(formulario, usuarioControle.getUsuarioId());
 //			if(insercao) {
@@ -67,69 +68,77 @@ public class FormularioControle implements ActionListener, MouseListener{
 //				this.janelaPrincipal.mensagemRequisicaoErro();
 //			}	
 //		}
-		
+
 	}
 
 	public void trocarPainel(String nomePainel) {
 		this.janelaPrincipal.trocarPainel(nomePainel);
 	}
-	
+
 	public boolean validarCampos() {
-		//Co'digo para validar os campos
+		// Co'digo para validar os campos
 		return false;
 	}
-	
+
 	public boolean validarReserva(Date data, int horaInicial, int horaFinal) {
-		//Co'digo para validar os campos do periodo (data, hora de inicio e de fim)
+		// Co'digo para validar os campos do periodo (data, hora de inicio e de fim)
 		return false;
 	}
-	
+
 	public void limparCampos() {
-		//Co'digo para limpar campos da tela
+		// Co'digo para limpar campos da tela
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent evento) {
 		// TODO Auto-generated method stub
-		if(evento.getActionCommand().equals("Reservar")) {
+		if (evento.getActionCommand().equals("Reservar")) {
 			trocarPainel("painelInicioFormulario");
 		}
-		if(evento.getActionCommand().equals("Finalizar")) {
+		if (evento.getActionCommand().equals("Finalizar")) {
 			salvarRequisicao();
 		}
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if(arg0.getComponent() == this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
-			trocarPainel("painelInicial");
-			System.out.println(this.janelaPrincipal.getButtonGroupAtividade().getSelection().getActionCommand());
+
+		// avancar para o painel Data
+		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
+
+			trocarPainel("painelData");	
 		}
+
+		// if(arg0.getComponent() ==
+		// this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
+		// trocarPainel("painelInicial");
+		// System.out.println(this.janelaPrincipal.getButtonGroupAtividade().getSelection().getActionCommand());
+		// }
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent arg0) {
+	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

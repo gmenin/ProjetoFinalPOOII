@@ -295,7 +295,7 @@ public class JanelaPrincipal extends JFrame {
 
 		// Implementacao do Painel de seleção de data
 		painelData = new JPanel();
-		contentPane.add(painelData, "name_350548723307600");
+		contentPane.add(painelData, "painelData");
 		painelData.setBackground(new Color(30, 76, 118));
 		painelData.setLayout(new MigLayout("", "60[grow]30[200]30[200]60", "40[]40[]40[]40[]40[]40[]40[]40[]40"));
 
