@@ -98,6 +98,8 @@ public class JanelaPrincipal extends JFrame {
 	private JCheckBox chckbxEquipamentoDeAudio;
 	private JCheckBox chckbxEquipamentoDvd;
 	private JTextField txtOutroEquipamento;
+	private JButton btnVoltarequipamentos;
+	private JButton btnProximoequipamentos;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -391,7 +393,7 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.add(painelEquipamentos, "name_350548723307600");
 		painelEquipamentos.setBackground(new Color(30, 76, 118));
 		painelEquipamentos
-				.setLayout(new MigLayout("", "50[grow]30[grow]40", "40[]60[]20[]20[]20[]40[]"));
+				.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[][]"));
 		//<html><div style=\"text-align: center;\">Formul\u00E1rio Digital para <br />Reserva de Sala de Aula</html>"
 		lblAvisoEquipamento = new JLabel("<html><div style=\\\"text-align: center;\\\"><br /> Obs.: Todas as salas possuem computador e equipamento multim\u00EDdia.   Outros <br />equipamentos devem ser solicitados com anteced\u00EAncia m\u00EDnima de 24 horas ao <br />Setor de Apoio \u00E0s Salas de Aula.   Reserva para eventos devre\u00E3o ser realizados no <br />protocolo, com no m\u00EDnimo 45 dias de anteced\u00EAncia, conforme normas institucionais.</html>");
 		lblAvisoEquipamento.setForeground(Color.WHITE);
@@ -437,6 +439,16 @@ public class JanelaPrincipal extends JFrame {
 		txtOutroEquipamento.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelEquipamentos.add(txtOutroEquipamento, "cell 1 4,growx");
 		txtOutroEquipamento.setColumns(10);
+		
+		btnVoltarequipamentos = new JButton("\r\n");
+		btnVoltarequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
+		btnVoltarequipamentos.setBackground(new Color(30, 76, 118));
+		painelEquipamentos.add(btnVoltarequipamentos, "cell 0 6");
+		
+		btnProximoequipamentos = new JButton("");
+		btnProximoequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
+		btnProximoequipamentos.setBackground(new Color(30, 76, 118));
+		painelEquipamentos.add(btnProximoequipamentos, "cell 1 6,alignx right");
 
 	}
 
