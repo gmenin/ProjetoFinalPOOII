@@ -115,12 +115,12 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getComboBoxInicioDia4().setSelectedIndex(-1);
 		this.janelaPrincipal.getComboBoxInicioDia5().setSelectedIndex(-1);
 		this.janelaPrincipal.getComboBoxInicioDia6().setSelectedIndex(-1);
-		this.janelaPrincipal.getChckbxEquipamentoDeAudio().setSelected(false);
-		this.janelaPrincipal.getChckbxEquipamentoDvd().setSelected(false);
-		this.janelaPrincipal.getChckbxOutroEspecificar().setSelected(false);
-		this.janelaPrincipal.getChckbxProjetorDeSlides().setSelected(false);
-		this.janelaPrincipal.getChckbxRetroprojetor().setSelected(false);
-		this.janelaPrincipal.getTxtOutroEquipamento().setText("");
+		this.janelaPrincipal.getCheckboxEquipamentoDeAudio().setSelected(false);
+		this.janelaPrincipal.getCheckboxEquipamentoDvd().setSelected(false);
+		this.janelaPrincipal.getCheckboxOutroEspecificar().setSelected(false);
+		this.janelaPrincipal.getCheckboxProjetorDeSlides().setSelected(false);
+		this.janelaPrincipal.getCheckboxRetroprojetor().setSelected(false);
+		this.janelaPrincipal.getFieldEspecificacao().setText("");
 
 	}
 
