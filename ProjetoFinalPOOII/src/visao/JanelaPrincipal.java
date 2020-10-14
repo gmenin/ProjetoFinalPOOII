@@ -307,7 +307,7 @@ public class JanelaPrincipal extends JFrame {
 		painelData = new JPanel();
 		contentPane.add(painelData, "painelData");
 		painelData.setBackground(new Color(30, 76, 118));
-		painelData.setLayout(new MigLayout("", "40[grow]30[220]30[220]40", "[]40[]40[]40[]40[]40[]40[]70[30]5"));
+		painelData.setLayout(new MigLayout("", "40[grow]30[220]30[220]40", "50[]40[]40[]40[]40[]40[]40[]50[30]5"));
 
 		String[] numeroDias = { "1 Dia", "2 Dias", "3 Dias", "4 Dias", "5 Dias", "6 Dias" };
 		comboBoxQtdDias = new JComboBox(numeroDias);
