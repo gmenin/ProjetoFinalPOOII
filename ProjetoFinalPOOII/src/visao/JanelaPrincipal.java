@@ -523,6 +523,10 @@ public class JanelaPrincipal extends JFrame {
 		return chckbxEquipamentoDvd;
 	}
 
+	public void setChckbxEquipamentoDvd(JCheckBox chckbxEquipamentoDvd) {
+		this.chckbxEquipamentoDvd = chckbxEquipamentoDvd;
+	}
+
 	public JDateChooser getDataPanelDia1() {
 		return dataPanelDia1;
 	}
@@ -569,10 +573,6 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setDataPanelDia6(JDateChooser dataPanelDia6) {
 		this.dataPanelDia6 = dataPanelDia6;
-	}
-
-	public void setChckbxEquipamentoDvd(JCheckBox chckbxEquipamentoDvd) {
-		this.chckbxEquipamentoDvd = chckbxEquipamentoDvd;
 	}
 
 	public JTextField getTxtOutroEquipamento() {
