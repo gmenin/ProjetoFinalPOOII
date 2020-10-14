@@ -317,6 +317,7 @@ public class JanelaPrincipal extends JFrame {
 		painelData.add(comboBoxQtdDias, "flowx,cell 0 0,growx");
 
 		buttonVerificaQtd = new JButton("OK");
+		buttonVerificaQtd.setActionCommand("OKdias");
 		buttonVerificaQtd.setFont(new Font("Arial", Font.PLAIN, 16));
 		buttonVerificaQtd.setPreferredSize(new Dimension(100, 10));
 		painelData.add(buttonVerificaQtd, "cell 1 0");
@@ -520,6 +521,54 @@ public class JanelaPrincipal extends JFrame {
 
 	public JCheckBox getChckbxEquipamentoDvd() {
 		return chckbxEquipamentoDvd;
+	}
+
+	public JDateChooser getDataPanelDia1() {
+		return dataPanelDia1;
+	}
+
+	public void setDataPanelDia1(JDateChooser dataPanelDia1) {
+		this.dataPanelDia1 = dataPanelDia1;
+	}
+
+	public JDateChooser getDataPanelDia2() {
+		return dataPanelDia2;
+	}
+
+	public void setDataPanelDia2(JDateChooser dataPanelDia2) {
+		this.dataPanelDia2 = dataPanelDia2;
+	}
+
+	public JDateChooser getDataPanelDia3() {
+		return dataPanelDia3;
+	}
+
+	public void setDataPanelDia3(JDateChooser dataPanelDia3) {
+		this.dataPanelDia3 = dataPanelDia3;
+	}
+
+	public JDateChooser getDataPanelDia4() {
+		return dataPanelDia4;
+	}
+
+	public void setDataPanelDia4(JDateChooser dataPanelDia4) {
+		this.dataPanelDia4 = dataPanelDia4;
+	}
+
+	public JDateChooser getDataPanelDia5() {
+		return dataPanelDia5;
+	}
+
+	public void setDataPanelDia5(JDateChooser dataPanelDia5) {
+		this.dataPanelDia5 = dataPanelDia5;
+	}
+
+	public JDateChooser getDataPanelDia6() {
+		return dataPanelDia6;
+	}
+
+	public void setDataPanelDia6(JDateChooser dataPanelDia6) {
+		this.dataPanelDia6 = dataPanelDia6;
 	}
 
 	public void setChckbxEquipamentoDvd(JCheckBox chckbxEquipamentoDvd) {
