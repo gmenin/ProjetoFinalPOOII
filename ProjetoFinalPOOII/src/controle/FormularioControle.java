@@ -26,6 +26,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getLabelAvancarPainelData().addMouseListener(this);
 		this.janelaPrincipal.getLabelVoltarequipamentos().addMouseListener(this);
 		this.janelaPrincipal.getLabelProximoequipamentos().addMouseListener(this);
+		this.janelaPrincipal.getButtonVerificaQtd().addActionListener(this);
 	}
 
 	public void salvarRequisicao() {
@@ -132,6 +133,116 @@ public class FormularioControle implements ActionListener, MouseListener {
 		if (evento.getActionCommand().equals("Finalizar")) {
 			salvarRequisicao();
 		}
+		if (evento.getActionCommand().contentEquals("OKdias")) {
+
+			if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("1 Dia")) {
+
+				this.janelaPrincipal.getComboBoxInicioDia2().setVisible(false);
+				this.janelaPrincipal.getComboBoxInicioDia3().setVisible(false);
+				this.janelaPrincipal.getComboBoxInicioDia4().setVisible(false);
+				this.janelaPrincipal.getComboBoxInicioDia5().setVisible(false);
+				this.janelaPrincipal.getComboBoxInicioDia6().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia2().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia3().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia4().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia5().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia6().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia2().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia3().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia4().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia5().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia6().setVisible(false);
+			}
+
+			else if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("2 Dias")) {
+
+				this.janelaPrincipal.getComboBoxInicioDia2().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia3().setVisible(false);
+				this.janelaPrincipal.getComboBoxInicioDia4().setVisible(false);
+				this.janelaPrincipal.getComboBoxInicioDia5().setVisible(false);
+				this.janelaPrincipal.getComboBoxInicioDia6().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia2().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia3().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia4().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia5().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia6().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia2().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia3().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia4().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia5().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia6().setVisible(false);
+			}
+
+			else if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("3 Dias")) {
+
+				this.janelaPrincipal.getComboBoxInicioDia2().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia3().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia4().setVisible(false);
+				this.janelaPrincipal.getComboBoxInicioDia5().setVisible(false);
+				this.janelaPrincipal.getComboBoxInicioDia6().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia2().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia3().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia4().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia5().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia6().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia2().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia3().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia4().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia5().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia6().setVisible(false);
+
+			} else if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("4 Dias")) {
+				this.janelaPrincipal.getComboBoxInicioDia2().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia3().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia4().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia5().setVisible(false);
+				this.janelaPrincipal.getComboBoxInicioDia6().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia2().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia3().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia4().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia5().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia6().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia2().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia3().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia4().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia5().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia6().setVisible(false);
+
+			} else if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("5 Dias")) {
+
+				this.janelaPrincipal.getComboBoxInicioDia2().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia3().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia4().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia5().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia6().setVisible(false);
+				this.janelaPrincipal.getDataPanelDia2().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia3().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia4().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia5().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia6().setVisible(false);
+				this.janelaPrincipal.getComboBoxFimDia2().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia3().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia4().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia5().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia6().setVisible(false);
+			} else if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("6 Dias")) {
+				this.janelaPrincipal.getComboBoxInicioDia2().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia3().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia4().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia5().setVisible(true);
+				this.janelaPrincipal.getComboBoxInicioDia6().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia2().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia3().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia4().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia5().setVisible(true);
+				this.janelaPrincipal.getDataPanelDia6().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia2().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia3().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia4().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia5().setVisible(true);
+				this.janelaPrincipal.getComboBoxFimDia6().setVisible(true);
+			}
+		}
 	}
 
 	@Override
@@ -139,11 +250,11 @@ public class FormularioControle implements ActionListener, MouseListener {
 		// TODO Auto-generated method stub
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
 			trocarPainel("painelData");
-			
+
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelData()) {
 			trocarPainel("painelInicioFormulario");
-			
+
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelData()) {
 			trocarPainel("painelEquipamentos");
@@ -153,9 +264,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 			trocarPainel("painelData");
 
 		}
-		if(e.getComponent()==this.janelaPrincipal.getLabelProximoequipamentos()) {
-			
-			
+		if (e.getComponent() == this.janelaPrincipal.getLabelProximoequipamentos()) {
 
 		}
 	}

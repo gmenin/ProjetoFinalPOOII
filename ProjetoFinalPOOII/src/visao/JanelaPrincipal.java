@@ -491,6 +491,14 @@ public class JanelaPrincipal extends JFrame {
 		return chckbxProjetorDeSlides;
 	}
 
+	public JButton getButtonVerificaQtd() {
+		return buttonVerificaQtd;
+	}
+
+	public void setButtonVerificaQtd(JButton buttonVerificaQtd) {
+		this.buttonVerificaQtd = buttonVerificaQtd;
+	}
+
 	public void setChckbxProjetorDeSlides(JCheckBox chckbxProjetorDeSlides) {
 		this.chckbxProjetorDeSlides = chckbxProjetorDeSlides;
 	}
