@@ -220,7 +220,7 @@ public class JanelaPrincipal extends JFrame {
 		painelInicioFormulario.add(labelTelefone, "cell 0 2");
 
 		fieldTelefone = new JTextField();
-		fieldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		fieldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldTelefone, "cell 1 2 3 1,grow");
 		fieldTelefone.setColumns(10);
 
@@ -307,7 +307,7 @@ public class JanelaPrincipal extends JFrame {
 		painelData = new JPanel();
 		contentPane.add(painelData, "painelData");
 		painelData.setBackground(new Color(30, 76, 118));
-		painelData.setLayout(new MigLayout("", "40[grow]30[220]30[220]40", "50[]40[]40[]40[]40[]40[]40[]40[30]5"));
+		painelData.setLayout(new MigLayout("", "40[grow]30[220]30[220]40", "[]40[]40[]40[]40[]40[]40[]40[30]5"));
 
 		String[] numeroDias = { "1 Dia", "2 Dias", "3 Dias", "4 Dias", "5 Dias", "6 Dias" };
 		comboBoxQtdDias = new JComboBox(numeroDias);
@@ -322,100 +322,137 @@ public class JanelaPrincipal extends JFrame {
 		buttonVerificaQtd.setPreferredSize(new Dimension(100, 10));
 		painelData.add(buttonVerificaQtd, "cell 1 0");
 
-		String[] horaInicial = { "7 Hrs", "8 Hrs", "9 Hrs", "10 Hrs", "11 Hrs", "12 Hrs", "13 Hrs", "14 Hrs", "15 Hrs",
-				"16 Hrs", "17 Hrs", "18 Hrs", "19 Hrs", "20 Hrs", "21 Hrs", "22 Hrs" };
+		String[] horaInicial = { "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
+				"22" };
 
 		dataPanelDia1 = new JDateChooser();
 		painelData.add(dataPanelDia1, "cell 0 1,grow");
+		dataPanelDia1.setVisible(false);
+		dataPanelDia1.setEnabled(false);
+
 		comboBoxInicioDia1 = new JComboBox(horaInicial);
 		comboBoxInicioDia1.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
 		comboBoxInicioDia1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia1.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia1, "cell 1 1,growx");
+		comboBoxInicioDia1.setVisible(false);
+		comboBoxInicioDia1.setEnabled(false);
 
 		dataPanelDia2 = new JDateChooser();
 		painelData.add(dataPanelDia2, "cell 0 2,grow");
+		dataPanelDia2.setVisible(false);
+		dataPanelDia2.setEnabled(false);
 
 		comboBoxInicioDia2 = new JComboBox(horaInicial);
 		comboBoxInicioDia2.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
 		comboBoxInicioDia2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia2.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia2, "cell 1 2,growx");
+		comboBoxInicioDia2.setVisible(false);
+		comboBoxInicioDia2.setEnabled(false);
 
 		dataPanelDia3 = new JDateChooser();
 		painelData.add(dataPanelDia3, "cell 0 3,grow");
+		dataPanelDia3.setVisible(false);
+		dataPanelDia3.setEnabled(false);
 
 		comboBoxInicioDia3 = new JComboBox(horaInicial);
 		comboBoxInicioDia3.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
 		comboBoxInicioDia3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia3.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia3, "cell 1 3,growx");
+		comboBoxInicioDia3.setVisible(false);
+		comboBoxInicioDia3.setEnabled(false);
 
 		dataPanelDia4 = new JDateChooser();
 		painelData.add(dataPanelDia4, "cell 0 4,grow");
+		dataPanelDia4.setVisible(false);
+		dataPanelDia4.setEnabled(false);
 
 		comboBoxInicioDia4 = new JComboBox(horaInicial);
 		comboBoxInicioDia4.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
 		comboBoxInicioDia4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia4.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia4, "cell 1 4,growx");
+		comboBoxInicioDia4.setVisible(false);
+		comboBoxInicioDia4.setEnabled(false);
 
 		dataPanelDia5 = new JDateChooser();
 		painelData.add(dataPanelDia5, "cell 0 5,grow");
+		dataPanelDia5.setVisible(false);
+		dataPanelDia5.setEnabled(false);
 
 		comboBoxInicioDia5 = new JComboBox(horaInicial);
 		comboBoxInicioDia5.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
 		comboBoxInicioDia5.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia5.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia5, "cell 1 5,growx");
+		comboBoxInicioDia5.setVisible(false);
+		comboBoxInicioDia5.setEnabled(false);
 
 		dataPanelDia6 = new JDateChooser();
 		painelData.add(dataPanelDia6, "cell 0 6,grow");
+		dataPanelDia6.setVisible(false);
+		dataPanelDia6.setEnabled(false);
 
 		comboBoxInicioDia6 = new JComboBox(horaInicial);
 		comboBoxInicioDia6.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
 		comboBoxInicioDia6.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia6.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia6, "cell 1 6,growx");
+		comboBoxInicioDia6.setVisible(false);
+		comboBoxInicioDia6.setEnabled(false);
 
-		String[] horaFinal = { "8 Hrs", "9 Hrs", "10 Hrs", "11 Hrs", "12 Hrs", "13 Hrs", "14 Hrs", "15 Hrs", "16 Hrs",
-				"17 Hrs", "18 Hrs", "19 Hrs", "20 Hrs", "21 Hrs", "22 Hrs", "23 Hrs" };
+		String[] horaFinal = { "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22",
+				"23" };
 
 		comboBoxFimDia1 = new JComboBox(horaFinal);
 		comboBoxFimDia1.setRenderer(new MyComboBoxRenderer("Selecione o horário final"));
 		comboBoxFimDia1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxFimDia1.setSelectedIndex(-1);
 		painelData.add(comboBoxFimDia1, "cell 2 1,growx");
+		comboBoxFimDia1.setVisible(false);
+		comboBoxFimDia1.setEnabled(false);
 
 		comboBoxFimDia2 = new JComboBox(horaFinal);
 		comboBoxFimDia2.setRenderer(new MyComboBoxRenderer("Selecione o horário final"));
 		comboBoxFimDia2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxFimDia2.setSelectedIndex(-1);
 		painelData.add(comboBoxFimDia2, "cell 2 2,growx");
+		comboBoxFimDia2.setVisible(false);
+		comboBoxFimDia2.setEnabled(false);
 
 		comboBoxFimDia3 = new JComboBox(horaFinal);
 		comboBoxFimDia3.setRenderer(new MyComboBoxRenderer("Selecione o horário final"));
 		comboBoxFimDia3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxFimDia3.setSelectedIndex(-1);
 		painelData.add(comboBoxFimDia3, "cell 2 3,growx");
+		comboBoxFimDia3.setVisible(false);
+		comboBoxFimDia3.setEnabled(false);
 
 		comboBoxFimDia4 = new JComboBox(horaFinal);
 		comboBoxFimDia4.setRenderer(new MyComboBoxRenderer("Selecione o horário final"));
 		comboBoxFimDia4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxFimDia4.setSelectedIndex(-1);
 		painelData.add(comboBoxFimDia4, "cell 2 4,growx");
+		comboBoxFimDia4.setVisible(false);
+		comboBoxFimDia4.setEnabled(false);
 
 		comboBoxFimDia5 = new JComboBox(horaFinal);
 		comboBoxFimDia5.setRenderer(new MyComboBoxRenderer("Selecione o horário final"));
 		comboBoxFimDia5.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxFimDia5.setSelectedIndex(-1);
 		painelData.add(comboBoxFimDia5, "cell 2 5,growx");
+		comboBoxFimDia5.setVisible(false);
+		comboBoxFimDia5.setEnabled(false);
 
 		comboBoxFimDia6 = new JComboBox(horaFinal);
 		comboBoxFimDia6.setRenderer(new MyComboBoxRenderer("Selecione o horário final"));
 		comboBoxFimDia6.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxFimDia6.setSelectedIndex(-1);
 		painelData.add(comboBoxFimDia6, "cell 2 6,growx");
+		comboBoxFimDia6.setVisible(false);
+		comboBoxFimDia6.setEnabled(false);
 
 		labelVoltarPainelData = new JLabel("");
 		labelVoltarPainelData.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
@@ -444,31 +481,31 @@ public class JanelaPrincipal extends JFrame {
 		painelEquipamentos.add(labelOutrosEquipamentos, "cell 0 1,alignx left");
 
 		checkBoxProjetorDeSlides = new JCheckBox("     Projetor de Slides");
-		checkBoxProjetorDeSlides.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		checkBoxProjetorDeSlides.setFont(new Font("Arial", Font.PLAIN, 24));
 		checkBoxProjetorDeSlides.setBackground(new Color(30, 76, 118));
 		checkBoxProjetorDeSlides.setForeground(Color.WHITE);
 		painelEquipamentos.add(checkBoxProjetorDeSlides, "cell 0 2");
 
 		checkBoxEquipamentoDeAudio = new JCheckBox("     Equipamento de Audio");
-		checkBoxEquipamentoDeAudio.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		checkBoxEquipamentoDeAudio.setFont(new Font("Arial", Font.PLAIN, 24));
 		checkBoxEquipamentoDeAudio.setBackground(new Color(30, 76, 118));
 		checkBoxEquipamentoDeAudio.setForeground(Color.WHITE);
 		painelEquipamentos.add(checkBoxEquipamentoDeAudio, "cell 1 2");
 
 		checkBoxRetroprojetor = new JCheckBox("     Retroprojetor");
-		checkBoxRetroprojetor.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		checkBoxRetroprojetor.setFont(new Font("Arial", Font.PLAIN, 24));
 		checkBoxRetroprojetor.setBackground(new Color(30, 76, 118));
 		checkBoxRetroprojetor.setForeground(Color.WHITE);
 		painelEquipamentos.add(checkBoxRetroprojetor, "cell 0 3");
 
 		checkBoxEquipamentoDvd = new JCheckBox("     Equipamento DVD");
-		checkBoxEquipamentoDvd.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		checkBoxEquipamentoDvd.setFont(new Font("Arial", Font.PLAIN, 24));
 		checkBoxEquipamentoDvd.setBackground(new Color(30, 76, 118));
 		checkBoxEquipamentoDvd.setForeground(Color.WHITE);
 		painelEquipamentos.add(checkBoxEquipamentoDvd, "cell 1 3");
 
 		checkBoxOutroEspecificar = new JCheckBox("     Outro. Especificar: ");
-		checkBoxOutroEspecificar.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		checkBoxOutroEspecificar.setFont(new Font("Arial", Font.PLAIN, 24));
 		checkBoxOutroEspecificar.setBackground(new Color(30, 76, 118));
 		checkBoxOutroEspecificar.setForeground(Color.WHITE);
 		painelEquipamentos.add(checkBoxOutroEspecificar, "cell 0 4");
