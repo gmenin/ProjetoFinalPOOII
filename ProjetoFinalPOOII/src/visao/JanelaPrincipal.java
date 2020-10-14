@@ -38,6 +38,8 @@ import java.awt.geom.Line2D;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import java.awt.SystemColor;
+import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JCalendar;
 
 public class JanelaPrincipal extends JFrame {
 
@@ -102,6 +104,12 @@ public class JanelaPrincipal extends JFrame {
 	private JLabel labelProximoequipamentos;
 	private JLabel labelAvancarPainelData;
 	private JLabel labelVoltarPainelData;
+	private JDateChooser dataPanelDia1;
+	private JDateChooser dataPanelDia2;
+	private JDateChooser dataPanelDia3;
+	private JDateChooser dataPanelDia4;
+	private JDateChooser dataPanelDia5;
+	private JDateChooser dataPanelDia6;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -299,7 +307,7 @@ public class JanelaPrincipal extends JFrame {
 		painelData = new JPanel();
 		contentPane.add(painelData, "painelData");
 		painelData.setBackground(new Color(30, 76, 118));
-		painelData.setLayout(new MigLayout("", "50[grow]30[220]30[220]50", "40[]40[]40[]40[]40[]40[]40[]20[]40"));
+		painelData.setLayout(new MigLayout("", "40[grow]30[220]30[220]40", "[]40[]40[]40[]40[]40[]40[]87[30]5"));
 
 		String[] numeroDias = { "1 Dia", "2 Dias", "3 Dias", "4 Dias", "5 Dias", "6 Dias" };
 		comboBoxQtdDias = new JComboBox(numeroDias);
@@ -309,41 +317,59 @@ public class JanelaPrincipal extends JFrame {
 		painelData.add(comboBoxQtdDias, "flowx,cell 0 0,growx");
 
 		buttonVerificaQtd = new JButton("OK");
-		buttonVerificaQtd.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonVerificaQtd.setFont(new Font("Arial", Font.PLAIN, 16));
 		buttonVerificaQtd.setPreferredSize(new Dimension(100, 10));
 		painelData.add(buttonVerificaQtd, "cell 1 0");
 
 		String[] horaInicial = { "7 Hrs", "8 Hrs", "9 Hrs", "10 Hrs", "11 Hrs", "12 Hrs", "13 Hrs", "14 Hrs", "15 Hrs", "16 Hrs", "17 Hrs", "18 Hrs", "19 Hrs", "20 Hrs", "21 Hrs",
 				"22 Hrs" };
+		
+		dataPanelDia1 = new JDateChooser();
+		painelData.add(dataPanelDia1, "cell 0 1,grow");
 		comboBoxInicioDia1 = new JComboBox(horaInicial);
 		comboBoxInicioDia1.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
 		comboBoxInicioDia1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia1.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia1, "cell 1 1,growx");
+		
+		dataPanelDia2 = new JDateChooser();
+		painelData.add(dataPanelDia2, "cell 0 2,grow");
 
 		comboBoxInicioDia2 = new JComboBox(horaInicial);
 		comboBoxInicioDia2.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
 		comboBoxInicioDia2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia2.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia2, "cell 1 2,growx");
+		
+		dataPanelDia3 = new JDateChooser();
+		painelData.add(dataPanelDia3, "cell 0 3,grow");
 
 		comboBoxInicioDia3 = new JComboBox(horaInicial);
 		comboBoxInicioDia3.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
 		comboBoxInicioDia3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia3.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia3, "cell 1 3,growx");
+		
+		dataPanelDia4 = new JDateChooser();
+		painelData.add(dataPanelDia4, "cell 0 4,grow");
 
 		comboBoxInicioDia4 = new JComboBox(horaInicial);
 		comboBoxInicioDia4.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
 		comboBoxInicioDia4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia4.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia4, "cell 1 4,growx");
+		
+		dataPanelDia5 = new JDateChooser();
+		painelData.add(dataPanelDia5, "cell 0 5,grow");
 
 		comboBoxInicioDia5 = new JComboBox(horaInicial);
 		comboBoxInicioDia5.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
 		comboBoxInicioDia5.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia5.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia5, "cell 1 5,growx");
+		
+		dataPanelDia6 = new JDateChooser();
+		painelData.add(dataPanelDia6, "cell 0 6,grow");
 
 		comboBoxInicioDia6 = new JComboBox(horaInicial);
 		comboBoxInicioDia6.setRenderer(new MyComboBoxRenderer("Selecione o horário inicial"));
@@ -403,7 +429,7 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.add(painelEquipamentos, "painelEquipamentos");
 		painelEquipamentos.setBackground(new Color(30, 76, 118));
 		painelEquipamentos
-				.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[][]"));
+				.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[]26[30]5"));
 		//<html><div style=\"text-align: center;\">Formul\u00E1rio Digital para <br />Reserva de Sala de Aula</html>"
 		lblAvisoEquipamento = new JLabel("<html><div style=\\\"text-align: center;\\\"><br /> Obs.: Todas as salas possuem computador e equipamento multim\u00EDdia.   Outros <br />equipamentos devem ser solicitados com anteced\u00EAncia m\u00EDnima de 24 horas ao <br />Setor de Apoio \u00E0s Salas de Aula.   Reserva para eventos devre\u00E3o ser realizados no <br />protocolo, com no m\u00EDnimo 45 dias de anteced\u00EAncia, conforme normas institucionais.</html>");
 		lblAvisoEquipamento.setForeground(Color.WHITE);
