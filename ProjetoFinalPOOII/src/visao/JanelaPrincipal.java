@@ -527,6 +527,8 @@ public class JanelaPrincipal extends JFrame {
 		this.chckbxEquipamentoDvd = chckbxEquipamentoDvd;
 	}
 
+	
+
 	public JDateChooser getDataPanelDia1() {
 		return dataPanelDia1;
 	}
