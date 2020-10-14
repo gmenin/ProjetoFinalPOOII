@@ -92,14 +92,14 @@ public class JanelaPrincipal extends JFrame {
 	private JComboBox comboBoxFimDia5;
 	private JComboBox comboBoxFimDia6;
 	private JPanel painelEquipamentos;
-	private JLabel lblAvisoEquipamento;
-	private JLabel lblOutrosEquipamentos;
-	private JCheckBox chckbxProjetorDeSlides;
-	private JCheckBox chckbxRetroprojetor;
-	private JCheckBox chckbxOutroEspecificar;
-	private JCheckBox chckbxEquipamentoDeAudio;
-	private JCheckBox chckbxEquipamentoDvd;
-	private JTextField txtOutroEquipamento;
+	private JLabel labelAvisoEquipamento;
+	private JLabel labelOutrosEquipamentos;
+	private JCheckBox checkBoxProjetorDeSlides;
+	private JCheckBox checkBoxRetroprojetor;
+	private JCheckBox checkBoxOutroEspecificar;
+	private JCheckBox checkBoxEquipamentoDeAudio;
+	private JCheckBox checkBoxEquipamentoDvd;
+	private JTextField fieldEspecificacao;
 	private JLabel labelVoltarequipamentos;
 	private JLabel labelProximoequipamentos;
 	private JLabel labelAvancarPainelData;
@@ -322,9 +322,9 @@ public class JanelaPrincipal extends JFrame {
 		buttonVerificaQtd.setPreferredSize(new Dimension(100, 10));
 		painelData.add(buttonVerificaQtd, "cell 1 0");
 
-		String[] horaInicial = { "7 Hrs", "8 Hrs", "9 Hrs", "10 Hrs", "11 Hrs", "12 Hrs", "13 Hrs", "14 Hrs", "15 Hrs", "16 Hrs", "17 Hrs", "18 Hrs", "19 Hrs", "20 Hrs", "21 Hrs",
-				"22 Hrs" };
-		
+		String[] horaInicial = { "7 Hrs", "8 Hrs", "9 Hrs", "10 Hrs", "11 Hrs", "12 Hrs", "13 Hrs", "14 Hrs", "15 Hrs",
+				"16 Hrs", "17 Hrs", "18 Hrs", "19 Hrs", "20 Hrs", "21 Hrs", "22 Hrs" };
+
 		dataPanelDia1 = new JDateChooser();
 		painelData.add(dataPanelDia1, "cell 0 1,grow");
 		comboBoxInicioDia1 = new JComboBox(horaInicial);
@@ -332,7 +332,7 @@ public class JanelaPrincipal extends JFrame {
 		comboBoxInicioDia1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia1.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia1, "cell 1 1,growx");
-		
+
 		dataPanelDia2 = new JDateChooser();
 		painelData.add(dataPanelDia2, "cell 0 2,grow");
 
@@ -341,7 +341,7 @@ public class JanelaPrincipal extends JFrame {
 		comboBoxInicioDia2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia2.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia2, "cell 1 2,growx");
-		
+
 		dataPanelDia3 = new JDateChooser();
 		painelData.add(dataPanelDia3, "cell 0 3,grow");
 
@@ -350,7 +350,7 @@ public class JanelaPrincipal extends JFrame {
 		comboBoxInicioDia3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia3.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia3, "cell 1 3,growx");
-		
+
 		dataPanelDia4 = new JDateChooser();
 		painelData.add(dataPanelDia4, "cell 0 4,grow");
 
@@ -359,7 +359,7 @@ public class JanelaPrincipal extends JFrame {
 		comboBoxInicioDia4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia4.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia4, "cell 1 4,growx");
-		
+
 		dataPanelDia5 = new JDateChooser();
 		painelData.add(dataPanelDia5, "cell 0 5,grow");
 
@@ -368,7 +368,7 @@ public class JanelaPrincipal extends JFrame {
 		comboBoxInicioDia5.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxInicioDia5.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia5, "cell 1 5,growx");
-		
+
 		dataPanelDia6 = new JDateChooser();
 		painelData.add(dataPanelDia6, "cell 0 6,grow");
 
@@ -378,8 +378,8 @@ public class JanelaPrincipal extends JFrame {
 		comboBoxInicioDia6.setSelectedIndex(-1);
 		painelData.add(comboBoxInicioDia6, "cell 1 6,growx");
 
-		String[] horaFinal = { "8 Hrs", "9 Hrs", "10 Hrs", "11 Hrs", "12 Hrs", "13 Hrs", "14 Hrs", "15 Hrs", "16 Hrs", "17 Hrs", "18 Hrs", "19 Hrs", "20 Hrs", "21 Hrs",
-				"22 Hrs", "23 Hrs" };
+		String[] horaFinal = { "8 Hrs", "9 Hrs", "10 Hrs", "11 Hrs", "12 Hrs", "13 Hrs", "14 Hrs", "15 Hrs", "16 Hrs",
+				"17 Hrs", "18 Hrs", "19 Hrs", "20 Hrs", "21 Hrs", "22 Hrs", "23 Hrs" };
 
 		comboBoxFimDia1 = new JComboBox(horaFinal);
 		comboBoxFimDia1.setRenderer(new MyComboBoxRenderer("Selecione o horário final"));
@@ -416,11 +416,11 @@ public class JanelaPrincipal extends JFrame {
 		comboBoxFimDia6.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxFimDia6.setSelectedIndex(-1);
 		painelData.add(comboBoxFimDia6, "cell 2 6,growx");
-		
+
 		labelVoltarPainelData = new JLabel("");
 		labelVoltarPainelData.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
 		painelData.add(labelVoltarPainelData, "cell 0 7");
-		
+
 		labelAvancarPainelData = new JLabel("");
 		labelAvancarPainelData.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
 		painelData.add(labelAvancarPainelData, "cell 2 7,alignx right");
@@ -429,66 +429,111 @@ public class JanelaPrincipal extends JFrame {
 		painelEquipamentos = new JPanel();
 		contentPane.add(painelEquipamentos, "painelEquipamentos");
 		painelEquipamentos.setBackground(new Color(30, 76, 118));
-		painelEquipamentos
-				.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[]20[30]5"));
-		//<html><div style=\"text-align: center;\">Formul\u00E1rio Digital para <br />Reserva de Sala de Aula</html>"
-		lblAvisoEquipamento = new JLabel("<html><div style=\\\"text-align: center;\\\"><br /> Obs.: Todas as salas possuem computador e equipamento multim\u00EDdia.   Outros <br />equipamentos devem ser solicitados com anteced\u00EAncia m\u00EDnima de 24 horas ao <br />Setor de Apoio \u00E0s Salas de Aula.   Reserva para eventos devre\u00E3o ser realizados no <br />protocolo, com no m\u00EDnimo 45 dias de anteced\u00EAncia, conforme normas institucionais.</html>");
-		lblAvisoEquipamento.setForeground(Color.WHITE);
-		lblAvisoEquipamento.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelEquipamentos.add(lblAvisoEquipamento, "cell 0 0 2 1");
-		
-		lblOutrosEquipamentos = new JLabel("Outros Equipamentos");
-		lblOutrosEquipamentos.setForeground(Color.WHITE);
-		lblOutrosEquipamentos.setFont(new Font("Arial", Font.PLAIN, 30));
-		painelEquipamentos.add(lblOutrosEquipamentos, "cell 0 1,alignx left");
-		
-		chckbxProjetorDeSlides = new JCheckBox("     Projetor de Slides");
-		chckbxProjetorDeSlides.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		chckbxProjetorDeSlides.setBackground(new Color(30, 76, 118));
-		chckbxProjetorDeSlides.setForeground(Color.WHITE);
-		painelEquipamentos.add(chckbxProjetorDeSlides, "cell 0 2");
-		
-		chckbxEquipamentoDeAudio = new JCheckBox("     Equipamento de Audio");
-		chckbxEquipamentoDeAudio.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		chckbxEquipamentoDeAudio.setBackground(new Color(30, 76, 118));
-		chckbxEquipamentoDeAudio.setForeground(Color.WHITE);
-		painelEquipamentos.add(chckbxEquipamentoDeAudio, "cell 1 2");
-		
-		chckbxRetroprojetor = new JCheckBox("     Retroprojetor");
-		chckbxRetroprojetor.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		chckbxRetroprojetor.setBackground(new Color(30, 76, 118));
-		chckbxRetroprojetor.setForeground(Color.WHITE);
-		painelEquipamentos.add(chckbxRetroprojetor, "cell 0 3");
-		
-		chckbxEquipamentoDvd = new JCheckBox("     Equipamento DVD");
-		chckbxEquipamentoDvd.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		chckbxEquipamentoDvd.setBackground(new Color(30, 76, 118));
-		chckbxEquipamentoDvd.setForeground(Color.WHITE);
-		painelEquipamentos.add(chckbxEquipamentoDvd, "cell 1 3");
-		
-		chckbxOutroEspecificar = new JCheckBox("     Outro. Especificar: ");
-		chckbxOutroEspecificar.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		chckbxOutroEspecificar.setBackground(new Color(30, 76, 118));
-		chckbxOutroEspecificar.setForeground(Color.WHITE);
-		painelEquipamentos.add(chckbxOutroEspecificar, "cell 0 4");
-		
-		txtOutroEquipamento = new JTextField();
-		txtOutroEquipamento.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		painelEquipamentos.add(txtOutroEquipamento, "cell 1 4,growx");
-		txtOutroEquipamento.setColumns(10);
-		
+		painelEquipamentos.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[]20[30]5"));
+		// <html><div style=\"text-align: center;\">Formul\u00E1rio Digital para <br
+		// />Reserva de Sala de Aula</html>"
+		labelAvisoEquipamento = new JLabel(
+				"<html><div style=\\\"text-align: center;\\\"><br /> Obs.: Todas as salas possuem computador e equipamento multim\u00EDdia.   Outros <br />equipamentos devem ser solicitados com anteced\u00EAncia m\u00EDnima de 24 horas ao <br />Setor de Apoio \u00E0s Salas de Aula.   Reserva para eventos devre\u00E3o ser realizados no <br />protocolo, com no m\u00EDnimo 45 dias de anteced\u00EAncia, conforme normas institucionais.</html>");
+		labelAvisoEquipamento.setForeground(Color.WHITE);
+		labelAvisoEquipamento.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelEquipamentos.add(labelAvisoEquipamento, "cell 0 0 2 1");
+
+		labelOutrosEquipamentos = new JLabel("Outros Equipamentos");
+		labelOutrosEquipamentos.setForeground(Color.WHITE);
+		labelOutrosEquipamentos.setFont(new Font("Arial", Font.PLAIN, 30));
+		painelEquipamentos.add(labelOutrosEquipamentos, "cell 0 1,alignx left");
+
+		checkBoxProjetorDeSlides = new JCheckBox("     Projetor de Slides");
+		checkBoxProjetorDeSlides.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		checkBoxProjetorDeSlides.setBackground(new Color(30, 76, 118));
+		checkBoxProjetorDeSlides.setForeground(Color.WHITE);
+		painelEquipamentos.add(checkBoxProjetorDeSlides, "cell 0 2");
+
+		checkBoxEquipamentoDeAudio = new JCheckBox("     Equipamento de Audio");
+		checkBoxEquipamentoDeAudio.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		checkBoxEquipamentoDeAudio.setBackground(new Color(30, 76, 118));
+		checkBoxEquipamentoDeAudio.setForeground(Color.WHITE);
+		painelEquipamentos.add(checkBoxEquipamentoDeAudio, "cell 1 2");
+
+		checkBoxRetroprojetor = new JCheckBox("     Retroprojetor");
+		checkBoxRetroprojetor.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		checkBoxRetroprojetor.setBackground(new Color(30, 76, 118));
+		checkBoxRetroprojetor.setForeground(Color.WHITE);
+		painelEquipamentos.add(checkBoxRetroprojetor, "cell 0 3");
+
+		checkBoxEquipamentoDvd = new JCheckBox("     Equipamento DVD");
+		checkBoxEquipamentoDvd.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		checkBoxEquipamentoDvd.setBackground(new Color(30, 76, 118));
+		checkBoxEquipamentoDvd.setForeground(Color.WHITE);
+		painelEquipamentos.add(checkBoxEquipamentoDvd, "cell 1 3");
+
+		checkBoxOutroEspecificar = new JCheckBox("     Outro. Especificar: ");
+		checkBoxOutroEspecificar.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		checkBoxOutroEspecificar.setBackground(new Color(30, 76, 118));
+		checkBoxOutroEspecificar.setForeground(Color.WHITE);
+		painelEquipamentos.add(checkBoxOutroEspecificar, "cell 0 4");
+
+		fieldEspecificacao = new JTextField();
+		fieldEspecificacao.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		painelEquipamentos.add(fieldEspecificacao, "cell 1 4,growx");
+		fieldEspecificacao.setColumns(10);
+
 		labelVoltarequipamentos = new JLabel("");
 		labelVoltarequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
 		painelEquipamentos.add(labelVoltarequipamentos, "cell 0 6");
-		
+
 		labelProximoequipamentos = new JLabel("");
 		labelProximoequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
 		painelEquipamentos.add(labelProximoequipamentos, "cell 1 6,alignx right");
 
 	}
 
-	public JCheckBox getChckbxProjetorDeSlides() {
-		return chckbxProjetorDeSlides;
+	public JCheckBox getCheckBoxProjetorDeSlides() {
+		return checkBoxProjetorDeSlides;
+	}
+
+	public void setCheckBoxProjetorDeSlides(JCheckBox checkBoxProjetorDeSlides) {
+		this.checkBoxProjetorDeSlides = checkBoxProjetorDeSlides;
+	}
+
+	public JCheckBox getCheckBoxRetroprojetor() {
+		return checkBoxRetroprojetor;
+	}
+
+	public void setCheckBoxRetroprojetor(JCheckBox checkBoxRetroprojetor) {
+		this.checkBoxRetroprojetor = checkBoxRetroprojetor;
+	}
+
+	public JCheckBox getCheckBoxOutroEspecificar() {
+		return checkBoxOutroEspecificar;
+	}
+
+	public void setCheckBoxOutroEspecificar(JCheckBox checkBoxOutroEspecificar) {
+		this.checkBoxOutroEspecificar = checkBoxOutroEspecificar;
+	}
+
+	public JCheckBox getCheckBoxEquipamentoDeAudio() {
+		return checkBoxEquipamentoDeAudio;
+	}
+
+	public void setCheckBoxEquipamentoDeAudio(JCheckBox checkBoxEquipamentoDeAudio) {
+		this.checkBoxEquipamentoDeAudio = checkBoxEquipamentoDeAudio;
+	}
+
+	public JCheckBox getCheckBoxEquipamentoDvd() {
+		return checkBoxEquipamentoDvd;
+	}
+
+	public void setCheckBoxEquipamentoDvd(JCheckBox checkBoxEquipamentoDvd) {
+		this.checkBoxEquipamentoDvd = checkBoxEquipamentoDvd;
+	}
+
+	public JTextField getFieldEspecificacao() {
+		return fieldEspecificacao;
+	}
+
+	public void setFieldEspecificacao(JTextField fieldEspecificacao) {
+		this.fieldEspecificacao = fieldEspecificacao;
 	}
 
 	public JButton getButtonVerificaQtd() {
@@ -498,44 +543,6 @@ public class JanelaPrincipal extends JFrame {
 	public void setButtonVerificaQtd(JButton buttonVerificaQtd) {
 		this.buttonVerificaQtd = buttonVerificaQtd;
 	}
-
-	public void setChckbxProjetorDeSlides(JCheckBox chckbxProjetorDeSlides) {
-		this.chckbxProjetorDeSlides = chckbxProjetorDeSlides;
-	}
-
-	public JCheckBox getChckbxRetroprojetor() {
-		return chckbxRetroprojetor;
-	}
-
-	public void setChckbxRetroprojetor(JCheckBox chckbxRetroprojetor) {
-		this.chckbxRetroprojetor = chckbxRetroprojetor;
-	}
-
-	public JCheckBox getChckbxOutroEspecificar() {
-		return chckbxOutroEspecificar;
-	}
-
-	public void setChckbxOutroEspecificar(JCheckBox chckbxOutroEspecificar) {
-		this.chckbxOutroEspecificar = chckbxOutroEspecificar;
-	}
-
-	public JCheckBox getChckbxEquipamentoDeAudio() {
-		return chckbxEquipamentoDeAudio;
-	}
-
-	public void setChckbxEquipamentoDeAudio(JCheckBox chckbxEquipamentoDeAudio) {
-		this.chckbxEquipamentoDeAudio = chckbxEquipamentoDeAudio;
-	}
-
-	public JCheckBox getChckbxEquipamentoDvd() {
-		return chckbxEquipamentoDvd;
-	}
-
-	public void setChckbxEquipamentoDvd(JCheckBox chckbxEquipamentoDvd) {
-		this.chckbxEquipamentoDvd = chckbxEquipamentoDvd;
-	}
-
-	
 
 	public JDateChooser getDataPanelDia1() {
 		return dataPanelDia1;
@@ -583,14 +590,6 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setDataPanelDia6(JDateChooser dataPanelDia6) {
 		this.dataPanelDia6 = dataPanelDia6;
-	}
-
-	public JTextField getTxtOutroEquipamento() {
-		return txtOutroEquipamento;
-	}
-
-	public void setTxtOutroEquipamento(JTextField txtOutroEquipamento) {
-		this.txtOutroEquipamento = txtOutroEquipamento;
 	}
 
 	public void paint(Graphics g) {
@@ -861,7 +860,7 @@ public class JanelaPrincipal extends JFrame {
 	public void setLabelAvancarPainelInicioFormulario(JLabel labelAvancarPainelInicioFormulario) {
 		this.labelAvancarPainelInicioFormulario = labelAvancarPainelInicioFormulario;
 	}
-	
+
 	public JLabel getLabelVoltarPainelData() {
 		return labelVoltarPainelData;
 	}
@@ -869,7 +868,7 @@ public class JanelaPrincipal extends JFrame {
 	public void setLabelVoltarPainelData(JLabel labelVoltarPainelData) {
 		this.labelVoltarPainelData = labelVoltarPainelData;
 	}
-	
+
 	public JLabel getLabelAvancarPainelData() {
 		return labelAvancarPainelData;
 	}
