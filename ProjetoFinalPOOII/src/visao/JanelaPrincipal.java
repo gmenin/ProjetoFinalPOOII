@@ -476,7 +476,7 @@ public class JanelaPrincipal extends JFrame {
 		painelEquipamentos = new JPanel();
 		contentPane.add(painelEquipamentos, "painelEquipamentos");
 		painelEquipamentos.setBackground(new Color(30, 76, 118));
-		painelEquipamentos.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[]20[30]4"));
+		painelEquipamentos.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[]36[30]4"));
 
 		labelAvisoEquipamento = new JLabel(
 				"<html><div style=\\\"text-align: center;\\\"><br /> Obs.: Todas as salas possuem computador e equipamento multim\u00EDdia.   Outros <br />equipamentos devem ser solicitados com anteced\u00EAncia m\u00EDnima de 24 horas ao <br />Setor de Apoio \u00E0s Salas de Aula.   Reserva para eventos devre\u00E3o ser realizados no <br />protocolo, com no m\u00EDnimo 45 dias de anteced\u00EAncia, conforme normas institucionais.</html>");
