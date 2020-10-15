@@ -544,7 +544,7 @@ public class JanelaPrincipal extends JFrame {
 
 		Line2D li = new Line2D.Double(415, 90, 415, 265);
 		g2.setColor(Color.WHITE);
-		g2.setStroke(new BasicStroke(5));
+		g2.setStroke(new BasicStroke(4));
 		g2.draw(li);
 
 		g2.dispose();
