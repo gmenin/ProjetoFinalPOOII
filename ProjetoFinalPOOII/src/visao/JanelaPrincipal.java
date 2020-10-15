@@ -110,6 +110,10 @@ public class JanelaPrincipal extends JFrame {
 	private JDateChooser dataPanelDia4;
 	private JDateChooser dataPanelDia5;
 	private JDateChooser dataPanelDia6;
+	private JPanel painelConfirmarReserva;
+	private JLabel labelMensagemPainelConfirmarReserva;
+	private JButton buttonRevisar;
+	private JButton buttonFinalizar;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -531,6 +535,26 @@ public class JanelaPrincipal extends JFrame {
 		labelProximoequipamentos = new JLabel("");
 		labelProximoequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
 		painelEquipamentos.add(labelProximoequipamentos, "cell 1 6,alignx right");
+		
+		painelConfirmarReserva = new JPanel();
+		contentPane.add(painelConfirmarReserva, "name_119666830671800");
+		painelConfirmarReserva.setBackground(new Color(30, 76, 118));
+		painelConfirmarReserva.setLayout(new MigLayout("", "40[grow]40", "280[]40[]"));
+		
+		labelMensagemPainelConfirmarReserva = new JLabel("Deseja finalizar a solicita\u00E7\u00E3o?");
+		labelMensagemPainelConfirmarReserva.setForeground(Color.WHITE);
+		labelMensagemPainelConfirmarReserva.setFont(new Font("Arial", Font.PLAIN, 25));
+		painelConfirmarReserva.add(labelMensagemPainelConfirmarReserva, "cell 0 0,alignx center");
+		
+		buttonRevisar = new JButton("Revisar");
+		buttonRevisar.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonRevisar.setPreferredSize(new Dimension(200, 10));
+		painelConfirmarReserva.add(buttonRevisar, "flowx,cell 0 1,alignx center");
+		
+		buttonFinalizar = new JButton("Finalizar");
+		buttonFinalizar.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonFinalizar.setPreferredSize(new Dimension(200, 10));
+		painelConfirmarReserva.add(buttonFinalizar, "cell 0 1,alignx center");
 
 	}
 	
@@ -943,6 +967,22 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setButtonGroupAtividade(ButtonGroup buttonGroupAtividade) {
 		this.buttonGroupAtividade = buttonGroupAtividade;
+	}
+
+	public JButton getButtonRevisar() {
+		return buttonRevisar;
+	}
+
+	public void setButtonRevisar(JButton buttonRevisar) {
+		this.buttonRevisar = buttonRevisar;
+	}
+
+	public JButton getButtonFinalizar() {
+		return buttonFinalizar;
+	}
+
+	public void setButtonFinalizar(JButton buttonFinalizar) {
+		this.buttonFinalizar = buttonFinalizar;
 	}
 
 	// Classe para fixar mensagens não selecionaveis nos JComboBox presentes no
