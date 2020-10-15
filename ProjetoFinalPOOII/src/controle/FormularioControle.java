@@ -123,7 +123,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getFieldEspecificacao().setText("");
 
 	}
-	
+
 	public void mostrarCamposDatas() {
 		if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("1 Dia")) {
 
@@ -131,38 +131,53 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getComboBoxInicioDia1().setEnabled(true);
 			this.janelaPrincipal.getComboBoxInicioDia2().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia2().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia2().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxInicioDia3().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia3().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia3().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxInicioDia4().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia4().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia4().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxInicioDia5().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia5().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia5().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxInicioDia6().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia6().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia6().setSelectedIndex(-1);
 			this.janelaPrincipal.getDataPanelDia1().setVisible(true);
 			this.janelaPrincipal.getDataPanelDia1().setEnabled(true);
 			this.janelaPrincipal.getDataPanelDia2().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia2().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia2().getDateEditor().setDate(null);
 			this.janelaPrincipal.getDataPanelDia3().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia3().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia3().getDateEditor().setDate(null);
 			this.janelaPrincipal.getDataPanelDia4().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia4().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia4().getDateEditor().setDate(null);
 			this.janelaPrincipal.getDataPanelDia5().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia5().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia5().getDateEditor().setDate(null);
 			this.janelaPrincipal.getDataPanelDia6().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia6().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia6().getDateEditor().setDate(null);
 			this.janelaPrincipal.getComboBoxFimDia1().setVisible(true);
 			this.janelaPrincipal.getComboBoxFimDia1().setEnabled(true);
 			this.janelaPrincipal.getComboBoxFimDia2().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia2().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia2().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxFimDia3().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia3().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia3().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxFimDia4().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia4().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia4().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxFimDia5().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia5().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia5().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxFimDia6().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia6().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia6().setSelectedIndex(-1);
 		}
 
 		else if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("2 Dias")) {
@@ -173,36 +188,48 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getComboBoxInicioDia2().setEnabled(true);
 			this.janelaPrincipal.getComboBoxInicioDia3().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia3().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia3().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxInicioDia4().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia4().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia4().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxInicioDia5().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia5().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia5().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxInicioDia6().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia6().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia6().setSelectedIndex(-1);
 			this.janelaPrincipal.getDataPanelDia1().setVisible(true);
 			this.janelaPrincipal.getDataPanelDia1().setEnabled(true);
 			this.janelaPrincipal.getDataPanelDia2().setVisible(true);
 			this.janelaPrincipal.getDataPanelDia2().setEnabled(true);
 			this.janelaPrincipal.getDataPanelDia3().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia3().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia3().getDateEditor().setDate(null);
 			this.janelaPrincipal.getDataPanelDia4().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia4().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia4().getDateEditor().setDate(null);
 			this.janelaPrincipal.getDataPanelDia5().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia5().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia5().getDateEditor().setDate(null);
 			this.janelaPrincipal.getDataPanelDia6().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia6().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia6().getDateEditor().setDate(null);
 			this.janelaPrincipal.getComboBoxFimDia1().setVisible(true);
 			this.janelaPrincipal.getComboBoxFimDia1().setEnabled(true);
 			this.janelaPrincipal.getComboBoxFimDia2().setVisible(true);
 			this.janelaPrincipal.getComboBoxFimDia2().setEnabled(true);
 			this.janelaPrincipal.getComboBoxFimDia3().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia3().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia3().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxFimDia4().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia4().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia4().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxFimDia5().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia5().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia5().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxFimDia6().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia6().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia6().setSelectedIndex(-1);
 		}
 
 		else if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("3 Dias")) {
@@ -215,10 +242,13 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getComboBoxInicioDia3().setEnabled(true);
 			this.janelaPrincipal.getComboBoxInicioDia4().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia4().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia4().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxInicioDia5().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia5().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia5().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxInicioDia6().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia6().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia6().setSelectedIndex(-1);
 			this.janelaPrincipal.getDataPanelDia1().setVisible(true);
 			this.janelaPrincipal.getDataPanelDia1().setEnabled(true);
 			this.janelaPrincipal.getDataPanelDia2().setVisible(true);
@@ -227,10 +257,13 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getDataPanelDia3().setEnabled(true);
 			this.janelaPrincipal.getDataPanelDia4().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia4().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia4().getDateEditor().setDate(null);
 			this.janelaPrincipal.getDataPanelDia5().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia5().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia5().getDateEditor().setDate(null);
 			this.janelaPrincipal.getDataPanelDia6().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia6().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia6().getDateEditor().setDate(null);
 			this.janelaPrincipal.getComboBoxFimDia1().setVisible(true);
 			this.janelaPrincipal.getComboBoxFimDia1().setEnabled(true);
 			this.janelaPrincipal.getComboBoxFimDia2().setVisible(true);
@@ -239,12 +272,16 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getComboBoxFimDia3().setEnabled(true);
 			this.janelaPrincipal.getComboBoxFimDia4().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia4().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia4().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxFimDia5().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia5().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia5().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxFimDia6().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia6().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia6().setSelectedIndex(-1);
 
 		} else if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("4 Dias")) {
+
 			this.janelaPrincipal.getComboBoxInicioDia1().setVisible(true);
 			this.janelaPrincipal.getComboBoxInicioDia1().setEnabled(true);
 			this.janelaPrincipal.getComboBoxInicioDia2().setVisible(true);
@@ -255,8 +292,10 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getComboBoxInicioDia4().setEnabled(true);
 			this.janelaPrincipal.getComboBoxInicioDia5().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia5().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia5().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxInicioDia6().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia6().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia6().setSelectedIndex(-1);
 			this.janelaPrincipal.getDataPanelDia1().setVisible(true);
 			this.janelaPrincipal.getDataPanelDia1().setEnabled(true);
 			this.janelaPrincipal.getDataPanelDia2().setVisible(true);
@@ -267,8 +306,10 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getDataPanelDia4().setEnabled(true);
 			this.janelaPrincipal.getDataPanelDia5().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia5().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia5().getDateEditor().setDate(null);
 			this.janelaPrincipal.getDataPanelDia6().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia6().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia6().getDateEditor().setDate(null);
 			this.janelaPrincipal.getComboBoxFimDia1().setVisible(true);
 			this.janelaPrincipal.getComboBoxFimDia1().setEnabled(true);
 			this.janelaPrincipal.getComboBoxFimDia2().setVisible(true);
@@ -279,8 +320,10 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getComboBoxFimDia4().setEnabled(true);
 			this.janelaPrincipal.getComboBoxFimDia5().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia5().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia5().setSelectedIndex(-1);
 			this.janelaPrincipal.getComboBoxFimDia6().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia6().setEnabled(false);
+			this.janelaPrincipal.getComboBoxFimDia6().setSelectedIndex(-1);
 
 		} else if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("5 Dias")) {
 
@@ -296,6 +339,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getComboBoxInicioDia5().setEnabled(true);
 			this.janelaPrincipal.getComboBoxInicioDia6().setVisible(false);
 			this.janelaPrincipal.getComboBoxInicioDia6().setEnabled(false);
+			this.janelaPrincipal.getComboBoxInicioDia6().setSelectedIndex(-1);
 			this.janelaPrincipal.getDataPanelDia1().setVisible(true);
 			this.janelaPrincipal.getDataPanelDia1().setEnabled(true);
 			this.janelaPrincipal.getDataPanelDia2().setVisible(true);
@@ -308,6 +352,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getDataPanelDia5().setEnabled(true);
 			this.janelaPrincipal.getDataPanelDia6().setVisible(false);
 			this.janelaPrincipal.getDataPanelDia6().setEnabled(false);
+			this.janelaPrincipal.getDataPanelDia6().getDateEditor().setDate(null);
 			this.janelaPrincipal.getComboBoxFimDia1().setVisible(true);
 			this.janelaPrincipal.getComboBoxFimDia1().setEnabled(true);
 			this.janelaPrincipal.getComboBoxFimDia2().setVisible(true);
@@ -320,7 +365,8 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getComboBoxFimDia5().setEnabled(true);
 			this.janelaPrincipal.getComboBoxFimDia6().setVisible(false);
 			this.janelaPrincipal.getComboBoxFimDia6().setEnabled(false);
-			
+			this.janelaPrincipal.getComboBoxFimDia6().setSelectedIndex(-1);
+
 		} else if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("6 Dias")) {
 			this.janelaPrincipal.getComboBoxInicioDia1().setVisible(true);
 			this.janelaPrincipal.getComboBoxInicioDia1().setEnabled(true);
@@ -373,7 +419,6 @@ public class FormularioControle implements ActionListener, MouseListener {
 		if (evento.getActionCommand().equals("OKdias")) {
 			mostrarCamposDatas();
 		}
-
 
 	}
 
