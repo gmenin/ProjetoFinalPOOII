@@ -307,7 +307,7 @@ public class JanelaPrincipal extends JFrame {
 		painelData = new JPanel();
 		contentPane.add(painelData, "painelData");
 		painelData.setBackground(new Color(30, 76, 118));
-		painelData.setLayout(new MigLayout("", "40[grow]30[220]30[220]40", "[]40[]40[]40[]40[]40[]40[]40[30]5"));
+		painelData.setLayout(new MigLayout("", "40[grow]30[220]30[220]40", "35[]43[]40[]40[]40[]40[]40[]33[30]5"));
 
 		String[] numeroDias = { "1 Dia", "2 Dias", "3 Dias", "4 Dias", "5 Dias", "6 Dias" };
 		comboBoxQtdDias = new JComboBox(numeroDias);
@@ -466,7 +466,7 @@ public class JanelaPrincipal extends JFrame {
 		painelEquipamentos = new JPanel();
 		contentPane.add(painelEquipamentos, "painelEquipamentos");
 		painelEquipamentos.setBackground(new Color(30, 76, 118));
-		painelEquipamentos.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[]20[30]5"));
+		painelEquipamentos.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[]20[30]4"));
 		// <html><div style=\"text-align: center;\">Formul\u00E1rio Digital para <br
 		// />Reserva de Sala de Aula</html>"
 		labelAvisoEquipamento = new JLabel(
