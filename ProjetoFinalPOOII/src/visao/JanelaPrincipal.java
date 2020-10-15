@@ -123,7 +123,9 @@ public class JanelaPrincipal extends JFrame {
 		card = new CardLayout();
 		contentPane.setLayout(card);
 
+		// ----------------------------------
 		// Implementacao do Painel de Login
+		// ----------------------------------
 		painelLogin = new JPanel();
 		painelLogin.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelLogin, "painelLogin");
@@ -167,7 +169,9 @@ public class JanelaPrincipal extends JFrame {
 		labelInfo.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/informatiom_smaller.png")));
 		painelLogin.add(labelInfo, "flowx,cell 1 4,alignx right");
 
+		// ----------------------------------
 		// Imlementacao do Painel Inicial
+		// ----------------------------------
 		painelInicial = new JPanel();
 		painelInicial.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelInicial, "painelInicial");
@@ -198,7 +202,9 @@ public class JanelaPrincipal extends JFrame {
 		buttonFazerReserva.setPreferredSize(new Dimension(200, 10));
 		painelInicial.add(buttonFazerReserva, "cell 0 3,alignx center");
 
+		// -----------------------------------------------------
 		// Implementacao do Painel que da inicio ao formulario
+		// -----------------------------------------------------
 		painelInicioFormulario = new JPanel();
 		painelInicioFormulario.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelInicioFormulario, "painelInicioFormulario");
@@ -303,7 +309,9 @@ public class JanelaPrincipal extends JFrame {
 				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
 		painelInicioFormulario.add(labelAvancarPainelInicioFormulario, "cell 1 7,alignx right");
 
+		// --------------------------------------------
 		// Implementacao do Painel de seleção de data
+		// --------------------------------------------
 		painelData = new JPanel();
 		contentPane.add(painelData, "painelData");
 		painelData.setBackground(new Color(30, 76, 118));
@@ -462,13 +470,14 @@ public class JanelaPrincipal extends JFrame {
 		labelAvancarPainelData.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
 		painelData.add(labelAvancarPainelData, "cell 2 7,alignx right");
 
+		// -----------------------------------------------------
 		// Implementacao do Painel de seleção de equipamentos
+		// -----------------------------------------------------
 		painelEquipamentos = new JPanel();
 		contentPane.add(painelEquipamentos, "painelEquipamentos");
 		painelEquipamentos.setBackground(new Color(30, 76, 118));
 		painelEquipamentos.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[]20[30]4"));
-		// <html><div style=\"text-align: center;\">Formul\u00E1rio Digital para <br
-		// />Reserva de Sala de Aula</html>"
+
 		labelAvisoEquipamento = new JLabel(
 				"<html><div style=\\\"text-align: center;\\\"><br /> Obs.: Todas as salas possuem computador e equipamento multim\u00EDdia.   Outros <br />equipamentos devem ser solicitados com anteced\u00EAncia m\u00EDnima de 24 horas ao <br />Setor de Apoio \u00E0s Salas de Aula.   Reserva para eventos devre\u00E3o ser realizados no <br />protocolo, com no m\u00EDnimo 45 dias de anteced\u00EAncia, conforme normas institucionais.</html>");
 		labelAvisoEquipamento.setForeground(Color.WHITE);
@@ -524,7 +533,26 @@ public class JanelaPrincipal extends JFrame {
 		painelEquipamentos.add(labelProximoequipamentos, "cell 1 6,alignx right");
 
 	}
+	
+	//-----------------------------------------------
+	//------Rotina para inicialização de formas------ 
+	//-----------------------------------------------
+	public void paint(Graphics g) {
 
+		super.paint(g);
+		Graphics2D g2 = (Graphics2D) g;
+
+		Line2D li = new Line2D.Double(415, 90, 415, 265);
+		g2.setColor(Color.WHITE);
+		g2.setStroke(new BasicStroke(4));
+		g2.draw(li);
+
+		g2.dispose();
+	}
+	
+	//-----------------------------------------------
+	//----------Texto de Getters e Setters-----------
+	//-----------------------------------------------
 	public JCheckBox getCheckBoxProjetorDeSlides() {
 		return checkBoxProjetorDeSlides;
 	}
@@ -627,19 +655,6 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setDataPanelDia6(JDateChooser dataPanelDia6) {
 		this.dataPanelDia6 = dataPanelDia6;
-	}
-
-	public void paint(Graphics g) {
-
-		super.paint(g);
-		Graphics2D g2 = (Graphics2D) g;
-
-		Line2D li = new Line2D.Double(415, 90, 415, 265);
-		g2.setColor(Color.WHITE);
-		g2.setStroke(new BasicStroke(4));
-		g2.draw(li);
-
-		g2.dispose();
 	}
 
 	public JLabel getLabelInfo() {
@@ -955,7 +970,7 @@ public class JanelaPrincipal extends JFrame {
 		card.show(contentPane, nomePainel);
 	}
 
-	// Me'todos que quando chamados exibem mensagens
+	// Métodos que quando chamados exibem mensagens
 	// Mensagem de erro
 	public void mensagemErroAutenticacao() {
 		JOptionPane.showMessageDialog(this, "Usuário ou senha incorreto! Por favor, verifique os dados inseridos.",
