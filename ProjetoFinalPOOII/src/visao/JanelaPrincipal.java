@@ -114,6 +114,26 @@ public class JanelaPrincipal extends JFrame {
 	private JLabel labelMensagemPainelConfirmarReserva;
 	private JButton buttonRevisar;
 	private JButton buttonFinalizar;
+	private JPanel painelVerReserva;
+	private JLabel lblMinhasRequisies;
+	private JLabel labelPedido1;
+	private JLabel labelPedido2;
+	private JLabel labelPedido3;
+	private JLabel labelPedido4;
+	private JLabel labelPedido5;
+	private JLabel lblPedido6;
+	private JButton buttonAbrir1;
+	private JButton buttonAbrir2;
+	private JButton buttonAbrir3;
+	private JButton buttonAbrir4;
+	private JButton buttonAbrir5;
+	private JButton buttonAbrir6;
+	private JButton buttonEditar1;
+	private JButton buttonEditar2;
+	private JButton buttonEditar3;
+	private JButton buttonEditar4;
+	private JButton buttonEditar5;
+	private JButton buttonEditar6;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -555,6 +575,110 @@ public class JanelaPrincipal extends JFrame {
 		buttonFinalizar.setFont(new Font("Arial", Font.PLAIN, 20));
 		buttonFinalizar.setPreferredSize(new Dimension(200, 10));
 		painelConfirmarReserva.add(buttonFinalizar, "cell 0 1,alignx center");
+		
+		
+		// -----------------------------------------------------
+		// Implementacao do Painel Para ver reservas
+		// -----------------------------------------------------				
+		painelVerReserva = new JPanel();
+		painelVerReserva.setBackground(new Color(30, 76, 118));
+		contentPane.add(painelVerReserva, "painelVerReserva");
+		painelVerReserva.setLayout(new MigLayout("", "40[][grow][grow][grow]40", "50[]40[]25[]25[]25[]25[]25[]25[]"));
+		
+		lblMinhasRequisies = new JLabel("Minhas Requisi\u00E7\u00F5es");
+		lblMinhasRequisies.setForeground(Color.WHITE);
+		lblMinhasRequisies.setFont(new Font("Arial", Font.BOLD, 30));
+		painelVerReserva.add(lblMinhasRequisies, "cell 0 0 2 1");
+		
+		labelPedido1 = new JLabel("Pedido #1");
+		labelPedido1.setForeground(Color.WHITE);
+		labelPedido1.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(labelPedido1, "cell 0 1");
+		
+		buttonAbrir1 = new JButton("Abrir");
+		buttonAbrir1.setPreferredSize(new Dimension(200, 10));
+		buttonAbrir1.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonAbrir1, "cell 1 1,alignx center");
+		
+		buttonEditar1 = new JButton("Editar");
+		buttonEditar1.setPreferredSize(new Dimension(200, 10));
+		buttonEditar1.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonEditar1, "cell 2 1");
+		
+		labelPedido2 = new JLabel("Pedido #2");
+		labelPedido2.setForeground(Color.WHITE);
+		labelPedido2.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(labelPedido2, "cell 0 2");
+		
+		buttonAbrir2 = new JButton("Abrir");
+		buttonAbrir2.setPreferredSize(new Dimension(200, 10));
+		buttonAbrir2.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonAbrir2, "cell 1 2,alignx center");
+		
+		buttonEditar2 = new JButton("Editar");
+		buttonEditar2.setPreferredSize(new Dimension(200, 10));
+		buttonEditar2.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonEditar2, "cell 2 2");
+		
+		labelPedido3 = new JLabel("Pedido #3");
+		labelPedido3.setForeground(Color.WHITE);
+		labelPedido3.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(labelPedido3, "cell 0 3");
+		
+		buttonAbrir3 = new JButton("Abrir");
+		buttonAbrir3.setPreferredSize(new Dimension(200, 10));
+		buttonAbrir3.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonAbrir3, "cell 1 3,alignx center");
+		
+		buttonEditar3 = new JButton("Editar");
+		buttonEditar3.setPreferredSize(new Dimension(200, 10));
+		buttonEditar3.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonEditar3, "cell 2 3");
+		
+		labelPedido4 = new JLabel("Pedido #4");
+		labelPedido4.setForeground(Color.WHITE);
+		labelPedido4.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(labelPedido4, "cell 0 4");
+		
+		buttonAbrir4 = new JButton("Abrir");
+		buttonAbrir4.setPreferredSize(new Dimension(200, 10));
+		buttonAbrir4.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonAbrir4, "cell 1 4,alignx center");
+		
+		buttonEditar4 = new JButton("Editar");
+		buttonEditar4.setPreferredSize(new Dimension(200, 10));
+		buttonEditar4.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonEditar4, "cell 2 4");
+		
+		labelPedido5 = new JLabel("Pedido #5");
+		labelPedido5.setForeground(Color.WHITE);
+		labelPedido5.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(labelPedido5, "cell 0 5");
+		
+		buttonAbrir5 = new JButton("Abrir");
+		buttonAbrir5.setPreferredSize(new Dimension(200, 10));
+		buttonAbrir5.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonAbrir5, "cell 1 5,alignx center");
+		
+		buttonEditar5 = new JButton("Editar");
+		buttonEditar5.setPreferredSize(new Dimension(200, 10));
+		buttonEditar5.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonEditar5, "cell 2 5");
+		
+		lblPedido6 = new JLabel("Pedido #6");
+		lblPedido6.setForeground(Color.WHITE);
+		lblPedido6.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(lblPedido6, "cell 0 6");
+		
+		buttonAbrir6 = new JButton("Abrir");
+		buttonAbrir6.setPreferredSize(new Dimension(200, 10));
+		buttonAbrir6.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonAbrir6, "cell 1 6,alignx center");
+		
+		buttonEditar6 = new JButton("Editar");
+		buttonEditar6.setPreferredSize(new Dimension(200, 10));
+		buttonEditar6.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonEditar6, "cell 2 6");
 
 	}
 	
