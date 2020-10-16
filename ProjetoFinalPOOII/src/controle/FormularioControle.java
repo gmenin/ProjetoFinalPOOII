@@ -80,9 +80,45 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.trocarPainel(nomePainel);
 	}
 
-	public boolean validarCampos() {
+	public boolean validarCamposSolicitante() {
 		// Co'digo para validar os campos
-		return false;
+		if (this.janelaPrincipal.getFieldTelefone().getText().isEmpty()
+				|| this.janelaPrincipal.getFieldEmail().getText().isEmpty()
+				|| this.janelaPrincipal.getFieldNumeroAlunos().getText().isEmpty()
+				|| this.janelaPrincipal.getFieldSolicitante().getText().isEmpty()
+				|| this.janelaPrincipal.getComboBoxModalidade().getSelectedIndex() == -1
+				|| this.janelaPrincipal.getComboBoxCurso().getSelectedIndex() == -1) {
+			this.janelaPrincipal.erroCampos();
+
+			return false;
+		}
+		return true;
+	}
+
+	/*public boolean validarCamposData() {
+
+		if (this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() == -1
+				|| this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() == -1
+				|| this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() == -1
+				|| this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() == -1
+				|| this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() == -1
+				|| this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() == -1) {
+			this.janelaPrincipal.erroCampos();
+			return false;
+		}
+		return true;
+	}
+*/
+	public boolean validarCamposEquipamentos() {
+
+		if (this.janelaPrincipal.getCheckBoxOutroEspecificar().isSelected()
+			&& this.janelaPrincipal.getFieldEspecificacao().getText().isEmpty())
+
+		{
+			this.janelaPrincipal.erroCampos();
+			return false;
+		}
+		return true;
 	}
 
 	public boolean validarReserva(Date data, int horaInicial, int horaFinal) {
@@ -125,6 +161,8 @@ public class FormularioControle implements ActionListener, MouseListener {
 	}
 
 	public void mostrarCamposDatas() {
+		// Código para tornar visivel ou não os campos do painelData
+
 		if (this.janelaPrincipal.getComboBoxQtdDias().getSelectedItem().equals("1 Dia")) {
 
 			this.janelaPrincipal.getComboBoxInicioDia1().setVisible(true);
@@ -426,7 +464,8 @@ public class FormularioControle implements ActionListener, MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
-			trocarPainel("painelData");
+			if (validarCamposSolicitante() == true)
+				trocarPainel("painelData");
 
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelData()) {
@@ -434,14 +473,19 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelData()) {
-			trocarPainel("painelEquipamentos");
+			//if (validarCamposData() == true)
+				trocarPainel("painelEquipamentos");
+
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarequipamentos()) {
-
 			trocarPainel("painelData");
 
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelProximoequipamentos()) {
+
+			if (validarCamposEquipamentos() == true) {
+				trocarPainel("painelConfirmarReserva");
+			}
 
 		}
 	}

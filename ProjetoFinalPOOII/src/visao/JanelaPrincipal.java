@@ -555,136 +555,135 @@ public class JanelaPrincipal extends JFrame {
 		labelProximoequipamentos = new JLabel("");
 		labelProximoequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
 		painelEquipamentos.add(labelProximoequipamentos, "cell 1 6,alignx right");
-		
+
 		painelConfirmarReserva = new JPanel();
-		contentPane.add(painelConfirmarReserva, "name_119666830671800");
+		contentPane.add(painelConfirmarReserva, "painelConfirmarReserva");
 		painelConfirmarReserva.setBackground(new Color(30, 76, 118));
 		painelConfirmarReserva.setLayout(new MigLayout("", "40[grow]40", "280[]40[]"));
-		
+
 		labelMensagemPainelConfirmarReserva = new JLabel("Deseja finalizar a solicita\u00E7\u00E3o?");
 		labelMensagemPainelConfirmarReserva.setForeground(Color.WHITE);
 		labelMensagemPainelConfirmarReserva.setFont(new Font("Arial", Font.PLAIN, 25));
 		painelConfirmarReserva.add(labelMensagemPainelConfirmarReserva, "cell 0 0,alignx center");
-		
+
 		buttonRevisar = new JButton("Revisar");
 		buttonRevisar.setFont(new Font("Arial", Font.PLAIN, 20));
 		buttonRevisar.setPreferredSize(new Dimension(200, 10));
 		painelConfirmarReserva.add(buttonRevisar, "flowx,cell 0 1,alignx center");
-		
+
 		buttonFinalizar = new JButton("Finalizar");
 		buttonFinalizar.setFont(new Font("Arial", Font.PLAIN, 20));
 		buttonFinalizar.setPreferredSize(new Dimension(200, 10));
 		painelConfirmarReserva.add(buttonFinalizar, "cell 0 1,alignx center");
-		
-		
+
 		// -----------------------------------------------------
 		// Implementacao do Painel Para ver reservas
-		// -----------------------------------------------------				
+		// -----------------------------------------------------
 		painelVerReserva = new JPanel();
 		painelVerReserva.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelVerReserva, "painelVerReserva");
 		painelVerReserva.setLayout(new MigLayout("", "40[][grow][grow][grow]40", "50[]40[]25[]25[]25[]25[]25[]25[]"));
-		
+
 		lblMinhasRequisies = new JLabel("Minhas Requisi\u00E7\u00F5es");
 		lblMinhasRequisies.setForeground(Color.WHITE);
 		lblMinhasRequisies.setFont(new Font("Arial", Font.BOLD, 30));
 		painelVerReserva.add(lblMinhasRequisies, "cell 0 0 2 1");
-		
+
 		labelPedido1 = new JLabel("Pedido #1");
 		labelPedido1.setForeground(Color.WHITE);
 		labelPedido1.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(labelPedido1, "cell 0 1");
-		
+
 		buttonAbrir1 = new JButton("Abrir");
 		buttonAbrir1.setPreferredSize(new Dimension(200, 10));
 		buttonAbrir1.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonAbrir1, "cell 1 1,alignx center");
-		
+
 		buttonEditar1 = new JButton("Editar");
 		buttonEditar1.setPreferredSize(new Dimension(200, 10));
 		buttonEditar1.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar1, "cell 2 1");
-		
+
 		labelPedido2 = new JLabel("Pedido #2");
 		labelPedido2.setForeground(Color.WHITE);
 		labelPedido2.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(labelPedido2, "cell 0 2");
-		
+
 		buttonAbrir2 = new JButton("Abrir");
 		buttonAbrir2.setPreferredSize(new Dimension(200, 10));
 		buttonAbrir2.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonAbrir2, "cell 1 2,alignx center");
-		
+
 		buttonEditar2 = new JButton("Editar");
 		buttonEditar2.setPreferredSize(new Dimension(200, 10));
 		buttonEditar2.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar2, "cell 2 2");
-		
+
 		labelPedido3 = new JLabel("Pedido #3");
 		labelPedido3.setForeground(Color.WHITE);
 		labelPedido3.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(labelPedido3, "cell 0 3");
-		
+
 		buttonAbrir3 = new JButton("Abrir");
 		buttonAbrir3.setPreferredSize(new Dimension(200, 10));
 		buttonAbrir3.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonAbrir3, "cell 1 3,alignx center");
-		
+
 		buttonEditar3 = new JButton("Editar");
 		buttonEditar3.setPreferredSize(new Dimension(200, 10));
 		buttonEditar3.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar3, "cell 2 3");
-		
+
 		labelPedido4 = new JLabel("Pedido #4");
 		labelPedido4.setForeground(Color.WHITE);
 		labelPedido4.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(labelPedido4, "cell 0 4");
-		
+
 		buttonAbrir4 = new JButton("Abrir");
 		buttonAbrir4.setPreferredSize(new Dimension(200, 10));
 		buttonAbrir4.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonAbrir4, "cell 1 4,alignx center");
-		
+
 		buttonEditar4 = new JButton("Editar");
 		buttonEditar4.setPreferredSize(new Dimension(200, 10));
 		buttonEditar4.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar4, "cell 2 4");
-		
+
 		labelPedido5 = new JLabel("Pedido #5");
 		labelPedido5.setForeground(Color.WHITE);
 		labelPedido5.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(labelPedido5, "cell 0 5");
-		
+
 		buttonAbrir5 = new JButton("Abrir");
 		buttonAbrir5.setPreferredSize(new Dimension(200, 10));
 		buttonAbrir5.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonAbrir5, "cell 1 5,alignx center");
-		
+
 		buttonEditar5 = new JButton("Editar");
 		buttonEditar5.setPreferredSize(new Dimension(200, 10));
 		buttonEditar5.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar5, "cell 2 5");
-		
+
 		lblPedido6 = new JLabel("Pedido #6");
 		lblPedido6.setForeground(Color.WHITE);
 		lblPedido6.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(lblPedido6, "cell 0 6");
-		
+
 		buttonAbrir6 = new JButton("Abrir");
 		buttonAbrir6.setPreferredSize(new Dimension(200, 10));
 		buttonAbrir6.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonAbrir6, "cell 1 6,alignx center");
-		
+
 		buttonEditar6 = new JButton("Editar");
 		buttonEditar6.setPreferredSize(new Dimension(200, 10));
 		buttonEditar6.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar6, "cell 2 6");
 
 	}
-	
-	//-----------------------------------------------
-	//------Rotina para inicialização de formas------ 
-	//-----------------------------------------------
+
+	// -----------------------------------------------
+	// ------Rotina para inicialização de formas------
+	// -----------------------------------------------
 	public void paint(Graphics g) {
 
 		super.paint(g);
@@ -697,10 +696,10 @@ public class JanelaPrincipal extends JFrame {
 
 		g2.dispose();
 	}
-	
-	//-----------------------------------------------
-	//----------Texto de Getters e Setters-----------
-	//-----------------------------------------------
+
+	// -----------------------------------------------
+	// ----------Texto de Getters e Setters-----------
+	// -----------------------------------------------
 	public JCheckBox getCheckBoxProjetorDeSlides() {
 		return checkBoxProjetorDeSlides;
 	}
@@ -1140,4 +1139,9 @@ public class JanelaPrincipal extends JFrame {
 		JOptionPane.showMessageDialog(this, "Usuário ou senha incorreto! Por favor, verifique os dados inseridos.",
 				null, JOptionPane.ERROR_MESSAGE, null);
 	}
+
+	public void erroCampos() {
+		JOptionPane.showMessageDialog(this, "Existem campos em branco ou não selecionados.", null, JOptionPane.ERROR_MESSAGE, null);
+	}
+
 }
