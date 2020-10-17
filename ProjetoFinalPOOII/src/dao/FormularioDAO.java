@@ -17,7 +17,7 @@ public class FormularioDAO {
 
 	}
 
-	// Metodo que realiza a insercao dos dados do formulario no banco
+	// Me'todo que realiza a insercao dos dados do formulario no banco
 	public boolean inserirRequisicao(Formulario formulario, int usuarioId) {
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
@@ -58,7 +58,7 @@ public class FormularioDAO {
 		return false;
 	} // inserirRequisicao()
 
-	// Metodo que realiza a insercao das datas da requisicao no banco
+	// Me'todo que realiza a insercao das datas da requisicao no banco
 	public boolean inserirReserva(int requisicaoId, Date dia, int horarioInicial, int horarioFinal) {
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
@@ -94,7 +94,7 @@ public class FormularioDAO {
 		return false;
 	} // inserirReserva()
 
-	// Me'todo que retornaFormularioId
+	// Me'todo que retorna FormularioId do ultimo formulario inserido
 	public int retornaFormularioId(int usuarioId) {
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
@@ -118,5 +118,92 @@ public class FormularioDAO {
 
 		ConexaoMySQL.fecharConexao();
 		return 0;
-	} // retornaUsuarioId()
+	} // retornaFormularioId()
+	
+	// Me'todo que retorna id de todos os formularios
+	public int[] retornaFormularioIdGeral(int usuarioId) {
+		ConexaoMySQL.abrirConexao();
+		con = ConexaoMySQL.getCon();
+		int[] listaId = null;
+		int i = 0;
+		String sql = "SELECT id FROM formulario WHERE usuarioId LIKE ?";
+
+		PreparedStatement prepareStatement;
+		try {
+			prepareStatement = con.prepareStatement(sql);
+			prepareStatement.setInt(1, usuarioId);
+			ResultSet resultado = prepareStatement.executeQuery();
+
+			while(resultado.next()) {
+				listaId[i] = resultado.getInt(1);
+				i++;
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		ConexaoMySQL.fecharConexao();
+		return listaId;
+	} // retornaFormularioIdGeral()
+	
+	// Me'todo que realiza a exclusao de uma requisicao no banco
+	public boolean excluirRequisicao(int requisicaoId) {
+		ConexaoMySQL.abrirConexao();
+		con = ConexaoMySQL.getCon();
+
+		if(con != null) {
+			String sql = "DELETE FROM requisicao WHERE id = ?";	
+			PreparedStatement prepareStatement = null; 
+
+			try {
+				// Argumentos que serao inseridos no banco de dados
+				prepareStatement = con.prepareStatement(sql);
+				prepareStatement.setInt(1, requisicaoId);
+
+				int resultado = prepareStatement.executeUpdate();
+
+				// Retorna true se a exclusao ocorreu com sucesso e false caso tenha falhado
+				if(resultado == 1) {
+					ConexaoMySQL.fecharConexao();
+					return true;
+				}else {
+					ConexaoMySQL.fecharConexao();
+					return false;
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+		} // if
+		return false;
+	} // excluirRequisicao()
+		
+	/*// Me'todo que retorna uma requisicao 
+		public boolean retornaRequisicao(int requisicaoId, Formulario formulario) {
+			ConexaoMySQL.abrirConexao();
+			con = ConexaoMySQL.getCon();
+
+			String sql = "SELECT usuarioId, solicitante, telefone, email, numeroAlunos, FROM formulario WHERE usuarioId LIKE ? AND id=(SELECT max(id) FROM formulario)";
+
+			PreparedStatement prepareStatement;
+			try {
+				prepareStatement = con.prepareStatement(sql);
+				prepareStatement.setInt(1, requisicaoId);
+				ResultSet resultado = prepareStatement.executeQuery();
+
+				while(resultado.next()) {
+					return resultado.getInt(1);
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			ConexaoMySQL.fecharConexao();
+			return 0;
+		} // retornaRequisicao()*/
 }
