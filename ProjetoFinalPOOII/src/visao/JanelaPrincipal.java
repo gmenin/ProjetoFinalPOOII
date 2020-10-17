@@ -1200,6 +1200,15 @@ public class JanelaPrincipal extends JFrame {
 	}
 
 
+	public JLabel getLabelVoltarRequisicoes() {
+		return labelVoltarRequisicoes;
+	}
+
+	public void setLabelVoltarRequisicoes(JLabel labelVoltarRequisicoes) {
+		this.labelVoltarRequisicoes = labelVoltarRequisicoes;
+	}
+
+
 
 	// Classe para fixar mensagens não selecionaveis nos JComboBox presentes no
 	// painelInicioFormulario
