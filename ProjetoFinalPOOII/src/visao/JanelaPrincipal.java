@@ -128,11 +128,11 @@ public class JanelaPrincipal extends JFrame {
 	private JButton buttonEditar2;
 	private JButton buttonEditar3;
 	private JButton buttonEditar4;
-	private JLabel labelApagarPediso1;
+	private JLabel labelApagarPedido1;
 	private JLabel label;
 	private JLabel labelApagarPedido2;
-	private JLabel labelApagarPediso3;
-	private JLabel labelApagarPediso4;
+	private JLabel labelApagarPedido3;
+	private JLabel labelApagarPedido4;
 	private JLabel labelVoltarRequisicoes;
 
 	@SuppressWarnings("unchecked")
@@ -604,9 +604,9 @@ public class JanelaPrincipal extends JFrame {
 		buttonEditar1.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar1, "cell 2 1");
 		
-		labelApagarPediso1 = new JLabel("");
-		labelApagarPediso1.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
-		painelVerReserva.add(labelApagarPediso1, "cell 3 1,alignx left");
+		labelApagarPedido1 = new JLabel("");
+		labelApagarPedido1.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
+		painelVerReserva.add(labelApagarPedido1, "cell 3 1,alignx left");
 
 		labelPedido2 = new JLabel("Pedido #2");
 		labelPedido2.setForeground(Color.WHITE);
@@ -641,9 +641,9 @@ public class JanelaPrincipal extends JFrame {
 		buttonEditar3.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar3, "cell 2 3");
 		
-		labelApagarPediso3 = new JLabel("");
-		labelApagarPediso3.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
-		painelVerReserva.add(labelApagarPediso3, "cell 3 3");
+		labelApagarPedido3 = new JLabel("");
+		labelApagarPedido3.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
+		painelVerReserva.add(labelApagarPedido3, "cell 3 3");
 
 		labelPedido4 = new JLabel("Pedido #4");
 		labelPedido4.setForeground(Color.WHITE);
@@ -664,9 +664,9 @@ public class JanelaPrincipal extends JFrame {
 		labelApagarPedido2.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
 		painelVerReserva.add(labelApagarPedido2, "cell 3 2");
 		
-		labelApagarPediso4 = new JLabel("");
-		labelApagarPediso4.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
-		painelVerReserva.add(labelApagarPediso4, "cell 3 4");
+		labelApagarPedido4 = new JLabel("");
+		labelApagarPedido4.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
+		painelVerReserva.add(labelApagarPedido4, "cell 3 4");
 		
 		labelVoltarRequisicoes = new JLabel("\r\n");
 		labelVoltarRequisicoes.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
@@ -1100,6 +1100,106 @@ public class JanelaPrincipal extends JFrame {
 	public void setButtonFinalizar(JButton buttonFinalizar) {
 		this.buttonFinalizar = buttonFinalizar;
 	}
+	
+	
+
+	public JButton getButtonAbrir1() {
+		return buttonAbrir1;
+	}
+
+	public void setButtonAbrir1(JButton buttonAbrir1) {
+		this.buttonAbrir1 = buttonAbrir1;
+	}
+
+	public JButton getButtonAbrir2() {
+		return buttonAbrir2;
+	}
+
+	public void setButtonAbrir2(JButton buttonAbrir2) {
+		this.buttonAbrir2 = buttonAbrir2;
+	}
+
+	public JButton getButtonAbrir3() {
+		return buttonAbrir3;
+	}
+
+	public void setButtonAbrir3(JButton buttonAbrir3) {
+		this.buttonAbrir3 = buttonAbrir3;
+	}
+
+	public JButton getButtonAbrir4() {
+		return buttonAbrir4;
+	}
+
+	public void setButtonAbrir4(JButton buttonAbrir4) {
+		this.buttonAbrir4 = buttonAbrir4;
+	}
+
+	public JButton getButtonEditar1() {
+		return buttonEditar1;
+	}
+
+	public void setButtonEditar1(JButton buttonEditar1) {
+		this.buttonEditar1 = buttonEditar1;
+	}
+
+	public JButton getButtonEditar2() {
+		return buttonEditar2;
+	}
+
+	public void setButtonEditar2(JButton buttonEditar2) {
+		this.buttonEditar2 = buttonEditar2;
+	}
+
+	public JButton getButtonEditar3() {
+		return buttonEditar3;
+	}
+
+	public void setButtonEditar3(JButton buttonEditar3) {
+		this.buttonEditar3 = buttonEditar3;
+	}
+
+	public JButton getButtonEditar4() {
+		return buttonEditar4;
+	}
+
+	public void setButtonEditar4(JButton buttonEditar4) {
+		this.buttonEditar4 = buttonEditar4;
+	}
+
+	public JLabel getLabelApagarPedido1() {
+		return labelApagarPedido1;
+	}
+
+	public void setLabelApagarPedido1(JLabel labelApagarPedido1) {
+		this.labelApagarPedido1 = labelApagarPedido1;
+	}
+
+	public JLabel getLabelApagarPedido2() {
+		return labelApagarPedido2;
+	}
+
+	public void setLabelApagarPedido2(JLabel labelApagarPedido2) {
+		this.labelApagarPedido2 = labelApagarPedido2;
+	}
+
+	public JLabel getLabelApagarPedido3() {
+		return labelApagarPedido3;
+	}
+
+	public void setLabelApagarPedido3(JLabel labelApagarPedido3) {
+		this.labelApagarPedido3 = labelApagarPedido3;
+	}
+
+	public JLabel getLabelApagarPedido4() {
+		return labelApagarPedido4;
+	}
+
+	public void setLabelApagarPedido4(JLabel labelApagarPedido4) {
+		this.labelApagarPedido4 = labelApagarPedido4;
+	}
+
+
 
 	// Classe para fixar mensagens não selecionaveis nos JComboBox presentes no
 	// painelInicioFormulario
