@@ -99,7 +99,7 @@ public class FormularioDAO {
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
 
-		String sql = "SELECT id FROM formulario WHERE usuarioId LIKE ? AND id=(SELECT max(id) FROM formulario)";
+		String sql = "SELECT id FROM requisicao WHERE usuarioId LIKE ? AND id=(SELECT max(id) FROM requisicao)";
 
 		PreparedStatement prepareStatement;
 		try {
@@ -120,13 +120,13 @@ public class FormularioDAO {
 		return 0;
 	} // retornaFormularioId()
 	
-	// Me'todo que retorna id de todos os formularios
+	// Me'todo que retorna id de todas as requisicoes
 	public int[] retornaFormularioIdGeral(int usuarioId) {
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
 		int[] listaId = null;
 		int i = 0;
-		String sql = "SELECT id FROM formulario WHERE usuarioId LIKE ?";
+		String sql = "SELECT id FROM requisicao WHERE usuarioId LIKE ?";
 
 		PreparedStatement prepareStatement;
 		try {
@@ -181,12 +181,17 @@ public class FormularioDAO {
 		return false;
 	} // excluirRequisicao()
 		
-	/*// Me'todo que retorna uma requisicao 
+	// Me'todo que retorna uma requisicao 
 		public boolean retornaRequisicao(int requisicaoId, Formulario formulario) {
+			int aux = 0;
+			String solicitante = null, telefone = null, email = null, atividade = null, modalidade = null, curso = null, equipamentos = null;
+			int numeroAlunos = 0;
+			
 			ConexaoMySQL.abrirConexao();
 			con = ConexaoMySQL.getCon();
 
-			String sql = "SELECT usuarioId, solicitante, telefone, email, numeroAlunos, FROM formulario WHERE usuarioId LIKE ? AND id=(SELECT max(id) FROM formulario)";
+			String sql = "SELECT solicitante, telefone, email, numeroAlunos, atividade, modalidade, curso, equipamentos "
+					+ "FROM requisicao WHERE id = ?";
 
 			PreparedStatement prepareStatement;
 			try {
@@ -195,15 +200,36 @@ public class FormularioDAO {
 				ResultSet resultado = prepareStatement.executeQuery();
 
 				while(resultado.next()) {
-					return resultado.getInt(1);
+					aux = 1;
+					solicitante = resultado.getString(1);
+					telefone = resultado.getString(2);
+					email = resultado.getString(3);
+					numeroAlunos = resultado.getInt(4);
+					atividade = resultado.getString(5);
+					modalidade = resultado.getString(6);
+					curso = resultado.getString(7);
+					equipamentos = resultado.getString(8);
 				}
-
+				
+				formulario.setSolicitante(solicitante);
+				formulario.setTelefone(telefone);
+				formulario.setEmail(email);
+				formulario.setNumeroAlunos(numeroAlunos);
+				formulario.setAtividade(atividade);
+				formulario.setModalidade(modalidade);
+				formulario.setCurso(curso);
+				formulario.setEquipamentos(equipamentos);
+				
+				if(aux==1) {
+					return true;
+				}
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 			ConexaoMySQL.fecharConexao();
-			return 0;
-		} // retornaRequisicao()*/
+			return false;
+		} // retornaRequisicao()
 }
