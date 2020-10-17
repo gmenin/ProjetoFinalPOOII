@@ -1242,6 +1242,10 @@ public class JanelaPrincipal extends JFrame {
 		JOptionPane.showMessageDialog(this, "Usuário ou senha incorreto! Por favor, verifique os dados inseridos.",
 				null, JOptionPane.ERROR_MESSAGE, null);
 	}
+	
+	public void informacoes() {
+		JOptionPane.showMessageDialog(null, "Trabalho de Final de\nProgramação Orientada a Objtos\n\nDesenvolvido por:\nAndré Jardim\nGabriel Menin\nJoão Martins\nMaico Triaca");
+	}
 
 	public void camposVazios() {
 		JOptionPane.showMessageDialog(this, "Existem campos em branco ou não selecionados.", null, JOptionPane.ERROR_MESSAGE, null);
