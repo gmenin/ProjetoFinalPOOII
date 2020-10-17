@@ -60,7 +60,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		// formulario = new Formulario(solicitante, telefone, email, numeroAlunos,
 		// atividade, modalidade, curso, equipamentos, data, horaInicial, horaFinal);
 
-//		if(validarCamposSolicitante() == true && validarCamposEquipamentos == true) {
+//		if(validarCamposSolicitante() == true && validarCamposEquipamentos == true && validarCamposData() == true) {
 //			//boolean insercao = formularioDAO.inserirRequisicao(formulario, usuarioControle.getUsuarioId());
 //			if(insercao) {
 //				limparCampos();
@@ -572,8 +572,12 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelData()) {
-			// if (validarCamposData() == true)
-			trocarPainel("painelEquipamentos");
+			if (validarCamposData()) {
+				trocarPainel("painelEquipamentos");
+			}else {
+				this.janelaPrincipal.camposVazios();
+			}
+				
 
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarEquipamentos()) {
