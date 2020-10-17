@@ -2,12 +2,14 @@ package controle;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import dao.UsuarioDAO;
 import modelo.Usuario;
 import visao.JanelaPrincipal;
 
-public class UsuarioControle implements ActionListener{
+public class UsuarioControle implements ActionListener, MouseListener{
 
 	private JanelaPrincipal janelaPrincipal;
 	private UsuarioDAO usuarioDAO;
@@ -17,6 +19,7 @@ public class UsuarioControle implements ActionListener{
 		this.janelaPrincipal = j;
 		this.janelaPrincipal.getButtonEntrar().addActionListener(this);
 		this.usuarioDAO = new UsuarioDAO();
+		this.janelaPrincipal.getLabelInfo().addMouseListener(this);
 	}
 	
 	//Me'todo que autentica o usu'ario para entrar no sistema
@@ -61,5 +64,38 @@ public class UsuarioControle implements ActionListener{
 		if(evento.getActionCommand().equals("Entrar")) {
 			autenticarUsuario();
 		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getComponent()==this.janelaPrincipal.getLabelInfo()) {
+			
+			this.janelaPrincipal.informacoes();
+		}
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

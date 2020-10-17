@@ -31,6 +31,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getLabelVoltarEquipamentos().addMouseListener(this);
 		this.janelaPrincipal.getLabelAvancarEquipamentos().addMouseListener(this);
 		this.janelaPrincipal.getLabelVoltarVerReserva().addMouseListener(this);
+		
 	}
 
 	public void salvarRequisicao() {
