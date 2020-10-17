@@ -8,6 +8,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
+
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.Graphics;
@@ -33,8 +35,11 @@ import javax.swing.ListCellRenderer;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+
 import java.awt.event.ActionListener;
 import java.awt.geom.Line2D;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import java.awt.SystemColor;
@@ -61,8 +66,8 @@ public class JanelaPrincipal extends JFrame {
 	private JLabel labelTituloPainelInicial;
 	private JLabel labelSolicitante;
 	private JLabel labelTelefone;
-	private JTextField fieldTelefone;
-	private JTextField fieldEmail;
+	private JFormattedTextField fieldTelefone;
+	private JFormattedTextField fieldEmail;
 	private JLabel labelNumeroAlunos;
 	private JTextField fieldNumeroAlunos;
 	private JLabel labelAtividade;
@@ -70,7 +75,7 @@ public class JanelaPrincipal extends JFrame {
 	private JRadioButton radioButtonSeminario;
 	private JRadioButton radioButtonProva;
 	private ButtonGroup buttonGroupAtividade;
-	private JTextField fieldSolicitante;
+	private JFormattedTextField fieldSolicitante;
 	private JComboBox comboBoxModalidade;
 	private JComboBox comboBoxCurso;
 	private JLabel labelAvancarPainelInicioFormulario;
@@ -249,8 +254,20 @@ public class JanelaPrincipal extends JFrame {
 		labelTelefone.setForeground(new Color(255, 255, 255));
 		labelTelefone.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelTelefone, "cell 0 2");
-
-		fieldTelefone = new JTextField();
+		
+		
+		
+	/*	 MaskFormatter maskTelefone=null;
+		try {
+			maskTelefone = new MaskFormatter("(##) #########");
+		} catch (ParseException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}*/
+	
+	
+		
+		fieldTelefone = new JFormattedTextField();
 		fieldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldTelefone, "cell 1 2 3 1,grow");
 		fieldTelefone.setColumns(10);
@@ -259,8 +276,16 @@ public class JanelaPrincipal extends JFrame {
 		labelEmail.setForeground(new Color(255, 255, 255));
 		labelEmail.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelEmail, "cell 0 3,alignx left,aligny baseline");
-
-		fieldEmail = new JTextField();
+		
+		MaskFormatter maskEmail=null;
+		try {
+			maskEmail = new MaskFormatter("**************************************************");
+			
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		fieldEmail = new JFormattedTextField(maskEmail);
 		fieldEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldEmail, "cell 1 3 3 1,grow");
 		fieldEmail.setColumns(10);
@@ -269,8 +294,15 @@ public class JanelaPrincipal extends JFrame {
 		labelNumeroAlunos.setForeground(new Color(255, 255, 255));
 		labelNumeroAlunos.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelNumeroAlunos, "cell 0 4,alignx left,aligny bottom");
-
-		fieldNumeroAlunos = new JTextField();
+		
+		/*MaskFormatter maskNalunos=null;
+		try {
+			maskNalunos = new MaskFormatter("####");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}*/		
+		fieldNumeroAlunos = new JFormattedTextField();
 		fieldNumeroAlunos.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldNumeroAlunos, "cell 1 4 3 1,alignx left,growy");
 		fieldNumeroAlunos.setColumns(10);
@@ -287,7 +319,15 @@ public class JanelaPrincipal extends JFrame {
 		radioButtonAula.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(radioButtonAula, "flowx,cell 1 5,alignx left");
 
-		fieldSolicitante = new JTextField();
+		MaskFormatter maskSolicitante = null;
+		try {
+			maskSolicitante = new MaskFormatter("*********************************");
+			maskSolicitante.setInvalidCharacters("0123456789");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		fieldSolicitante = new JFormattedTextField(maskSolicitante);
 		fieldSolicitante.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldSolicitante, "cell 1 1 3 1,growx");
 		fieldSolicitante.setColumns(10);
@@ -604,7 +644,7 @@ public class JanelaPrincipal extends JFrame {
 		buttonEditar1.setPreferredSize(new Dimension(200, 10));
 		buttonEditar1.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar1, "cell 2 1");
-		
+
 		labelApagarPedido1 = new JLabel("");
 		labelApagarPedido1.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
 		painelVerReserva.add(labelApagarPedido1, "cell 3 1,alignx left");
@@ -623,7 +663,7 @@ public class JanelaPrincipal extends JFrame {
 		buttonEditar2.setPreferredSize(new Dimension(200, 10));
 		buttonEditar2.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar2, "cell 2 2");
-		
+
 		label = new JLabel("");
 		painelVerReserva.add(label, "flowx,cell 3 2");
 
@@ -641,7 +681,7 @@ public class JanelaPrincipal extends JFrame {
 		buttonEditar3.setPreferredSize(new Dimension(200, 10));
 		buttonEditar3.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar3, "cell 2 3");
-		
+
 		labelApagarPedido3 = new JLabel("");
 		labelApagarPedido3.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
 		painelVerReserva.add(labelApagarPedido3, "cell 3 3");
@@ -660,15 +700,15 @@ public class JanelaPrincipal extends JFrame {
 		buttonEditar4.setPreferredSize(new Dimension(200, 10));
 		buttonEditar4.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar4, "cell 2 4");
-		
+
 		labelApagarPedido2 = new JLabel("");
 		labelApagarPedido2.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
 		painelVerReserva.add(labelApagarPedido2, "cell 3 2");
-		
+
 		labelApagarPedido4 = new JLabel("");
 		labelApagarPedido4.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
 		painelVerReserva.add(labelApagarPedido4, "cell 3 4");
-		
+
 		labelVoltarVerReserva = new JLabel("\r\n");
 		labelVoltarVerReserva.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
 		painelVerReserva.add(labelVoltarVerReserva, "cell 0 6");
@@ -978,7 +1018,7 @@ public class JanelaPrincipal extends JFrame {
 		return fieldTelefone;
 	}
 
-	public void setFieldTelefone(JTextField fieldTelefone) {
+	public void setFieldTelefone(JFormattedTextField fieldTelefone) {
 		this.fieldTelefone = fieldTelefone;
 	}
 
@@ -986,7 +1026,7 @@ public class JanelaPrincipal extends JFrame {
 		return fieldEmail;
 	}
 
-	public void setFieldEmail(JTextField fieldEmail) {
+	public void setFieldEmail(JFormattedTextField fieldEmail) {
 		this.fieldEmail = fieldEmail;
 	}
 
@@ -1026,7 +1066,7 @@ public class JanelaPrincipal extends JFrame {
 		return fieldSolicitante;
 	}
 
-	public void setFieldSolicitante(JTextField fieldSolicitante) {
+	public void setFieldSolicitante(JFormattedTextField fieldSolicitante) {
 		this.fieldSolicitante = fieldSolicitante;
 	}
 
@@ -1101,8 +1141,6 @@ public class JanelaPrincipal extends JFrame {
 	public void setButtonFinalizar(JButton buttonFinalizar) {
 		this.buttonFinalizar = buttonFinalizar;
 	}
-	
-	
 
 	public JButton getButtonAbrir1() {
 		return buttonAbrir1;
@@ -1200,7 +1238,6 @@ public class JanelaPrincipal extends JFrame {
 		this.labelApagarPedido4 = labelApagarPedido4;
 	}
 
-
 	public JLabel getLabelVoltarVerReserva() {
 		return labelVoltarVerReserva;
 	}
@@ -1208,8 +1245,6 @@ public class JanelaPrincipal extends JFrame {
 	public void setLabelVoltarVerReserva(JLabel labelVoltarVerReserva) {
 		this.labelVoltarVerReserva = labelVoltarVerReserva;
 	}
-
-
 
 	// Classe para fixar mensagens não selecionaveis nos JComboBox presentes no
 	// painelInicioFormulario
@@ -1242,13 +1277,15 @@ public class JanelaPrincipal extends JFrame {
 		JOptionPane.showMessageDialog(this, "Usuário ou senha incorreto! Por favor, verifique os dados inseridos.",
 				null, JOptionPane.ERROR_MESSAGE, null);
 	}
-	
+
 	public void informacoes() {
-		JOptionPane.showMessageDialog(null, "Trabalho de Final de\nProgramação Orientada a Objtos\n\nDesenvolvido por:\nAndré Jardim\nGabriel Menin\nJoão Martins\nMaico Triaca");
+		JOptionPane.showMessageDialog(null,
+				"Trabalho de Final de\nProgramação Orientada a Objtos\n\nDesenvolvido por:\nAndré Jardim\nGabriel Menin\nJoão Martins\nMaico Triaca");
 	}
 
 	public void camposVazios() {
-		JOptionPane.showMessageDialog(this, "Existem campos em branco ou não selecionados.", null, JOptionPane.ERROR_MESSAGE, null);
+		JOptionPane.showMessageDialog(this, "Existem campos em branco ou não selecionados.", null,
+				JOptionPane.ERROR_MESSAGE, null);
 	}
 
 }
