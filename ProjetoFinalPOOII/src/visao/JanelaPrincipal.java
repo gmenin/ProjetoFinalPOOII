@@ -120,20 +120,20 @@ public class JanelaPrincipal extends JFrame {
 	private JLabel labelPedido2;
 	private JLabel labelPedido3;
 	private JLabel labelPedido4;
-	private JLabel labelPedido5;
-	private JLabel lblPedido6;
 	private JButton buttonAbrir1;
 	private JButton buttonAbrir2;
 	private JButton buttonAbrir3;
 	private JButton buttonAbrir4;
-	private JButton buttonAbrir5;
-	private JButton buttonAbrir6;
 	private JButton buttonEditar1;
 	private JButton buttonEditar2;
 	private JButton buttonEditar3;
 	private JButton buttonEditar4;
-	private JButton buttonEditar5;
-	private JButton buttonEditar6;
+	private JLabel labelApagarPediso1;
+	private JLabel label;
+	private JLabel labelApagarPedido2;
+	private JLabel labelApagarPediso3;
+	private JLabel labelApagarPediso4;
+	private JLabel labelVoltarRequisicoes;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -232,7 +232,7 @@ public class JanelaPrincipal extends JFrame {
 		painelInicioFormulario = new JPanel();
 		painelInicioFormulario.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelInicioFormulario, "painelInicioFormulario");
-		painelInicioFormulario.setLayout(new MigLayout("", "40[][grow]40", "40[]30[]40[]40[]40[]40[]20[]15[30]5"));
+		painelInicioFormulario.setLayout(new MigLayout("", "40[][grow]40", "40[]30[]40[]40[]40[]40[]20[][30]20"));
 
 		labelTituloPainelInicial = new JLabel("Formul\u00E1rio Digital de Reserva de Sala de Aula");
 		labelTituloPainelInicial.setForeground(new Color(255, 255, 255));
@@ -339,7 +339,7 @@ public class JanelaPrincipal extends JFrame {
 		painelData = new JPanel();
 		contentPane.add(painelData, "painelData");
 		painelData.setBackground(new Color(30, 76, 118));
-		painelData.setLayout(new MigLayout("", "40[grow]30[220]30[220]40", "35[]43[]40[]40[]40[]40[]40[]33[30]5"));
+		painelData.setLayout(new MigLayout("", "40[grow]30[220]30[220]40", "35[]43[]40[]40[]40[]40[]40[]35[30]20"));
 
 		String[] numeroDias = { "1 Dia", "2 Dias", "3 Dias", "4 Dias", "5 Dias", "6 Dias" };
 		comboBoxQtdDias = new JComboBox(numeroDias);
@@ -500,7 +500,7 @@ public class JanelaPrincipal extends JFrame {
 		painelEquipamentos = new JPanel();
 		contentPane.add(painelEquipamentos, "painelEquipamentos");
 		painelEquipamentos.setBackground(new Color(30, 76, 118));
-		painelEquipamentos.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[]36[30]4"));
+		painelEquipamentos.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[][30]20"));
 
 		labelAvisoEquipamento = new JLabel(
 				"<html><div style=\\\"text-align: center;\\\"><br /> Obs.: Todas as salas possuem computador e equipamento multim\u00EDdia.   Outros <br />equipamentos devem ser solicitados com anteced\u00EAncia m\u00EDnima de 24 horas ao <br />Setor de Apoio \u00E0s Salas de Aula.   Reserva para eventos devre\u00E3o ser realizados no <br />protocolo, com no m\u00EDnimo 45 dias de anteced\u00EAncia, conforme normas institucionais.</html>");
@@ -582,7 +582,7 @@ public class JanelaPrincipal extends JFrame {
 		painelVerReserva = new JPanel();
 		painelVerReserva.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelVerReserva, "painelVerReserva");
-		painelVerReserva.setLayout(new MigLayout("", "40[][grow][grow][grow]40", "50[]40[]25[]25[]25[]25[]25[]25[]"));
+		painelVerReserva.setLayout(new MigLayout("", "40[][grow][grow][grow]40", "50[]40[]25[]25[]25[][][]20"));
 
 		lblMinhasRequisies = new JLabel("Minhas Requisi\u00E7\u00F5es");
 		lblMinhasRequisies.setForeground(Color.WHITE);
@@ -603,6 +603,10 @@ public class JanelaPrincipal extends JFrame {
 		buttonEditar1.setPreferredSize(new Dimension(200, 10));
 		buttonEditar1.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar1, "cell 2 1");
+		
+		labelApagarPediso1 = new JLabel("");
+		labelApagarPediso1.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
+		painelVerReserva.add(labelApagarPediso1, "cell 3 1,alignx left");
 
 		labelPedido2 = new JLabel("Pedido #2");
 		labelPedido2.setForeground(Color.WHITE);
@@ -618,6 +622,9 @@ public class JanelaPrincipal extends JFrame {
 		buttonEditar2.setPreferredSize(new Dimension(200, 10));
 		buttonEditar2.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar2, "cell 2 2");
+		
+		label = new JLabel("");
+		painelVerReserva.add(label, "flowx,cell 3 2");
 
 		labelPedido3 = new JLabel("Pedido #3");
 		labelPedido3.setForeground(Color.WHITE);
@@ -633,6 +640,10 @@ public class JanelaPrincipal extends JFrame {
 		buttonEditar3.setPreferredSize(new Dimension(200, 10));
 		buttonEditar3.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar3, "cell 2 3");
+		
+		labelApagarPediso3 = new JLabel("");
+		labelApagarPediso3.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
+		painelVerReserva.add(labelApagarPediso3, "cell 3 3");
 
 		labelPedido4 = new JLabel("Pedido #4");
 		labelPedido4.setForeground(Color.WHITE);
@@ -648,36 +659,18 @@ public class JanelaPrincipal extends JFrame {
 		buttonEditar4.setPreferredSize(new Dimension(200, 10));
 		buttonEditar4.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar4, "cell 2 4");
-
-		labelPedido5 = new JLabel("Pedido #5");
-		labelPedido5.setForeground(Color.WHITE);
-		labelPedido5.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(labelPedido5, "cell 0 5");
-
-		buttonAbrir5 = new JButton("Abrir");
-		buttonAbrir5.setPreferredSize(new Dimension(200, 10));
-		buttonAbrir5.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonAbrir5, "cell 1 5,alignx center");
-
-		buttonEditar5 = new JButton("Editar");
-		buttonEditar5.setPreferredSize(new Dimension(200, 10));
-		buttonEditar5.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonEditar5, "cell 2 5");
-
-		lblPedido6 = new JLabel("Pedido #6");
-		lblPedido6.setForeground(Color.WHITE);
-		lblPedido6.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(lblPedido6, "cell 0 6");
-
-		buttonAbrir6 = new JButton("Abrir");
-		buttonAbrir6.setPreferredSize(new Dimension(200, 10));
-		buttonAbrir6.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonAbrir6, "cell 1 6,alignx center");
-
-		buttonEditar6 = new JButton("Editar");
-		buttonEditar6.setPreferredSize(new Dimension(200, 10));
-		buttonEditar6.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonEditar6, "cell 2 6");
+		
+		labelApagarPedido2 = new JLabel("");
+		labelApagarPedido2.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
+		painelVerReserva.add(labelApagarPedido2, "cell 3 2");
+		
+		labelApagarPediso4 = new JLabel("");
+		labelApagarPediso4.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
+		painelVerReserva.add(labelApagarPediso4, "cell 3 4");
+		
+		labelVoltarRequisicoes = new JLabel("\r\n");
+		labelVoltarRequisicoes.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
+		painelVerReserva.add(labelVoltarRequisicoes, "cell 0 6");
 
 	}
 
