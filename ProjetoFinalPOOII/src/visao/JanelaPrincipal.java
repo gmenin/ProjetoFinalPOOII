@@ -241,12 +241,12 @@ public class JanelaPrincipal extends JFrame {
 
 		labelSolicitante = new JLabel("Solicitante");
 		labelSolicitante.setForeground(new Color(255, 255, 255));
-		labelSolicitante.setFont(new Font("Arial", Font.PLAIN, 25));
+		labelSolicitante.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelSolicitante, "cell 0 1,alignx left");
 
 		labelTelefone = new JLabel("Telefone");
 		labelTelefone.setForeground(new Color(255, 255, 255));
-		labelTelefone.setFont(new Font("Arial", Font.PLAIN, 25));
+		labelTelefone.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelTelefone, "cell 0 2");
 
 		fieldTelefone = new JTextField();
@@ -256,38 +256,38 @@ public class JanelaPrincipal extends JFrame {
 
 		JLabel labelEmail = new JLabel("Email");
 		labelEmail.setForeground(new Color(255, 255, 255));
-		labelEmail.setFont(new Font("Arial", Font.PLAIN, 25));
+		labelEmail.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelEmail, "cell 0 3,alignx left,aligny baseline");
 
 		fieldEmail = new JTextField();
-		fieldEmail.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		fieldEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldEmail, "cell 1 3 3 1,grow");
 		fieldEmail.setColumns(10);
 
 		labelNumeroAlunos = new JLabel("N\u00BA de alunos");
 		labelNumeroAlunos.setForeground(new Color(255, 255, 255));
-		labelNumeroAlunos.setFont(new Font("Arial", Font.PLAIN, 25));
+		labelNumeroAlunos.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelNumeroAlunos, "cell 0 4,alignx left,aligny bottom");
 
 		fieldNumeroAlunos = new JTextField();
-		fieldNumeroAlunos.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		fieldNumeroAlunos.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldNumeroAlunos, "cell 1 4 3 1,alignx left,growy");
 		fieldNumeroAlunos.setColumns(10);
 
 		labelAtividade = new JLabel("Atividade");
 		labelAtividade.setForeground(new Color(255, 255, 255));
-		labelAtividade.setFont(new Font("Arial", Font.PLAIN, 25));
+		labelAtividade.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelAtividade, "cell 0 5");
 
 		radioButtonAula = new JRadioButton("Aula    \r\n");
 		radioButtonAula.setActionCommand("Aula");
 		radioButtonAula.setForeground(Color.WHITE);
 		radioButtonAula.setBackground(new Color(30, 76, 118));
-		radioButtonAula.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		radioButtonAula.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(radioButtonAula, "flowx,cell 1 5,alignx left");
 
 		fieldSolicitante = new JTextField();
-		fieldSolicitante.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		fieldSolicitante.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldSolicitante, "cell 1 1 3 1,growx");
 		fieldSolicitante.setColumns(10);
 
@@ -312,13 +312,13 @@ public class JanelaPrincipal extends JFrame {
 		radioButtonSeminario.setActionCommand("Seminário");
 		radioButtonSeminario.setForeground(Color.WHITE);
 		radioButtonSeminario.setBackground(new Color(30, 76, 118));
-		radioButtonSeminario.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		radioButtonSeminario.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(radioButtonSeminario, "cell 1 5,alignx center");
 
 		radioButtonProva = new JRadioButton("Prova");
 		radioButtonProva.setActionCommand("Prova");
 		radioButtonProva.setForeground(Color.WHITE);
-		radioButtonProva.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		radioButtonProva.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		radioButtonProva.setBackground(new Color(30, 76, 118));
 		painelInicioFormulario.add(radioButtonProva, "cell 1 5,alignx right");
 
@@ -510,35 +510,35 @@ public class JanelaPrincipal extends JFrame {
 
 		labelOutrosEquipamentos = new JLabel("Outros Equipamentos");
 		labelOutrosEquipamentos.setForeground(Color.WHITE);
-		labelOutrosEquipamentos.setFont(new Font("Arial", Font.PLAIN, 30));
+		labelOutrosEquipamentos.setFont(new Font("Calibri Light", Font.BOLD, 30));
 		painelEquipamentos.add(labelOutrosEquipamentos, "cell 0 1,alignx left");
 
 		checkBoxProjetorDeSlides = new JCheckBox("     Projetor de Slides");
-		checkBoxProjetorDeSlides.setFont(new Font("Arial", Font.PLAIN, 24));
+		checkBoxProjetorDeSlides.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		checkBoxProjetorDeSlides.setBackground(new Color(30, 76, 118));
 		checkBoxProjetorDeSlides.setForeground(Color.WHITE);
 		painelEquipamentos.add(checkBoxProjetorDeSlides, "cell 0 2");
 
 		checkBoxEquipamentoDeAudio = new JCheckBox("     Equipamento de Audio");
-		checkBoxEquipamentoDeAudio.setFont(new Font("Arial", Font.PLAIN, 24));
+		checkBoxEquipamentoDeAudio.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		checkBoxEquipamentoDeAudio.setBackground(new Color(30, 76, 118));
 		checkBoxEquipamentoDeAudio.setForeground(Color.WHITE);
 		painelEquipamentos.add(checkBoxEquipamentoDeAudio, "cell 1 2");
 
 		checkBoxRetroprojetor = new JCheckBox("     Retroprojetor");
-		checkBoxRetroprojetor.setFont(new Font("Arial", Font.PLAIN, 24));
+		checkBoxRetroprojetor.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		checkBoxRetroprojetor.setBackground(new Color(30, 76, 118));
 		checkBoxRetroprojetor.setForeground(Color.WHITE);
 		painelEquipamentos.add(checkBoxRetroprojetor, "cell 0 3");
 
 		checkBoxEquipamentoDvd = new JCheckBox("     Equipamento DVD");
-		checkBoxEquipamentoDvd.setFont(new Font("Arial", Font.PLAIN, 24));
+		checkBoxEquipamentoDvd.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		checkBoxEquipamentoDvd.setBackground(new Color(30, 76, 118));
 		checkBoxEquipamentoDvd.setForeground(Color.WHITE);
 		painelEquipamentos.add(checkBoxEquipamentoDvd, "cell 1 3");
 
 		checkBoxOutroEspecificar = new JCheckBox("     Outro. Especificar: ");
-		checkBoxOutroEspecificar.setFont(new Font("Arial", Font.PLAIN, 24));
+		checkBoxOutroEspecificar.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		checkBoxOutroEspecificar.setBackground(new Color(30, 76, 118));
 		checkBoxOutroEspecificar.setForeground(Color.WHITE);
 		painelEquipamentos.add(checkBoxOutroEspecificar, "cell 0 4");
