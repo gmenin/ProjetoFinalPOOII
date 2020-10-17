@@ -100,8 +100,8 @@ public class JanelaPrincipal extends JFrame {
 	private JCheckBox checkBoxEquipamentoDeAudio;
 	private JCheckBox checkBoxEquipamentoDvd;
 	private JTextField fieldEspecificacao;
-	private JLabel labelVoltarequipamentos;
-	private JLabel labelProximoequipamentos;
+	private JLabel labelVoltarEquipamentos;
+	private JLabel labelAvancarEquipamentos;
 	private JLabel labelAvancarPainelData;
 	private JLabel labelVoltarPainelData;
 	private JDateChooser dataPanelDia1;
@@ -133,7 +133,7 @@ public class JanelaPrincipal extends JFrame {
 	private JLabel labelApagarPedido2;
 	private JLabel labelApagarPedido3;
 	private JLabel labelApagarPedido4;
-	private JLabel labelVoltarRequisicoes;
+	private JLabel labelVoltarVerReserva;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -217,6 +217,7 @@ public class JanelaPrincipal extends JFrame {
 		painelInicial.add(labelMensagemEscolha, "cell 0 2 2097051 1,alignx center");
 
 		buttonVerReservas = new JButton("Ver reservas");
+		buttonVerReservas.setActionCommand("VerReserva");
 		buttonVerReservas.setFont(new Font("Arial", Font.PLAIN, 20));
 		buttonVerReservas.setPreferredSize(new Dimension(200, 10));
 		painelInicial.add(buttonVerReservas, "flowx,cell 0 3,alignx center");
@@ -548,13 +549,13 @@ public class JanelaPrincipal extends JFrame {
 		painelEquipamentos.add(fieldEspecificacao, "cell 1 4,growx");
 		fieldEspecificacao.setColumns(10);
 
-		labelVoltarequipamentos = new JLabel("");
-		labelVoltarequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
-		painelEquipamentos.add(labelVoltarequipamentos, "cell 0 6");
+		labelVoltarEquipamentos = new JLabel("");
+		labelVoltarEquipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
+		painelEquipamentos.add(labelVoltarEquipamentos, "cell 0 6");
 
-		labelProximoequipamentos = new JLabel("");
-		labelProximoequipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
-		painelEquipamentos.add(labelProximoequipamentos, "cell 1 6,alignx right");
+		labelAvancarEquipamentos = new JLabel("");
+		labelAvancarEquipamentos.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/right-arrow.png")));
+		painelEquipamentos.add(labelAvancarEquipamentos, "cell 1 6,alignx right");
 
 		painelConfirmarReserva = new JPanel();
 		contentPane.add(painelConfirmarReserva, "painelConfirmarReserva");
@@ -668,9 +669,9 @@ public class JanelaPrincipal extends JFrame {
 		labelApagarPedido4.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
 		painelVerReserva.add(labelApagarPedido4, "cell 3 4");
 		
-		labelVoltarRequisicoes = new JLabel("\r\n");
-		labelVoltarRequisicoes.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
-		painelVerReserva.add(labelVoltarRequisicoes, "cell 0 6");
+		labelVoltarVerReserva = new JLabel("\r\n");
+		labelVoltarVerReserva.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
+		painelVerReserva.add(labelVoltarVerReserva, "cell 0 6");
 
 	}
 
@@ -873,12 +874,12 @@ public class JanelaPrincipal extends JFrame {
 		return comboBoxInicioDia6;
 	}
 
-	public JLabel getLabelProximoequipamentos() {
-		return labelProximoequipamentos;
+	public JLabel getLabelAvancarEquipamentos() {
+		return labelAvancarEquipamentos;
 	}
 
-	public void setLabelProximoequipamentos(JLabel labelProximoequipamentos) {
-		this.labelProximoequipamentos = labelProximoequipamentos;
+	public void setLabelAvancarEquipamentos(JLabel labelAvancarEquipamentos) {
+		this.labelAvancarEquipamentos = labelAvancarEquipamentos;
 	}
 
 	public void setComboBoxInicioDia6(JComboBox comboBoxInicioDia6) {
@@ -1073,12 +1074,12 @@ public class JanelaPrincipal extends JFrame {
 		return buttonGroupAtividade;
 	}
 
-	public JLabel getLabelVoltarequipamentos() {
-		return labelVoltarequipamentos;
+	public JLabel getLabelVoltarEquipamentos() {
+		return labelVoltarEquipamentos;
 	}
 
-	public void setLabelVoltarequipamentos(JLabel labelVoltarequipamentos) {
-		this.labelVoltarequipamentos = labelVoltarequipamentos;
+	public void setLabelVoltarEquipamentos(JLabel labelVoltarEquipamentos) {
+		this.labelVoltarEquipamentos = labelVoltarEquipamentos;
 	}
 
 	public void setButtonGroupAtividade(ButtonGroup buttonGroupAtividade) {
@@ -1200,12 +1201,12 @@ public class JanelaPrincipal extends JFrame {
 	}
 
 
-	public JLabel getLabelVoltarRequisicoes() {
-		return labelVoltarRequisicoes;
+	public JLabel getLabelVoltarVerReserva() {
+		return labelVoltarVerReserva;
 	}
 
-	public void setLabelVoltarRequisicoes(JLabel labelVoltarRequisicoes) {
-		this.labelVoltarRequisicoes = labelVoltarRequisicoes;
+	public void setLabelVoltarVerReserva(JLabel labelVoltarVerReserva) {
+		this.labelVoltarVerReserva = labelVoltarVerReserva;
 	}
 
 
@@ -1242,7 +1243,7 @@ public class JanelaPrincipal extends JFrame {
 				null, JOptionPane.ERROR_MESSAGE, null);
 	}
 
-	public void erroCampos() {
+	public void camposVazios() {
 		JOptionPane.showMessageDialog(this, "Existem campos em branco ou não selecionados.", null, JOptionPane.ERROR_MESSAGE, null);
 	}
 

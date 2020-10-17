@@ -21,12 +21,16 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.usuarioControle = usuarioControle;
 		this.formularioDAO = new FormularioDAO();
 		this.janelaPrincipal.getButtonFazerReserva().addActionListener(this);
+		this.janelaPrincipal.getButtonVerReservas().addActionListener(this);
+		this.janelaPrincipal.getButtonVerificaQtd().addActionListener(this);
+		this.janelaPrincipal.getButtonRevisar().addActionListener(this);
+		this.janelaPrincipal.getButtonFinalizar().addActionListener(this);
 		this.janelaPrincipal.getLabelAvancarPainelInicioFormulario().addMouseListener(this);
 		this.janelaPrincipal.getLabelVoltarPainelData().addMouseListener(this);
 		this.janelaPrincipal.getLabelAvancarPainelData().addMouseListener(this);
-		this.janelaPrincipal.getLabelVoltarequipamentos().addMouseListener(this);
-		this.janelaPrincipal.getLabelProximoequipamentos().addMouseListener(this);
-		this.janelaPrincipal.getButtonVerificaQtd().addActionListener(this);
+		this.janelaPrincipal.getLabelVoltarEquipamentos().addMouseListener(this);
+		this.janelaPrincipal.getLabelAvancarEquipamentos().addMouseListener(this);
+		this.janelaPrincipal.getLabelVoltarVerReserva().addMouseListener(this);
 	}
 
 	public void salvarRequisicao() {
@@ -55,7 +59,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		// formulario = new Formulario(solicitante, telefone, email, numeroAlunos,
 		// atividade, modalidade, curso, equipamentos, data, horaInicial, horaFinal);
 
-//		if(validarCampos()) {
+//		if(validarCamposSolicitante() == true && validarCamposEquipamentos == true) {
 //			//boolean insercao = formularioDAO.inserirRequisicao(formulario, usuarioControle.getUsuarioId());
 //			if(insercao) {
 //				limparCampos();
@@ -72,7 +76,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 //			}else {
 //				this.janelaPrincipal.mensagemRequisicaoErro();
 //			}	
-//		}
+//		} else { this.janelaPrincipal.camposVazios(); }
 
 	}
 
@@ -88,8 +92,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 				|| this.janelaPrincipal.getFieldSolicitante().getText().isEmpty()
 				|| this.janelaPrincipal.getComboBoxModalidade().getSelectedIndex() == -1
 				|| this.janelaPrincipal.getComboBoxCurso().getSelectedIndex() == -1) {
-			this.janelaPrincipal.erroCampos();
-
+			// msg foi movida para o me'todo salvarRequisicao()
 			return false;
 		}
 		return true;
@@ -109,13 +112,98 @@ public class FormularioControle implements ActionListener, MouseListener {
 		return true;
 	}
 */
+	
+	// esta' funcionando!
+	public boolean validarCamposData() {
+		int contador = 0, quantidadeDias = 0, aux = 0;
+		
+		if(this.janelaPrincipal.getComboBoxQtdDias().getSelectedIndex() >= 0) {
+			quantidadeDias = this.janelaPrincipal.getComboBoxQtdDias().getSelectedIndex() + 1;
+		}
+		
+		// teste para checkar se ha' nao preenchidos
+		if(!this.janelaPrincipal.getDataPanelDia1().toString().isEmpty() 
+				&& !this.janelaPrincipal.getDataPanelDia1().toString().equals("") 
+				&& this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex() != -1
+				&& this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() != -1) {
+			contador++;
+		}
+		if(!this.janelaPrincipal.getDataPanelDia2().toString().isEmpty() 
+				&& !this.janelaPrincipal.getDataPanelDia2().toString().equals("") 
+				&& this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex() != -1
+				&& this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() != -1) {
+			contador++;
+		}
+		if(!this.janelaPrincipal.getDataPanelDia3().toString().isEmpty() 
+				&& !this.janelaPrincipal.getDataPanelDia3().toString().equals("") 
+				&& this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex() != -1
+				&& this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() != -1) {
+			contador++;
+		}
+		if(!this.janelaPrincipal.getDataPanelDia4().toString().isEmpty() 
+				&& !this.janelaPrincipal.getDataPanelDia4().toString().equals("") 
+				&& this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex() != -1
+				&& this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() != -1) {
+			contador++;
+		}
+		if(!this.janelaPrincipal.getDataPanelDia5().toString().isEmpty() 
+				&& !this.janelaPrincipal.getDataPanelDia5().toString().equals("") 
+				&& this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex() != -1
+				&& this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() != -1) {
+			contador++;
+		}
+		if(!this.janelaPrincipal.getDataPanelDia6().toString().isEmpty() 
+				&& !this.janelaPrincipal.getDataPanelDia6().toString().equals("") 
+				&& this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex() != -1
+				&& this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() != -1) {
+			contador++;
+		}
+		
+		// teste para checkar se hora inicial > hora final
+		if(this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex() + 7 > 
+			this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() + 8) {
+			aux++;
+		}
+		if(this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex() + 7 > 
+			this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() + 8) {
+			aux++;
+		}
+		if(this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex() + 7 > 
+			this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() + 8) {
+			aux++;
+		}
+		if(this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex() + 7 > 
+			this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() + 8) {
+			aux++;
+		}
+		if(this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex() + 7 > 
+			this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() + 8) {
+			aux++;
+		}
+		if(this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex() + 7 > 
+			this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() + 8) {
+			aux++;
+		}
+		
+		
+		if(contador != quantidadeDias) {
+			return false;
+		}
+		
+		if(aux > 0) {
+			return false;
+		}
+		
+		return true;
+	}
+	
 	public boolean validarCamposEquipamentos() {
 
 		if (this.janelaPrincipal.getCheckBoxOutroEspecificar().isSelected()
 			&& this.janelaPrincipal.getFieldEspecificacao().getText().isEmpty())
 
 		{
-			this.janelaPrincipal.erroCampos();
+			this.janelaPrincipal.camposVazios();
 			return false;
 		}
 		return true;
@@ -451,11 +539,21 @@ public class FormularioControle implements ActionListener, MouseListener {
 		if (evento.getActionCommand().equals("Reservar")) {
 			trocarPainel("painelInicioFormulario");
 		}
+		if(evento.getActionCommand().equals("VerReserva")) {
+			trocarPainel("painelVerReserva");
+		}
 		if (evento.getActionCommand().equals("Finalizar")) {
 			salvarRequisicao();
 		}
 		if (evento.getActionCommand().equals("OKdias")) {
 			mostrarCamposDatas();
+		}
+		if (evento.getActionCommand().equals("Revisar")) {
+			trocarPainel("painelInicioFormulario");
+		}
+		if (evento.getActionCommand().equals("Finalizar")) {
+			limparCampos();
+			trocarPainel("painelInicial");
 		}
 
 	}
@@ -464,9 +562,11 @@ public class FormularioControle implements ActionListener, MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelInicioFormulario()) {
-			if (validarCamposSolicitante() == true)
+			if (validarCamposSolicitante()) {
 				trocarPainel("painelData");
-
+			} else {
+				this.janelaPrincipal.camposVazios();
+			}
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelData()) {
 			trocarPainel("painelInicioFormulario");
@@ -477,16 +577,17 @@ public class FormularioControle implements ActionListener, MouseListener {
 				trocarPainel("painelEquipamentos");
 
 		}
-		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarequipamentos()) {
+		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarEquipamentos()) {
 			trocarPainel("painelData");
 
 		}
-		if (e.getComponent() == this.janelaPrincipal.getLabelProximoequipamentos()) {
-
+		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarEquipamentos()) {
 			if (validarCamposEquipamentos() == true) {
 				trocarPainel("painelConfirmarReserva");
 			}
-
+		}
+		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarVerReserva()) {
+			trocarPainel("painelInicial");
 		}
 	}
 
