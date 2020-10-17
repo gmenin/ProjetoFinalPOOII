@@ -569,7 +569,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelData()) {
 			trocarPainel("painelInicioFormulario");
-			
+
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelData()) {
 			// if (validarCamposData() == true)
