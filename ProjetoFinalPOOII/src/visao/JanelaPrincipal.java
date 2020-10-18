@@ -1291,7 +1291,7 @@ public class JanelaPrincipal extends JFrame {
 
 	public void mensagemInformacoes() {
 		JOptionPane.showMessageDialog(null,
-				"Trabalho de Final de\nProgramação Orientada a Objetos\n\nDesenvolvido por:\nAndré Jardim\nGabriel Menin\nJoão Martins\nMaico Triaca");
+				"Trabalho de Final de\nProgramação Orientada a Objetos\n\nDesenvolvido por:\nAndré Jardim;\nGabriel Menin;\nJoão Martins;\nMaico Triaca.");
 	}
 
 	public void mensagemCamposVazios() {
