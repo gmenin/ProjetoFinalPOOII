@@ -256,7 +256,7 @@ public class JanelaPrincipal extends JFrame {
 		painelInicioFormulario.add(labelTelefone, "cell 0 2");
 		
 		
-	/*	
+		
 	 MaskFormatter maskTelefone=null;
 		try {
 			maskTelefone = new MaskFormatter("(##) #########");
@@ -264,7 +264,7 @@ public class JanelaPrincipal extends JFrame {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
-	*/
+	
 	
 		
 		fieldTelefone = new JFormattedTextField();
