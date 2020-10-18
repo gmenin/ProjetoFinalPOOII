@@ -1267,6 +1267,7 @@ public class JanelaPrincipal extends JFrame {
 	}
 
 	// Me´todo que troca de painel
+	//Método Trocar
 	public void trocarPainel(String nomePainel) {
 		card.show(contentPane, nomePainel);
 	}
@@ -1287,5 +1288,5 @@ public class JanelaPrincipal extends JFrame {
 		JOptionPane.showMessageDialog(this, "Existem campos em branco ou não selecionados.", null,
 				JOptionPane.ERROR_MESSAGE, null);
 	}
- //.
+	
 }
