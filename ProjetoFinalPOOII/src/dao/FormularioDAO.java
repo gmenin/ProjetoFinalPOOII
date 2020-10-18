@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 
 import modelo.Formulario;
 import modelo.Usuario;
@@ -59,7 +60,7 @@ public class FormularioDAO {
 	} // inserirRequisicao()
 
 	// Me'todo que realiza a insercao das datas da requisicao no banco
-	public boolean inserirReserva(int requisicaoId, Date dia, int horarioInicial, int horarioFinal) {
+	public boolean inserirReserva(int requisicaoId, Date date, int horarioInicial, int horarioFinal) {
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
 
@@ -71,7 +72,7 @@ public class FormularioDAO {
 				// Argumentos que serao inseridos no banco de dados
 				prepareStatement = con.prepareStatement(sql);
 				prepareStatement.setInt(1, requisicaoId);
-				prepareStatement.setDate(2, dia);
+				prepareStatement.setDate(2, date);
 				prepareStatement.setInt(3, horarioInicial);
 				prepareStatement.setInt(4, horarioFinal);
 

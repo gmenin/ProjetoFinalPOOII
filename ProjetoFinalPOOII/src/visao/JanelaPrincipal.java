@@ -1278,6 +1278,16 @@ public class JanelaPrincipal extends JFrame {
 		JOptionPane.showMessageDialog(this, "Usuário ou senha incorreto! Por favor, verifique os dados inseridos.",
 				null, JOptionPane.ERROR_MESSAGE, null);
 	}
+	
+	public void mensagemRequisicaoErro() {
+		JOptionPane.showMessageDialog(this, "Por favor, verifique os dados inseridos.",
+				null, JOptionPane.ERROR_MESSAGE, null);
+	}
+	
+	public void mensagemRequisicaoSucesso() {
+		JOptionPane.showMessageDialog(this, "Requisição encaminhada com sucesso!",
+				null, JOptionPane.PLAIN_MESSAGE, null);
+	}
 
 	public void mensagemInformacoes() {
 		JOptionPane.showMessageDialog(null,

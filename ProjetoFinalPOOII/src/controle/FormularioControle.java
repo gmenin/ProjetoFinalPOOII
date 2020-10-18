@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import dao.FormularioDAO;
 import modelo.Formulario;
@@ -35,10 +36,10 @@ public class FormularioControle implements ActionListener, MouseListener {
 	}
 
 	public void salvarRequisicao() {
-		String solicitante, telefone, email, atividade, modalidade, curso, equipamentos;
-		Date[] data;
+		String solicitante, telefone, email, atividade, modalidade, curso, equipamentos = null;
+		Date[] data = null;
 		int numeroAlunos;
-		int[] horaInicial, horaFinal;
+		int[] horaInicial = null, horaFinal = null;
 		Formulario formulario;
 
 		solicitante = this.janelaPrincipal.getFieldSolicitante().getText();
@@ -47,37 +48,73 @@ public class FormularioControle implements ActionListener, MouseListener {
 		atividade = this.janelaPrincipal.getButtonGroupAtividade().getSelection().getActionCommand();
 		modalidade = this.janelaPrincipal.getComboBoxModalidade().getSelectedItem().toString();
 		curso = this.janelaPrincipal.getComboBoxCurso().getSelectedItem().toString();
-		equipamentos = "teste";
-		// equipamentos = this.janelaPrincipal
 		numeroAlunos = Integer.parseInt(this.janelaPrincipal.getFieldNumeroAlunos().getText());
-
-		for (int i = 0; i < 6; i++) {
-//			data[i] = this.janelaPrincipal
-//			horaInicial[i] = this.janelaPrincipal.getComboBoxInicioDia()+i;
-//			horaFinal[i] = this.janelaPrincipal.getComboBoxFinalDia()+i;	
+		
+		if(this.janelaPrincipal.getCheckBoxEquipamentoDeAudio().isSelected()) {
+			equipamentos = this.janelaPrincipal.getCheckBoxEquipamentoDeAudio().getText();
+		}
+		
+		if(this.janelaPrincipal.getCheckBoxEquipamentoDvd().isSelected()) {
+			equipamentos = equipamentos + this.janelaPrincipal.getCheckBoxEquipamentoDvd().getText();
+		}
+		
+		if(this.janelaPrincipal.getCheckBoxProjetorDeSlides().isSelected()) {
+			equipamentos = equipamentos + this.janelaPrincipal.getCheckBoxProjetorDeSlides().getText();
+		}
+		
+		if(this.janelaPrincipal.getCheckBoxRetroprojetor().isSelected()) {
+			equipamentos = equipamentos + this.janelaPrincipal.getCheckBoxRetroprojetor().getText();
+		}
+		
+		if(this.janelaPrincipal.getCheckBoxOutroEspecificar().isSelected()) {
+			equipamentos = equipamentos + this.janelaPrincipal.getFieldEspecificacao().getText();
 		}
 
-		// formulario = new Formulario(solicitante, telefone, email, numeroAlunos,
-		// atividade, modalidade, curso, equipamentos, data, horaInicial, horaFinal);
+//		data[1] = (Date) this.janelaPrincipal.getDataPanelDia1().getDate();
+//		horaInicial[1] = this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex()+7;
+//		horaFinal[1] = this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex()+8;
+//		
+//		data[2] = (Date) this.janelaPrincipal.getDataPanelDia2().getDate();
+//		horaInicial[2] = this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()+7;
+//		horaFinal[2] = this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex()+8;
+//		
+//		data[3] = (Date) this.janelaPrincipal.getDataPanelDia3().getDate();
+//		horaInicial[3] = this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex()+7;
+//		horaFinal[3] = this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex()+8;
+//		
+//		data[4] = (Date) this.janelaPrincipal.getDataPanelDia4().getDate();
+//		horaInicial[4] = this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex()+7;
+//		horaFinal[4] = this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex()+8;
+//		
+//		data[5] = (Date) this.janelaPrincipal.getDataPanelDia5().getDate();
+//		horaInicial[5] = this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex()+7;
+//		horaFinal[5] = this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex()+8;
+//		
+//		data[6] = (Date) this.janelaPrincipal.getDataPanelDia6().getDate();
+//		horaInicial[6] = this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex()+7;
+//		horaFinal[6] = this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex()+8;
 
-//		if(validarCamposSolicitante() == true && validarCamposEquipamentos == true && validarCamposData() == true) {
-//			//boolean insercao = formularioDAO.inserirRequisicao(formulario, usuarioControle.getUsuarioId());
-//			if(insercao) {
-//				limparCampos();
-//				int requisicaoId = formularioDAO.retornaFormularioId(usuarioControle.getUsuarioId());
-//				for(int j=0; j<6; j++) {
-//					if(validarReserva(data[j], horaInicial[j], horaFinal[j])) {
-//						boolean reserva = formularioDAO.inserirReserva(requisicaoId, data[j], horaInicial[j], horaFinal[j]);
-//						if(reserva==false) {
-//							this.janelaPrincipal.mensagemRequisicaoErro();
-//						}
-//					}
-//				}
-//				this.janelaPrincipal.mensagemRequisicaoSucesso();
-//			}else {
-//				this.janelaPrincipal.mensagemRequisicaoErro();
-//			}	
-//		} else { this.janelaPrincipal.camposVazios(); }
+		formulario = new Formulario(solicitante, telefone, email, numeroAlunos,
+			atividade, modalidade, curso, equipamentos, data, horaInicial, horaFinal);
+
+		if(validarCamposSolicitante() == true && validarCamposEquipamentos() == true && validarCamposData() == true) {
+			boolean insercao = formularioDAO.inserirRequisicao(formulario, usuarioControle.getUsuarioId());
+			if(insercao) {
+				limparCampos();
+				int requisicaoId = formularioDAO.retornaFormularioId(usuarioControle.getUsuarioId());
+				for(int j=0; j<6; j++) {
+					boolean reserva = formularioDAO.inserirReserva(requisicaoId, formulario.getData(j), formulario.getHoraInicial(j), formulario.getHoraInicial(j));
+					if(reserva==false) {
+						this.janelaPrincipal.mensagemRequisicaoErro();
+					}
+				}
+				this.janelaPrincipal.mensagemRequisicaoSucesso();
+			}else {
+				this.janelaPrincipal.mensagemRequisicaoErro();
+			}	
+		} else { 
+			this.janelaPrincipal.mensagemCamposVazios(); 
+		}
 
 	}
 
@@ -205,11 +242,6 @@ public class FormularioControle implements ActionListener, MouseListener {
 			return false;
 		}
 		return true;
-	}
-
-	public boolean validarReserva(Date data, int horaInicial, int horaFinal) {
-		// Co'digo para validar os campos do periodo (data, hora de inicio e de fim)
-		return false;
 	}
 
 	public void limparCampos() {
