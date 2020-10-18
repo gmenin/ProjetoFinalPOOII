@@ -1273,7 +1273,7 @@ public class JanelaPrincipal extends JFrame {
 	}
 
 	// Métodos que quando chamados exibem mensagens
-	// Mensagem de erro
+	
 	public void mensagemErroAutenticacao() {
 		JOptionPane.showMessageDialog(this, "Usuário ou senha incorreto! Por favor, verifique os dados inseridos.",
 				null, JOptionPane.ERROR_MESSAGE, null);
@@ -1288,5 +1288,5 @@ public class JanelaPrincipal extends JFrame {
 		JOptionPane.showMessageDialog(this, "Existem campos em branco ou não selecionados.", null,
 				JOptionPane.ERROR_MESSAGE, null);
 	}
-	
+	//testando o cmmit
 }
