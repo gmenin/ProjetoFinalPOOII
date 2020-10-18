@@ -47,7 +47,10 @@ public class FormularioControle implements ActionListener, MouseListener {
 		
 		// Quantidade de datas selecionadas
 		int quantidadeDias;
-
+		quantidadeDias = this.janelaPrincipal.getComboBoxQtdDias().getSelectedIndex() + 1;
+		
+		// Indice para auxiliar na atribuicao de valores das datas
+		int i;
 		
 		// Atribuicao de valor para varia'veis com dados recebidos da tela
 		solicitante = this.janelaPrincipal.getFieldSolicitante().getText();
@@ -81,37 +84,57 @@ public class FormularioControle implements ActionListener, MouseListener {
 		}
 		
 		// Passagem das datas (dia, hora inicial e final)
-		data[0] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia1().getDate());
-		horaInicial[0] = this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex()+7;
-		horaFinal[0] = this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex()+8;
+		i = 0;
+		if (i < quantidadeDias) {
+			data[i] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia1().getDate());
+			horaInicial[0] = this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex()+7;
+			horaFinal[0] = this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex()+8;
+		}
 		
-		data[1] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia2().getDate());
-		horaInicial[1] = this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()+7;
-		horaFinal[1] = this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex()+8;
+		i++;
 		
-		data[2] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia3().getDate());
-		horaInicial[2] = this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()+7;
-		horaFinal[2] = this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex()+8;
+		if(i <= quantidadeDias) {
+			data[1] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia2().getDate());
+			horaInicial[1] = this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()+7;
+			horaFinal[1] = this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex()+8;
+		}
 		
-		data[3] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia4().getDate());
-		horaInicial[3] = this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex()+7;
-		horaFinal[3] = this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex()+8;
+		i++;
 		
-		data[4] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia5().getDate());
-		horaInicial[4] = this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex()+7;
-		horaFinal[4] = this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex()+8;
+		if(i < quantidadeDias) {
+			data[2] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia3().getDate());
+			horaInicial[2] = this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex()+7;
+			horaFinal[2] = this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex()+8;	
+		}
 		
-		data[5] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia6().getDate());
-		horaInicial[5] = this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex()+7;
-		horaFinal[5] = this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex()+8;
+		i++;
+		
+		if(i < quantidadeDias) {
+			data[3] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia4().getDate());
+			horaInicial[3] = this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex()+7;
+			horaFinal[3] = this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex()+8;
+		}
+		
+		i++;
+		
+		if(i < quantidadeDias) {
+			data[4] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia5().getDate());
+			horaInicial[4] = this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex()+7;
+			horaFinal[4] = this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex()+8;
+		}
+		
+		i++;
+		
+		if(i < quantidadeDias) {
+			data[5] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia6().getDate());
+			horaInicial[5] = this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex()+7;
+			horaFinal[5] = this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex()+8;
+		}
 
 		formulario = new Formulario(solicitante, telefone, email, numeroAlunos,
 			atividade, modalidade, curso, equipamentos, data, horaInicial, horaFinal);
 
 		if(validarCamposSolicitante() == true && validarCamposEquipamentos() == true && validarCamposData() == true) {
-			
-			// Quantidade de datas selecionadas na tela 
-			quantidadeDias = this.janelaPrincipal.getComboBoxQtdDias().getSelectedIndex() + 1;
 			
 			boolean insercao = formularioDAO.inserirRequisicao(formulario, usuarioControle.getUsuarioId());
 			
