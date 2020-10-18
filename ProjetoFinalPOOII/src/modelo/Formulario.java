@@ -1,7 +1,5 @@
 package modelo;
 
-import java.sql.Date;
-
 public class Formulario {
 	
 	private String solicitante;
@@ -12,13 +10,13 @@ public class Formulario {
 	private String modalidade;
 	private String curso;
 	private String equipamentos;
-	private Date [] data = new Date[6];
+	private String [] data = new String[6];
 	private int [] horaInicial = new int[6];
 	private int [] horaFinal = new int[6];
 	
 	
 	public Formulario(String solicitante, String telefone, String email, int numeroAlunos, String atividade,
-			String modalidade, String curso, String equipamentos, Date[] data, int[] horaInicial, int[] horaFinal) {
+			String modalidade, String curso, String equipamentos, String[] data, int[] horaInicial, int[] horaFinal) {
 		super();
 		this.solicitante = solicitante;
 		this.telefone = telefone;
@@ -106,17 +104,17 @@ public class Formulario {
 		this.equipamentos = equipamentos;
 	}
 	//-------------------------------------------------
-	public Date[] getData() {
+	public String[] getData() {
 		return data;
 	}
-	public Date getData(int index) {
+	public String getData(int index) {
 		return data[index];
 	}
 		
-	public void setData(Date[] data) {
+	public void setData(String[] data) {
 		this.data = data;
 	}
-	public void setData(int index, Date data) {
+	public void setData(int index, String data) {
 		this.data[index] = data;
 	}
 	//-------------------------------------------------

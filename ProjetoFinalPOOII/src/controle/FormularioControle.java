@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.sql.Date;
-import java.time.LocalDateTime;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import dao.FormularioDAO;
 import modelo.Formulario;
@@ -36,12 +36,20 @@ public class FormularioControle implements ActionListener, MouseListener {
 	}
 
 	public void salvarRequisicao() {
-		String solicitante, telefone, email, atividade, modalidade, curso, equipamentos = null;
-		Date[] data = null;
+		String solicitante, telefone, email, atividade, modalidade, curso, equipamentos = "";
+		String[] data = new String[6];
 		int numeroAlunos;
-		int[] horaInicial = null, horaFinal = null;
+		int[] horaInicial = new int[6], horaFinal = new int[6];
 		Formulario formulario;
+		
+		// Formatador da data recebida da tela
+		DateFormat dataFormatada = new SimpleDateFormat("yyyy-MM-dd");
+		
+		// Quantidade de datas selecionadas
+		int quantidadeDias;
 
+		
+		// Atribuicao de valor para varia'veis com dados recebidos da tela
 		solicitante = this.janelaPrincipal.getFieldSolicitante().getText();
 		telefone = this.janelaPrincipal.getFieldTelefone().getText();
 		email = this.janelaPrincipal.getFieldEmail().getText();
@@ -50,8 +58,10 @@ public class FormularioControle implements ActionListener, MouseListener {
 		curso = this.janelaPrincipal.getComboBoxCurso().getSelectedItem().toString();
 		numeroAlunos = Integer.parseInt(this.janelaPrincipal.getFieldNumeroAlunos().getText());
 		
+		
+		// Passagem de valor  de um checkBox para a varia'vel
 		if(this.janelaPrincipal.getCheckBoxEquipamentoDeAudio().isSelected()) {
-			equipamentos = this.janelaPrincipal.getCheckBoxEquipamentoDeAudio().getText();
+			equipamentos = equipamentos + this.janelaPrincipal.getCheckBoxEquipamentoDeAudio().getText();
 		}
 		
 		if(this.janelaPrincipal.getCheckBoxEquipamentoDvd().isSelected()) {
@@ -69,49 +79,61 @@ public class FormularioControle implements ActionListener, MouseListener {
 		if(this.janelaPrincipal.getCheckBoxOutroEspecificar().isSelected()) {
 			equipamentos = equipamentos + this.janelaPrincipal.getFieldEspecificacao().getText();
 		}
-
-//		data[1] = (Date) this.janelaPrincipal.getDataPanelDia1().getDate();
-//		horaInicial[1] = this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex()+7;
-//		horaFinal[1] = this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex()+8;
-//		
-//		data[2] = (Date) this.janelaPrincipal.getDataPanelDia2().getDate();
-//		horaInicial[2] = this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()+7;
-//		horaFinal[2] = this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex()+8;
-//		
-//		data[3] = (Date) this.janelaPrincipal.getDataPanelDia3().getDate();
-//		horaInicial[3] = this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex()+7;
-//		horaFinal[3] = this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex()+8;
-//		
-//		data[4] = (Date) this.janelaPrincipal.getDataPanelDia4().getDate();
-//		horaInicial[4] = this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex()+7;
-//		horaFinal[4] = this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex()+8;
-//		
-//		data[5] = (Date) this.janelaPrincipal.getDataPanelDia5().getDate();
-//		horaInicial[5] = this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex()+7;
-//		horaFinal[5] = this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex()+8;
-//		
-//		data[6] = (Date) this.janelaPrincipal.getDataPanelDia6().getDate();
-//		horaInicial[6] = this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex()+7;
-//		horaFinal[6] = this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex()+8;
+		
+		// Passagem das datas (dia, hora inicial e final)
+		data[0] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia1().getDate());
+		horaInicial[0] = this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex()+7;
+		horaFinal[0] = this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex()+8;
+		
+		data[1] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia2().getDate());
+		horaInicial[1] = this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()+7;
+		horaFinal[1] = this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex()+8;
+		
+		data[2] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia3().getDate());
+		horaInicial[2] = this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()+7;
+		horaFinal[2] = this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex()+8;
+		
+		data[3] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia4().getDate());
+		horaInicial[3] = this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex()+7;
+		horaFinal[3] = this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex()+8;
+		
+		data[4] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia5().getDate());
+		horaInicial[4] = this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex()+7;
+		horaFinal[4] = this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex()+8;
+		
+		data[5] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia6().getDate());
+		horaInicial[5] = this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex()+7;
+		horaFinal[5] = this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex()+8;
 
 		formulario = new Formulario(solicitante, telefone, email, numeroAlunos,
 			atividade, modalidade, curso, equipamentos, data, horaInicial, horaFinal);
 
 		if(validarCamposSolicitante() == true && validarCamposEquipamentos() == true && validarCamposData() == true) {
+			
+			// Quantidade de datas selecionadas na tela 
+			quantidadeDias = this.janelaPrincipal.getComboBoxQtdDias().getSelectedIndex() + 1;
+			
 			boolean insercao = formularioDAO.inserirRequisicao(formulario, usuarioControle.getUsuarioId());
+			
 			if(insercao) {
 				limparCampos();
+				
+				// Id da u'ltima requisicao inserida e' salvo
 				int requisicaoId = formularioDAO.retornaFormularioId(usuarioControle.getUsuarioId());
-				for(int j=0; j<6; j++) {
+				
+				// Insercao na tabela reserva das datas da requisicao
+				for(int j=0; j<quantidadeDias; j++) {
 					boolean reserva = formularioDAO.inserirReserva(requisicaoId, formulario.getData(j), formulario.getHoraInicial(j), formulario.getHoraInicial(j));
 					if(reserva==false) {
 						this.janelaPrincipal.mensagemRequisicaoErro();
 					}
 				}
+				
 				this.janelaPrincipal.mensagemRequisicaoSucesso();
 			}else {
 				this.janelaPrincipal.mensagemRequisicaoErro();
-			}	
+			}
+			
 		} else { 
 			this.janelaPrincipal.mensagemCamposVazios(); 
 		}
@@ -131,7 +153,6 @@ public class FormularioControle implements ActionListener, MouseListener {
 				|| this.janelaPrincipal.getComboBoxModalidade().getSelectedIndex() == -1
 				|| this.janelaPrincipal.getComboBoxCurso().getSelectedIndex() == -1
 				|| this.janelaPrincipal.getButtonGroupAtividade().isSelected(null)) {
-			// msg foi movida para o me'todo salvarRequisicao()
 			return false;
 		}
 		return true;
