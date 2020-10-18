@@ -201,7 +201,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 				&& this.janelaPrincipal.getFieldEspecificacao().getText().isEmpty())
 
 		{
-			this.janelaPrincipal.camposVazios();
+			this.janelaPrincipal.mensagemCamposVazios();
 			return false;
 		}
 		return true;
@@ -564,7 +564,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 			if (validarCamposSolicitante()) {
 				trocarPainel("painelData");
 			} else {
-				this.janelaPrincipal.camposVazios();
+				this.janelaPrincipal.mensagemCamposVazios();
 			}
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelData()) {
@@ -575,7 +575,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 			if (validarCamposData()) {
 				trocarPainel("painelEquipamentos");
 			}else {
-				this.janelaPrincipal.camposVazios();
+				this.janelaPrincipal.mensagemCamposVazios();
 			}
 				
 

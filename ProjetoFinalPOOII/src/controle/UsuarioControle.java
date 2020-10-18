@@ -71,7 +71,7 @@ public class UsuarioControle implements ActionListener, MouseListener{
 		// TODO Auto-generated method stub
 		if(e.getComponent()==this.janelaPrincipal.getLabelInfo()) {
 			
-			this.janelaPrincipal.informacoes();
+			this.janelaPrincipal.mensagemInformacoes();
 		}
 	}
 

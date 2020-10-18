@@ -1279,12 +1279,12 @@ public class JanelaPrincipal extends JFrame {
 				null, JOptionPane.ERROR_MESSAGE, null);
 	}
 
-	public void informacoes() {
+	public void mensagemInformacoes() {
 		JOptionPane.showMessageDialog(null,
-				"Trabalho de Final de\nProgramação Orientada a Objtos\n\nDesenvolvido por:\nAndré Jardim\nGabriel Menin\nJoão Martins\nMaico Triaca");
+				"Trabalho de Final de\nProgramação Orientada a Objetos\n\nDesenvolvido por:\nAndré Jardim\nGabriel Menin\nJoão Martins\nMaico Triaca");
 	}
 
-	public void camposVazios() {
+	public void mensagemCamposVazios() {
 		JOptionPane.showMessageDialog(this, "Existem campos em branco ou não selecionados.", null,
 				JOptionPane.ERROR_MESSAGE, null);
 	}
