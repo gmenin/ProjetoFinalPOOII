@@ -60,7 +60,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		// formulario = new Formulario(solicitante, telefone, email, numeroAlunos,
 		// atividade, modalidade, curso, equipamentos, data, horaInicial, horaFinal);
 
-//		if(validarCamposSolicitante() == true && validarCamposEquipamentos == true) {
+//		if(validarCamposSolicitante() == true && validarCamposEquipamentos == true && validarCamposData() == true) {
 //			//boolean insercao = formularioDAO.inserirRequisicao(formulario, usuarioControle.getUsuarioId());
 //			if(insercao) {
 //				limparCampos();
@@ -160,27 +160,27 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 		// teste para checkar se hora inicial > hora final
 		if (this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() + 8) {
 			aux++;
 		}
 		if (this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() + 8) {
 			aux++;
 		}
 		if (this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() + 8) {
 			aux++;
 		}
 		if (this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() + 8) {
 			aux++;
 		}
 		if (this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() + 8) {
 			aux++;
 		}
 		if (this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() + 8) {
 			aux++;
 		}
 
@@ -572,8 +572,12 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelData()) {
-			// if (validarCamposData() == true)
-			trocarPainel("painelEquipamentos");
+			if (validarCamposData()) {
+				trocarPainel("painelEquipamentos");
+			}else {
+				this.janelaPrincipal.camposVazios();
+			}
+				
 
 		}
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarEquipamentos()) {
