@@ -257,13 +257,13 @@ public class JanelaPrincipal extends JFrame {
 		
 		
 		
-	/*	 MaskFormatter maskTelefone=null;
+	 MaskFormatter maskTelefone=null;
 		try {
 			maskTelefone = new MaskFormatter("(##) #########");
 		} catch (ParseException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
-		}*/
+		}
 	
 	
 		
@@ -1288,5 +1288,5 @@ public class JanelaPrincipal extends JFrame {
 		JOptionPane.showMessageDialog(this, "Existem campos em branco ou não selecionados.", null,
 				JOptionPane.ERROR_MESSAGE, null);
 	}
-	//testando o cmmit
+	
 }
