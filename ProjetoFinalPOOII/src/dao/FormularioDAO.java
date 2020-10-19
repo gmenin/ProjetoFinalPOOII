@@ -219,10 +219,8 @@ public class FormularioDAO {
 			formulario.setModalidade(modalidade);
 			formulario.setCurso(curso);
 			formulario.setEquipamentos(equipamentos);
-			
 
 			if (aux == 1) {
-				System.out.println("true");
 				return true;
 			}
 
@@ -236,21 +234,42 @@ public class FormularioDAO {
 		return false;
 	} // retornaRequisicao()
 
-//	public boolean retornaReservas(int requisicaoId, Formulario formulario) {
-//
-//		String sql = "SELECT dia, horarioInicial, horarioFinal FROM reserva WHERE requisicaoId = ?";
-//		PreparedStatement prepareStatement;
-//		String dia = null, horarioInicial = null, horarioFinal = null;
-//
-//		try {
-//			prepareStatement = con.prepareStatement(sql);
-//			prepareStatement.setInt(1, requisicaoId);
-//			ResultSet resultado = prepareStatement.executeQuery();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//	}
+	public boolean retornaReservas(int requisicaoId, Formulario formulario) {
+
+		int aux = 0, contador = 0;
+		String sql = "SELECT dia, horarioInicial, horarioFinal FROM reserva WHERE requisicaoId = ?";
+		PreparedStatement prepareStatement;
+		String[] dia = new String[6];
+		int[] horarioInicial = new int[6], horarioFinal = new int[6];
+
+		try {
+			prepareStatement = con.prepareStatement(sql);
+			prepareStatement.setInt(1, requisicaoId);
+			ResultSet resultado = prepareStatement.executeQuery();
+
+			while (resultado.next()) {
+				aux = 1;
+				dia[contador] = resultado.getString(1);
+				horarioInicial[contador] = resultado.getInt(2);
+				horarioFinal[contador] = resultado.getInt(3);
+
+				contador++;
+			}
+
+			formulario.setData(dia);
+			formulario.setHoraInicial(horarioInicial);
+			formulario.setHoraFinal(horarioFinal);
+
+			if (aux == 1) {
+				return true;
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+
+	}
 
 }

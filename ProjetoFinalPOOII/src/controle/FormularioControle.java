@@ -40,6 +40,9 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getLabelApagarRequisicao3().addMouseListener(this);
 		this.janelaPrincipal.getLabelApagarRequisicao4().addMouseListener(this);
 		this.janelaPrincipal.getButtonVerRequisicao1().addActionListener(this);
+		this.janelaPrincipal.getButtonVerRequisicao2().addActionListener(this);
+		this.janelaPrincipal.getButtonVerRequisicao3().addActionListener(this);
+		this.janelaPrincipal.getButtonVerRequisicao4().addActionListener(this);
 	}
 
 	// Me'todo que salva uma requisicao de reserva de sala
@@ -784,6 +787,21 @@ public class FormularioControle implements ActionListener, MouseListener {
 			trocarPainel("painelAbrirFormulario");
 
 		}
+		if (evento.getActionCommand().equals("Abrir2")) {
+
+			abrirRequisacao(1);
+			trocarPainel("painelAbrirFormulario");
+		}
+		if (evento.getActionCommand().equals("Abrir3")) {
+
+			abrirRequisacao(2);
+			trocarPainel("painelAbrirFormulario");
+		}
+		if (evento.getActionCommand().equals("Abrir4")) {
+
+			abrirRequisacao(3);
+			trocarPainel("painelAbrirFormulario");
+		}
 
 	}
 
@@ -792,7 +810,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		int idRequisicao[] = formularioDAO.retornaFormularioIdGeral(usuarioControle.getUsuarioId());
 		int id = idRequisicao[i];
 		if (id > 0) {
-			if (formularioDAO.retornaRequisicao(id, formulario)) {
+			if (formularioDAO.retornaRequisicao(id, formulario) && formularioDAO.retornaReservas(id, formulario)) {
 
 				this.janelaPrincipal.getLabelInserirSolicitante().setText(formulario.getSolicitante());
 				this.janelaPrincipal.getLabelInserirTelefone().setText(formulario.getTelefone());
@@ -802,6 +820,53 @@ public class FormularioControle implements ActionListener, MouseListener {
 				this.janelaPrincipal.getLabelInserirNalunos().setText(formulario.getNumeroAlunos() + "");
 				this.janelaPrincipal.getLabelInserirEquipamentos().setText(formulario.getEquipamentos());
 				this.janelaPrincipal.getLabelInserirCurso().setText(formulario.getCurso());
+				this.janelaPrincipal.getLabelInserirData1().setText(formulario.getData(0));
+				this.janelaPrincipal.getLabelInserirData2().setText(formulario.getData(1));
+				this.janelaPrincipal.getLabelInserirData3().setText(formulario.getData(2));
+				this.janelaPrincipal.getLabelInserirData4().setText(formulario.getData(3));
+				this.janelaPrincipal.getLabelInserirData5().setText(formulario.getData(4));
+				this.janelaPrincipal.getLabelInserirData6().setText(formulario.getData(5));
+				this.janelaPrincipal.getLabelInserirHoraDia1().setText("Inicio:"+formulario.getHoraInicial(0)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(0)+"horas");
+				this.janelaPrincipal.getLabelInserirHoraDia2().setText("Inicio:"+formulario.getHoraInicial(1)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(1)+"horas");
+				this.janelaPrincipal.getLabelInserirHoraDia3().setText("Inicio:"+formulario.getHoraInicial(2)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(2)+"horas");
+				this.janelaPrincipal.getLabelInserirHoraDia4().setText("Inicio:"+formulario.getHoraInicial(3)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(3)+"horas");
+				this.janelaPrincipal.getlabelInserirHoraDia5().setText("Inicio:"+formulario.getHoraInicial(4)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(4)+"horas");
+				this.janelaPrincipal.getlabelInserirHoraDia6().setText("Inicio:"+formulario.getHoraInicial(5)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(5)+"horas");
+				
+				
+				if (formulario.getData(1)==null) {
+
+					this.janelaPrincipal.getLabelInserirData2().setVisible(false);
+					this.janelaPrincipal.getLabelData2AbrirFormulario().setVisible(false);
+					this.janelaPrincipal.getLabelInserirHoraDia2().setVisible(false);
+
+				}
+				if (formulario.getData(2)==null) {
+
+					this.janelaPrincipal.getLabelInserirData3().setVisible(false);
+					this.janelaPrincipal.getLabelData3AbrirFormulario().setVisible(false);
+					this.janelaPrincipal.getLabelInserirHoraDia3().setVisible(false);
+				}
+				if (formulario.getData(3)==null) {
+
+					this.janelaPrincipal.getLabelInserirData4().setVisible(false);
+					this.janelaPrincipal.getLabelData4AbrirFormulario().setVisible(false);
+					this.janelaPrincipal.getLabelInserirHoraDia4().setVisible(false);
+
+				}
+				if (formulario.getData(4)==null) {
+
+					this.janelaPrincipal.getLabelInserirData5().setVisible(false);
+					this.janelaPrincipal.getLabelData5AbrirFormulario().setVisible(false);
+					this.janelaPrincipal.getlabelInserirHoraDia5().setVisible(false);
+
+				}
+				if (formulario.getData(5)==null) {
+
+					this.janelaPrincipal.getLabelInserirData6().setVisible(false);
+					this.janelaPrincipal.getLabelData6AbrirFormulario().setVisible(false);
+					this.janelaPrincipal.getlabelInserirHoraDia6().setVisible(false);
+				}
 
 			} else {
 				System.out.println("Erro ao Abrir -> " + idRequisicao[i]);

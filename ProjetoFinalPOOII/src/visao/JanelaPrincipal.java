@@ -166,14 +166,14 @@ public class JanelaPrincipal extends JFrame {
 	private JLabel labelInserirData3;
 	private JLabel labelInserirData4;
 	private JLabel labelInserirData5;
-	private JLabel labelInserirData6;
+	private JLabel labellabelInserirData6;
 	private JLabel labelInserirEquipamentos;
 	private JLabel labelInserirHoraDia1;
 	private JLabel labelInserirHoraDia2;
 	private JLabel labelInserirHoraDia3;
 	private JLabel labelInserirHoraDia4;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
+	private JLabel labelInserirHoraDia5;
+	private JLabel InserirHoraDia6;
 	private JButton buttonFecharPainelAbrirFormulario;
 
 	@SuppressWarnings("unchecked")
@@ -331,13 +331,6 @@ public class JanelaPrincipal extends JFrame {
 		labelNumeroAlunos.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelNumeroAlunos, "cell 0 4,alignx left,aligny bottom");
 		
-		/*MaskFormatter maskNalunos=null;
-		try {
-			maskNalunos = new MaskFormatter("####");
-		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}*/		
 		fieldNumeroAlunos = new JFormattedTextField();
 		fieldNumeroAlunos.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldNumeroAlunos, "cell 1 4 3 1,alignx left,growy");
@@ -692,6 +685,7 @@ public class JanelaPrincipal extends JFrame {
 		painelVerReserva.add(labelRequisicao2, "cell 0 2");
 
 		buttonVerRequisicao2 = new JButton("Abrir");
+		buttonVerRequisicao2.setActionCommand("Abrir2");
 		buttonVerRequisicao2.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao2.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonVerRequisicao2, "cell 1 2,alignx center");
@@ -710,6 +704,7 @@ public class JanelaPrincipal extends JFrame {
 		painelVerReserva.add(labelRequisicao3, "cell 0 3");
 
 		buttonVerRequisicao3 = new JButton("Abrir");
+		buttonVerRequisicao3.setActionCommand("Abrir3");
 		buttonVerRequisicao3.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao3.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonVerRequisicao3, "cell 1 3,alignx center");
@@ -729,6 +724,7 @@ public class JanelaPrincipal extends JFrame {
 		painelVerReserva.add(labelRequisicao4, "cell 0 4");
 
 		buttonVerRequisicao4 = new JButton("Abrir");
+		buttonVerRequisicao4.setActionCommand("Abrir4");
 		buttonVerRequisicao4.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao4.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonVerRequisicao4, "cell 1 4,alignx center");
@@ -866,7 +862,7 @@ public class JanelaPrincipal extends JFrame {
 		painelAbrirFormulario.add(labelInserirData3, "cell 1 9");
 		
 		labelInserirHoraDia3 = new JLabel("");
-		labelInserirHoraDia3.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		labelInserirHoraDia3.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		labelInserirHoraDia3.setForeground(Color.WHITE);
 		painelAbrirFormulario.add(labelInserirHoraDia3, "cell 2 9");
 		
@@ -895,25 +891,25 @@ public class JanelaPrincipal extends JFrame {
 		labelInserirData5.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirData5, "cell 1 11");
 		
-		lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setForeground(Color.WHITE);
-		lblNewLabel_3.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(lblNewLabel_3, "cell 2 11");
+		labelInserirHoraDia5 = new JLabel("");
+		labelInserirHoraDia5.setForeground(Color.WHITE);
+		labelInserirHoraDia5.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirHoraDia5, "cell 2 11");
 		
 		labelData6AbrirFormulario = new JLabel("Data 6:");
 		labelData6AbrirFormulario.setForeground(Color.WHITE);
 		labelData6AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelData6AbrirFormulario, "cell 0 12");
 		
-		labelInserirData6 = new JLabel("");
-		labelInserirData6.setForeground(Color.WHITE);
-		labelInserirData6.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelInserirData6, "cell 1 12");
+		labellabelInserirData6 = new JLabel("");
+		labellabelInserirData6.setForeground(Color.WHITE);
+		labellabelInserirData6.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labellabelInserirData6, "cell 1 12");
 		
-		lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setForeground(Color.WHITE);
-		lblNewLabel_4.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(lblNewLabel_4, "cell 2 12");
+		InserirHoraDia6 = new JLabel("");
+		InserirHoraDia6.setForeground(Color.WHITE);
+		InserirHoraDia6.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(InserirHoraDia6, "cell 2 12");
 		
 		lblEquipamentos = new JLabel("Equipamentos:");
 		lblEquipamentos.setForeground(Color.WHITE);
@@ -1055,11 +1051,11 @@ public class JanelaPrincipal extends JFrame {
 	}
 
 	public JLabel getLabelInserirData6() {
-		return labelInserirData6;
+		return labellabelInserirData6;
 	}
 
 	public void setLabelInserirData6(JLabel labelInserirData6) {
-		this.labelInserirData6 = labelInserirData6;
+		this.labellabelInserirData6 = labelInserirData6;
 	}
 
 	public JLabel getLabelInserirEquipamentos() {
@@ -1212,6 +1208,54 @@ public class JanelaPrincipal extends JFrame {
 
 	public JPanel getPainelLogin() {
 		return painelLogin;
+	}
+
+	public JLabel getLabelData1AbrirFormulario() {
+		return labelData1AbrirFormulario;
+	}
+
+	public void setLabelData1AbrirFormulario(JLabel labelData1AbrirFormulario) {
+		this.labelData1AbrirFormulario = labelData1AbrirFormulario;
+	}
+
+	public JLabel getLabelData2AbrirFormulario() {
+		return labelData2AbrirFormulario;
+	}
+
+	public void setLabelData2AbrirFormulario(JLabel labelData2AbrirFormulario) {
+		this.labelData2AbrirFormulario = labelData2AbrirFormulario;
+	}
+
+	public JLabel getLabelData3AbrirFormulario() {
+		return labelData3AbrirFormulario;
+	}
+
+	public void setLabelData3AbrirFormulario(JLabel labelData3AbrirFormulario) {
+		this.labelData3AbrirFormulario = labelData3AbrirFormulario;
+	}
+
+	public JLabel getLabelData4AbrirFormulario() {
+		return labelData4AbrirFormulario;
+	}
+
+	public void setLabelData4AbrirFormulario(JLabel labelData4AbrirFormulario) {
+		this.labelData4AbrirFormulario = labelData4AbrirFormulario;
+	}
+
+	public JLabel getLabelData5AbrirFormulario() {
+		return labelData5AbrirFormulario;
+	}
+
+	public void setLabelData5AbrirFormulario(JLabel labelData5AbrirFormulario) {
+		this.labelData5AbrirFormulario = labelData5AbrirFormulario;
+	}
+
+	public JLabel getLabelData6AbrirFormulario() {
+		return labelData6AbrirFormulario;
+	}
+
+	public void setLabelData6AbrirFormulario(JLabel labelData6AbrirFormulario) {
+		this.labelData6AbrirFormulario = labelData6AbrirFormulario;
 	}
 
 	public void setPainelLogin(JPanel painelLogin) {
@@ -1544,6 +1588,22 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setButtonEditar1(JButton buttonEditar1) {
 		this.buttonEditar1 = buttonEditar1;
+	}
+
+	public JLabel getlabelInserirHoraDia5() {
+		return labelInserirHoraDia5;
+	}
+
+	public void setlabelInserirHoraDia5(JLabel inserirHoraDia5) {
+		labelInserirHoraDia5 = inserirHoraDia5;
+	}
+
+	public JLabel getlabelInserirHoraDia6() {
+		return InserirHoraDia6;
+	}
+
+	public void setlabelInserirHoraDia6(JLabel inserirHoraDia6) {
+		InserirHoraDia6 = inserirHoraDia6;
 	}
 
 	public JButton getButtonEditar2() {
