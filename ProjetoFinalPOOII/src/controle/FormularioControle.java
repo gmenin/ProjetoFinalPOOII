@@ -169,18 +169,70 @@ public class FormularioControle implements ActionListener, MouseListener {
 	
 	public void exibirRequisicoes() {
 		int idRequisicao[] = formularioDAO.retornaFormularioIdGeral(usuarioControle.getUsuarioId());
-		this.janelaPrincipal.getLabelRequisicao1().setText("#R"+idRequisicao[0]);
-		this.janelaPrincipal.getLabelRequisicao2().setText("#R"+idRequisicao[1]);
-		this.janelaPrincipal.getLabelRequisicao3().setText("#R"+idRequisicao[2]);
-		this.janelaPrincipal.getLabelRequisicao4().setText("#R"+idRequisicao[3]);
+		
+		if(idRequisicao[0] > 0) {
+			this.janelaPrincipal.getLabelRequisicao1().setText("#R"+idRequisicao[0]);
+			this.janelaPrincipal.getLabelRequisicao1().setVisible(true);
+			this.janelaPrincipal.getButtonEditar1().setVisible(true);
+			this.janelaPrincipal.getButtonVerRequisicao1().setVisible(true);
+			this.janelaPrincipal.getLabelApagarRequisicao1().setVisible(true);
+		} else {
+			this.janelaPrincipal.getLabelRequisicao1().setVisible(false);
+			this.janelaPrincipal.getButtonEditar1().setVisible(false);
+			this.janelaPrincipal.getButtonVerRequisicao1().setVisible(false);
+			this.janelaPrincipal.getLabelApagarRequisicao1().setVisible(false);
+		}
+		
+		if(idRequisicao[1] > 0) {
+			this.janelaPrincipal.getLabelRequisicao2().setText("#R"+idRequisicao[1]);
+			this.janelaPrincipal.getLabelRequisicao2().setVisible(true);
+			this.janelaPrincipal.getButtonEditar2().setVisible(true);
+			this.janelaPrincipal.getButtonVerRequisicao2().setVisible(true);
+			this.janelaPrincipal.getLabelApagarRequisicao2().setVisible(true);
+		} else {
+			this.janelaPrincipal.getLabelRequisicao2().setVisible(false);
+			this.janelaPrincipal.getButtonEditar2().setVisible(false);
+			this.janelaPrincipal.getButtonVerRequisicao2().setVisible(false);
+			this.janelaPrincipal.getLabelApagarRequisicao2().setVisible(false);
+		}
+		
+		if(idRequisicao[2] > 0) {
+			this.janelaPrincipal.getLabelRequisicao3().setText("#R"+idRequisicao[2]);
+			this.janelaPrincipal.getLabelRequisicao3().setVisible(true);
+			this.janelaPrincipal.getButtonEditar3().setVisible(true);
+			this.janelaPrincipal.getButtonVerRequisicao3().setVisible(true);
+			this.janelaPrincipal.getLabelApagarRequisicao3().setVisible(true);
+		} else {
+			this.janelaPrincipal.getLabelRequisicao3().setVisible(false);
+			this.janelaPrincipal.getButtonEditar3().setVisible(false);
+			this.janelaPrincipal.getButtonVerRequisicao3().setVisible(false);
+			this.janelaPrincipal.getLabelApagarRequisicao3().setVisible(false);
+		}
+		
+		if(idRequisicao[3] > 0) {
+			this.janelaPrincipal.getLabelRequisicao4().setText("#R"+idRequisicao[3]);
+			this.janelaPrincipal.getLabelRequisicao4().setVisible(true);
+			this.janelaPrincipal.getButtonEditar4().setVisible(true);
+			this.janelaPrincipal.getButtonVerRequisicao4().setVisible(true);
+			this.janelaPrincipal.getLabelApagarRequisicao4().setVisible(true);
+		} else {
+			this.janelaPrincipal.getLabelRequisicao4().setVisible(false);
+			this.janelaPrincipal.getButtonEditar4().setVisible(false);
+			this.janelaPrincipal.getButtonVerRequisicao4().setVisible(false);
+			this.janelaPrincipal.getLabelApagarRequisicao4().setVisible(false);
+		}
+		
 	}
 	
 	public void excluirRequisicao(int i) {
 		int idRequisicao[] = formularioDAO.retornaFormularioIdGeral(usuarioControle.getUsuarioId());
-		if(formularioDAO.excluirRequisicao(idRequisicao[i])) {
-			System.out.println("Exclusão sucesso");
-		}else {
-			System.out.println("Erro ao excluir");
+		int id = idRequisicao[i];
+		if(id > 0) {
+			if(formularioDAO.excluirRequisicao(id)) {
+				System.out.println("Exclusão sucesso -> " + idRequisicao[i]);
+			}else {
+				System.out.println("Erro ao excluir -> " + idRequisicao[i]);
+			}
 		}
 	}
 
