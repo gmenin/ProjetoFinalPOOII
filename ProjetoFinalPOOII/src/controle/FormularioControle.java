@@ -97,7 +97,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		
 		i++;
 		
-		if(i <= quantidadeDias) {
+		if(i < quantidadeDias) {
 			data[1] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia2().getDate());
 			horaInicial[1] = this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()+7;
 			horaFinal[1] = this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex()+8;
@@ -334,7 +334,12 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getCheckBoxRetroprojetor().setSelected(false);
 		this.janelaPrincipal.getFieldEspecificacao().setText("");
 		this.janelaPrincipal.getButtonGroupAtividade().clearSelection();
-
+		this.janelaPrincipal.getDataPanelDia1().setCalendar(null);
+		this.janelaPrincipal.getDataPanelDia2().setCalendar(null);
+		this.janelaPrincipal.getDataPanelDia3().setCalendar(null);
+		this.janelaPrincipal.getDataPanelDia4().setCalendar(null);
+		this.janelaPrincipal.getDataPanelDia5().setCalendar(null);
+		this.janelaPrincipal.getDataPanelDia6().setCalendar(null);
 	}
 
 	// Me'todo que altera a visibilidade dos campos de data na tela PainelData
