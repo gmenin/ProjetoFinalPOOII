@@ -37,7 +37,7 @@ public class Formulario {
 		this.solicitante = null;
 		this.telefone = null;
 		this.email = null;
-		this.numeroAlunos = (Integer) null;
+		this.numeroAlunos = (Integer) 0;
 		this.atividade = null;
 		this.modalidade = null;
 		this.curso = null;

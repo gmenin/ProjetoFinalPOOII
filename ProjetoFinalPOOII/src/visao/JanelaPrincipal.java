@@ -139,6 +139,42 @@ public class JanelaPrincipal extends JFrame {
 	private JLabel labelApagarRequisicao3;
 	private JLabel labelApagarRequisicao4;
 	private JLabel labelVoltarVerReserva;
+	private JPanel painelAbrirFormulario;
+	private JLabel labelSolicitanteAbrirFormulario;
+	private JLabel labelTelefoneAbrirFormulario;
+	private JLabel labelEmailAbrirFormulario;
+	private JLabel labelNumeroDeAlunosAbrirFormulario;
+	private JLabel labelAtividadeAbrirFormulario;
+	private JLabel labelModalidadeAbrirFormulario;
+	private JLabel labelCursoAbrirFormulario;
+	private JLabel labelData1AbrirFormulario;
+	private JLabel labelData2AbrirFormulario;
+	private JLabel labelData3AbrirFormulario;
+	private JLabel labelData4AbrirFormulario;
+	private JLabel labelData5AbrirFormulario;
+	private JLabel labelData6AbrirFormulario;
+	private JLabel lblEquipamentos;
+	private JLabel labelInserirSolicitante;
+	private JLabel labelInserirTelefone;
+	private JLabel labelInserirEmail;
+	private JLabel labelInserirNalunos;
+	private JLabel labelInserirAtividade;
+	private JLabel labelInserirModalidade;
+	private JLabel labelInserirCurso;
+	private JLabel labelInserirData1;
+	private JLabel labelInserirData2;
+	private JLabel labelInserirData3;
+	private JLabel labelInserirData4;
+	private JLabel labelInserirData5;
+	private JLabel labelInserirData6;
+	private JLabel labelInserirEquipamentos;
+	private JLabel labelInserirHoraDia1;
+	private JLabel labelInserirHoraDia2;
+	private JLabel labelInserirHoraDia3;
+	private JLabel labelInserirHoraDia4;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private JButton buttonFecharPainelAbrirFormulario;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -256,7 +292,7 @@ public class JanelaPrincipal extends JFrame {
 		painelInicioFormulario.add(labelTelefone, "cell 0 2");
 		
 		
-		/*
+	
 	 MaskFormatter maskTelefone=null;
 		try {
 			maskTelefone = new MaskFormatter("(##) #########");
@@ -265,9 +301,9 @@ public class JanelaPrincipal extends JFrame {
 			e2.printStackTrace();
 		}
 	
-	*/
+	
 		
-		fieldTelefone = new JFormattedTextField();
+		fieldTelefone = new JFormattedTextField(maskTelefone);
 		fieldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldTelefone, "cell 1 2 3 1,grow");
 		fieldTelefone.setColumns(10);
@@ -636,6 +672,7 @@ public class JanelaPrincipal extends JFrame {
 		painelVerReserva.add(labelRequisicao1, "cell 0 1");
 
 		buttonVerRequisicao1 = new JButton("Abrir");
+		buttonVerRequisicao1.setActionCommand("Abrir1");
 		buttonVerRequisicao1.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao1.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonVerRequisicao1, "cell 1 1,alignx center");
@@ -712,6 +749,184 @@ public class JanelaPrincipal extends JFrame {
 		labelVoltarVerReserva = new JLabel("\r\n");
 		labelVoltarVerReserva.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
 		painelVerReserva.add(labelVoltarVerReserva, "cell 0 6");
+		
+		painelAbrirFormulario = new JPanel();
+		painelAbrirFormulario.setBackground(new Color(30, 76, 118));
+		painelAbrirFormulario.setLayout(new MigLayout("", "[][120.00][114.00]", "[][][][][][][][][][][][][][][][][]"));
+		contentPane.add(painelAbrirFormulario, "painelAbrirFormulario");
+		
+		labelSolicitanteAbrirFormulario = new JLabel("Solicitante:");
+		labelSolicitanteAbrirFormulario.setForeground(Color.WHITE);
+		labelSolicitanteAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelSolicitanteAbrirFormulario, "cell 0 0");
+		
+		labelInserirSolicitante = new JLabel("");
+		labelInserirSolicitante.setForeground(Color.WHITE);
+		labelInserirSolicitante.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirSolicitante, "cell 1 0");
+		
+		labelTelefoneAbrirFormulario = new JLabel("Telefone:");
+		labelTelefoneAbrirFormulario.setForeground(Color.WHITE);
+		labelTelefoneAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelTelefoneAbrirFormulario, "cell 0 1");
+		
+		labelInserirTelefone = new JLabel("");
+		labelInserirTelefone.setForeground(Color.WHITE);
+		labelInserirTelefone.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirTelefone, "cell 1 1");
+		
+		labelEmailAbrirFormulario = new JLabel("Email:");
+		labelEmailAbrirFormulario.setForeground(Color.WHITE);
+		labelEmailAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelEmailAbrirFormulario, "cell 0 2");
+		
+		labelInserirEmail = new JLabel("");
+		labelInserirEmail.setForeground(Color.WHITE);
+		labelInserirEmail.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirEmail, "cell 1 2");
+		
+		labelNumeroDeAlunosAbrirFormulario = new JLabel("N\u00BA de alunos:");
+		labelNumeroDeAlunosAbrirFormulario.setForeground(Color.WHITE);
+		labelNumeroDeAlunosAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelNumeroDeAlunosAbrirFormulario, "cell 0 3");
+		
+		labelInserirNalunos = new JLabel("");
+		labelInserirNalunos.setForeground(Color.WHITE);
+		labelInserirNalunos.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirNalunos, "cell 1 3");
+		
+		labelAtividadeAbrirFormulario = new JLabel("Atividade:");
+		labelAtividadeAbrirFormulario.setForeground(Color.WHITE);
+		labelAtividadeAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelAtividadeAbrirFormulario, "cell 0 4");
+		
+		labelInserirAtividade = new JLabel("");
+		labelInserirAtividade.setForeground(Color.WHITE);
+		labelInserirAtividade.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirAtividade, "cell 1 4");
+		
+		labelModalidadeAbrirFormulario = new JLabel("Modalidade:");
+		labelModalidadeAbrirFormulario.setForeground(Color.WHITE);
+		labelModalidadeAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelModalidadeAbrirFormulario, "cell 0 5");
+		
+		labelInserirModalidade = new JLabel("");
+		labelInserirModalidade.setForeground(Color.WHITE);
+		labelInserirModalidade.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirModalidade, "cell 1 5");
+		
+		labelCursoAbrirFormulario = new JLabel("Curso:");
+		labelCursoAbrirFormulario.setForeground(Color.WHITE);
+		labelCursoAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelCursoAbrirFormulario, "cell 0 6");
+		
+		labelInserirCurso = new JLabel("");
+		labelInserirCurso.setForeground(Color.WHITE);
+		labelInserirCurso.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirCurso, "cell 1 6");
+		
+		labelData1AbrirFormulario = new JLabel("Data 1:");
+		labelData1AbrirFormulario.setForeground(Color.WHITE);
+		labelData1AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelData1AbrirFormulario, "cell 0 7");
+		
+		labelInserirData1 = new JLabel("");
+		labelInserirData1.setForeground(Color.WHITE);
+		labelInserirData1.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirData1, "cell 1 7");
+		
+		labelInserirHoraDia1 = new JLabel("");
+		labelInserirHoraDia1.setForeground(Color.WHITE);
+		labelInserirHoraDia1.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirHoraDia1, "cell 2 7");
+		
+		labelData2AbrirFormulario = new JLabel("Data 2:");
+		labelData2AbrirFormulario.setForeground(Color.WHITE);
+		labelData2AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelData2AbrirFormulario, "cell 0 8");
+		
+		labelInserirData2 = new JLabel("");
+		labelInserirData2.setForeground(Color.WHITE);
+		labelInserirData2.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirData2, "cell 1 8");
+		
+		labelInserirHoraDia2 = new JLabel("");
+		labelInserirHoraDia2.setForeground(Color.WHITE);
+		labelInserirHoraDia2.setFont(new Font("Calibri", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirHoraDia2, "cell 2 8");
+		
+		labelData3AbrirFormulario = new JLabel("Data 3:");
+		labelData3AbrirFormulario.setForeground(Color.WHITE);
+		labelData3AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelData3AbrirFormulario, "cell 0 9");
+		
+		labelInserirData3 = new JLabel("");
+		labelInserirData3.setForeground(Color.WHITE);
+		labelInserirData3.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirData3, "cell 1 9");
+		
+		labelInserirHoraDia3 = new JLabel("");
+		labelInserirHoraDia3.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		labelInserirHoraDia3.setForeground(Color.WHITE);
+		painelAbrirFormulario.add(labelInserirHoraDia3, "cell 2 9");
+		
+		labelData4AbrirFormulario = new JLabel("Data 4:");
+		labelData4AbrirFormulario.setForeground(Color.WHITE);
+		labelData4AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelData4AbrirFormulario, "cell 0 10");
+		
+		labelInserirData4 = new JLabel("");
+		labelInserirData4.setForeground(Color.WHITE);
+		labelInserirData4.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirData4, "cell 1 10");
+		
+		labelInserirHoraDia4 = new JLabel("");
+		labelInserirHoraDia4.setForeground(Color.WHITE);
+		labelInserirHoraDia4.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirHoraDia4, "cell 2 10");
+		
+		labelData5AbrirFormulario = new JLabel("Data 5:");
+		labelData5AbrirFormulario.setForeground(Color.WHITE);
+		labelData5AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelData5AbrirFormulario, "cell 0 11");
+		
+		labelInserirData5 = new JLabel("");
+		labelInserirData5.setForeground(Color.WHITE);
+		labelInserirData5.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirData5, "cell 1 11");
+		
+		lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setForeground(Color.WHITE);
+		lblNewLabel_3.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(lblNewLabel_3, "cell 2 11");
+		
+		labelData6AbrirFormulario = new JLabel("Data 6:");
+		labelData6AbrirFormulario.setForeground(Color.WHITE);
+		labelData6AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelData6AbrirFormulario, "cell 0 12");
+		
+		labelInserirData6 = new JLabel("");
+		labelInserirData6.setForeground(Color.WHITE);
+		labelInserirData6.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirData6, "cell 1 12");
+		
+		lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setForeground(Color.WHITE);
+		lblNewLabel_4.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(lblNewLabel_4, "cell 2 12");
+		
+		lblEquipamentos = new JLabel("Equipamentos:");
+		lblEquipamentos.setForeground(Color.WHITE);
+		lblEquipamentos.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(lblEquipamentos, "cell 0 13");
+		
+		labelInserirEquipamentos = new JLabel("");
+		labelInserirEquipamentos.setForeground(Color.WHITE);
+		labelInserirEquipamentos.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirEquipamentos, "cell 1 13");
+		
+		buttonFecharPainelAbrirFormulario = new JButton("Fechar");
+		painelAbrirFormulario.add(buttonFecharPainelAbrirFormulario, "cell 2 16");
 
 	}
 
@@ -738,8 +953,153 @@ public class JanelaPrincipal extends JFrame {
 	// -----------------------------------------------
 	// ----------Texto de Getters e Setters-----------
 	// -----------------------------------------------
+	
 	public JCheckBox getCheckBoxProjetorDeSlides() {
 		return checkBoxProjetorDeSlides;
+	}
+
+	public JLabel getLabelInserirSolicitante() {
+		return labelInserirSolicitante;
+	}
+
+	public void setLabelInserirSolicitante(JLabel labelInserirSolicitante) {
+		this.labelInserirSolicitante = labelInserirSolicitante;
+	}
+
+	public JLabel getLabelInserirTelefone() {
+		return labelInserirTelefone;
+	}
+
+	public void setLabelInserirTelefone(JLabel labelInserirTelefone) {
+		this.labelInserirTelefone = labelInserirTelefone;
+	}
+
+	public JLabel getLabelInserirEmail() {
+		return labelInserirEmail;
+	}
+
+	public void setLabelInserirEmail(JLabel labelInserirEmail) {
+		this.labelInserirEmail = labelInserirEmail;
+	}
+
+	public JLabel getLabelInserirNalunos() {
+		return labelInserirNalunos;
+	}
+
+	public void setLabelInserirNalunos(JLabel labelInserirNalunos) {
+		this.labelInserirNalunos = labelInserirNalunos;
+	}
+
+	public JLabel getLabelInserirAtividade() {
+		return labelInserirAtividade;
+	}
+
+	public void setLabelInserirAtividade(JLabel labelInserirAtividade) {
+		this.labelInserirAtividade = labelInserirAtividade;
+	}
+
+	public JLabel getLabelInserirModalidade() {
+		return labelInserirModalidade;
+	}
+
+	public void setLabelInserirModalidade(JLabel labelInserirModalidade) {
+		this.labelInserirModalidade = labelInserirModalidade;
+	}
+
+	public JLabel getLabelInserirCurso() {
+		return labelInserirCurso;
+	}
+
+	public void setLabelInserirCurso(JLabel labelInserirCurso) {
+		this.labelInserirCurso = labelInserirCurso;
+	}
+
+	public JLabel getLabelInserirData1() {
+		return labelInserirData1;
+	}
+
+	public void setLabelInserirData1(JLabel labelInserirData1) {
+		this.labelInserirData1 = labelInserirData1;
+	}
+
+	public JLabel getLabelInserirData2() {
+		return labelInserirData2;
+	}
+
+	public void setLabelInserirData2(JLabel labelInserirData2) {
+		this.labelInserirData2 = labelInserirData2;
+	}
+
+	public JLabel getLabelInserirData3() {
+		return labelInserirData3;
+	}
+
+	public void setLabelInserirData3(JLabel labelInserirData3) {
+		this.labelInserirData3 = labelInserirData3;
+	}
+
+	public JLabel getLabelInserirData4() {
+		return labelInserirData4;
+	}
+
+	public void setLabelInserirData4(JLabel labelInserirData4) {
+		this.labelInserirData4 = labelInserirData4;
+	}
+
+	public JLabel getLabelInserirData5() {
+		return labelInserirData5;
+	}
+
+	public void setLabelInserirData5(JLabel labelInserirData5) {
+		this.labelInserirData5 = labelInserirData5;
+	}
+
+	public JLabel getLabelInserirData6() {
+		return labelInserirData6;
+	}
+
+	public void setLabelInserirData6(JLabel labelInserirData6) {
+		this.labelInserirData6 = labelInserirData6;
+	}
+
+	public JLabel getLabelInserirEquipamentos() {
+		return labelInserirEquipamentos;
+	}
+
+	public void setLabelInserirEquipamentos(JLabel labelInserirEquipamentos) {
+		this.labelInserirEquipamentos = labelInserirEquipamentos;
+	}
+
+	public JLabel getLabelInserirHoraDia1() {
+		return labelInserirHoraDia1;
+	}
+
+	public void setLabelInserirHoraDia1(JLabel labelInserirHoraDia1) {
+		this.labelInserirHoraDia1 = labelInserirHoraDia1;
+	}
+
+	public JLabel getLabelInserirHoraDia2() {
+		return labelInserirHoraDia2;
+	}
+
+	public void setLabelInserirHoraDia2(JLabel labelInserirHoraDia2) {
+		this.labelInserirHoraDia2 = labelInserirHoraDia2;
+	}
+
+	public JLabel getLabelInserirHoraDia3() {
+		return labelInserirHoraDia3;
+	}
+
+	public void setLabelInserirHoraDia3(JLabel labelInserirHoraDia3) {
+		this.labelInserirHoraDia3 = labelInserirHoraDia3;
+	}
+
+	public JLabel getLabelInserirHoraDia4() {
+		return labelInserirHoraDia4;
+	}
+
+	public void setLabelInserirHoraDia4(JLabel labelInserirHoraDia4) {
+		this.labelInserirHoraDia4 = labelInserirHoraDia4;
 	}
 
 	public void setCheckBoxProjetorDeSlides(JCheckBox checkBoxProjetorDeSlides) {

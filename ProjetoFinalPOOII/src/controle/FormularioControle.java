@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import dao.FormularioDAO;
+import dao.UsuarioDAO;
 import modelo.Formulario;
 import visao.JanelaPrincipal;
 
@@ -38,6 +39,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getLabelApagarRequisicao2().addMouseListener(this);
 		this.janelaPrincipal.getLabelApagarRequisicao3().addMouseListener(this);
 		this.janelaPrincipal.getLabelApagarRequisicao4().addMouseListener(this);
+		this.janelaPrincipal.getButtonVerRequisicao1().addActionListener(this);
 	}
 
 	// Me'todo que salva uma requisicao de reserva de sala
@@ -47,20 +49,20 @@ public class FormularioControle implements ActionListener, MouseListener {
 		int numeroAlunos;
 		int[] horaInicial = new int[6], horaFinal = new int[6];
 		Formulario formulario;
-		
+
 		// Varia'vel usada para dar um sinal que uma reserva foi inserida
-		//int sinal = 0;
-		
+		// int sinal = 0;
+
 		// Formatador da data recebida da tela
 		DateFormat dataFormatada = new SimpleDateFormat("yyyy-MM-dd");
-		
+
 		// Quantidade de datas selecionadas
 		int quantidadeDias;
 		quantidadeDias = this.janelaPrincipal.getComboBoxQtdDias().getSelectedIndex() + 1;
-		
+
 		// Indice para auxiliar na atribuicao de valores das datas
 		int i;
-		
+
 		// Atribuicao de valor para varia'veis com dados recebidos da tela
 		solicitante = this.janelaPrincipal.getFieldSolicitante().getText();
 		telefone = this.janelaPrincipal.getFieldTelefone().getText();
@@ -69,123 +71,123 @@ public class FormularioControle implements ActionListener, MouseListener {
 		modalidade = this.janelaPrincipal.getComboBoxModalidade().getSelectedItem().toString();
 		curso = this.janelaPrincipal.getComboBoxCurso().getSelectedItem().toString();
 		numeroAlunos = Integer.parseInt(this.janelaPrincipal.getFieldNumeroAlunos().getText());
-		
-		
-		// Passagem de valor  de um checkBox para a varia'vel
-		if(this.janelaPrincipal.getCheckBoxEquipamentoDeAudio().isSelected()) {
+
+		// Passagem de valor de um checkBox para a varia'vel
+		if (this.janelaPrincipal.getCheckBoxEquipamentoDeAudio().isSelected()) {
 			equipamentos = equipamentos + this.janelaPrincipal.getCheckBoxEquipamentoDeAudio().getText();
 		}
-		
-		if(this.janelaPrincipal.getCheckBoxEquipamentoDvd().isSelected()) {
+
+		if (this.janelaPrincipal.getCheckBoxEquipamentoDvd().isSelected()) {
 			equipamentos = equipamentos + this.janelaPrincipal.getCheckBoxEquipamentoDvd().getText();
 		}
-		
-		if(this.janelaPrincipal.getCheckBoxProjetorDeSlides().isSelected()) {
+
+		if (this.janelaPrincipal.getCheckBoxProjetorDeSlides().isSelected()) {
 			equipamentos = equipamentos + this.janelaPrincipal.getCheckBoxProjetorDeSlides().getText();
 		}
-		
-		if(this.janelaPrincipal.getCheckBoxRetroprojetor().isSelected()) {
+
+		if (this.janelaPrincipal.getCheckBoxRetroprojetor().isSelected()) {
 			equipamentos = equipamentos + this.janelaPrincipal.getCheckBoxRetroprojetor().getText();
 		}
-		
-		if(this.janelaPrincipal.getCheckBoxOutroEspecificar().isSelected()) {
+
+		if (this.janelaPrincipal.getCheckBoxOutroEspecificar().isSelected()) {
 			equipamentos = equipamentos + this.janelaPrincipal.getFieldEspecificacao().getText();
 		}
-		
+
 		// Passagem das datas (dia, hora inicial e final)
 		i = 0;
 		if (i < quantidadeDias) {
 			data[i] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia1().getDate());
-			horaInicial[0] = this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex()+7;
-			horaFinal[0] = this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex()+8;
+			horaInicial[0] = this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex() + 7;
+			horaFinal[0] = this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() + 8;
 		}
-		
+
 		i++;
-		
-		if(i < quantidadeDias) {
+
+		if (i < quantidadeDias) {
 			data[1] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia2().getDate());
-			horaInicial[1] = this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()+7;
-			horaFinal[1] = this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex()+8;
+			horaInicial[1] = this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex() + 7;
+			horaFinal[1] = this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() + 8;
 		}
-		
+
 		i++;
-		
-		if(i < quantidadeDias) {
+
+		if (i < quantidadeDias) {
 			data[2] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia3().getDate());
-			horaInicial[2] = this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex()+7;
-			horaFinal[2] = this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex()+8;	
+			horaInicial[2] = this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex() + 7;
+			horaFinal[2] = this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() + 8;
 		}
-		
+
 		i++;
-		
-		if(i < quantidadeDias) {
+
+		if (i < quantidadeDias) {
 			data[3] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia4().getDate());
-			horaInicial[3] = this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex()+7;
-			horaFinal[3] = this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex()+8;
+			horaInicial[3] = this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex() + 7;
+			horaFinal[3] = this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() + 8;
 		}
-		
+
 		i++;
-		
-		if(i < quantidadeDias) {
+
+		if (i < quantidadeDias) {
 			data[4] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia5().getDate());
-			horaInicial[4] = this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex()+7;
-			horaFinal[4] = this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex()+8;
+			horaInicial[4] = this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex() + 7;
+			horaFinal[4] = this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() + 8;
 		}
-		
+
 		i++;
-		
-		if(i < quantidadeDias) {
+
+		if (i < quantidadeDias) {
 			data[5] = dataFormatada.format(this.janelaPrincipal.getDataPanelDia6().getDate());
-			horaInicial[5] = this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex()+7;
-			horaFinal[5] = this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex()+8;
+			horaInicial[5] = this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex() + 7;
+			horaFinal[5] = this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() + 8;
 		}
-		
+
 		i = 0;
 
-		formulario = new Formulario(solicitante, telefone, email, numeroAlunos,
-			atividade, modalidade, curso, equipamentos, data, horaInicial, horaFinal);
+		formulario = new Formulario(solicitante, telefone, email, numeroAlunos, atividade, modalidade, curso,
+				equipamentos, data, horaInicial, horaFinal);
 
-		if(validarCamposSolicitante() == true && validarCamposEquipamentos() == true && validarCamposData() == true) {
-			
+		if (validarCamposSolicitante() == true && validarCamposEquipamentos() == true && validarCamposData() == true) {
+
 			boolean insercao = formularioDAO.inserirRequisicao(formulario, usuarioControle.getUsuarioId());
-			
-			if(insercao) {
+
+			if (insercao) {
 				limparCampos();
-				
+
 				// Id da u'ltima requisicao inserida e' salvo
 				int requisicaoId = formularioDAO.retornaFormularioId(usuarioControle.getUsuarioId());
-				
+
 				// Insercao na tabela reserva das datas da requisicao
-				for(int j=0; j<quantidadeDias; j++) {
-					//if(validarReserva(data[j], horaInicial[j], horaFinal[j])) {
-						//sinal++;
-						boolean reserva = formularioDAO.inserirReserva(requisicaoId, formulario.getData(j), formulario.getHoraInicial(j), formulario.getHoraInicial(j));
-						if(reserva==false) {
-							this.janelaPrincipal.mensagemRequisicaoErro();
-						}
-					//}
+				for (int j = 0; j < quantidadeDias; j++) {
+					// if(validarReserva(data[j], horaInicial[j], horaFinal[j])) {
+					// sinal++;
+					boolean reserva = formularioDAO.inserirReserva(requisicaoId, formulario.getData(j),
+							formulario.getHoraInicial(j), formulario.getHoraInicial(j));
+					if (reserva == false) {
+						this.janelaPrincipal.mensagemRequisicaoErro();
+					}
+					// }
 				}
-				
-				//if(sinal > 0) {
-					this.janelaPrincipal.mensagemRequisicaoSucesso();
-				//}
-				
-				//sinal = 0;
-			}else {
+
+				// if(sinal > 0) {
+				this.janelaPrincipal.mensagemRequisicaoSucesso();
+				// }
+
+				// sinal = 0;
+			} else {
 				this.janelaPrincipal.mensagemRequisicaoErro();
 			}
-			
-		} else { 
-			this.janelaPrincipal.mensagemCamposVazios(); 
+
+		} else {
+			this.janelaPrincipal.mensagemCamposVazios();
 		}
 
 	}
-	
+
 	public void exibirRequisicoes() {
 		int idRequisicao[] = formularioDAO.retornaFormularioIdGeral(usuarioControle.getUsuarioId());
-		
-		if(idRequisicao[0] > 0) {
-			this.janelaPrincipal.getLabelRequisicao1().setText("#R"+idRequisicao[0]);
+
+		if (idRequisicao[0] > 0) {
+			this.janelaPrincipal.getLabelRequisicao1().setText("#R" + idRequisicao[0]);
 			this.janelaPrincipal.getLabelRequisicao1().setVisible(true);
 			this.janelaPrincipal.getButtonEditar1().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao1().setVisible(true);
@@ -196,9 +198,9 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getButtonVerRequisicao1().setVisible(false);
 			this.janelaPrincipal.getLabelApagarRequisicao1().setVisible(false);
 		}
-		
-		if(idRequisicao[1] > 0) {
-			this.janelaPrincipal.getLabelRequisicao2().setText("#R"+idRequisicao[1]);
+
+		if (idRequisicao[1] > 0) {
+			this.janelaPrincipal.getLabelRequisicao2().setText("#R" + idRequisicao[1]);
 			this.janelaPrincipal.getLabelRequisicao2().setVisible(true);
 			this.janelaPrincipal.getButtonEditar2().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao2().setVisible(true);
@@ -209,9 +211,9 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getButtonVerRequisicao2().setVisible(false);
 			this.janelaPrincipal.getLabelApagarRequisicao2().setVisible(false);
 		}
-		
-		if(idRequisicao[2] > 0) {
-			this.janelaPrincipal.getLabelRequisicao3().setText("#R"+idRequisicao[2]);
+
+		if (idRequisicao[2] > 0) {
+			this.janelaPrincipal.getLabelRequisicao3().setText("#R" + idRequisicao[2]);
 			this.janelaPrincipal.getLabelRequisicao3().setVisible(true);
 			this.janelaPrincipal.getButtonEditar3().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao3().setVisible(true);
@@ -222,9 +224,9 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getButtonVerRequisicao3().setVisible(false);
 			this.janelaPrincipal.getLabelApagarRequisicao3().setVisible(false);
 		}
-		
-		if(idRequisicao[3] > 0) {
-			this.janelaPrincipal.getLabelRequisicao4().setText("#R"+idRequisicao[3]);
+
+		if (idRequisicao[3] > 0) {
+			this.janelaPrincipal.getLabelRequisicao4().setText("#R" + idRequisicao[3]);
 			this.janelaPrincipal.getLabelRequisicao4().setVisible(true);
 			this.janelaPrincipal.getButtonEditar4().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao4().setVisible(true);
@@ -235,21 +237,20 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getButtonVerRequisicao4().setVisible(false);
 			this.janelaPrincipal.getLabelApagarRequisicao4().setVisible(false);
 		}
-		
+
 	}
-	
+
 	public void excluirRequisicao(int i) {
 		int idRequisicao[] = formularioDAO.retornaFormularioIdGeral(usuarioControle.getUsuarioId());
 		int id = idRequisicao[i];
-		if(id > 0) {
-			if(formularioDAO.excluirRequisicao(id)) {
+		if (id > 0) {
+			if (formularioDAO.excluirRequisicao(id)) {
 				System.out.println("Exclusão sucesso -> " + idRequisicao[i]);
-			}else {
+			} else {
 				System.out.println("Erro ao excluir -> " + idRequisicao[i]);
 			}
 		}
 	}
-
 
 	// Me'todo que troca o painel exibido
 	public void trocarPainel(String nomePainel) {
@@ -286,98 +287,98 @@ public class FormularioControle implements ActionListener, MouseListener {
 				&& !this.janelaPrincipal.getDataPanelDia1().toString().equals("")
 				&& this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex() != -1
 				&& this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() != -1) {
-			
+
 			// teste para checkar se data inserida e' maior que a data atual
 			dataInserida = this.janelaPrincipal.getDataPanelDia1().getDate();
-			if(dataAtual.compareTo(dataInserida) < 0) {
+			if (dataAtual.compareTo(dataInserida) < 0) {
 				contador++;
 			}
-			
-		} 
-		
+
+		}
+
 		if (!this.janelaPrincipal.getDataPanelDia2().toString().isEmpty()
 				&& !this.janelaPrincipal.getDataPanelDia2().toString().equals("")
 				&& this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex() != -1
 				&& this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() != -1) {
-			
+
 			dataInserida = this.janelaPrincipal.getDataPanelDia2().getDate();
-			if(dataAtual.compareTo(dataInserida) < 0) {
+			if (dataAtual.compareTo(dataInserida) < 0) {
 				contador++;
 			}
-			
+
 		}
 		if (!this.janelaPrincipal.getDataPanelDia3().toString().isEmpty()
 				&& !this.janelaPrincipal.getDataPanelDia3().toString().equals("")
 				&& this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex() != -1
 				&& this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() != -1) {
-			
+
 			dataInserida = this.janelaPrincipal.getDataPanelDia3().getDate();
-			if(dataAtual.compareTo(dataInserida) < 0) {
+			if (dataAtual.compareTo(dataInserida) < 0) {
 				contador++;
 			}
-			
+
 		}
 		if (!this.janelaPrincipal.getDataPanelDia4().toString().isEmpty()
 				&& !this.janelaPrincipal.getDataPanelDia4().toString().equals("")
 				&& this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex() != -1
 				&& this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() != -1) {
-			
+
 			dataInserida = this.janelaPrincipal.getDataPanelDia4().getDate();
-			if(dataAtual.compareTo(dataInserida) < 0) {
+			if (dataAtual.compareTo(dataInserida) < 0) {
 				contador++;
 			}
-			
+
 		}
 		if (!this.janelaPrincipal.getDataPanelDia5().toString().isEmpty()
 				&& !this.janelaPrincipal.getDataPanelDia5().toString().equals("")
 				&& this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex() != -1
 				&& this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() != -1) {
-			
+
 			dataInserida = this.janelaPrincipal.getDataPanelDia5().getDate();
-			if(dataAtual.compareTo(dataInserida) < 0) {
+			if (dataAtual.compareTo(dataInserida) < 0) {
 				contador++;
 			}
-			
+
 		}
 		if (!this.janelaPrincipal.getDataPanelDia6().toString().isEmpty()
 				&& !this.janelaPrincipal.getDataPanelDia6().toString().equals("")
 				&& this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex() != -1
 				&& this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() != -1) {
-			
+
 			dataInserida = this.janelaPrincipal.getDataPanelDia6().getDate();
-			if(dataAtual.compareTo(dataInserida) < 0) {
+			if (dataAtual.compareTo(dataInserida) < 0) {
 				contador++;
 			}
-			
+
 		}
-		
+
 		// teste para checkar se hora inicial > hora final
-		if(this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex() + 7 > 
-		this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() + 8) {
+		if (this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex()
+				+ 7 > this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() + 8) {
 			aux++;
 		}
-		if(this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex() + 7 > 
-		this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() + 8) {
+		if (this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()
+				+ 7 > this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() + 8) {
 			aux++;
 		}
-		if(this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex() + 7 > 
-		this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() + 8) {
+		if (this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex()
+				+ 7 > this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() + 8) {
 			aux++;
 		}
-		if(this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex() + 7 > 
-		this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() + 8) {
+		if (this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex()
+				+ 7 > this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() + 8) {
 			aux++;
 		}
-		if(this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex() + 7 > 
-		this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() + 8) {
+		if (this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex()
+				+ 7 > this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() + 8) {
 			aux++;
 		}
-		if(this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex() + 7 > 
-		this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() + 8) {
+		if (this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex()
+				+ 7 > this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() + 8) {
 			aux++;
 		}
-		
-		if(aux > 0) {
+
+		if (aux > 0) {
 			return false;
 		}
 
@@ -400,28 +401,28 @@ public class FormularioControle implements ActionListener, MouseListener {
 		}
 		return true;
 	}
-	
+
 	// Me'todo que valida dados de uma reserva
 	public boolean validarReserva(String data, int horaInicial, int horaFinal) {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date dataAtual = new Date();
 		Date dataInserida = null;
-		
+
 		try {
 			dataInserida = df.parse(data);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		if(dataAtual.compareTo(dataInserida) >= 0) {
+
+		if (dataAtual.compareTo(dataInserida) >= 0) {
 			return false;
 		}
-		
+
 		if (horaInicial >= horaFinal) {
 			return false;
 		}
-		
+
 		return true;
 	}
 
@@ -757,6 +758,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		// TODO Auto-generated method stub
 		if (evento.getActionCommand().equals("Reservar")) {
 			trocarPainel("painelInicioFormulario");
+
 		}
 		if (evento.getActionCommand().equals("VerReserva")) {
 			exibirRequisicoes();
@@ -776,6 +778,36 @@ public class FormularioControle implements ActionListener, MouseListener {
 			trocarPainel("painelInicial");
 		}
 
+		if (evento.getActionCommand().equals("Abrir1")) {
+
+			abrirRequisacao(0);
+			trocarPainel("painelAbrirFormulario");
+
+		}
+
+	}
+
+	public void abrirRequisacao(int i) {
+		Formulario formulario = new Formulario();
+		int idRequisicao[] = formularioDAO.retornaFormularioIdGeral(usuarioControle.getUsuarioId());
+		int id = idRequisicao[i];
+		if (id > 0) {
+			if (formularioDAO.retornaRequisicao(id, formulario)) {
+
+				this.janelaPrincipal.getLabelInserirSolicitante().setText(formulario.getSolicitante());
+				this.janelaPrincipal.getLabelInserirTelefone().setText(formulario.getTelefone());
+				this.janelaPrincipal.getLabelInserirEmail().setText(formulario.getEmail());
+				this.janelaPrincipal.getLabelInserirAtividade().setText(formulario.getAtividade());
+				this.janelaPrincipal.getLabelInserirModalidade().setText(formulario.getModalidade());
+				this.janelaPrincipal.getLabelInserirNalunos().setText(formulario.getNumeroAlunos() + "");
+				this.janelaPrincipal.getLabelInserirEquipamentos().setText(formulario.getEquipamentos());
+				this.janelaPrincipal.getLabelInserirCurso().setText(formulario.getCurso());
+
+			} else {
+				System.out.println("Erro ao Abrir -> " + idRequisicao[i]);
+			}
+		}
+
 	}
 
 	@Override
@@ -788,51 +820,51 @@ public class FormularioControle implements ActionListener, MouseListener {
 				this.janelaPrincipal.mensagemCamposVazios();
 			}
 		}
-		
+
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelData()) {
 			trocarPainel("painelInicioFormulario");
 
 		}
-		
+
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelData()) {
 			if (validarCamposData()) {
 				trocarPainel("painelEquipamentos");
-			}else {
+			} else {
 				this.janelaPrincipal.mensagemCamposVazios();
-			}	
+			}
 		}
-		
+
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarEquipamentos()) {
 			trocarPainel("painelData");
 
 		}
-		
+
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarEquipamentos()) {
 			if (validarCamposEquipamentos()) {
 				trocarPainel("painelConfirmarReserva");
 			}
 		}
-		
+
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarVerReserva()) {
 			trocarPainel("painelInicial");
 		}
-		
-		if(e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao1()) {
+
+		if (e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao1()) {
 			excluirRequisicao(0);
 			exibirRequisicoes();
 		}
-		
-		if(e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao2()) {
-			excluirRequisicao(1);	
+
+		if (e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao2()) {
+			excluirRequisicao(1);
 			exibirRequisicoes();
 		}
-		
-		if(e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao3()) {
+
+		if (e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao3()) {
 			excluirRequisicao(2);
 			exibirRequisicoes();
 		}
-		
-		if(e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao4()) {
+
+		if (e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao4()) {
 			excluirRequisicao(3);
 			exibirRequisicoes();
 		}
