@@ -120,24 +120,24 @@ public class JanelaPrincipal extends JFrame {
 	private JButton buttonRevisar;
 	private JButton buttonFinalizar;
 	private JPanel painelVerReserva;
-	private JLabel lblMinhasRequisies;
-	private JLabel labelPedido1;
-	private JLabel labelPedido2;
-	private JLabel labelPedido3;
-	private JLabel labelPedido4;
-	private JButton buttonAbrir1;
-	private JButton buttonAbrir2;
-	private JButton buttonAbrir3;
-	private JButton buttonAbrir4;
+	private JLabel labelTituloPainelVerReserva;
+	private JLabel labelRequisicao1;
+	private JLabel labelRequisicao2;
+	private JLabel labelRequisicao3;
+	private JLabel labelRequisicao4;
+	private JButton buttonVerRequisicao1;
+	private JButton buttonVerRequisicao2;
+	private JButton buttonVerRequisicao3;
+	private JButton buttonVerRequisicao4;
 	private JButton buttonEditar1;
 	private JButton buttonEditar2;
 	private JButton buttonEditar3;
 	private JButton buttonEditar4;
-	private JLabel labelApagarPedido1;
+	private JLabel labelApagarRequisicao1;
 	private JLabel label;
-	private JLabel labelApagarPedido2;
-	private JLabel labelApagarPedido3;
-	private JLabel labelApagarPedido4;
+	private JLabel labelApagarRequisicao2;
+	private JLabel labelApagarRequisicao3;
+	private JLabel labelApagarRequisicao4;
 	private JLabel labelVoltarVerReserva;
 
 	@SuppressWarnings("unchecked")
@@ -625,39 +625,39 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.add(painelVerReserva, "painelVerReserva");
 		painelVerReserva.setLayout(new MigLayout("", "40[][grow][grow][grow]40", "50[]40[]25[]25[]25[][][]20"));
 
-		lblMinhasRequisies = new JLabel("Minhas Requisi\u00E7\u00F5es");
-		lblMinhasRequisies.setForeground(Color.WHITE);
-		lblMinhasRequisies.setFont(new Font("Arial", Font.BOLD, 30));
-		painelVerReserva.add(lblMinhasRequisies, "cell 0 0 2 1");
+		labelTituloPainelVerReserva = new JLabel("Minhas requisi\u00E7\u00F5es");
+		labelTituloPainelVerReserva.setForeground(Color.WHITE);
+		labelTituloPainelVerReserva.setFont(new Font("Arial", Font.BOLD, 30));
+		painelVerReserva.add(labelTituloPainelVerReserva, "cell 0 0 2 1");
 
-		labelPedido1 = new JLabel("Pedido #1");
-		labelPedido1.setForeground(Color.WHITE);
-		labelPedido1.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(labelPedido1, "cell 0 1");
+		labelRequisicao1 = new JLabel("");
+		labelRequisicao1.setForeground(Color.WHITE);
+		labelRequisicao1.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(labelRequisicao1, "cell 0 1");
 
-		buttonAbrir1 = new JButton("Abrir");
-		buttonAbrir1.setPreferredSize(new Dimension(200, 10));
-		buttonAbrir1.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonAbrir1, "cell 1 1,alignx center");
+		buttonVerRequisicao1 = new JButton("Abrir");
+		buttonVerRequisicao1.setPreferredSize(new Dimension(200, 10));
+		buttonVerRequisicao1.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonVerRequisicao1, "cell 1 1,alignx center");
 
 		buttonEditar1 = new JButton("Editar");
 		buttonEditar1.setPreferredSize(new Dimension(200, 10));
 		buttonEditar1.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar1, "cell 2 1");
 
-		labelApagarPedido1 = new JLabel("");
-		labelApagarPedido1.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
-		painelVerReserva.add(labelApagarPedido1, "cell 3 1,alignx left");
+		labelApagarRequisicao1 = new JLabel("");
+		labelApagarRequisicao1.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/button.png")));
+		painelVerReserva.add(labelApagarRequisicao1, "cell 3 1,alignx left");
 
-		labelPedido2 = new JLabel("Pedido #2");
-		labelPedido2.setForeground(Color.WHITE);
-		labelPedido2.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(labelPedido2, "cell 0 2");
+		labelRequisicao2 = new JLabel("");
+		labelRequisicao2.setForeground(Color.WHITE);
+		labelRequisicao2.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(labelRequisicao2, "cell 0 2");
 
-		buttonAbrir2 = new JButton("Abrir");
-		buttonAbrir2.setPreferredSize(new Dimension(200, 10));
-		buttonAbrir2.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonAbrir2, "cell 1 2,alignx center");
+		buttonVerRequisicao2 = new JButton("Abrir");
+		buttonVerRequisicao2.setPreferredSize(new Dimension(200, 10));
+		buttonVerRequisicao2.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonVerRequisicao2, "cell 1 2,alignx center");
 
 		buttonEditar2 = new JButton("Editar");
 		buttonEditar2.setPreferredSize(new Dimension(200, 10));
@@ -667,52 +667,56 @@ public class JanelaPrincipal extends JFrame {
 		label = new JLabel("");
 		painelVerReserva.add(label, "flowx,cell 3 2");
 
-		labelPedido3 = new JLabel("Pedido #3");
-		labelPedido3.setForeground(Color.WHITE);
-		labelPedido3.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(labelPedido3, "cell 0 3");
+		labelRequisicao3 = new JLabel("");
+		labelRequisicao3.setForeground(Color.WHITE);
+		labelRequisicao3.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(labelRequisicao3, "cell 0 3");
 
-		buttonAbrir3 = new JButton("Abrir");
-		buttonAbrir3.setPreferredSize(new Dimension(200, 10));
-		buttonAbrir3.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonAbrir3, "cell 1 3,alignx center");
+		buttonVerRequisicao3 = new JButton("Abrir");
+		buttonVerRequisicao3.setPreferredSize(new Dimension(200, 10));
+		buttonVerRequisicao3.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonVerRequisicao3, "cell 1 3,alignx center");
 
 		buttonEditar3 = new JButton("Editar");
 		buttonEditar3.setPreferredSize(new Dimension(200, 10));
 		buttonEditar3.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar3, "cell 2 3");
 
-		labelApagarPedido3 = new JLabel("");
-		labelApagarPedido3.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
-		painelVerReserva.add(labelApagarPedido3, "cell 3 3");
+		labelApagarRequisicao3 = new JLabel("");
+		labelApagarRequisicao3.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/button.png")));
+		painelVerReserva.add(labelApagarRequisicao3, "cell 3 3");
 
-		labelPedido4 = new JLabel("Pedido #4");
-		labelPedido4.setForeground(Color.WHITE);
-		labelPedido4.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(labelPedido4, "cell 0 4");
+		labelRequisicao4 = new JLabel("");
+		labelRequisicao4.setForeground(Color.WHITE);
+		labelRequisicao4.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(labelRequisicao4, "cell 0 4");
 
-		buttonAbrir4 = new JButton("Abrir");
-		buttonAbrir4.setPreferredSize(new Dimension(200, 10));
-		buttonAbrir4.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonAbrir4, "cell 1 4,alignx center");
+		buttonVerRequisicao4 = new JButton("Abrir");
+		buttonVerRequisicao4.setPreferredSize(new Dimension(200, 10));
+		buttonVerRequisicao4.setFont(new Font("Arial", Font.PLAIN, 20));
+		painelVerReserva.add(buttonVerRequisicao4, "cell 1 4,alignx center");
 
 		buttonEditar4 = new JButton("Editar");
 		buttonEditar4.setPreferredSize(new Dimension(200, 10));
 		buttonEditar4.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonEditar4, "cell 2 4");
 
-		labelApagarPedido2 = new JLabel("");
-		labelApagarPedido2.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
-		painelVerReserva.add(labelApagarPedido2, "cell 3 2");
+		labelApagarRequisicao2 = new JLabel("");
+		labelApagarRequisicao2.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/button.png")));
+		painelVerReserva.add(labelApagarRequisicao2, "cell 3 2");
 
-		labelApagarPedido4 = new JLabel("");
-		labelApagarPedido4.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/Lixeira.png")));
-		painelVerReserva.add(labelApagarPedido4, "cell 3 4");
+		labelApagarRequisicao4 = new JLabel("");
+		labelApagarRequisicao4.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/button.png")));
+		painelVerReserva.add(labelApagarRequisicao4, "cell 3 4");
 
 		labelVoltarVerReserva = new JLabel("\r\n");
 		labelVoltarVerReserva.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
 		painelVerReserva.add(labelVoltarVerReserva, "cell 0 6");
 
+	}
+
+	public void setLabelRequisicao4(JLabel labelRequisicao4) {
+		this.labelRequisicao4 = labelRequisicao4;
 	}
 
 	// -----------------------------------------------
@@ -1142,36 +1146,36 @@ public class JanelaPrincipal extends JFrame {
 		this.buttonFinalizar = buttonFinalizar;
 	}
 
-	public JButton getButtonAbrir1() {
-		return buttonAbrir1;
+	public JButton getButtonVerRequisicao1() {
+		return buttonVerRequisicao1;
 	}
 
-	public void setButtonAbrir1(JButton buttonAbrir1) {
-		this.buttonAbrir1 = buttonAbrir1;
+	public void setButtonVerRequisicao1(JButton buttonVerRequisicao1) {
+		this.buttonVerRequisicao1 = buttonVerRequisicao1;
 	}
 
-	public JButton getButtonAbrir2() {
-		return buttonAbrir2;
+	public JButton getButtonVerRequisicao2() {
+		return buttonVerRequisicao2;
 	}
 
-	public void setButtonAbrir2(JButton buttonAbrir2) {
-		this.buttonAbrir2 = buttonAbrir2;
+	public void setButtonVerRequisicao2(JButton buttonVerRequisicao2) {
+		this.buttonVerRequisicao2 = buttonVerRequisicao2;
 	}
 
-	public JButton getButtonAbrir3() {
-		return buttonAbrir3;
+	public JButton getButtonVerRequisicao3() {
+		return buttonVerRequisicao3;
 	}
 
-	public void setButtonAbrir3(JButton buttonAbrir3) {
-		this.buttonAbrir3 = buttonAbrir3;
+	public void setButtonVerRequisicao3(JButton buttonVerRequisicao3) {
+		this.buttonVerRequisicao3 = buttonVerRequisicao3;
 	}
 
-	public JButton getButtonAbrir4() {
-		return buttonAbrir4;
+	public JButton getButtonVerRequisicao4() {
+		return buttonVerRequisicao4;
 	}
 
-	public void setButtonAbrir4(JButton buttonAbrir4) {
-		this.buttonAbrir4 = buttonAbrir4;
+	public void setButtonVerRequisicao4(JButton buttonVerRequisicao4) {
+		this.buttonVerRequisicao4 = buttonVerRequisicao4;
 	}
 
 	public JButton getButtonEditar1() {
@@ -1206,36 +1210,64 @@ public class JanelaPrincipal extends JFrame {
 		this.buttonEditar4 = buttonEditar4;
 	}
 
-	public JLabel getLabelApagarPedido1() {
-		return labelApagarPedido1;
+	public JLabel getLabelApagarRequisicao1() {
+		return labelApagarRequisicao1;
 	}
 
-	public void setLabelApagarPedido1(JLabel labelApagarPedido1) {
-		this.labelApagarPedido1 = labelApagarPedido1;
+	public void setLabelApagarRequisicao1(JLabel labelApagarRequisicao1) {
+		this.labelApagarRequisicao1 = labelApagarRequisicao1;
 	}
 
-	public JLabel getLabelApagarPedido2() {
-		return labelApagarPedido2;
+	public JLabel getLabelApagarRequisicao2() {
+		return labelApagarRequisicao2;
 	}
 
-	public void setLabelApagarPedido2(JLabel labelApagarPedido2) {
-		this.labelApagarPedido2 = labelApagarPedido2;
+	public void setLabelApagarRequisicao2(JLabel labelApagarRequisicao2) {
+		this.labelApagarRequisicao2 = labelApagarRequisicao2;
 	}
 
-	public JLabel getLabelApagarPedido3() {
-		return labelApagarPedido3;
+	public JLabel getLabelApagarRequisicao3() {
+		return labelApagarRequisicao3;
 	}
 
-	public void setLabelApagarPedido3(JLabel labelApagarPedido3) {
-		this.labelApagarPedido3 = labelApagarPedido3;
+	public void setLabelApagarRequisicao3(JLabel labelApagarRequisicao3) {
+		this.labelApagarRequisicao3 = labelApagarRequisicao3;
 	}
 
-	public JLabel getLabelApagarPedido4() {
-		return labelApagarPedido4;
+	public JLabel getLabelApagarRequisicao4() {
+		return labelApagarRequisicao4;
 	}
 
-	public void setLabelApagarPedido4(JLabel labelApagarPedido4) {
-		this.labelApagarPedido4 = labelApagarPedido4;
+	public void setLabelApagarRequisicao4(JLabel labelApagarRequisicao4) {
+		this.labelApagarRequisicao4 = labelApagarRequisicao4;
+	}
+	
+	public JLabel getLabelRequisicao1() {
+		return labelRequisicao1;
+	}
+
+	public void setLabelRequisicao1(JLabel labelRequisicao1) {
+		this.labelRequisicao1 = labelRequisicao1;
+	}
+
+	public JLabel getLabelRequisicao2() {
+		return labelRequisicao2;
+	}
+
+	public void setLabelRequisicao2(JLabel labelRequisicao2) {
+		this.labelRequisicao2 = labelRequisicao2;
+	}
+
+	public JLabel getLabelRequisicao3() {
+		return labelRequisicao3;
+	}
+
+	public void setLabelRequisicao3(JLabel labelRequisicao3) {
+		this.labelRequisicao3 = labelRequisicao3;
+	}
+
+	public JLabel getLabelRequisicao4() {
+		return labelRequisicao4;
 	}
 
 	public JLabel getLabelVoltarVerReserva() {
@@ -1267,7 +1299,6 @@ public class JanelaPrincipal extends JFrame {
 	}
 
 	// Me´todo que troca de painel
-	//Método Trocar
 	public void trocarPainel(String nomePainel) {
 		card.show(contentPane, nomePainel);
 	}

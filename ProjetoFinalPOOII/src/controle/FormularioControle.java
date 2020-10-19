@@ -32,9 +32,13 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getLabelVoltarEquipamentos().addMouseListener(this);
 		this.janelaPrincipal.getLabelAvancarEquipamentos().addMouseListener(this);
 		this.janelaPrincipal.getLabelVoltarVerReserva().addMouseListener(this);
-
+		this.janelaPrincipal.getLabelApagarRequisicao1().addMouseListener(this);
+		this.janelaPrincipal.getLabelApagarRequisicao2().addMouseListener(this);
+		this.janelaPrincipal.getLabelApagarRequisicao3().addMouseListener(this);
+		this.janelaPrincipal.getLabelApagarRequisicao4().addMouseListener(this);
 	}
 
+	// Me'todo que salva uma requisicao de reserva de sala
 	public void salvarRequisicao() {
 		String solicitante, telefone, email, atividade, modalidade, curso, equipamentos = "";
 		String[] data = new String[6];
@@ -162,11 +166,31 @@ public class FormularioControle implements ActionListener, MouseListener {
 		}
 
 	}
+	
+	public void exibirRequisicoes() {
+		int idRequisicao[] = formularioDAO.retornaFormularioIdGeral(usuarioControle.getUsuarioId());
+		this.janelaPrincipal.getLabelRequisicao1().setText("#R"+idRequisicao[0]);
+		this.janelaPrincipal.getLabelRequisicao2().setText("#R"+idRequisicao[1]);
+		this.janelaPrincipal.getLabelRequisicao3().setText("#R"+idRequisicao[2]);
+		this.janelaPrincipal.getLabelRequisicao4().setText("#R"+idRequisicao[3]);
+	}
+	
+	public void excluirRequisicao(int i) {
+		int idRequisicao[] = formularioDAO.retornaFormularioIdGeral(usuarioControle.getUsuarioId());
+		if(formularioDAO.excluirRequisicao(idRequisicao[i])) {
+			System.out.println("Exclusão sucesso");
+		}else {
+			System.out.println("Erro ao excluir");
+		}
+	}
 
+
+	// Me'todo que troca o painel exibido
 	public void trocarPainel(String nomePainel) {
 		this.janelaPrincipal.trocarPainel(nomePainel);
 	}
 
+	// Me'todo que valida os campos da tela inicial do questiona'rio
 	public boolean validarCamposSolicitante() {
 		// Co'digo para validar os campos
 		if (this.janelaPrincipal.getFieldTelefone().getText().isEmpty()
@@ -181,19 +205,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		return true;
 	}
 
-	/*
-	 * public boolean validarCamposData() {
-	 * 
-	 * if (this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() == -1 ||
-	 * this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() == -1 ||
-	 * this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() == -1 ||
-	 * this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() == -1 ||
-	 * this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() == -1 ||
-	 * this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() == -1) {
-	 * this.janelaPrincipal.erroCampos(); return false; } return true; }
-	 */
-
-	// esta' funcionando!
+	// Me'todo que valida os campos de data do formula'rio
 	public boolean validarCamposData() {
 		int contador = 0, quantidadeDias = 0, aux = 0;
 
@@ -276,6 +288,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		return true;
 	}
 
+	// Me'todo que valida os campos da tela de equipamentos
 	public boolean validarCamposEquipamentos() {
 
 		if (this.janelaPrincipal.getCheckBoxOutroEspecificar().isSelected()
@@ -288,6 +301,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		return true;
 	}
 
+	// Me'todo que limpa os campos das telas
 	public void limparCampos() {
 		// Co'digo para limpar campos da tela
 
@@ -323,6 +337,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 	}
 
+	// Me'todo que altera a visibilidade dos campos de data na tela PainelData
 	public void mostrarCamposDatas() {
 		// Código para tornar visivel ou não os campos do painelData
 
@@ -615,6 +630,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 			trocarPainel("painelInicioFormulario");
 		}
 		if (evento.getActionCommand().equals("VerReserva")) {
+			exibirRequisicoes();
 			trocarPainel("painelVerReserva");
 		}
 		if (evento.getActionCommand().equals("Finalizar")) {
@@ -643,31 +659,55 @@ public class FormularioControle implements ActionListener, MouseListener {
 				this.janelaPrincipal.mensagemCamposVazios();
 			}
 		}
+		
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelData()) {
 			trocarPainel("painelInicioFormulario");
 
 		}
+		
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarPainelData()) {
 			if (validarCamposData()) {
 				trocarPainel("painelEquipamentos");
 			}else {
 				this.janelaPrincipal.mensagemCamposVazios();
-			}
-				
-
+			}	
 		}
+		
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarEquipamentos()) {
 			trocarPainel("painelData");
 
 		}
+		
 		if (e.getComponent() == this.janelaPrincipal.getLabelAvancarEquipamentos()) {
 			if (validarCamposEquipamentos()) {
 				trocarPainel("painelConfirmarReserva");
 			}
 		}
+		
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarVerReserva()) {
 			trocarPainel("painelInicial");
 		}
+		
+		if(e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao1()) {
+			excluirRequisicao(0);
+			exibirRequisicoes();
+		}
+		
+		if(e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao2()) {
+			excluirRequisicao(1);	
+			exibirRequisicoes();
+		}
+		
+		if(e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao3()) {
+			excluirRequisicao(2);
+			exibirRequisicoes();
+		}
+		
+		if(e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao4()) {
+			excluirRequisicao(3);
+			exibirRequisicoes();
+		}
+
 	}
 
 	@Override

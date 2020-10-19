@@ -119,13 +119,13 @@ public class FormularioDAO {
 		return 0;
 	} // retornaFormularioId()
 	
-	// Me'todo que retorna id de todas as requisicoes
+	// Me'todo que retorna todas id de todas as requisicoes de um usua'ario
 	public int[] retornaFormularioIdGeral(int usuarioId) {
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
-		int[] listaId = null;
+		int[] listaId = new int[1000];
 		int i = 0;
-		String sql = "SELECT id FROM requisicao WHERE usuarioId LIKE ?";
+		String sql = "SELECT id FROM requisicao WHERE usuarioId = ? ORDER BY id DESC";
 
 		PreparedStatement prepareStatement;
 		try {
