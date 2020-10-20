@@ -30,6 +30,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getButtonRevisar().addActionListener(this);
 		this.janelaPrincipal.getButtonFinalizar().addActionListener(this);
 		this.janelaPrincipal.getLabelAvancarPainelInicioFormulario().addMouseListener(this);
+		this.janelaPrincipal.getLabelVoltarPainelInicioFormulario().addMouseListener(this);
 		this.janelaPrincipal.getLabelVoltarPainelData().addMouseListener(this);
 		this.janelaPrincipal.getLabelAvancarPainelData().addMouseListener(this);
 		this.janelaPrincipal.getLabelVoltarEquipamentos().addMouseListener(this);
@@ -902,6 +903,11 @@ public class FormularioControle implements ActionListener, MouseListener {
 			} else {
 				this.janelaPrincipal.mensagemCamposVazios();
 			}
+		}
+		
+		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelInicioFormulario()) {
+			limparCampos();
+			trocarPainel("painelInicial");
 		}
 
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarPainelData()) {
