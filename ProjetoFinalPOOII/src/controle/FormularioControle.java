@@ -9,6 +9,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.mysql.cj.ParseInfo;
+
 import dao.FormularioDAO;
 import dao.UsuarioDAO;
 import modelo.Formulario;
@@ -252,7 +254,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 	// Me'todo que valida os campos da tela inicial do questiona'rio
 	public boolean validarCamposSolicitante() {
-		// Co'digo para validar os campos
+		
 		if (this.janelaPrincipal.getFieldTelefone().getText().isEmpty()
 				|| this.janelaPrincipal.getFieldEmail().getText().isEmpty()
 				|| this.janelaPrincipal.getFieldNumeroAlunos().getText().isEmpty()
@@ -262,7 +264,13 @@ public class FormularioControle implements ActionListener, MouseListener {
 				|| this.janelaPrincipal.getButtonGroupAtividade().isSelected(null)) {
 			return false;
 		}
-		return true;
+		try {
+			int numeroAlunos;
+			numeroAlunos = Integer.parseInt(this.janelaPrincipal.getFieldNumeroAlunos().getText()); 
+			return true;
+		} catch(Exception e) {
+			return false;
+		}
 	}
 
 	// Me'todo que valida os campos de data do formula'rio
@@ -347,27 +355,27 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 		// teste para checkar se hora inicial > hora final
 		if (this.janelaPrincipal.getComboBoxInicioDia1().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia1().getSelectedIndex() + 8) {
 			aux++;
 		}
 		if (this.janelaPrincipal.getComboBoxInicioDia2().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia2().getSelectedIndex() + 8) {
 			aux++;
 		}
 		if (this.janelaPrincipal.getComboBoxInicioDia3().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia3().getSelectedIndex() + 8) {
 			aux++;
 		}
 		if (this.janelaPrincipal.getComboBoxInicioDia4().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia4().getSelectedIndex() + 8) {
 			aux++;
 		}
 		if (this.janelaPrincipal.getComboBoxInicioDia5().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia5().getSelectedIndex() + 8) {
 			aux++;
 		}
 		if (this.janelaPrincipal.getComboBoxInicioDia6().getSelectedIndex()
-				+ 7 > this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() + 8) {
+				+ 7 >= this.janelaPrincipal.getComboBoxFimDia6().getSelectedIndex() + 8) {
 			aux++;
 		}
 
@@ -746,61 +754,6 @@ public class FormularioControle implements ActionListener, MouseListener {
 		}
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent evento) {
-		// TODO Auto-generated method stub
-		if (evento.getActionCommand().equals("Reservar")) {
-			trocarPainel("painelInicioFormulario");
-
-		}
-		if (evento.getActionCommand().equals("VerReserva")) {
-			exibirRequisicoes();
-			trocarPainel("painelVerReserva");
-		}
-		if (evento.getActionCommand().equals("Finalizar")) {
-			salvarRequisicao();
-		}
-		if (evento.getActionCommand().equals("OKdias")) {
-			mostrarCamposDatas();
-		}
-		if (evento.getActionCommand().equals("Revisar")) {
-			trocarPainel("painelInicioFormulario");
-		}
-		if (evento.getActionCommand().equals("Finalizar")) {
-			limparCampos();
-			trocarPainel("painelInicial");
-		}
-
-		if (evento.getActionCommand().equals("Abrir1")) {
-
-			abrirRequisacao(0);
-			trocarPainel("painelAbrirFormulario");
-
-		}
-		if (evento.getActionCommand().equals("Abrir2")) {
-
-			abrirRequisacao(1);
-			trocarPainel("painelAbrirFormulario");
-		}
-		if (evento.getActionCommand().equals("Abrir3")) {
-
-			abrirRequisacao(2);
-			trocarPainel("painelAbrirFormulario");
-		}
-		if (evento.getActionCommand().equals("Abrir4")) {
-
-			abrirRequisacao(3);
-			trocarPainel("painelAbrirFormulario");
-		}
-		if (evento.getActionCommand().equals("FecharPainelAbrirFormulario")) {
-
-			exibirRequisicoes();
-			trocarPainel("painelVerReserva");
-
-		}
-
-	}
-
 	public void abrirRequisacao(int i) {
 		Formulario formulario = new Formulario();
 		int idRequisicao[] = formularioDAO.retornaFormularioIdGeral(usuarioControle.getUsuarioId());
@@ -823,17 +776,17 @@ public class FormularioControle implements ActionListener, MouseListener {
 				this.janelaPrincipal.getLabelInserirData5().setText(formulario.getData(4));
 				this.janelaPrincipal.getLabelInserirData6().setText(formulario.getData(5));
 				this.janelaPrincipal.getLabelInserirHoraDia1().setText("Inicio: " + formulario.getHoraInicial(0)
-						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(0) + "horas");
+						+ " horas - Fim: " + formulario.getHoraFinal(0) + " horas");
 				this.janelaPrincipal.getLabelInserirHoraDia2().setText("Inicio: " + formulario.getHoraInicial(1)
-						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(1) + "horas");
+						+ " horas - Fim: " + formulario.getHoraFinal(1) + " horas");
 				this.janelaPrincipal.getLabelInserirHoraDia3().setText("Inicio: " + formulario.getHoraInicial(2)
-						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(2) + "horas");
+						+ " horas - Fim: " + formulario.getHoraFinal(2) + " horas");
 				this.janelaPrincipal.getLabelInserirHoraDia4().setText("Inicio: " + formulario.getHoraInicial(3)
-						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(3) + "horas");
+						+ " horas - Fim: " + formulario.getHoraFinal(3) + " horas");
 				this.janelaPrincipal.getlabelInserirHoraDia5().setText("Inicio: " + formulario.getHoraInicial(4)
-						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(4) + "horas");
+						+ " horas - Fim: " + formulario.getHoraFinal(4) + " horas");
 				this.janelaPrincipal.getlabelInserirHoraDia6().setText("Inicio: " + formulario.getHoraInicial(5)
-						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(5) + "horas");
+						+ " horas - Fim: " + formulario.getHoraFinal(5) + " horas");
 
 				if (formulario.getData(1) == null) {
 
@@ -894,6 +847,61 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent evento) {
+		// TODO Auto-generated method stub
+		if (evento.getActionCommand().equals("Reservar")) {
+			trocarPainel("painelInicioFormulario");
+
+		}
+		if (evento.getActionCommand().equals("VerReserva")) {
+			exibirRequisicoes();
+			trocarPainel("painelVerReserva");
+		}
+		if (evento.getActionCommand().equals("Finalizar")) {
+			salvarRequisicao();
+		}
+		if (evento.getActionCommand().equals("OKdias")) {
+			mostrarCamposDatas();
+		}
+		if (evento.getActionCommand().equals("Revisar")) {
+			trocarPainel("painelInicioFormulario");
+		}
+		if (evento.getActionCommand().equals("Finalizar")) {
+			limparCampos();
+			trocarPainel("painelInicial");
+		}
+
+		if (evento.getActionCommand().equals("Abrir1")) {
+
+			abrirRequisacao(0);
+			trocarPainel("painelAbrirFormulario");
+
+		}
+		if (evento.getActionCommand().equals("Abrir2")) {
+
+			abrirRequisacao(1);
+			trocarPainel("painelAbrirFormulario");
+		}
+		if (evento.getActionCommand().equals("Abrir3")) {
+
+			abrirRequisacao(2);
+			trocarPainel("painelAbrirFormulario");
+		}
+		if (evento.getActionCommand().equals("Abrir4")) {
+
+			abrirRequisacao(3);
+			trocarPainel("painelAbrirFormulario");
+		}
+		if (evento.getActionCommand().equals("FecharPainelAbrirFormulario")) {
+
+			exibirRequisicoes();
+			trocarPainel("painelVerReserva");
+
+		}
+
+	}
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub

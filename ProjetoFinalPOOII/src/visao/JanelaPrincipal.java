@@ -222,9 +222,13 @@ public class JanelaPrincipal extends JFrame {
 		fieldSenha.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelLogin.add(fieldSenha, "cell 1 2,growx,aligny center");
 
-		buttonEntrar = new JButton("Entrar");
+		buttonEntrar = new JButton("");
+		buttonEntrar.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonEntrar.png")));
 		buttonEntrar.setFont(new Font("Arial", Font.PLAIN, 22));
 		buttonEntrar.setPreferredSize(new Dimension(200, 10));
+		buttonEntrar.setContentAreaFilled(false);
+		buttonEntrar.setFocusPainted(false);
+		buttonEntrar.setBorderPainted(false);
 		painelLogin.add(buttonEntrar, "cell 0 3 2 1,alignx center");
 
 		labelInfo = new JLabel("");
@@ -254,15 +258,23 @@ public class JanelaPrincipal extends JFrame {
 		labelMensagemEscolha.setFont(new Font("Arial", Font.PLAIN, 25));
 		painelInicial.add(labelMensagemEscolha, "cell 0 2 2097051 1,alignx center");
 
-		buttonVerReservas = new JButton("Ver reservas");
+		buttonVerReservas = new JButton("");
+		buttonVerReservas.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerReservas.png")));
 		buttonVerReservas.setActionCommand("VerReserva");
 		buttonVerReservas.setFont(new Font("Arial", Font.PLAIN, 20));
 		buttonVerReservas.setPreferredSize(new Dimension(200, 10));
+		buttonVerReservas.setContentAreaFilled(false);
+		buttonVerReservas.setFocusPainted(false);
+		buttonVerReservas.setBorderPainted(false);
 		painelInicial.add(buttonVerReservas, "flowx,cell 0 3,alignx center");
 
-		buttonFazerReserva = new JButton("Reservar");
+		buttonFazerReserva = new JButton("");
+		buttonFazerReserva.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonFazerReserva.png")));
 		buttonFazerReserva.setFont(new Font("Arial", Font.PLAIN, 20));
 		buttonFazerReserva.setPreferredSize(new Dimension(200, 10));
+		buttonFazerReserva.setContentAreaFilled(false);
+		buttonFazerReserva.setFocusPainted(false);
+		buttonFazerReserva.setBorderPainted(false);
 		painelInicial.add(buttonFazerReserva, "cell 0 3,alignx center");
 
 		// -----------------------------------------------------
@@ -290,7 +302,7 @@ public class JanelaPrincipal extends JFrame {
 		
 		
 	
-	 MaskFormatter maskTelefone=null;
+		MaskFormatter maskTelefone=null;
 		try {
 			maskTelefone = new MaskFormatter("(##) #########");
 		} catch (ParseException e2) {
@@ -298,8 +310,6 @@ public class JanelaPrincipal extends JFrame {
 			e2.printStackTrace();
 		}
 	
-	
-		
 		fieldTelefone = new JFormattedTextField(maskTelefone);
 		fieldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldTelefone, "cell 1 2 3 1,grow");
@@ -318,6 +328,7 @@ public class JanelaPrincipal extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
 		fieldEmail = new JFormattedTextField(maskEmail);
 		fieldEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldEmail, "cell 1 3 3 1,grow");
@@ -574,7 +585,7 @@ public class JanelaPrincipal extends JFrame {
 		painelEquipamentos.setLayout(new MigLayout("", "40[grow]30[grow]40", "40[]60[]20[]20[]20[]40[][grow]20"));
 
 		labelAvisoEquipamento = new JLabel(
-				"<html><div style=\\\"text-align: center;\\\"><br /> Obs.: Todas as salas possuem computador e equipamento multim\u00EDdia.   Outros <br />equipamentos devem ser solicitados com anteced\u00EAncia m\u00EDnima de 24 horas ao <br />Setor de Apoio \u00E0s Salas de Aula.   Reserva para eventos devre\u00E3o ser realizados no <br />protocolo, com no m\u00EDnimo 45 dias de anteced\u00EAncia, conforme normas institucionais.</html>");
+				"<html><div style=\\\"text-align: center;\\\"><br /> Obs.: Todas as salas possuem computador e equipamento multim\u00EDdia.   Outros <br />equipamentos devem ser solicitados com anteced\u00EAncia m\u00EDnima de 24 horas ao <br />Setor de Apoio \u00E0s Salas de Aula.   Reserva para eventos deverão ser realizados no <br />protocolo, com no m\u00EDnimo 45 dias de anteced\u00EAncia, conforme normas institucionais.</html>");
 		labelAvisoEquipamento.setForeground(Color.WHITE);
 		labelAvisoEquipamento.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelEquipamentos.add(labelAvisoEquipamento, "cell 0 0 2 1");
@@ -637,14 +648,22 @@ public class JanelaPrincipal extends JFrame {
 		labelMensagemPainelConfirmarReserva.setFont(new Font("Arial", Font.PLAIN, 25));
 		painelConfirmarReserva.add(labelMensagemPainelConfirmarReserva, "cell 0 0,alignx center");
 
-		buttonRevisar = new JButton("Revisar");
+		buttonRevisar = new JButton("");
+		buttonRevisar.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonRevisar.png")));
 		buttonRevisar.setFont(new Font("Arial", Font.PLAIN, 20));
 		buttonRevisar.setPreferredSize(new Dimension(200, 10));
+		buttonRevisar.setContentAreaFilled(false);
+		buttonRevisar.setFocusPainted(false);
+		buttonRevisar.setBorderPainted(false);
 		painelConfirmarReserva.add(buttonRevisar, "flowx,cell 0 1,alignx center");
 
-		buttonFinalizar = new JButton("Finalizar");
+		buttonFinalizar = new JButton("");
+		buttonFinalizar.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonFinalizar.png")));
 		buttonFinalizar.setFont(new Font("Arial", Font.PLAIN, 20));
 		buttonFinalizar.setPreferredSize(new Dimension(200, 10));
+		buttonFinalizar.setContentAreaFilled(false);
+		buttonFinalizar.setFocusPainted(false);
+		buttonFinalizar.setBorderPainted(false);
 		painelConfirmarReserva.add(buttonFinalizar, "cell 0 1,alignx center");
 
 		// -----------------------------------------------------
@@ -665,10 +684,14 @@ public class JanelaPrincipal extends JFrame {
 		labelRequisicao1.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(labelRequisicao1, "cell 0 1");
 
-		buttonVerRequisicao1 = new JButton("Abrir");
+		buttonVerRequisicao1 = new JButton("");
+		buttonVerRequisicao1.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
 		buttonVerRequisicao1.setActionCommand("Abrir1");
 		buttonVerRequisicao1.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao1.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonVerRequisicao1.setContentAreaFilled(false);
+		buttonVerRequisicao1.setFocusPainted(false);
+		buttonVerRequisicao1.setBorderPainted(false);
 		painelVerReserva.add(buttonVerRequisicao1, "cell 1 1,alignx center");
 		
 				labelApagarRequisicao1 = new JLabel("");
@@ -680,10 +703,14 @@ public class JanelaPrincipal extends JFrame {
 		labelRequisicao2.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(labelRequisicao2, "cell 0 2");
 
-		buttonVerRequisicao2 = new JButton("Abrir");
+		buttonVerRequisicao2 = new JButton("");
+		buttonVerRequisicao2.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
 		buttonVerRequisicao2.setActionCommand("Abrir2");
 		buttonVerRequisicao2.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao2.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonVerRequisicao2.setContentAreaFilled(false);
+		buttonVerRequisicao2.setFocusPainted(false);
+		buttonVerRequisicao2.setBorderPainted(false);
 		painelVerReserva.add(buttonVerRequisicao2, "cell 1 2,alignx center");
 		
 				labelApagarRequisicao2 = new JLabel("");
@@ -698,10 +725,14 @@ public class JanelaPrincipal extends JFrame {
 		labelRequisicao3.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(labelRequisicao3, "cell 0 3");
 
-		buttonVerRequisicao3 = new JButton("Abrir");
+		buttonVerRequisicao3 = new JButton("");
+		buttonVerRequisicao3.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
 		buttonVerRequisicao3.setActionCommand("Abrir3");
 		buttonVerRequisicao3.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao3.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonVerRequisicao3.setContentAreaFilled(false);
+		buttonVerRequisicao3.setFocusPainted(false);
+		buttonVerRequisicao3.setBorderPainted(false);
 		painelVerReserva.add(buttonVerRequisicao3, "cell 1 3,alignx center");
 		
 				labelApagarRequisicao3 = new JLabel("");
@@ -713,10 +744,14 @@ public class JanelaPrincipal extends JFrame {
 		labelRequisicao4.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(labelRequisicao4, "cell 0 4");
 
-		buttonVerRequisicao4 = new JButton("Abrir");
+		buttonVerRequisicao4 = new JButton("");
+		buttonVerRequisicao4.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
 		buttonVerRequisicao4.setActionCommand("Abrir4");
 		buttonVerRequisicao4.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao4.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonVerRequisicao4.setContentAreaFilled(false);
+		buttonVerRequisicao4.setFocusPainted(false);
+		buttonVerRequisicao4.setBorderPainted(false);
 		painelVerReserva.add(buttonVerRequisicao4, "cell 1 4,alignx center");
 		
 				labelApagarRequisicao4 = new JLabel("");
@@ -902,10 +937,14 @@ public class JanelaPrincipal extends JFrame {
 		InserirHoraDia6.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(InserirHoraDia6, "cell 2 13");
 		
-		buttonFecharPainelAbrirFormulario = new JButton("Fechar");
+		buttonFecharPainelAbrirFormulario = new JButton("");
+		buttonFecharPainelAbrirFormulario.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonFecharPainelAbrirFormulario.png")));
 		buttonFecharPainelAbrirFormulario.setActionCommand("FecharPainelAbrirFormulario");
 		buttonFecharPainelAbrirFormulario.setPreferredSize(new Dimension(200, 10));
 		buttonFecharPainelAbrirFormulario.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonFecharPainelAbrirFormulario.setContentAreaFilled(false);
+		buttonFecharPainelAbrirFormulario.setFocusPainted(false);
+		buttonFecharPainelAbrirFormulario.setBorderPainted(false);
 		painelAbrirFormulario.add(buttonFecharPainelAbrirFormulario, "cell 0 16");
 		
 
@@ -1712,12 +1751,12 @@ public class JanelaPrincipal extends JFrame {
 	}
 
 	public void mensagemInformacoes() {
-		JOptionPane.showMessageDialog(null,
+		JOptionPane.showMessageDialog(this,
 				"Trabalho de Final de\nProgramação Orientada a Objetos\n\nDesenvolvido por:\nAndré Jardim;\nGabriel Menin;\nJoão Martins;\nMaico Triaca.");
 	}
 
 	public void mensagemCamposVazios() {
-		JOptionPane.showMessageDialog(this, "Existem campos em branco ou não selecionados.", null,
+		JOptionPane.showMessageDialog(this, "Existem campos em branco, não selecionados ou invalidos.", null,
 				JOptionPane.ERROR_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/figuras/erro.png")));
 	}
 	
