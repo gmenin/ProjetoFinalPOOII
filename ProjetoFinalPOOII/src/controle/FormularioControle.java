@@ -31,6 +31,15 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getButtonVerificaQtd().addActionListener(this);
 		this.janelaPrincipal.getButtonRevisar().addActionListener(this);
 		this.janelaPrincipal.getButtonFinalizar().addActionListener(this);
+		this.janelaPrincipal.getButtonApagarRequisicao1().addActionListener(this);
+		this.janelaPrincipal.getButtonApagarRequisicao2().addActionListener(this);
+		this.janelaPrincipal.getButtonApagarRequisicao3().addActionListener(this);
+		this.janelaPrincipal.getButtonApagarRequisicao4().addActionListener(this);
+		this.janelaPrincipal.getButtonVerRequisicao1().addActionListener(this);
+		this.janelaPrincipal.getButtonVerRequisicao2().addActionListener(this);
+		this.janelaPrincipal.getButtonVerRequisicao3().addActionListener(this);
+		this.janelaPrincipal.getButtonVerRequisicao4().addActionListener(this);
+		this.janelaPrincipal.getButtonFecharPainelAbrirFormulario().addActionListener(this);
 		this.janelaPrincipal.getLabelAvancarPainelInicioFormulario().addMouseListener(this);
 		this.janelaPrincipal.getLabelVoltarPainelInicioFormulario().addMouseListener(this);
 		this.janelaPrincipal.getLabelVoltarPainelData().addMouseListener(this);
@@ -38,15 +47,6 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getLabelVoltarEquipamentos().addMouseListener(this);
 		this.janelaPrincipal.getLabelAvancarEquipamentos().addMouseListener(this);
 		this.janelaPrincipal.getLabelVoltarVerReserva().addMouseListener(this);
-		this.janelaPrincipal.getLabelApagarRequisicao1().addMouseListener(this);
-		this.janelaPrincipal.getLabelApagarRequisicao2().addMouseListener(this);
-		this.janelaPrincipal.getLabelApagarRequisicao3().addMouseListener(this);
-		this.janelaPrincipal.getLabelApagarRequisicao4().addMouseListener(this);
-		this.janelaPrincipal.getButtonVerRequisicao1().addActionListener(this);
-		this.janelaPrincipal.getButtonVerRequisicao2().addActionListener(this);
-		this.janelaPrincipal.getButtonVerRequisicao3().addActionListener(this);
-		this.janelaPrincipal.getButtonVerRequisicao4().addActionListener(this);
-		this.janelaPrincipal.getButtonFecharPainelAbrirFormulario().addActionListener(this);
 	}
 
 	// Me'todo que salva uma requisicao de reserva de sala
@@ -193,44 +193,44 @@ public class FormularioControle implements ActionListener, MouseListener {
 			this.janelaPrincipal.getLabelRequisicao1().setText("#R" + idRequisicao[0]);
 			this.janelaPrincipal.getLabelRequisicao1().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao1().setVisible(true);
-			this.janelaPrincipal.getLabelApagarRequisicao1().setVisible(true);
+			this.janelaPrincipal.getButtonApagarRequisicao1().setVisible(true);
 		} else {
 			this.janelaPrincipal.getLabelRequisicao1().setVisible(false);
 			this.janelaPrincipal.getButtonVerRequisicao1().setVisible(false);
-			this.janelaPrincipal.getLabelApagarRequisicao1().setVisible(false);
+			this.janelaPrincipal.getButtonApagarRequisicao1().setVisible(false);
 		}
 
 		if (idRequisicao[1] > 0) {
 			this.janelaPrincipal.getLabelRequisicao2().setText("#R" + idRequisicao[1]);
 			this.janelaPrincipal.getLabelRequisicao2().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao2().setVisible(true);
-			this.janelaPrincipal.getLabelApagarRequisicao2().setVisible(true);
+			this.janelaPrincipal.getButtonApagarRequisicao2().setVisible(true);
 		} else {
 			this.janelaPrincipal.getLabelRequisicao2().setVisible(false);
 			this.janelaPrincipal.getButtonVerRequisicao2().setVisible(false);
-			this.janelaPrincipal.getLabelApagarRequisicao2().setVisible(false);
+			this.janelaPrincipal.getButtonApagarRequisicao2().setVisible(false);
 		}
 
 		if (idRequisicao[2] > 0) {
 			this.janelaPrincipal.getLabelRequisicao3().setText("#R" + idRequisicao[2]);
 			this.janelaPrincipal.getLabelRequisicao3().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao3().setVisible(true);
-			this.janelaPrincipal.getLabelApagarRequisicao3().setVisible(true);
+			this.janelaPrincipal.getButtonApagarRequisicao3().setVisible(true);
 		} else {
 			this.janelaPrincipal.getLabelRequisicao3().setVisible(false);
 			this.janelaPrincipal.getButtonVerRequisicao3().setVisible(false);
-			this.janelaPrincipal.getLabelApagarRequisicao3().setVisible(false);
+			this.janelaPrincipal.getButtonApagarRequisicao3().setVisible(false);
 		}
 
 		if (idRequisicao[3] > 0) {
 			this.janelaPrincipal.getLabelRequisicao4().setText("#R" + idRequisicao[3]);
 			this.janelaPrincipal.getLabelRequisicao4().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao4().setVisible(true);
-			this.janelaPrincipal.getLabelApagarRequisicao4().setVisible(true);
+			this.janelaPrincipal.getButtonApagarRequisicao4().setVisible(true);
 		} else {
 			this.janelaPrincipal.getLabelRequisicao4().setVisible(false);
 			this.janelaPrincipal.getButtonVerRequisicao4().setVisible(false);
-			this.janelaPrincipal.getLabelApagarRequisicao4().setVisible(false);
+			this.janelaPrincipal.getButtonApagarRequisicao4().setVisible(false);
 		}
 
 	}
@@ -849,7 +849,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 	@Override
 	public void actionPerformed(ActionEvent evento) {
-		// TODO Auto-generated method stub
+		
 		if (evento.getActionCommand().equals("Reservar")) {
 			trocarPainel("painelInicioFormulario");
 
@@ -899,6 +899,22 @@ public class FormularioControle implements ActionListener, MouseListener {
 			trocarPainel("painelVerReserva");
 
 		}
+		if(evento.getActionCommand().equals("Excluir1")) {
+			excluirRequisicao(0);
+			exibirRequisicoes();
+		}
+		if(evento.getActionCommand().equals("Excluir2")) {
+			excluirRequisicao(1);
+			exibirRequisicoes();
+		}
+		if(evento.getActionCommand().equals("Excluir3")) {
+			excluirRequisicao(2);
+			exibirRequisicoes();
+		}
+		if(evento.getActionCommand().equals("Excluir4")) {
+			excluirRequisicao(3);
+			exibirRequisicoes();
+		}
 
 	}
 	
@@ -944,26 +960,6 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 		if (e.getComponent() == this.janelaPrincipal.getLabelVoltarVerReserva()) {
 			trocarPainel("painelInicial");
-		}
-
-		if (e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao1()) {
-			excluirRequisicao(0);
-			exibirRequisicoes();
-		}
-
-		if (e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao2()) {
-			excluirRequisicao(1);
-			exibirRequisicoes();
-		}
-
-		if (e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao3()) {
-			excluirRequisicao(2);
-			exibirRequisicoes();
-		}
-
-		if (e.getComponent() == this.janelaPrincipal.getLabelApagarRequisicao4()) {
-			excluirRequisicao(3);
-			exibirRequisicoes();
 		}
 
 	}

@@ -129,11 +129,7 @@ public class JanelaPrincipal extends JFrame {
 	private JButton buttonVerRequisicao2;
 	private JButton buttonVerRequisicao3;
 	private JButton buttonVerRequisicao4;
-	private JLabel labelApagarRequisicao1;
 	private JLabel label;
-	private JLabel labelApagarRequisicao2;
-	private JLabel labelApagarRequisicao3;
-	private JLabel labelApagarRequisicao4;
 	private JLabel labelVoltarVerReserva;
 	private JPanel painelAbrirFormulario;
 	private JLabel labelSolicitanteAbrirFormulario;
@@ -172,6 +168,10 @@ public class JanelaPrincipal extends JFrame {
 	private JLabel InserirHoraDia6;
 	private JButton buttonFecharPainelAbrirFormulario;
 	private JLabel labelVoltarPainelInicioFormulario;
+	private JButton buttonApagarRequisicao1;
+	private JButton buttonApagarRequisicao2;
+	private JButton buttonApagarRequisicao3;
+	private JButton buttonApagarRequisicao4;
 
 	@SuppressWarnings("unchecked")
 	public JanelaPrincipal() {
@@ -225,7 +225,7 @@ public class JanelaPrincipal extends JFrame {
 		buttonEntrar = new JButton("");
 		buttonEntrar.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonEntrar.png")));
 		buttonEntrar.setFont(new Font("Arial", Font.PLAIN, 22));
-		buttonEntrar.setPreferredSize(new Dimension(200, 10));
+		buttonEntrar.setActionCommand("Entrar");
 		buttonEntrar.setContentAreaFilled(false);
 		buttonEntrar.setFocusPainted(false);
 		buttonEntrar.setBorderPainted(false);
@@ -262,7 +262,6 @@ public class JanelaPrincipal extends JFrame {
 		buttonVerReservas.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerReservas.png")));
 		buttonVerReservas.setActionCommand("VerReserva");
 		buttonVerReservas.setFont(new Font("Arial", Font.PLAIN, 20));
-		buttonVerReservas.setPreferredSize(new Dimension(200, 10));
 		buttonVerReservas.setContentAreaFilled(false);
 		buttonVerReservas.setFocusPainted(false);
 		buttonVerReservas.setBorderPainted(false);
@@ -271,7 +270,7 @@ public class JanelaPrincipal extends JFrame {
 		buttonFazerReserva = new JButton("");
 		buttonFazerReserva.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonFazerReserva.png")));
 		buttonFazerReserva.setFont(new Font("Arial", Font.PLAIN, 20));
-		buttonFazerReserva.setPreferredSize(new Dimension(200, 10));
+		buttonFazerReserva.setActionCommand("Reservar");
 		buttonFazerReserva.setContentAreaFilled(false);
 		buttonFazerReserva.setFocusPainted(false);
 		buttonFazerReserva.setBorderPainted(false);
@@ -299,17 +298,15 @@ public class JanelaPrincipal extends JFrame {
 		labelTelefone.setForeground(new Color(255, 255, 255));
 		labelTelefone.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelTelefone, "cell 0 2");
-		
-		
-	
-		MaskFormatter maskTelefone=null;
+
+		MaskFormatter maskTelefone = null;
 		try {
 			maskTelefone = new MaskFormatter("(##) #########");
 		} catch (ParseException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
-	
+
 		fieldTelefone = new JFormattedTextField(maskTelefone);
 		fieldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldTelefone, "cell 1 2 3 1,grow");
@@ -319,16 +316,16 @@ public class JanelaPrincipal extends JFrame {
 		labelEmail.setForeground(new Color(255, 255, 255));
 		labelEmail.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelEmail, "cell 0 3,alignx left,aligny baseline");
-		
-		MaskFormatter maskEmail=null;
+
+		MaskFormatter maskEmail = null;
 		try {
 			maskEmail = new MaskFormatter("**************************************************");
-			
+
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		fieldEmail = new JFormattedTextField(maskEmail);
 		fieldEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldEmail, "cell 1 3 3 1,grow");
@@ -338,7 +335,7 @@ public class JanelaPrincipal extends JFrame {
 		labelNumeroAlunos.setForeground(new Color(255, 255, 255));
 		labelNumeroAlunos.setFont(new Font("Calibri Light", Font.PLAIN, 25));
 		painelInicioFormulario.add(labelNumeroAlunos, "cell 0 4,alignx left,aligny bottom");
-		
+
 		fieldNumeroAlunos = new JFormattedTextField();
 		fieldNumeroAlunos.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painelInicioFormulario.add(fieldNumeroAlunos, "cell 1 4 3 1,alignx left,growy");
@@ -404,9 +401,10 @@ public class JanelaPrincipal extends JFrame {
 		buttonGroupAtividade.add(radioButtonAula);
 		buttonGroupAtividade.add(radioButtonProva);
 		buttonGroupAtividade.add(radioButtonSeminario);
-		
+
 		labelVoltarPainelInicioFormulario = new JLabel("\r\n");
-		labelVoltarPainelInicioFormulario.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
+		labelVoltarPainelInicioFormulario
+				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
 		painelInicioFormulario.add(labelVoltarPainelInicioFormulario, "cell 0 7,aligny bottom");
 
 		labelAvancarPainelInicioFormulario = new JLabel("");
@@ -651,7 +649,7 @@ public class JanelaPrincipal extends JFrame {
 		buttonRevisar = new JButton("");
 		buttonRevisar.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonRevisar.png")));
 		buttonRevisar.setFont(new Font("Arial", Font.PLAIN, 20));
-		buttonRevisar.setPreferredSize(new Dimension(200, 10));
+		buttonRevisar.setActionCommand("Revisar");
 		buttonRevisar.setContentAreaFilled(false);
 		buttonRevisar.setFocusPainted(false);
 		buttonRevisar.setBorderPainted(false);
@@ -660,7 +658,7 @@ public class JanelaPrincipal extends JFrame {
 		buttonFinalizar = new JButton("");
 		buttonFinalizar.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonFinalizar.png")));
 		buttonFinalizar.setFont(new Font("Arial", Font.PLAIN, 20));
-		buttonFinalizar.setPreferredSize(new Dimension(200, 10));
+		buttonFinalizar.setActionCommand("Finalizar");
 		buttonFinalizar.setContentAreaFilled(false);
 		buttonFinalizar.setFocusPainted(false);
 		buttonFinalizar.setBorderPainted(false);
@@ -672,7 +670,7 @@ public class JanelaPrincipal extends JFrame {
 		painelVerReserva = new JPanel();
 		painelVerReserva.setBackground(new Color(30, 76, 118));
 		contentPane.add(painelVerReserva, "painelVerReserva");
-		painelVerReserva.setLayout(new MigLayout("", "40[][grow][grow][grow]40", "50[]40[]25[]25[]25[][][grow]20"));
+		painelVerReserva.setLayout(new MigLayout("", "40[][grow][grow]40", "50[]40[]25[]25[]25[][][grow]20"));
 
 		labelTituloPainelVerReserva = new JLabel("Minhas requisi\u00E7\u00F5es");
 		labelTituloPainelVerReserva.setForeground(Color.WHITE);
@@ -685,7 +683,8 @@ public class JanelaPrincipal extends JFrame {
 		painelVerReserva.add(labelRequisicao1, "cell 0 1");
 
 		buttonVerRequisicao1 = new JButton("");
-		buttonVerRequisicao1.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
+		buttonVerRequisicao1
+				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
 		buttonVerRequisicao1.setActionCommand("Abrir1");
 		buttonVerRequisicao1.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao1.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -693,10 +692,15 @@ public class JanelaPrincipal extends JFrame {
 		buttonVerRequisicao1.setFocusPainted(false);
 		buttonVerRequisicao1.setBorderPainted(false);
 		painelVerReserva.add(buttonVerRequisicao1, "cell 1 1,alignx center");
-		
-				labelApagarRequisicao1 = new JLabel("");
-				labelApagarRequisicao1.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/button.png")));
-				painelVerReserva.add(labelApagarRequisicao1, "cell 2 1,alignx left");
+
+		buttonApagarRequisicao1 = new JButton("");
+		buttonApagarRequisicao1
+				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonApagarRequisicao.png")));
+		buttonApagarRequisicao1.setActionCommand("Excluir1");
+		buttonApagarRequisicao1.setContentAreaFilled(false);
+		buttonApagarRequisicao1.setFocusPainted(false);
+		buttonApagarRequisicao1.setBorderPainted(false);
+		painelVerReserva.add(buttonApagarRequisicao1, "cell 2 1");
 
 		labelRequisicao2 = new JLabel("");
 		labelRequisicao2.setForeground(Color.WHITE);
@@ -704,18 +708,23 @@ public class JanelaPrincipal extends JFrame {
 		painelVerReserva.add(labelRequisicao2, "cell 0 2");
 
 		buttonVerRequisicao2 = new JButton("");
-		buttonVerRequisicao2.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
+		buttonVerRequisicao2
+				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
 		buttonVerRequisicao2.setActionCommand("Abrir2");
-		buttonVerRequisicao2.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao2.setFont(new Font("Arial", Font.PLAIN, 20));
 		buttonVerRequisicao2.setContentAreaFilled(false);
 		buttonVerRequisicao2.setFocusPainted(false);
 		buttonVerRequisicao2.setBorderPainted(false);
 		painelVerReserva.add(buttonVerRequisicao2, "cell 1 2,alignx center");
-		
-				labelApagarRequisicao2 = new JLabel("");
-				labelApagarRequisicao2.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/button.png")));
-				painelVerReserva.add(labelApagarRequisicao2, "cell 2 2");
+
+		buttonApagarRequisicao2 = new JButton("");
+		buttonApagarRequisicao2
+				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonApagarRequisicao.png")));
+		buttonApagarRequisicao2.setActionCommand("Excluir2");
+		buttonApagarRequisicao2.setContentAreaFilled(false);
+		buttonApagarRequisicao2.setFocusPainted(false);
+		buttonApagarRequisicao2.setBorderPainted(false);
+		painelVerReserva.add(buttonApagarRequisicao2, "cell 2 2");
 
 		label = new JLabel("");
 		painelVerReserva.add(label, "flowx,cell 3 2");
@@ -726,18 +735,23 @@ public class JanelaPrincipal extends JFrame {
 		painelVerReserva.add(labelRequisicao3, "cell 0 3");
 
 		buttonVerRequisicao3 = new JButton("");
-		buttonVerRequisicao3.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
+		buttonVerRequisicao3
+				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
 		buttonVerRequisicao3.setActionCommand("Abrir3");
-		buttonVerRequisicao3.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao3.setFont(new Font("Arial", Font.PLAIN, 20));
 		buttonVerRequisicao3.setContentAreaFilled(false);
 		buttonVerRequisicao3.setFocusPainted(false);
 		buttonVerRequisicao3.setBorderPainted(false);
 		painelVerReserva.add(buttonVerRequisicao3, "cell 1 3,alignx center");
-		
-				labelApagarRequisicao3 = new JLabel("");
-				labelApagarRequisicao3.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/button.png")));
-				painelVerReserva.add(labelApagarRequisicao3, "cell 2 3");
+
+		buttonApagarRequisicao3 = new JButton("");
+		buttonApagarRequisicao3
+				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonApagarRequisicao.png")));
+		buttonApagarRequisicao3.setActionCommand("Excluir3");
+		buttonApagarRequisicao3.setContentAreaFilled(false);
+		buttonApagarRequisicao3.setFocusPainted(false);
+		buttonApagarRequisicao3.setBorderPainted(false);
+		painelVerReserva.add(buttonApagarRequisicao3, "cell 2 3");
 
 		labelRequisicao4 = new JLabel("");
 		labelRequisicao4.setForeground(Color.WHITE);
@@ -745,200 +759,207 @@ public class JanelaPrincipal extends JFrame {
 		painelVerReserva.add(labelRequisicao4, "cell 0 4");
 
 		buttonVerRequisicao4 = new JButton("");
-		buttonVerRequisicao4.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
+		buttonVerRequisicao4
+				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonVerRequisicao.png")));
 		buttonVerRequisicao4.setActionCommand("Abrir4");
-		buttonVerRequisicao4.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao4.setFont(new Font("Arial", Font.PLAIN, 20));
 		buttonVerRequisicao4.setContentAreaFilled(false);
 		buttonVerRequisicao4.setFocusPainted(false);
 		buttonVerRequisicao4.setBorderPainted(false);
 		painelVerReserva.add(buttonVerRequisicao4, "cell 1 4,alignx center");
-		
-				labelApagarRequisicao4 = new JLabel("");
-				labelApagarRequisicao4.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/button.png")));
-				painelVerReserva.add(labelApagarRequisicao4, "cell 2 4");
+
+		buttonApagarRequisicao4 = new JButton("");
+		buttonApagarRequisicao4
+				.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonApagarRequisicao.png")));
+		buttonApagarRequisicao4.setActionCommand("Excluir4");
+		buttonApagarRequisicao4.setContentAreaFilled(false);
+		buttonApagarRequisicao4.setFocusPainted(false);
+		buttonApagarRequisicao4.setBorderPainted(false);
+		painelVerReserva.add(buttonApagarRequisicao4, "cell 2 4");
 
 		labelVoltarVerReserva = new JLabel("\r\n");
 		labelVoltarVerReserva.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/left-arrow.png")));
 		painelVerReserva.add(labelVoltarVerReserva, "cell 0 6,aligny bottom");
-		
+
 		painelAbrirFormulario = new JPanel();
 		painelAbrirFormulario.setBackground(new Color(30, 76, 118));
-		painelAbrirFormulario.setLayout(new MigLayout("", "40[][120.00][114.00]40", "40[][][][][][][][]20[][][][][][][][][grow]20"));
+		painelAbrirFormulario
+				.setLayout(new MigLayout("", "40[][120.00][114.00]40", "40[][][][][][][][]20[][][][][][grow]20"));
 		contentPane.add(painelAbrirFormulario, "painelAbrirFormulario");
-		
+
 		labelSolicitanteAbrirFormulario = new JLabel("Solicitante:");
 		labelSolicitanteAbrirFormulario.setForeground(Color.WHITE);
 		labelSolicitanteAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelSolicitanteAbrirFormulario, "cell 0 0");
-		
+
 		labelInserirSolicitante = new JLabel("");
 		labelInserirSolicitante.setForeground(Color.WHITE);
 		labelInserirSolicitante.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirSolicitante, "cell 1 0");
-		
+
 		labelTelefoneAbrirFormulario = new JLabel("Telefone:");
 		labelTelefoneAbrirFormulario.setForeground(Color.WHITE);
 		labelTelefoneAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelTelefoneAbrirFormulario, "cell 0 1");
-		
+
 		labelInserirTelefone = new JLabel("");
 		labelInserirTelefone.setForeground(Color.WHITE);
 		labelInserirTelefone.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirTelefone, "cell 1 1");
-		
+
 		labelEmailAbrirFormulario = new JLabel("Email:");
 		labelEmailAbrirFormulario.setForeground(Color.WHITE);
 		labelEmailAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelEmailAbrirFormulario, "cell 0 2");
-		
+
 		labelInserirEmail = new JLabel("");
 		labelInserirEmail.setForeground(Color.WHITE);
 		labelInserirEmail.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirEmail, "cell 1 2");
-		
+
 		labelNumeroDeAlunosAbrirFormulario = new JLabel("N\u00BA de alunos:");
 		labelNumeroDeAlunosAbrirFormulario.setForeground(Color.WHITE);
 		labelNumeroDeAlunosAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelNumeroDeAlunosAbrirFormulario, "cell 0 3");
-		
+
 		labelInserirNalunos = new JLabel("");
 		labelInserirNalunos.setForeground(Color.WHITE);
 		labelInserirNalunos.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirNalunos, "cell 1 3");
-		
+
 		labelAtividadeAbrirFormulario = new JLabel("Atividade:");
 		labelAtividadeAbrirFormulario.setForeground(Color.WHITE);
 		labelAtividadeAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelAtividadeAbrirFormulario, "cell 0 4");
-		
+
 		labelInserirAtividade = new JLabel("");
 		labelInserirAtividade.setForeground(Color.WHITE);
 		labelInserirAtividade.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirAtividade, "cell 1 4");
-		
+
 		labelModalidadeAbrirFormulario = new JLabel("Modalidade:");
 		labelModalidadeAbrirFormulario.setForeground(Color.WHITE);
 		labelModalidadeAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelModalidadeAbrirFormulario, "cell 0 5");
-		
+
 		labelInserirModalidade = new JLabel("");
 		labelInserirModalidade.setForeground(Color.WHITE);
 		labelInserirModalidade.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirModalidade, "cell 1 5");
-		
+
 		labelCursoAbrirFormulario = new JLabel("Curso:");
 		labelCursoAbrirFormulario.setForeground(Color.WHITE);
 		labelCursoAbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelCursoAbrirFormulario, "cell 0 6");
-		
+
 		labelInserirCurso = new JLabel("");
 		labelInserirCurso.setForeground(Color.WHITE);
 		labelInserirCurso.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirCurso, "cell 1 6");
-		
+
 		lblEquipamentos = new JLabel("Equipamentos:");
 		lblEquipamentos.setForeground(Color.WHITE);
 		lblEquipamentos.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(lblEquipamentos, "cell 0 7");
-		
+
 		labelInserirEquipamentos = new JLabel("");
 		labelInserirEquipamentos.setForeground(Color.WHITE);
 		labelInserirEquipamentos.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirEquipamentos, "cell 1 7");
-		
+
 		labelData1AbrirFormulario = new JLabel("Data 1:");
 		labelData1AbrirFormulario.setForeground(Color.WHITE);
 		labelData1AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelData1AbrirFormulario, "cell 0 8");
-		
+
 		labelInserirData1 = new JLabel("");
 		labelInserirData1.setForeground(Color.WHITE);
 		labelInserirData1.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirData1, "cell 1 8");
-		
+
 		labelInserirHoraDia1 = new JLabel("");
 		labelInserirHoraDia1.setForeground(Color.WHITE);
 		labelInserirHoraDia1.setFont(new Font("Calibri", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirHoraDia1, "cell 2 8");
-		
+
 		labelData2AbrirFormulario = new JLabel("Data 2:");
 		labelData2AbrirFormulario.setForeground(Color.WHITE);
 		labelData2AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelData2AbrirFormulario, "cell 0 9");
-		
+
 		labelInserirData2 = new JLabel("");
 		labelInserirData2.setForeground(Color.WHITE);
 		labelInserirData2.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirData2, "cell 1 9");
-		
+
 		labelInserirHoraDia2 = new JLabel("");
 		labelInserirHoraDia2.setForeground(Color.WHITE);
 		labelInserirHoraDia2.setFont(new Font("Calibri", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirHoraDia2, "cell 2 9");
-		
+
 		labelData3AbrirFormulario = new JLabel("Data 3:");
 		labelData3AbrirFormulario.setForeground(Color.WHITE);
 		labelData3AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelData3AbrirFormulario, "cell 0 10");
-		
+
 		labelInserirData3 = new JLabel("");
 		labelInserirData3.setForeground(Color.WHITE);
 		labelInserirData3.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirData3, "cell 1 10");
-		
+
 		labelInserirHoraDia3 = new JLabel("");
 		labelInserirHoraDia3.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		labelInserirHoraDia3.setForeground(Color.WHITE);
 		painelAbrirFormulario.add(labelInserirHoraDia3, "cell 2 10");
-		
+
 		labelData4AbrirFormulario = new JLabel("Data 4:");
 		labelData4AbrirFormulario.setForeground(Color.WHITE);
 		labelData4AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelData4AbrirFormulario, "cell 0 11");
-		
+
 		labelInserirData4 = new JLabel("");
 		labelInserirData4.setForeground(Color.WHITE);
 		labelInserirData4.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirData4, "cell 1 11");
-		
+
 		labelInserirHoraDia4 = new JLabel("");
 		labelInserirHoraDia4.setForeground(Color.WHITE);
 		labelInserirHoraDia4.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirHoraDia4, "cell 2 11");
-		
+
 		labelData5AbrirFormulario = new JLabel("Data 5:");
 		labelData5AbrirFormulario.setForeground(Color.WHITE);
 		labelData5AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelData5AbrirFormulario, "cell 0 12");
-		
+
 		labelInserirData5 = new JLabel("");
 		labelInserirData5.setForeground(Color.WHITE);
 		labelInserirData5.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirData5, "cell 1 12");
-		
+
 		labelInserirHoraDia5 = new JLabel("");
 		labelInserirHoraDia5.setForeground(Color.WHITE);
 		labelInserirHoraDia5.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelInserirHoraDia5, "cell 2 12");
-		
+
 		labelData6AbrirFormulario = new JLabel("Data 6:");
 		labelData6AbrirFormulario.setForeground(Color.WHITE);
 		labelData6AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labelData6AbrirFormulario, "cell 0 13");
-		
+
 		labellabelInserirData6 = new JLabel("");
 		labellabelInserirData6.setForeground(Color.WHITE);
 		labellabelInserirData6.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(labellabelInserirData6, "cell 1 13");
-		
+
 		InserirHoraDia6 = new JLabel("");
 		InserirHoraDia6.setForeground(Color.WHITE);
 		InserirHoraDia6.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		painelAbrirFormulario.add(InserirHoraDia6, "cell 2 13");
-		
+
 		buttonFecharPainelAbrirFormulario = new JButton("");
-		buttonFecharPainelAbrirFormulario.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonFecharPainelAbrirFormulario.png")));
+		buttonFecharPainelAbrirFormulario.setIcon(
+				new ImageIcon(JanelaPrincipal.class.getResource("/figuras/buttonFecharPainelAbrirFormulario.png")));
 		buttonFecharPainelAbrirFormulario.setActionCommand("FecharPainelAbrirFormulario");
 		buttonFecharPainelAbrirFormulario.setPreferredSize(new Dimension(200, 10));
 		buttonFecharPainelAbrirFormulario.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -946,7 +967,6 @@ public class JanelaPrincipal extends JFrame {
 		buttonFecharPainelAbrirFormulario.setFocusPainted(false);
 		buttonFecharPainelAbrirFormulario.setBorderPainted(false);
 		painelAbrirFormulario.add(buttonFecharPainelAbrirFormulario, "cell 0 16");
-		
 
 	}
 
@@ -973,7 +993,7 @@ public class JanelaPrincipal extends JFrame {
 	// -----------------------------------------------
 	// ----------Texto de Getters e Setters-----------
 	// -----------------------------------------------
-	
+
 	public JCheckBox getCheckBoxProjetorDeSlides() {
 		return checkBoxProjetorDeSlides;
 	}
@@ -1606,8 +1626,40 @@ public class JanelaPrincipal extends JFrame {
 		this.buttonVerRequisicao3 = buttonVerRequisicao3;
 	}
 
+	public JButton getButtonApagarRequisicao4() {
+		return buttonApagarRequisicao4;
+	}
+
+	public void setButtonApagarRequisicao4(JButton buttonApagarRequisicao4) {
+		this.buttonApagarRequisicao4 = buttonApagarRequisicao4;
+	}
+
 	public JButton getButtonVerRequisicao4() {
 		return buttonVerRequisicao4;
+	}
+
+	public JButton getButtonApagarRequisicao1() {
+		return buttonApagarRequisicao1;
+	}
+
+	public void setButtonApagarRequisicao1(JButton buttonApagarRequisicao1) {
+		this.buttonApagarRequisicao1 = buttonApagarRequisicao1;
+	}
+
+	public JButton getButtonApagarRequisicao2() {
+		return buttonApagarRequisicao2;
+	}
+
+	public void setButtonApagarRequisicao2(JButton buttonApagarRequisicao2) {
+		this.buttonApagarRequisicao2 = buttonApagarRequisicao2;
+	}
+
+	public JButton getButtonApagarRequisicao3() {
+		return buttonApagarRequisicao3;
+	}
+
+	public void setButtonApagarRequisicao3(JButton buttonApagarRequisicao3) {
+		this.buttonApagarRequisicao3 = buttonApagarRequisicao3;
 	}
 
 	public void setButtonVerRequisicao4(JButton buttonVerRequisicao4) {
@@ -1630,38 +1682,6 @@ public class JanelaPrincipal extends JFrame {
 		InserirHoraDia6 = inserirHoraDia6;
 	}
 
-	public JLabel getLabelApagarRequisicao1() {
-		return labelApagarRequisicao1;
-	}
-
-	public void setLabelApagarRequisicao1(JLabel labelApagarRequisicao1) {
-		this.labelApagarRequisicao1 = labelApagarRequisicao1;
-	}
-
-	public JLabel getLabelApagarRequisicao2() {
-		return labelApagarRequisicao2;
-	}
-
-	public void setLabelApagarRequisicao2(JLabel labelApagarRequisicao2) {
-		this.labelApagarRequisicao2 = labelApagarRequisicao2;
-	}
-
-	public JLabel getLabelApagarRequisicao3() {
-		return labelApagarRequisicao3;
-	}
-
-	public void setLabelApagarRequisicao3(JLabel labelApagarRequisicao3) {
-		this.labelApagarRequisicao3 = labelApagarRequisicao3;
-	}
-
-	public JLabel getLabelApagarRequisicao4() {
-		return labelApagarRequisicao4;
-	}
-
-	public void setLabelApagarRequisicao4(JLabel labelApagarRequisicao4) {
-		this.labelApagarRequisicao4 = labelApagarRequisicao4;
-	}
-	
 	public JLabel getLabelRequisicao1() {
 		return labelRequisicao1;
 	}
@@ -1706,8 +1726,6 @@ public class JanelaPrincipal extends JFrame {
 		this.labelVoltarPainelInicioFormulario = labelVoltarPainelInicioFormulario;
 	}
 
-
-
 	// Classe para fixar mensagens não selecionaveis nos JComboBox presentes no
 	// painelInicioFormulario
 	class MyComboBoxRenderer extends JLabel implements ListCellRenderer {
@@ -1734,20 +1752,20 @@ public class JanelaPrincipal extends JFrame {
 	}
 
 	// Métodos que quando chamados exibem mensagens
-	
+
 	public void mensagemErroAutenticacao() {
 		JOptionPane.showMessageDialog(this, "Usuário ou senha incorreto! Por favor, verifique os dados inseridos.",
 				null, JOptionPane.ERROR_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/figuras/erro.png")));
 	}
-	
+
 	public void mensagemRequisicaoErro() {
-		JOptionPane.showMessageDialog(this, "Por favor, verifique os dados inseridos.",
-				null, JOptionPane.ERROR_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/figuras/erro.png")));	
+		JOptionPane.showMessageDialog(this, "Por favor, verifique os dados inseridos.", null, JOptionPane.ERROR_MESSAGE,
+				new ImageIcon(JanelaPrincipal.class.getResource("/figuras/erro.png")));
 	}
-	
+
 	public void mensagemRequisicaoSucesso() {
-		JOptionPane.showMessageDialog(this, "Requisição encaminhada com sucesso!",
-				null, JOptionPane.PLAIN_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/figuras/confirmacao.png")));
+		JOptionPane.showMessageDialog(this, "Requisição encaminhada com sucesso!", null, JOptionPane.PLAIN_MESSAGE,
+				new ImageIcon(JanelaPrincipal.class.getResource("/figuras/confirmacao.png")));
 	}
 
 	public void mensagemInformacoes() {
@@ -1759,5 +1777,5 @@ public class JanelaPrincipal extends JFrame {
 		JOptionPane.showMessageDialog(this, "Existem campos em branco, não selecionados ou invalidos.", null,
 				JOptionPane.ERROR_MESSAGE, new ImageIcon(JanelaPrincipal.class.getResource("/figuras/erro.png")));
 	}
-	
+
 }
