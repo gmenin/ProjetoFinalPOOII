@@ -18,6 +18,8 @@ public class FormularioDAO {
 
 	// Me'todo que realiza a insercao dos dados do formulario no banco
 	public boolean inserirRequisicao(Formulario formulario, int usuarioId) {
+		
+		// Abertura de conexao com o banco
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
 
@@ -59,6 +61,8 @@ public class FormularioDAO {
 
 	// Me'todo que realiza a insercao das datas da requisicao no banco
 	public boolean inserirReserva(int requisicaoId, String date, int horarioInicial, int horarioFinal) {
+		
+		// Abertura de conexao com o banco
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
 
@@ -95,6 +99,8 @@ public class FormularioDAO {
 
 	// Me'todo que retorna FormularioId do ultimo formulario inserido
 	public int retornaFormularioId(int usuarioId) {
+		
+		// Abertura de conexao com o banco
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
 
@@ -121,10 +127,15 @@ public class FormularioDAO {
 
 	// Me'todo que retorna todas id de todas as requisicoes de um usua'ario
 	public int[] retornaFormularioIdGeral(int usuarioId) {
+		
+		// Abertura de conexao com o banco
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
+		
+		// vetor que contera' o id de todas as requisicoes de um usua'rio
 		int[] listaId = new int[1000];
 		int i = 0;
+		
 		String sql = "SELECT id FROM requisicao WHERE usuarioId = ? ORDER BY id DESC";
 
 		PreparedStatement prepareStatement;
@@ -149,6 +160,8 @@ public class FormularioDAO {
 
 	// Me'todo que realiza a exclusao de uma requisicao no banco
 	public boolean excluirRequisicao(int requisicaoId) {
+		
+		// Abertura de conexao com o banco
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
 
@@ -176,17 +189,20 @@ public class FormularioDAO {
 				e1.printStackTrace();
 			}
 
-		} 
+		} // if
 		return false;
-	} 
+	} // excluirRequisicao()
 
 	// Me'todo que retorna uma requisicao
 	public boolean retornaRequisicao(int requisicaoId, Formulario formulario) {
+		
+		// Varia'vel utilizada para saber se houve retorno da consulta ao banco
 		int aux = 0;
-		String solicitante = null, telefone = null, email = null, atividade = null, modalidade = null, curso = null,
-				equipamentos = null;
+		
+		String solicitante = null, telefone = null, email = null, atividade = null, modalidade = null, curso = null, equipamentos = null;
 		int numeroAlunos = 0;
 
+		// Abertura de conexao com o banco
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
 
@@ -219,7 +235,8 @@ public class FormularioDAO {
 			formulario.setModalidade(modalidade);
 			formulario.setCurso(curso);
 			formulario.setEquipamentos(equipamentos);
-
+			
+			// Retorna true se consulta retornou algo
 			if (aux == 1) {
 				return true;
 			}
@@ -235,12 +252,19 @@ public class FormularioDAO {
 	} // retornaRequisicao()
 
 	public boolean retornaReservas(int requisicaoId, Formulario formulario) {
+		
+		// Abertura de conexao com o banco
+		ConexaoMySQL.abrirConexao();
+		con = ConexaoMySQL.getCon();
 
-		int aux = 0, contador = 0;
-		String sql = "SELECT dia, horarioInicial, horarioFinal FROM reserva WHERE requisicaoId = ?";
-		PreparedStatement prepareStatement;
+		int aux = 0, contador = 0; // Varia'vel aux utilizada para saber se consulta ao banco retornou algo
 		String[] dia = new String[6];
 		int[] horarioInicial = new int[6], horarioFinal = new int[6];
+		
+		String sql = "SELECT dia, horarioInicial, horarioFinal FROM reserva WHERE requisicaoId = ?";
+		
+		PreparedStatement prepareStatement;
+		
 
 		try {
 			prepareStatement = con.prepareStatement(sql);
@@ -260,6 +284,7 @@ public class FormularioDAO {
 			formulario.setHoraInicial(horarioInicial);
 			formulario.setHoraFinal(horarioFinal);
 
+			// Retorna true se consulta retornou algo
 			if (aux == 1) {
 				return true;
 			}
@@ -270,6 +295,6 @@ public class FormularioDAO {
 		}
 		return false;
 
-	}
+	} // retornaReservas()
 
 }

@@ -21,7 +21,7 @@ CREATE TABLE requisicao(
     atividade VARCHAR(50) NOT NULL, 
     modalidade VARCHAR(50) NOT NULL, 
     curso VARCHAR(50) NOT NULL, 
-    equipamentos VARCHAR(50),
+    equipamentos VARCHAR(200),
     PRIMARY KEY(id),
     FOREIGN KEY(usuarioId) 
 		REFERENCES usuario(id) ON DELETE CASCADE);
