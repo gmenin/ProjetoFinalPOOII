@@ -43,6 +43,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		this.janelaPrincipal.getButtonVerRequisicao2().addActionListener(this);
 		this.janelaPrincipal.getButtonVerRequisicao3().addActionListener(this);
 		this.janelaPrincipal.getButtonVerRequisicao4().addActionListener(this);
+		this.janelaPrincipal.getButtonFecharPainelAbrirFormulario().addActionListener(this);
 	}
 
 	// Me'todo que salva uma requisicao de reserva de sala
@@ -161,21 +162,17 @@ public class FormularioControle implements ActionListener, MouseListener {
 
 				// Insercao na tabela reserva das datas da requisicao
 				for (int j = 0; j < quantidadeDias; j++) {
-					// if(validarReserva(data[j], horaInicial[j], horaFinal[j])) {
-					// sinal++;
+
 					boolean reserva = formularioDAO.inserirReserva(requisicaoId, formulario.getData(j),
-							formulario.getHoraInicial(j), formulario.getHoraInicial(j));
+							formulario.getHoraInicial(j), formulario.getHoraFinal(j));
 					if (reserva == false) {
 						this.janelaPrincipal.mensagemRequisicaoErro();
 					}
-					// }
+
 				}
 
-				// if(sinal > 0) {
 				this.janelaPrincipal.mensagemRequisicaoSucesso();
-				// }
 
-				// sinal = 0;
 			} else {
 				this.janelaPrincipal.mensagemRequisicaoErro();
 			}
@@ -192,12 +189,10 @@ public class FormularioControle implements ActionListener, MouseListener {
 		if (idRequisicao[0] > 0) {
 			this.janelaPrincipal.getLabelRequisicao1().setText("#R" + idRequisicao[0]);
 			this.janelaPrincipal.getLabelRequisicao1().setVisible(true);
-			this.janelaPrincipal.getButtonEditar1().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao1().setVisible(true);
 			this.janelaPrincipal.getLabelApagarRequisicao1().setVisible(true);
 		} else {
 			this.janelaPrincipal.getLabelRequisicao1().setVisible(false);
-			this.janelaPrincipal.getButtonEditar1().setVisible(false);
 			this.janelaPrincipal.getButtonVerRequisicao1().setVisible(false);
 			this.janelaPrincipal.getLabelApagarRequisicao1().setVisible(false);
 		}
@@ -205,12 +200,10 @@ public class FormularioControle implements ActionListener, MouseListener {
 		if (idRequisicao[1] > 0) {
 			this.janelaPrincipal.getLabelRequisicao2().setText("#R" + idRequisicao[1]);
 			this.janelaPrincipal.getLabelRequisicao2().setVisible(true);
-			this.janelaPrincipal.getButtonEditar2().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao2().setVisible(true);
 			this.janelaPrincipal.getLabelApagarRequisicao2().setVisible(true);
 		} else {
 			this.janelaPrincipal.getLabelRequisicao2().setVisible(false);
-			this.janelaPrincipal.getButtonEditar2().setVisible(false);
 			this.janelaPrincipal.getButtonVerRequisicao2().setVisible(false);
 			this.janelaPrincipal.getLabelApagarRequisicao2().setVisible(false);
 		}
@@ -218,12 +211,10 @@ public class FormularioControle implements ActionListener, MouseListener {
 		if (idRequisicao[2] > 0) {
 			this.janelaPrincipal.getLabelRequisicao3().setText("#R" + idRequisicao[2]);
 			this.janelaPrincipal.getLabelRequisicao3().setVisible(true);
-			this.janelaPrincipal.getButtonEditar3().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao3().setVisible(true);
 			this.janelaPrincipal.getLabelApagarRequisicao3().setVisible(true);
 		} else {
 			this.janelaPrincipal.getLabelRequisicao3().setVisible(false);
-			this.janelaPrincipal.getButtonEditar3().setVisible(false);
 			this.janelaPrincipal.getButtonVerRequisicao3().setVisible(false);
 			this.janelaPrincipal.getLabelApagarRequisicao3().setVisible(false);
 		}
@@ -231,12 +222,10 @@ public class FormularioControle implements ActionListener, MouseListener {
 		if (idRequisicao[3] > 0) {
 			this.janelaPrincipal.getLabelRequisicao4().setText("#R" + idRequisicao[3]);
 			this.janelaPrincipal.getLabelRequisicao4().setVisible(true);
-			this.janelaPrincipal.getButtonEditar4().setVisible(true);
 			this.janelaPrincipal.getButtonVerRequisicao4().setVisible(true);
 			this.janelaPrincipal.getLabelApagarRequisicao4().setVisible(true);
 		} else {
 			this.janelaPrincipal.getLabelRequisicao4().setVisible(false);
-			this.janelaPrincipal.getButtonEditar4().setVisible(false);
 			this.janelaPrincipal.getButtonVerRequisicao4().setVisible(false);
 			this.janelaPrincipal.getLabelApagarRequisicao4().setVisible(false);
 		}
@@ -802,6 +791,12 @@ public class FormularioControle implements ActionListener, MouseListener {
 			abrirRequisacao(3);
 			trocarPainel("painelAbrirFormulario");
 		}
+		if (evento.getActionCommand().equals("FecharPainelAbrirFormulario")) {
+
+			exibirRequisicoes();
+			trocarPainel("painelVerReserva");
+
+		}
 
 	}
 
@@ -826,48 +821,71 @@ public class FormularioControle implements ActionListener, MouseListener {
 				this.janelaPrincipal.getLabelInserirData4().setText(formulario.getData(3));
 				this.janelaPrincipal.getLabelInserirData5().setText(formulario.getData(4));
 				this.janelaPrincipal.getLabelInserirData6().setText(formulario.getData(5));
-				this.janelaPrincipal.getLabelInserirHoraDia1().setText("Inicio:"+formulario.getHoraInicial(0)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(0)+"horas");
-				this.janelaPrincipal.getLabelInserirHoraDia2().setText("Inicio:"+formulario.getHoraInicial(1)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(1)+"horas");
-				this.janelaPrincipal.getLabelInserirHoraDia3().setText("Inicio:"+formulario.getHoraInicial(2)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(2)+"horas");
-				this.janelaPrincipal.getLabelInserirHoraDia4().setText("Inicio:"+formulario.getHoraInicial(3)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(3)+"horas");
-				this.janelaPrincipal.getlabelInserirHoraDia5().setText("Inicio:"+formulario.getHoraInicial(4)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(4)+"horas");
-				this.janelaPrincipal.getlabelInserirHoraDia6().setText("Inicio:"+formulario.getHoraInicial(5)+"horas"+"  "+"Fim:"+formulario.getHoraFinal(5)+"horas");
-				
-				
-				if (formulario.getData(1)==null) {
+				this.janelaPrincipal.getLabelInserirHoraDia1().setText("Inicio: " + formulario.getHoraInicial(0)
+						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(0) + "horas");
+				this.janelaPrincipal.getLabelInserirHoraDia2().setText("Inicio: " + formulario.getHoraInicial(1)
+						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(1) + "horas");
+				this.janelaPrincipal.getLabelInserirHoraDia3().setText("Inicio: " + formulario.getHoraInicial(2)
+						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(2) + "horas");
+				this.janelaPrincipal.getLabelInserirHoraDia4().setText("Inicio: " + formulario.getHoraInicial(3)
+						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(3) + "horas");
+				this.janelaPrincipal.getlabelInserirHoraDia5().setText("Inicio: " + formulario.getHoraInicial(4)
+						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(4) + "horas");
+				this.janelaPrincipal.getlabelInserirHoraDia6().setText("Inicio: " + formulario.getHoraInicial(5)
+						+ "horas" + "  " + " - Fim: " + formulario.getHoraFinal(5) + "horas");
+
+				if (formulario.getData(1) == null) {
 
 					this.janelaPrincipal.getLabelInserirData2().setVisible(false);
 					this.janelaPrincipal.getLabelData2AbrirFormulario().setVisible(false);
 					this.janelaPrincipal.getLabelInserirHoraDia2().setVisible(false);
 
+				} else {
+					this.janelaPrincipal.getLabelInserirData2().setVisible(true);
+					this.janelaPrincipal.getLabelData2AbrirFormulario().setVisible(true);
+					this.janelaPrincipal.getLabelInserirHoraDia2().setVisible(true);
 				}
-				if (formulario.getData(2)==null) {
+
+				if (formulario.getData(2) == null) {
 
 					this.janelaPrincipal.getLabelInserirData3().setVisible(false);
 					this.janelaPrincipal.getLabelData3AbrirFormulario().setVisible(false);
 					this.janelaPrincipal.getLabelInserirHoraDia3().setVisible(false);
+				} else {
+					this.janelaPrincipal.getLabelInserirData3().setVisible(true);
+					this.janelaPrincipal.getLabelData3AbrirFormulario().setVisible(true);
+					this.janelaPrincipal.getLabelInserirHoraDia3().setVisible(true);
 				}
-				if (formulario.getData(3)==null) {
+				if (formulario.getData(3) == null) {
 
 					this.janelaPrincipal.getLabelInserirData4().setVisible(false);
 					this.janelaPrincipal.getLabelData4AbrirFormulario().setVisible(false);
 					this.janelaPrincipal.getLabelInserirHoraDia4().setVisible(false);
-
+				} else {
+					this.janelaPrincipal.getLabelInserirData4().setVisible(true);
+					this.janelaPrincipal.getLabelData4AbrirFormulario().setVisible(true);
+					this.janelaPrincipal.getLabelInserirHoraDia4().setVisible(true);
 				}
-				if (formulario.getData(4)==null) {
+				if (formulario.getData(4) == null) {
 
 					this.janelaPrincipal.getLabelInserirData5().setVisible(false);
 					this.janelaPrincipal.getLabelData5AbrirFormulario().setVisible(false);
 					this.janelaPrincipal.getlabelInserirHoraDia5().setVisible(false);
-
+				} else {
+					this.janelaPrincipal.getLabelInserirData5().setVisible(true);
+					this.janelaPrincipal.getLabelData5AbrirFormulario().setVisible(true);
+					this.janelaPrincipal.getlabelInserirHoraDia5().setVisible(true);
 				}
-				if (formulario.getData(5)==null) {
+				if (formulario.getData(5) == null) {
 
 					this.janelaPrincipal.getLabelInserirData6().setVisible(false);
 					this.janelaPrincipal.getLabelData6AbrirFormulario().setVisible(false);
 					this.janelaPrincipal.getlabelInserirHoraDia6().setVisible(false);
+				} else {
+					this.janelaPrincipal.getLabelInserirData6().setVisible(true);
+					this.janelaPrincipal.getLabelData6AbrirFormulario().setVisible(true);
+					this.janelaPrincipal.getlabelInserirHoraDia6().setVisible(true);
 				}
-
 			} else {
 				System.out.println("Erro ao Abrir -> " + idRequisicao[i]);
 			}

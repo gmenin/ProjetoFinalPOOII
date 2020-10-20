@@ -129,10 +129,6 @@ public class JanelaPrincipal extends JFrame {
 	private JButton buttonVerRequisicao2;
 	private JButton buttonVerRequisicao3;
 	private JButton buttonVerRequisicao4;
-	private JButton buttonEditar1;
-	private JButton buttonEditar2;
-	private JButton buttonEditar3;
-	private JButton buttonEditar4;
 	private JLabel labelApagarRequisicao1;
 	private JLabel label;
 	private JLabel labelApagarRequisicao2;
@@ -670,11 +666,6 @@ public class JanelaPrincipal extends JFrame {
 		buttonVerRequisicao1.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonVerRequisicao1, "cell 1 1,alignx center");
 
-		buttonEditar1 = new JButton("Editar");
-		buttonEditar1.setPreferredSize(new Dimension(200, 10));
-		buttonEditar1.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonEditar1, "cell 2 1");
-
 		labelApagarRequisicao1 = new JLabel("");
 		labelApagarRequisicao1.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/button.png")));
 		painelVerReserva.add(labelApagarRequisicao1, "cell 3 1,alignx left");
@@ -690,11 +681,6 @@ public class JanelaPrincipal extends JFrame {
 		buttonVerRequisicao2.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonVerRequisicao2, "cell 1 2,alignx center");
 
-		buttonEditar2 = new JButton("Editar");
-		buttonEditar2.setPreferredSize(new Dimension(200, 10));
-		buttonEditar2.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonEditar2, "cell 2 2");
-
 		label = new JLabel("");
 		painelVerReserva.add(label, "flowx,cell 3 2");
 
@@ -708,11 +694,6 @@ public class JanelaPrincipal extends JFrame {
 		buttonVerRequisicao3.setPreferredSize(new Dimension(200, 10));
 		buttonVerRequisicao3.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonVerRequisicao3, "cell 1 3,alignx center");
-
-		buttonEditar3 = new JButton("Editar");
-		buttonEditar3.setPreferredSize(new Dimension(200, 10));
-		buttonEditar3.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonEditar3, "cell 2 3");
 
 		labelApagarRequisicao3 = new JLabel("");
 		labelApagarRequisicao3.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/button.png")));
@@ -729,11 +710,6 @@ public class JanelaPrincipal extends JFrame {
 		buttonVerRequisicao4.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelVerReserva.add(buttonVerRequisicao4, "cell 1 4,alignx center");
 
-		buttonEditar4 = new JButton("Editar");
-		buttonEditar4.setPreferredSize(new Dimension(200, 10));
-		buttonEditar4.setFont(new Font("Arial", Font.PLAIN, 20));
-		painelVerReserva.add(buttonEditar4, "cell 2 4");
-
 		labelApagarRequisicao2 = new JLabel("");
 		labelApagarRequisicao2.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/button.png")));
 		painelVerReserva.add(labelApagarRequisicao2, "cell 3 2");
@@ -748,7 +724,7 @@ public class JanelaPrincipal extends JFrame {
 		
 		painelAbrirFormulario = new JPanel();
 		painelAbrirFormulario.setBackground(new Color(30, 76, 118));
-		painelAbrirFormulario.setLayout(new MigLayout("", "[][120.00][114.00]", "[][][][][][][][][][][][][][][][][]"));
+		painelAbrirFormulario.setLayout(new MigLayout("", "40[][120.00][114.00]40", "20[][][][][][][][][][][][][][][][][]"));
 		contentPane.add(painelAbrirFormulario, "painelAbrirFormulario");
 		
 		labelSolicitanteAbrirFormulario = new JLabel("Solicitante:");
@@ -922,7 +898,11 @@ public class JanelaPrincipal extends JFrame {
 		painelAbrirFormulario.add(labelInserirEquipamentos, "cell 1 13");
 		
 		buttonFecharPainelAbrirFormulario = new JButton("Fechar");
+		buttonFecharPainelAbrirFormulario.setActionCommand("FecharPainelAbrirFormulario");
+		buttonFecharPainelAbrirFormulario.setPreferredSize(new Dimension(200, 10));
+		buttonFecharPainelAbrirFormulario.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelAbrirFormulario.add(buttonFecharPainelAbrirFormulario, "cell 2 16");
+		
 
 	}
 
@@ -952,6 +932,14 @@ public class JanelaPrincipal extends JFrame {
 	
 	public JCheckBox getCheckBoxProjetorDeSlides() {
 		return checkBoxProjetorDeSlides;
+	}
+
+	public JButton getButtonFecharPainelAbrirFormulario() {
+		return buttonFecharPainelAbrirFormulario;
+	}
+
+	public void setButtonFecharPainelAbrirFormulario(JButton buttonFecharPainelAbrirFormulario) {
+		this.buttonFecharPainelAbrirFormulario = buttonFecharPainelAbrirFormulario;
 	}
 
 	public JLabel getLabelInserirSolicitante() {
@@ -1582,14 +1570,6 @@ public class JanelaPrincipal extends JFrame {
 		this.buttonVerRequisicao4 = buttonVerRequisicao4;
 	}
 
-	public JButton getButtonEditar1() {
-		return buttonEditar1;
-	}
-
-	public void setButtonEditar1(JButton buttonEditar1) {
-		this.buttonEditar1 = buttonEditar1;
-	}
-
 	public JLabel getlabelInserirHoraDia5() {
 		return labelInserirHoraDia5;
 	}
@@ -1604,30 +1584,6 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setlabelInserirHoraDia6(JLabel inserirHoraDia6) {
 		InserirHoraDia6 = inserirHoraDia6;
-	}
-
-	public JButton getButtonEditar2() {
-		return buttonEditar2;
-	}
-
-	public void setButtonEditar2(JButton buttonEditar2) {
-		this.buttonEditar2 = buttonEditar2;
-	}
-
-	public JButton getButtonEditar3() {
-		return buttonEditar3;
-	}
-
-	public void setButtonEditar3(JButton buttonEditar3) {
-		this.buttonEditar3 = buttonEditar3;
-	}
-
-	public JButton getButtonEditar4() {
-		return buttonEditar4;
-	}
-
-	public void setButtonEditar4(JButton buttonEditar4) {
-		this.buttonEditar4 = buttonEditar4;
 	}
 
 	public JLabel getLabelApagarRequisicao1() {

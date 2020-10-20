@@ -176,9 +176,9 @@ public class FormularioDAO {
 				e1.printStackTrace();
 			}
 
-		} // if
+		} 
 		return false;
-	} // excluirRequisicao()
+	} 
 
 	// Me'todo que retorna uma requisicao
 	public boolean retornaRequisicao(int requisicaoId, Formulario formulario) {
