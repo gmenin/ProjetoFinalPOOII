@@ -1767,6 +1767,21 @@ public class JanelaPrincipal extends JFrame {
 		JOptionPane.showMessageDialog(this, "Requisição encaminhada com sucesso!", null, JOptionPane.PLAIN_MESSAGE,
 				new ImageIcon(JanelaPrincipal.class.getResource("/figuras/confirmacao.png")));
 	}
+	
+	public void mensagemAbrirRequisicaoErro() {
+		JOptionPane.showMessageDialog(this, "Erro ao tentar abrir requisição!", null, JOptionPane.ERROR_MESSAGE,
+				new ImageIcon(JanelaPrincipal.class.getResource("/figuras/erro.png")));
+	}
+	
+	public void mensagemExcluirRequisicaoSucesso() {
+		JOptionPane.showMessageDialog(this, "Requisição excluída com sucesso!", null, JOptionPane.PLAIN_MESSAGE,
+				new ImageIcon(JanelaPrincipal.class.getResource("/figuras/confirmacao.png")));
+	}
+	
+	public void mensagemExcluirRequisicaoErro() {
+		JOptionPane.showMessageDialog(this, "Erro ao tentar excluir requisição!", null, JOptionPane.ERROR_MESSAGE,
+				new ImageIcon(JanelaPrincipal.class.getResource("/figuras/erro.png")));
+	}
 
 	public void mensagemInformacoes() {
 		JOptionPane.showMessageDialog(this,
