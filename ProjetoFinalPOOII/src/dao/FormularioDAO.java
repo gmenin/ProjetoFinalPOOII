@@ -103,25 +103,28 @@ public class FormularioDAO {
 		// Abertura de conexao com o banco
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
+		
+		if (con != null) {
 
-		String sql = "SELECT id FROM requisicao WHERE usuarioId LIKE ? AND id=(SELECT max(id) FROM requisicao)";
-
-		PreparedStatement prepareStatement;
-		try {
-			prepareStatement = con.prepareStatement(sql);
-			prepareStatement.setInt(1, usuarioId);
-			ResultSet resultado = prepareStatement.executeQuery();
-
-			while (resultado.next()) {
-				return resultado.getInt(1);
+			String sql = "SELECT id FROM requisicao WHERE usuarioId LIKE ? AND id=(SELECT max(id) FROM requisicao)";
+	
+			PreparedStatement prepareStatement;
+			try {
+				prepareStatement = con.prepareStatement(sql);
+				prepareStatement.setInt(1, usuarioId);
+				ResultSet resultado = prepareStatement.executeQuery();
+	
+				while (resultado.next()) {
+					return resultado.getInt(1);
+				}
+	
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	
+			ConexaoMySQL.fecharConexao();
 		}
-
-		ConexaoMySQL.fecharConexao();
 		return 0;
 	} // retornaFormularioId()
 
@@ -131,11 +134,11 @@ public class FormularioDAO {
 		// Abertura de conexao com o banco
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
-		
+			
 		// vetor que contera' o id de todas as requisicoes de um usua'rio
 		int[] listaId = new int[1000];
 		int i = 0;
-		
+
 		String sql = "SELECT id FROM requisicao WHERE usuarioId = ? ORDER BY id DESC";
 
 		PreparedStatement prepareStatement;
@@ -156,6 +159,7 @@ public class FormularioDAO {
 
 		ConexaoMySQL.fecharConexao();
 		return listaId;
+			
 	} // retornaFormularioIdGeral()
 
 	// Me'todo que realiza a exclusao de uma requisicao no banco
@@ -206,93 +210,103 @@ public class FormularioDAO {
 		ConexaoMySQL.abrirConexao();
 		con = ConexaoMySQL.getCon();
 
-		String sql = "SELECT solicitante, telefone, email, numeroAlunos, atividade, modalidade, curso, equipamentos "
-				+ "FROM requisicao WHERE id = ?";
-
-		PreparedStatement prepareStatement;
-		try {
-			prepareStatement = con.prepareStatement(sql);
-			prepareStatement.setInt(1, requisicaoId);
-			ResultSet resultado = prepareStatement.executeQuery();
-
-			while (resultado.next()) {
-				aux = 1;
-				solicitante = resultado.getString(1);
-				telefone = resultado.getString(2);
-				email = resultado.getString(3);
-				numeroAlunos = resultado.getInt(4);
-				atividade = resultado.getString(5);
-				modalidade = resultado.getString(6);
-				curso = resultado.getString(7);
-				equipamentos = resultado.getString(8);
-			}
-
-			formulario.setSolicitante(solicitante);
-			formulario.setTelefone(telefone);
-			formulario.setEmail(email);
-			formulario.setNumeroAlunos(numeroAlunos);
-			formulario.setAtividade(atividade);
-			formulario.setModalidade(modalidade);
-			formulario.setCurso(curso);
-			formulario.setEquipamentos(equipamentos);
+		if (con != null) {
+		
+			String sql = "SELECT solicitante, telefone, email, numeroAlunos, atividade, modalidade, curso, equipamentos "
+					+ "FROM requisicao WHERE id = ?";
+	
+			PreparedStatement prepareStatement;
 			
-			// Retorna true se consulta retornou algo
-			if (aux == 1) {
-				return true;
+			try {
+				prepareStatement = con.prepareStatement(sql);
+				prepareStatement.setInt(1, requisicaoId);
+				ResultSet resultado = prepareStatement.executeQuery();
+	
+				while (resultado.next()) {
+					aux = 1;
+					solicitante = resultado.getString(1);
+					telefone = resultado.getString(2);
+					email = resultado.getString(3);
+					numeroAlunos = resultado.getInt(4);
+					atividade = resultado.getString(5);
+					modalidade = resultado.getString(6);
+					curso = resultado.getString(7);
+					equipamentos = resultado.getString(8);
+				}
+	
+				formulario.setSolicitante(solicitante);
+				formulario.setTelefone(telefone);
+				formulario.setEmail(email);
+				formulario.setNumeroAlunos(numeroAlunos);
+				formulario.setAtividade(atividade);
+				formulario.setModalidade(modalidade);
+				formulario.setCurso(curso);
+				formulario.setEquipamentos(equipamentos);
+				
+				// Retorna true se consulta retornou algo
+				if (aux == 1) {
+					return true;
+				}
+	
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		ConexaoMySQL.fecharConexao();
-		System.out.println("false");
+	
+			ConexaoMySQL.fecharConexao();
+		
+		} //if
+		
 		return false;
+		
 	} // retornaRequisicao()
 
 	public boolean retornaReservas(int requisicaoId, Formulario formulario) {
 		
-		// Abertura de conexao com o banco
-		ConexaoMySQL.abrirConexao();
-		con = ConexaoMySQL.getCon();
-
 		int aux = 0, contador = 0; // Varia'vel aux utilizada para saber se consulta ao banco retornou algo
 		String[] dia = new String[6];
 		int[] horarioInicial = new int[6], horarioFinal = new int[6];
 		
-		String sql = "SELECT dia, horarioInicial, horarioFinal FROM reserva WHERE requisicaoId = ?";
+		// Abertura de conexao com o banco
+		ConexaoMySQL.abrirConexao();
+		con = ConexaoMySQL.getCon();
 		
-		PreparedStatement prepareStatement;
+		if (con != null) {
 		
-
-		try {
-			prepareStatement = con.prepareStatement(sql);
-			prepareStatement.setInt(1, requisicaoId);
-			ResultSet resultado = prepareStatement.executeQuery();
-
-			while (resultado.next()) {
-				aux = 1;
-				dia[contador] = resultado.getString(1);
-				horarioInicial[contador] = resultado.getInt(2);
-				horarioFinal[contador] = resultado.getInt(3);
-
-				contador++;
+			String sql = "SELECT dia, horarioInicial, horarioFinal FROM reserva WHERE requisicaoId = ?";
+			
+			PreparedStatement prepareStatement;
+			
+	
+			try {
+				prepareStatement = con.prepareStatement(sql);
+				prepareStatement.setInt(1, requisicaoId);
+				ResultSet resultado = prepareStatement.executeQuery();
+	
+				while (resultado.next()) {
+					aux = 1;
+					dia[contador] = resultado.getString(1);
+					horarioInicial[contador] = resultado.getInt(2);
+					horarioFinal[contador] = resultado.getInt(3);
+	
+					contador++;
+				}
+	
+				formulario.setData(dia);
+				formulario.setHoraInicial(horarioInicial);
+				formulario.setHoraFinal(horarioFinal);
+	
+				// Retorna true se consulta retornou algo
+				if (aux == 1) {
+					return true;
+				}
+	
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-
-			formulario.setData(dia);
-			formulario.setHoraInicial(horarioInicial);
-			formulario.setHoraFinal(horarioFinal);
-
-			// Retorna true se consulta retornou algo
-			if (aux == 1) {
-				return true;
-			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} // if 
+		
 		return false;
 
 	} // retornaReservas()
