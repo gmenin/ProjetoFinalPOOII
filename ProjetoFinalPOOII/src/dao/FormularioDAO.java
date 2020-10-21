@@ -261,7 +261,7 @@ public class FormularioDAO {
 		
 	} // retornaRequisicao()
 
-	public boolean retornaReservas(int requisicaoId, Formulario formulario) {
+	public boolean retornaReserva(int requisicaoId, Formulario formulario) {
 		
 		int aux = 0, contador = 0; // Varia'vel aux utilizada para saber se consulta ao banco retornou algo
 		String[] dia = new String[6];

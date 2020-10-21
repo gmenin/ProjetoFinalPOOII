@@ -746,7 +746,7 @@ public class FormularioControle implements ActionListener, MouseListener {
 		int id = idRequisicao[i];
 		
 		if (id > 0) {
-			if (formularioDAO.retornaRequisicao(id, formulario) && formularioDAO.retornaReservas(id, formulario)) {
+			if (formularioDAO.retornaRequisicao(id, formulario) && formularioDAO.retornaReserva(id, formulario)) {
 				this.janelaPrincipal.getLabelInserirSolicitante().setText(formulario.getSolicitante());
 				this.janelaPrincipal.getLabelInserirTelefone().setText(formulario.getTelefone());
 				this.janelaPrincipal.getLabelInserirEmail().setText(formulario.getEmail());
