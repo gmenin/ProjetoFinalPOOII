@@ -784,7 +784,7 @@ public class JanelaPrincipal extends JFrame {
 		painelAbrirFormulario = new JPanel();
 		painelAbrirFormulario.setBackground(new Color(30, 76, 118));
 		painelAbrirFormulario
-				.setLayout(new MigLayout("", "40[][120.00][114.00]40", "40[][][][][][][][]20[][][][][][grow]20"));
+				.setLayout(new MigLayout("", "40[]20[120.00][114.00]40", "40[][][][][][][][]20[][][][][][grow]20"));
 		contentPane.add(painelAbrirFormulario, "painelAbrirFormulario");
 
 		labelSolicitanteAbrirFormulario = new JLabel("Solicitante:");
@@ -870,92 +870,62 @@ public class JanelaPrincipal extends JFrame {
 		labelData1AbrirFormulario = new JLabel("Data 1:");
 		labelData1AbrirFormulario.setForeground(Color.WHITE);
 		labelData1AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelData1AbrirFormulario, "cell 0 8");
-
-		labelInserirData1 = new JLabel("");
-		labelInserirData1.setForeground(Color.WHITE);
-		labelInserirData1.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelInserirData1, "cell 1 8");
+		painelAbrirFormulario.add(labelData1AbrirFormulario, "flowx,cell 0 8");
 
 		labelInserirHoraDia1 = new JLabel("");
 		labelInserirHoraDia1.setForeground(Color.WHITE);
-		labelInserirHoraDia1.setFont(new Font("Calibri", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelInserirHoraDia1, "cell 2 8");
+		labelInserirHoraDia1.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirHoraDia1, "cell 1 8");
 
 		labelData2AbrirFormulario = new JLabel("Data 2:");
 		labelData2AbrirFormulario.setForeground(Color.WHITE);
 		labelData2AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelData2AbrirFormulario, "cell 0 9");
-
-		labelInserirData2 = new JLabel("");
-		labelInserirData2.setForeground(Color.WHITE);
-		labelInserirData2.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelInserirData2, "cell 1 9");
+		painelAbrirFormulario.add(labelData2AbrirFormulario, "flowx,cell 0 9");
 
 		labelInserirHoraDia2 = new JLabel("");
 		labelInserirHoraDia2.setForeground(Color.WHITE);
-		labelInserirHoraDia2.setFont(new Font("Calibri", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelInserirHoraDia2, "cell 2 9");
+		labelInserirHoraDia2.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirHoraDia2, "cell 1 9");
 
 		labelData3AbrirFormulario = new JLabel("Data 3:");
 		labelData3AbrirFormulario.setForeground(Color.WHITE);
 		labelData3AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelData3AbrirFormulario, "cell 0 10");
-
-		labelInserirData3 = new JLabel("");
-		labelInserirData3.setForeground(Color.WHITE);
-		labelInserirData3.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelInserirData3, "cell 1 10");
+		painelAbrirFormulario.add(labelData3AbrirFormulario, "flowx,cell 0 10");
 
 		labelInserirHoraDia3 = new JLabel("");
 		labelInserirHoraDia3.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 		labelInserirHoraDia3.setForeground(Color.WHITE);
-		painelAbrirFormulario.add(labelInserirHoraDia3, "cell 2 10");
+		painelAbrirFormulario.add(labelInserirHoraDia3, "cell 1 10");
 
 		labelData4AbrirFormulario = new JLabel("Data 4:");
 		labelData4AbrirFormulario.setForeground(Color.WHITE);
 		labelData4AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelData4AbrirFormulario, "cell 0 11");
-
-		labelInserirData4 = new JLabel("");
-		labelInserirData4.setForeground(Color.WHITE);
-		labelInserirData4.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelInserirData4, "cell 1 11");
+		painelAbrirFormulario.add(labelData4AbrirFormulario, "flowx,cell 0 11");
 
 		labelInserirHoraDia4 = new JLabel("");
 		labelInserirHoraDia4.setForeground(Color.WHITE);
 		labelInserirHoraDia4.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelInserirHoraDia4, "cell 2 11");
+		painelAbrirFormulario.add(labelInserirHoraDia4, "cell 1 11");
 
 		labelData5AbrirFormulario = new JLabel("Data 5:");
 		labelData5AbrirFormulario.setForeground(Color.WHITE);
 		labelData5AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelData5AbrirFormulario, "cell 0 12");
-
-		labelInserirData5 = new JLabel("");
-		labelInserirData5.setForeground(Color.WHITE);
-		labelInserirData5.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelInserirData5, "cell 1 12");
+		painelAbrirFormulario.add(labelData5AbrirFormulario, "flowx,cell 0 12");
 
 		labelInserirHoraDia5 = new JLabel("");
 		labelInserirHoraDia5.setForeground(Color.WHITE);
 		labelInserirHoraDia5.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelInserirHoraDia5, "cell 2 12");
+		painelAbrirFormulario.add(labelInserirHoraDia5, "cell 1 12");
 
 		labelData6AbrirFormulario = new JLabel("Data 6:");
 		labelData6AbrirFormulario.setForeground(Color.WHITE);
 		labelData6AbrirFormulario.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labelData6AbrirFormulario, "cell 0 13");
-
-		labellabelInserirData6 = new JLabel("");
-		labellabelInserirData6.setForeground(Color.WHITE);
-		labellabelInserirData6.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(labellabelInserirData6, "cell 1 13");
+		painelAbrirFormulario.add(labelData6AbrirFormulario, "flowx,cell 0 13");
 
 		InserirHoraDia6 = new JLabel("");
 		InserirHoraDia6.setForeground(Color.WHITE);
 		InserirHoraDia6.setFont(new Font("Calibri Light", Font.PLAIN, 24));
-		painelAbrirFormulario.add(InserirHoraDia6, "cell 2 13");
+		painelAbrirFormulario.add(InserirHoraDia6, "cell 1 13");
 
 		buttonFecharPainelAbrirFormulario = new JButton("");
 		buttonFecharPainelAbrirFormulario.setIcon(
@@ -967,6 +937,36 @@ public class JanelaPrincipal extends JFrame {
 		buttonFecharPainelAbrirFormulario.setFocusPainted(false);
 		buttonFecharPainelAbrirFormulario.setBorderPainted(false);
 		painelAbrirFormulario.add(buttonFecharPainelAbrirFormulario, "cell 0 16");
+
+		labelInserirData1 = new JLabel("");
+		labelInserirData1.setForeground(Color.WHITE);
+		labelInserirData1.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirData1, "cell 0 8");
+
+		labelInserirData2 = new JLabel("");
+		labelInserirData2.setForeground(Color.WHITE);
+		labelInserirData2.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirData2, "cell 0 9");
+
+		labelInserirData3 = new JLabel("");
+		labelInserirData3.setForeground(Color.WHITE);
+		labelInserirData3.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirData3, "cell 0 10");
+
+		labelInserirData4 = new JLabel("");
+		labelInserirData4.setForeground(Color.WHITE);
+		labelInserirData4.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirData4, "cell 0 11");
+
+		labelInserirData5 = new JLabel("");
+		labelInserirData5.setForeground(Color.WHITE);
+		labelInserirData5.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labelInserirData5, "cell 0 12");
+
+		labellabelInserirData6 = new JLabel("");
+		labellabelInserirData6.setForeground(Color.WHITE);
+		labellabelInserirData6.setFont(new Font("Calibri Light", Font.PLAIN, 24));
+		painelAbrirFormulario.add(labellabelInserirData6, "cell 0 13");
 
 	}
 
@@ -1767,17 +1767,17 @@ public class JanelaPrincipal extends JFrame {
 		JOptionPane.showMessageDialog(this, "Requisição encaminhada com sucesso!", null, JOptionPane.PLAIN_MESSAGE,
 				new ImageIcon(JanelaPrincipal.class.getResource("/figuras/confirmacao.png")));
 	}
-	
+
 	public void mensagemAbrirRequisicaoErro() {
 		JOptionPane.showMessageDialog(this, "Erro ao tentar abrir requisição!", null, JOptionPane.ERROR_MESSAGE,
 				new ImageIcon(JanelaPrincipal.class.getResource("/figuras/erro.png")));
 	}
-	
+
 	public void mensagemExcluirRequisicaoSucesso() {
 		JOptionPane.showMessageDialog(this, "Requisição excluída com sucesso!", null, JOptionPane.PLAIN_MESSAGE,
 				new ImageIcon(JanelaPrincipal.class.getResource("/figuras/confirmacao.png")));
 	}
-	
+
 	public void mensagemExcluirRequisicaoErro() {
 		JOptionPane.showMessageDialog(this, "Erro ao tentar excluir requisição!", null, JOptionPane.ERROR_MESSAGE,
 				new ImageIcon(JanelaPrincipal.class.getResource("/figuras/erro.png")));
