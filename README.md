@@ -1,2 +1,3 @@
 # ProjetoFinalPOOII
-Projeto final dus guri em POO II
+Projeto Final da cadeira de Programação Orientada a Objetos II.
+Implementação de um formulário para reserva de salas.
